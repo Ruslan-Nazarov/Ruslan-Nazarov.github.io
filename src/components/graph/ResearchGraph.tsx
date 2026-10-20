@@ -43,8 +43,8 @@ function Viewer({lang,t,publicData,demoData}:Props){
     style:{width:230},
   }));
   const edges=data.edges.filter(e=>visibleIds.has(e.source)&&visibleIds.has(e.target)).map(e=>({
-    ...e,markerEnd:{type:MarkerType.ArrowClosed,color:'#478b7a'},
-    style:{stroke:'#478b7a',strokeWidth:connected.has(e.source)&&connected.has(e.target)?3:1.5,opacity:selected&&(!connected.has(e.source)||!connected.has(e.target))?0.2:1}
+    ...e,markerEnd:{type:MarkerType.ArrowClosed,color:'var(--accent)'},
+    style:{stroke:'var(--accent)',strokeWidth:connected.has(e.source)&&connected.has(e.target)?3:1.5,opacity:selected&&(!connected.has(e.source)||!connected.has(e.target))?0.2:1}
   }));
   const choose=(id:string)=>{setSelected(id);flow.fitView({nodes:[{id}],duration:350,maxZoom:1.1,padding:0.8});};
   const reset=()=>{setQuery('');setType('');setStatus('');setTag('');setSelected(null);setRelation('all');setTimeout(()=>flow.fitView({padding:0.15,duration:250}),50)};
@@ -67,7 +67,7 @@ function Viewer({lang,t,publicData,demoData}:Props){
           fitView fitViewOptions={{padding:0.15}} nodesDraggable={false} nodesConnectable={false} elementsSelectable
           minZoom={0.2} maxZoom={2} colorMode="system"
           ariaLabelConfig={{'controls.ariaLabel':t.graph,'controls.zoomIn.ariaLabel':t.zoomIn,'controls.zoomOut.ariaLabel':t.zoomOut,'controls.fitView.ariaLabel':t.fit,'minimap.ariaLabel':t.graph,'node.a11yDescription.default':t.selectNode,'node.a11yDescription.keyboardDisabled':t.selectNode}}>
-          <Background color="#8caaa1" gap={22} size={1}/><Controls showInteractive={false}/>
+          <Background color="var(--line)" gap={22} size={1}/><Controls showInteractive={false}/>
         </ReactFlow>
         {visible.length===0&&<p className="graph-empty">{data.nodes.length?t.noResults:t.noApproved}</p>}
       </div>
