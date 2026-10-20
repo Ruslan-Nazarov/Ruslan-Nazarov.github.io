@@ -1,3 +1,4 @@
+param([switch]$OpenEditor)
 $ErrorActionPreference = 'Stop'
 $taskRoot = $PSScriptRoot
 Set-Location -LiteralPath $taskRoot
@@ -15,7 +16,7 @@ foreach ($taskServer in @(
 )) {
     $taskRunning = $false
     try {
-        $taskResponse = Invoke-WebRequest -Uri "http://127.0.0.1:$($taskServer.Port)/" -TimeoutSec 2
+        $taskResponse = Invoke-WebRequest -Uri "http://127.0.0.1:$($taskServer.Port)/" -UseBasicParsing -TimeoutSec 2
         $taskRunning = $taskResponse.StatusCode -eq 200
     } catch {}
     if (-not $taskRunning) {
@@ -25,3 +26,14 @@ foreach ($taskServer in @(
 }
 Write-Host 'Site:   http://127.0.0.1:4321/ru/'
 Write-Host 'Editor: http://127.0.0.1:4322/'
+
+$taskReady = $false
+for ($taskAttempt = 0; $taskAttempt -lt 30; $taskAttempt++) {
+    try {
+        $taskResponse = Invoke-WebRequest -Uri 'http://127.0.0.1:4322/' -UseBasicParsing -TimeoutSec 2
+        if ($taskResponse.StatusCode -eq 200) { $taskReady = $true; break }
+    } catch {}
+    Start-Sleep -Milliseconds 500
+}
+if (-not $taskReady) { throw 'Editor did not start. See .local/editor-error.log.' }
+if ($OpenEditor) { Start-Process 'http://127.0.0.1:4322/' }

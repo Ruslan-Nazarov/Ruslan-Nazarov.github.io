@@ -1,5 +1,7 @@
 name: Publish approved site to GitHub Pages
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
     inputs:
       confirmation:
@@ -13,7 +15,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   build:
-    if: github.ref == 'refs/heads/main' && inputs.confirmation == 'PUBLISH'
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || inputs.confirmation == 'PUBLISH')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

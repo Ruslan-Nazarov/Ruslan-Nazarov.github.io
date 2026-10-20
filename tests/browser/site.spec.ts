@@ -100,5 +100,22 @@ test('local editor loads structured fields, saves locally and rejects unauthenti
   await expect(page.locator('#status')).toContainText('Сохранено локально');
   const response=await request.post('http://127.0.0.1:4322/api/save',{data:{collection:'site',name:'settings',data:{}}});
   expect(response.status()).toBe(403);
+  const publish=await request.post('http://127.0.0.1:4322/api/publish',{data:{}});
+  expect(publish.status()).toBe(403);
+  await expect(page.getByRole('button',{name:'Опубликовать на сайте',exact:true})).toBeVisible();
   await page.screenshot({path:'.local/editor.png',fullPage:false});
+});
+
+
+test('local editor publication button explains deployment result',async({page})=>{
+  await page.route('**/api/publish',async route=>{
+    expect(route.request().method()).toBe('POST');
+    expect(route.request().headers()['x-editor-token']).toBeTruthy();
+    await route.fulfill({json:{message:'Материалы отправлены в GitHub. Сайт обновится автоматически.',sha:'test-commit',actions:'https://github.com/Ruslan-Nazarov/Ruslan-Nazarov.github.io/actions/workflows/deploy.yml'}});
+  });
+  await page.goto('http://127.0.0.1:4322/');
+  await page.getByRole('button',{name:'Опубликовать на сайте',exact:true}).click();
+  await expect(page.locator('#status')).toContainText('Сайт обновится автоматически');
+  await expect(page.locator('#status a')).toHaveAttribute('href','https://github.com/Ruslan-Nazarov/Ruslan-Nazarov.github.io/actions/workflows/deploy.yml');
+  await expect(page.getByRole('button',{name:'Опубликовать на сайте',exact:true})).toBeEnabled();
 });

@@ -8,6 +8,7 @@ import {promisify} from 'node:util';
 import {parse} from 'yaml';
 import {entrySchema} from '../src/lib/content.mjs';
 import {overrideSchema} from '../src/lib/graph.mjs';
+import {publishContent} from './publish-content.mjs';
 const exec=promisify(execFile),root=process.cwd(),port=4322,origin=`http://127.0.0.1:${port}`,token=randomBytes(24).toString('hex');
 const config=parse(readFileSync('.pages.yml','utf8'));
 let busy=false;
@@ -22,6 +23,16 @@ function documentPath(collection,name){
   const path=resolve(root,schema.path,`${name}.json`);
   if(!path.startsWith(resolve(root,'src')+'\\')&&process.platform==='win32')throw new Error('Invalid path');
   return {schema,path};
+}
+async function buildSite(){
+        await run(['scripts/release-content.mjs']);
+        let output=await run(['scripts/validate-content.mjs']);
+        output+=await run(['scripts/astro.mjs','build']);
+        const pagefind=JSON.parse(readFileSync('node_modules/pagefind/package.json','utf8'));
+        output+=await run([resolve('node_modules/pagefind',typeof pagefind.bin==='string'?pagefind.bin:pagefind.bin.pagefind),'--site','dist']);
+        output+=await run(['scripts/verify-build.mjs']);
+        output+=await run(['scripts/release-content.mjs']);
+        return output;
 }
 http.createServer(async(req,res)=>{
   try{
@@ -72,14 +83,14 @@ http.createServer(async(req,res)=>{
     if(url.pathname==='/api/build'){
       busy=true;
       try{
-        let output=await run(['scripts/validate-content.mjs']);
-        output+=await run(['scripts/astro.mjs','build']);
-        const pagefind=JSON.parse(readFileSync('node_modules/pagefind/package.json','utf8'));
-        output+=await run([resolve('node_modules/pagefind',typeof pagefind.bin==='string'?pagefind.bin:pagefind.bin.pagefind),'--site','dist']);
-        output+=await run(['scripts/verify-build.mjs']);
-        output+=await run(['scripts/release-content.mjs']);
+        const output=await buildSite();
         return json(res,200,{message:'Сайт и поиск обновлены. Можно открыть предпросмотр.',output});
       }finally{busy=false}
+    }
+    if(url.pathname==='/api/publish'){
+      busy=true;
+      try{return json(res,200,await publishContent({root,build:buildSite}))}
+      finally{busy=false}
     }
     if(url.pathname==='/api/upload'){
       const extension=extname(payload.name||'').toLowerCase();
@@ -94,4 +105,4 @@ http.createServer(async(req,res)=>{
     }
     return json(res,404,{error:'Not found'});
   }catch(error){json(res,400,{error:error.stderr||error.stdout||error.message})}
-}).listen(port,'127.0.0.1',()=>console.log(`Local content editor: ${origin}\nLocal files only. No GitHub writes. Stop with Ctrl+C.`));
+}).listen(port,'127.0.0.1',()=>console.log(`Local content editor: ${origin}\nSave and preview locally; publish to GitHub only with the dedicated button. Stop with Ctrl+C.`));
