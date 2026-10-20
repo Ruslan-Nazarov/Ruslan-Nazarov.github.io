@@ -1,0 +1,37 @@
+{
+  "id": "can-ai-think-differently",
+  "slug": "can-ai-think-differently",
+  "publish": true,
+  "ready_ru": true,
+  "ready_en": true,
+  "title_ru": "Можно ли научить ИИ мыслить иначе?",
+  "title_en": "Can AI Be Taught to Think Differently?",
+  "summary_ru": "Статья о попытке научить ИИ мыслить иначе: два движка и общее затруднение. Английская публикация на Medium.",
+  "summary_en": "An article on trying to teach AI to think differently: two engines and a shared difficulty. Published in English on Medium.",
+  "body_ru": "Статья о попытке научить ИИ мыслить иначе: два движка и общее затруднение. Английская публикация на Medium.\n\nЗдесь представлена аннотация. Полный текст доступен на Medium на английском языке по ссылке «Читать на Medium».",
+  "body_en": "An article on trying to teach AI to think differently: two engines and a shared difficulty. Published in English on Medium.\n\nThis page provides a short description. The complete English article is available via “Read on Medium”.",
+  "editorialStatus": "external_publication",
+  "type": "article",
+  "researchAreas": [
+    "artificial-intelligence"
+  ],
+  "relatedProjects": [],
+  "relatedPublications": [],
+  "relatedJournal": [],
+  "tags": [
+    "AI",
+    "Experiments"
+  ],
+  "featured": false,
+  "heroImage": "",
+  "gallery": [],
+  "links": [
+    {
+      "label_ru": "Читать на Medium (английский)",
+      "label_en": "Read on Medium",
+      "url": "https://ruslan-nazarov.medium.com/can-ai-be-taught-to-think-differently-e6441d5a6072"
+    }
+  ],
+  "timeline": [],
+  "order": 11
+}

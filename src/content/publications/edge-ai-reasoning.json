@@ -1,0 +1,40 @@
+{
+  "id": "edge-ai-reasoning",
+  "slug": "edge-ai-reasoning",
+  "publish": true,
+  "ready_ru": true,
+  "ready_en": true,
+  "title_ru": "Где проходит граница рассуждений ИИ",
+  "title_en": "Finding the Edge of AI Reasoning",
+  "summary_ru": "Эксперимент с диалектическими промптами: различие между объяснением, причинностью и воспроизведением процедуры. Английская публикация на Medium.",
+  "summary_en": "A dialectical prompting experiment exploring explanation, causality and procedural imitation. Published in English on Medium.",
+  "body_ru": "Эксперимент с диалектическими промптами: различие между объяснением, причинностью и воспроизведением процедуры. Английская публикация на Medium.\n\nЗдесь представлена аннотация. Полный текст доступен на Medium на английском языке по ссылке «Читать на Medium».",
+  "body_en": "A dialectical prompting experiment exploring explanation, causality and procedural imitation. Published in English on Medium.\n\nThis page provides a short description. The complete English article is available via “Read on Medium”.",
+  "editorialStatus": "external_publication",
+  "type": "article",
+  "researchAreas": [
+    "artificial-intelligence",
+    "education"
+  ],
+  "relatedProjects": [
+    "papanda"
+  ],
+  "relatedPublications": [],
+  "relatedJournal": [],
+  "tags": [
+    "AI",
+    "Experiments"
+  ],
+  "featured": false,
+  "heroImage": "",
+  "gallery": [],
+  "links": [
+    {
+      "label_ru": "Читать на Medium (английский)",
+      "label_en": "Read on Medium",
+      "url": "https://ruslan-nazarov.medium.com/finding-the-edge-of-ai-reasoning-11e9d014ba42"
+    }
+  ],
+  "timeline": [],
+  "order": 14
+}

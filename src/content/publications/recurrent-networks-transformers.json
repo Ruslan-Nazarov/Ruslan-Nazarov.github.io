@@ -1,0 +1,41 @@
+{
+  "id": "recurrent-networks-transformers",
+  "slug": "recurrent-networks-transformers",
+  "publish": true,
+  "ready_ru": true,
+  "ready_en": true,
+  "title_ru": "От рекуррентных сетей к трансформерам: что дальше?",
+  "title_en": "From Recurrent Networks to Transformers: What Comes Next?",
+  "summary_ru": "Авторская интерпретация предпосылок трансформеров и возможного альтернативного подхода к ИИ. Английская публикация на Medium.",
+  "summary_en": "The author’s interpretation of the premises behind Transformers and a possible alternative approach to AI. Published in English on Medium.",
+  "body_ru": "Авторская интерпретация предпосылок трансформеров и возможного альтернативного подхода к ИИ. Английская публикация на Medium.\n\nЗдесь представлена аннотация. Полный текст доступен на Medium на английском языке по ссылке «Читать на Medium».",
+  "body_en": "The author’s interpretation of the premises behind Transformers and a possible alternative approach to AI. Published in English on Medium.\n\nThis page provides a short description. The complete English article is available via “Read on Medium”.",
+  "editorialStatus": "external_publication",
+  "type": "article",
+  "researchAreas": [
+    "artificial-intelligence",
+    "mathematics"
+  ],
+  "relatedProjects": [
+    "ai-algorithm"
+  ],
+  "relatedPublications": [],
+  "relatedJournal": [],
+  "tags": [
+    "AI",
+    "Mathematics"
+  ],
+  "featured": false,
+  "heroImage": "",
+  "gallery": [],
+  "links": [
+    {
+      "label_ru": "Читать на Medium (английский)",
+      "label_en": "Read on Medium",
+      "url": "https://ruslan-nazarov.medium.com/from-recurrent-networks-to-transformers-what-comes-next-3a392dab055c"
+    }
+  ],
+  "timeline": [],
+  "order": 17,
+  "date": "2026-07-24"
+}

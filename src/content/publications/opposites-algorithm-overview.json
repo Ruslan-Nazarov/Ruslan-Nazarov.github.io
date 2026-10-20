@@ -1,0 +1,40 @@
+{
+  "id": "opposites-algorithm-overview",
+  "slug": "opposites-algorithm-overview",
+  "publish": true,
+  "ready_ru": true,
+  "ready_en": true,
+  "title_ru": "Предварительный обзор алгоритма поиска противоположностей (противоречий)",
+  "title_en": "A Preliminary Overview of an Algorithm for Finding Opposites (Contradictions)",
+  "summary_ru": "Предварительная постановка задачи поиска противоположностей и её математического описания. Английская публикация на Medium.",
+  "summary_en": "A preliminary account of finding opposites and describing the proposed algorithm mathematically. Published in English on Medium.",
+  "body_ru": "Предварительная постановка задачи поиска противоположностей и её математического описания. Английская публикация на Medium.\n\nЗдесь представлена аннотация. Полный текст доступен на Medium на английском языке по ссылке «Читать на Medium».",
+  "body_en": "A preliminary account of finding opposites and describing the proposed algorithm mathematically. Published in English on Medium.\n\nThis page provides a short description. The complete English article is available via “Read on Medium”.",
+  "editorialStatus": "external_publication",
+  "type": "article",
+  "researchAreas": [
+    "artificial-intelligence",
+    "mathematics"
+  ],
+  "relatedProjects": [
+    "ai-algorithm"
+  ],
+  "relatedPublications": [],
+  "relatedJournal": [],
+  "tags": [
+    "AI",
+    "Algorithms"
+  ],
+  "featured": false,
+  "heroImage": "",
+  "gallery": [],
+  "links": [
+    {
+      "label_ru": "Читать на Medium (английский)",
+      "label_en": "Read on Medium",
+      "url": "https://ruslan-nazarov.medium.com/a-preliminary-overview-of-an-algorithm-for-finding-opposites-contradictions-0decb5eb2bfc"
+    }
+  ],
+  "timeline": [],
+  "order": 13
+}

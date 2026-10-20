@@ -1,0 +1,40 @@
+{
+  "id": "hash-mathematics-concept",
+  "slug": "hash-mathematics-concept",
+  "publish": true,
+  "ready_ru": true,
+  "ready_en": true,
+  "title_ru": "Как заставить ИИ работать с противоречиями: концепция хэш-математики",
+  "title_en": "Making AI Work with Contradictions: The Hash Mathematics Concept",
+  "summary_ru": "Ранняя исследовательская концепция хэш-математики для работы ИИ с процессами и противоположностями. Английская публикация на Medium.",
+  "summary_en": "An early research proposal for hash mathematics applied to processes and opposites in AI. Published in English on Medium.",
+  "body_ru": "Ранняя исследовательская концепция хэш-математики для работы ИИ с процессами и противоположностями. Английская публикация на Medium.\n\nЗдесь представлена аннотация. Полный текст доступен на Medium на английском языке по ссылке «Читать на Medium».",
+  "body_en": "An early research proposal for hash mathematics applied to processes and opposites in AI. Published in English on Medium.\n\nThis page provides a short description. The complete English article is available via “Read on Medium”.",
+  "editorialStatus": "external_publication",
+  "type": "article",
+  "researchAreas": [
+    "artificial-intelligence",
+    "mathematics"
+  ],
+  "relatedProjects": [
+    "ai-algorithm"
+  ],
+  "relatedPublications": [],
+  "relatedJournal": [],
+  "tags": [
+    "AI",
+    "Mathematics"
+  ],
+  "featured": false,
+  "heroImage": "",
+  "gallery": [],
+  "links": [
+    {
+      "label_ru": "Читать на Medium (английский)",
+      "label_en": "Read on Medium",
+      "url": "https://ruslan-nazarov.medium.com/making-ai-work-with-contradictions-the-hash-mathematics-concept-da4a25cf345d"
+    }
+  ],
+  "timeline": [],
+  "order": 18
+}

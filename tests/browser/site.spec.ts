@@ -11,7 +11,7 @@ test('local editor rebuilds the site and search index without publishing',async(
 test('home, persistent theme and corresponding language switch',async({page})=>{
   const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));
   await page.goto('/ru/');
-  await expect(page.locator('h1')).toHaveText('Понимать, как развивается знание.');
+  await expect(page.locator('h1')).toHaveText('Как человек приходит к пониманию — и какую роль в этом играет ИИ?');
   await page.locator('#theme-select').selectOption('dark');
   await page.reload();await expect(page.locator('html')).toHaveClass(/dark/);
   await page.locator('#theme-select').selectOption('light');

@@ -1,0 +1,158 @@
+{
+  "reviewedOn": "2026-10-20",
+  "profile": "https://ruslan-nazarov.medium.com/",
+  "scope": "10 articles visible in the public Medium profile. This is not a complete archive audit.",
+  "approval": "Owner approved two full-text articles and annotations with Medium links for the others. Local preparation only; no deployment.",
+  "notes": [
+    "Original copies remain outside the Git checkout. Correspondence, notebooks, prompts and algorithm working files were not imported.",
+    "Only one exact publication date was verified from an accessible article page. Relative dates in the cached profile and source file timestamps were not used.",
+    "English copy of the education article comes from the supplied DOCX. The mathematics article has a new site translation, explicitly labelled.",
+    "Historical references to papanda.kz remain within the original education article; current project links point to the GitHub repository confirmed by the owner.",
+    "Potential Word sources for link-only articles are candidates for later comparison with the published English versions; identical revisions are not assumed."
+  ],
+  "articles": [
+    {
+      "id": "human-understanding-ai-education",
+      "title_ru": "Понимание как ключевая человеческая способность в образовании с ИИ",
+      "title_en": "Human Understanding in the Age of AI: An Educational Framework",
+      "url": "https://ruslan-nazarov.medium.com/human-understanding-in-the-age-of-ai-an-educational-framework-428edd79fae0",
+      "format": "full-text-ru-en",
+      "sourceFiles": [
+        {
+          "path": "статьи_копия/образование/главная статья/Понимание как ключевая человеческая способность в образовании с ИИ.docx",
+          "sha256": "663934289da36105ce2a1087a4469ac7d5fc5eb45bddd75b4927b9466dbe247a"
+        },
+        {
+          "path": "статьи_копия/образование/главная статья/Human Understanding in the Age of AI An Educational Framework.docx",
+          "sha256": "2f90084c4cb53fd2ba05765b2df9e9922720f68fd0f27573df9ff890a5a0c1d5"
+        }
+      ]
+    },
+    {
+      "id": "can-ai-think-differently",
+      "title_ru": "Можно ли научить ИИ мыслить иначе?",
+      "title_en": "Can AI Be Taught to Think Differently?",
+      "url": "https://ruslan-nazarov.medium.com/can-ai-be-taught-to-think-differently-e6441d5a6072",
+      "format": "annotation-and-medium-link",
+      "sourceFiles": [],
+      "note": "No matching original identified in the supplied article files."
+    },
+    {
+      "id": "explaining-mathematics-ai",
+      "title_ru": "Как объяснять математику в эпоху ИИ?",
+      "title_en": "How to Explain Mathematics in the Age of AI?",
+      "url": "https://ruslan-nazarov.medium.com/how-to-explain-mathematics-in-the-age-of-ai-037a9a62a556",
+      "format": "full-text-ru-en",
+      "sourceFiles": [
+        {
+          "path": "статьи_копия/математика/математический парсер.docx",
+          "sha256": "810c3c03ed37ead8d5cde941e9cbde2020a8a78b8664437d9a6f6f0b1fb632f4"
+        }
+      ]
+    },
+    {
+      "id": "opposites-algorithm-overview",
+      "title_ru": "Предварительный обзор алгоритма поиска противоположностей (противоречий)",
+      "title_en": "A Preliminary Overview of an Algorithm for Finding Opposites (Contradictions)",
+      "url": "https://ruslan-nazarov.medium.com/a-preliminary-overview-of-an-algorithm-for-finding-opposites-contradictions-0decb5eb2bfc",
+      "format": "annotation-and-medium-link",
+      "sourceFiles": [
+        {
+          "path": "статьи_копия/ИИ/статья ИИ.docx",
+          "sha256": "2766bd6a40615a1a6d23c39b3ffedbed3c90e243cc44026e9b5f3bc435757d1e"
+        },
+        {
+          "path": "статьи_копия/ИИ/Предварительный обзор алгоритма поиска противоположностей (противоречий) .pdf",
+          "sha256": "770cfa0f29ed2fb29d2274116dcb0c3dc6009b6ed4b8993435e73dcbfd126d2b"
+        },
+        {
+          "path": "статьи_копия/ИИ/A Preliminary Overview of an Algorithm for Finding Opposites (Contradictions).pdf",
+          "sha256": "31d82410f01316f206cda93d8a4c6746821a6bcb88c707dc9c4b2cb4447614a9"
+        }
+      ]
+    },
+    {
+      "id": "edge-ai-reasoning",
+      "title_ru": "Где проходит граница рассуждений ИИ",
+      "title_en": "Finding the Edge of AI Reasoning",
+      "url": "https://ruslan-nazarov.medium.com/finding-the-edge-of-ai-reasoning-11e9d014ba42",
+      "format": "annotation-and-medium-link",
+      "sourceFiles": [
+        {
+          "path": "статьи_копия/ИИ/про ограниченность ИИ/статья.docx",
+          "sha256": "6f9219312419d600390d71d0388bc9275859f09368371c6e0d9f74410aed9c94"
+        },
+        {
+          "path": "статьи_копия/ИИ/про ограниченность ИИ/статья англ по алгоритму.docx",
+          "sha256": "e980baab7b7c2b0b62e899f1f5cc1b352a5d1e35f75141449c5f9e12dfead2e6"
+        }
+      ]
+    },
+    {
+      "id": "future-education-ai",
+      "title_ru": "Будущее образования с ИИ",
+      "title_en": "The Future of Education with AI",
+      "url": "https://ruslan-nazarov.medium.com/the-future-of-education-with-ai-dee9dc7e2266",
+      "format": "annotation-and-medium-link",
+      "sourceFiles": [
+        {
+          "path": "статьи_копия/образование/старые работы/Будущее образования с ИИ.docx",
+          "sha256": "345091653b66518cd09374b6aae27e78ecd9d8225f9edd9e3c847574e4d5ab8b"
+        }
+      ]
+    },
+    {
+      "id": "arman-ai-architecture",
+      "title_ru": "Заметка об «Армане»: новая архитектура искусственного интеллекта",
+      "title_en": "A Note on “Arman”: A New Artificial Intelligence Architecture",
+      "url": "https://ruslan-nazarov.medium.com/a-note-on-arman-a-new-artificial-intelligence-architecture-d009b05b6742",
+      "format": "annotation-and-medium-link",
+      "sourceFiles": [
+        {
+          "path": "статьи_копия/ИИ/новый ИИ статья вторая.txt",
+          "sha256": "9ef098bf5004a321175b5caf067dc1242b87f52656f0e53731ea133c11e8f5a6"
+        }
+      ]
+    },
+    {
+      "id": "recurrent-networks-transformers",
+      "title_ru": "От рекуррентных сетей к трансформерам: что дальше?",
+      "title_en": "From Recurrent Networks to Transformers: What Comes Next?",
+      "url": "https://ruslan-nazarov.medium.com/from-recurrent-networks-to-transformers-what-comes-next-3a392dab055c",
+      "format": "annotation-and-medium-link",
+      "sourceFiles": [
+        {
+          "path": "статьи_копия/ИИ/новый ИИ статья первая.txt",
+          "sha256": "15b34dcc2c597ab9f6406489ed5b69450704a556ded8af919ac053f29c0132da"
+        }
+      ],
+      "verifiedDate": "2026-07-24"
+    },
+    {
+      "id": "hash-mathematics-concept",
+      "title_ru": "Как заставить ИИ работать с противоречиями: концепция хэш-математики",
+      "title_en": "Making AI Work with Contradictions: The Hash Mathematics Concept",
+      "url": "https://ruslan-nazarov.medium.com/making-ai-work-with-contradictions-the-hash-mathematics-concept-da4a25cf345d",
+      "format": "annotation-and-medium-link",
+      "sourceFiles": [
+        {
+          "path": "статьи_копия/математика/хэш-математика.docx",
+          "sha256": "a545b502f57866b66196f427d63ad7d073f0e5eabe2caf878bfab52bce2a7f5a"
+        }
+      ]
+    },
+    {
+      "id": "beyond-memorization",
+      "title_ru": "За пределами запоминания: как ИИ побуждает к диалектическому сдвигу в образовании",
+      "title_en": "Beyond Memorization: How AI is Forcing a Dialectical Shift in Education",
+      "url": "https://ruslan-nazarov.medium.com/beyond-memorization-how-ai-is-forcing-a-dialectical-shift-in-education-163328affcf4",
+      "format": "annotation-and-medium-link",
+      "sourceFiles": [
+        {
+          "path": "статьи_копия/образование/старые работы/концепция программы.docx",
+          "sha256": "df0f06982b26b9e3a4a0922ca9acdf8b56b3033e41844a37491f3af3334f3f31"
+        }
+      ]
+    }
+  ]
+}

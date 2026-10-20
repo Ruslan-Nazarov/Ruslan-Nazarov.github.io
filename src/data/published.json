@@ -183,12 +183,12 @@
       "publish": true,
       "ready_ru": true,
       "ready_en": true,
-      "title_ru": "papanda",
-      "title_en": "papanda",
-      "summary_ru": "Образовательная система и диалектический конспект для самостоятельного построения понимания.",
-      "summary_en": "An educational system and dialectical notes for independently constructing understanding.",
-      "body_ru": "## Замысел\npapanda связывает образовательную систему с диалектическим конспектом. Учащийся восстанавливает процесс развития мысли, формулирует противоречия и рассматривает способы их разрешения.\n\n## Роль ИИ\nИИ может предоставлять сведения, критиковать рассуждение и поддерживать анализ. Самостоятельная работа учащегося остаётся центральной.\n\n## Границы утверждений\nДоступность приложения не доказывает эффективность метода. Реальные конспекты, иллюстрации и материалы пилотов будут добавлены после предоставления автором.",
-      "body_en": "## Intent\npapanda connects an educational system with dialectical notes. Learners reconstruct the development of an idea, formulate contradictions and examine possible resolutions.\n\n## The role of AI\nAI can supply information, critique reasoning and support analysis. The learner’s independent work remains central.\n\n## Limits of the claims\nAn available application does not establish the effectiveness of the method. Actual notes, illustrations and pilot materials will be added when supplied by the author.",
+      "title_ru": "papanda конспект",
+      "title_en": "papanda notes",
+      "summary_ru": "Конспект для самостоятельного понимания: ИИ помогает получать знания, человек проверяет ответы и составляет собственный конспект.",
+      "summary_en": "Notes for independent understanding: AI helps provide knowledge, while the learner checks responses and writes their own notes.",
+      "body_ru": "«papanda конспект» — способ соединить сильные стороны искусственного интеллекта и человека в обучении. ИИ помогает получать знания по изучаемому предмету, а человек самостоятельно составляет конспект, проверяет ответы и извлекает из этих знаний собственное понимание.\n\nКоротко принцип можно сформулировать так: **«От ИИ — знания, от человека — понимание».** Это один из наиболее наглядных примеров того, как я пытаюсь применить свои исследовательские идеи на практике.",
+      "body_en": "“papanda notes” is an approach to learning that brings together the strengths of artificial intelligence and human thinking. AI helps provide knowledge about the subject being studied; the learner writes their own notes, checks AI's responses, and develops an understanding of the subject from that knowledge.\n\nThe principle is simple: **“AI provides knowledge. Humans build understanding.”** This project is one of the clearest practical expressions of the questions I study.",
       "researchAreas": [
         "education"
       ],
@@ -207,13 +207,13 @@
       "gallery": [],
       "links": [
         {
-          "label_ru": "Открыть papanda",
-          "label_en": "Open papanda",
-          "url": "https://papanda.kz"
+          "label_ru": "Исходный код papanda конспекта",
+          "label_en": "papanda notes source code",
+          "url": "https://github.com/Ruslan-Nazarov/papanda"
         }
       ],
       "timeline": [],
-      "editorialStatus": "awaiting_content",
+      "editorialStatus": "editorial_summary",
       "status": "active",
       "order": 1
     },
@@ -344,6 +344,406 @@
     }
   ],
   "publications": [
+    {
+      "id": "human-understanding-ai-education",
+      "slug": "human-understanding-ai-education",
+      "publish": true,
+      "ready_ru": true,
+      "ready_en": true,
+      "title_ru": "Понимание как ключевая человеческая способность в образовании с ИИ",
+      "title_en": "Human Understanding in the Age of AI: An Educational Framework",
+      "summary_ru": "Авторская гипотеза о соединении знаний от ИИ и понимания от человека через самостоятельное составление конспектов. Полный текст на русском и английском.",
+      "summary_en": "The author’s hypothesis on connecting AI-provided knowledge with human-built understanding through independent note-taking. Full text in Russian and English.",
+      "body_ru": "1\\. Традиционно образование понималось, как правило, как передача знаний. Сами знаний во многом представлялись как такие «блоки», из которых состоят разные науки, отрасли и подотрасли в этих науках. Знанием понималось раньше и во много понимается сейчас как накопление таких «блоков». Поэтому образование зачастую критиковали за попытку просто «наполнить» головы студентов такими блоками знаний.\n\nКонечно, образование этим не ограничивалось. Учителя, преподаватели не только предлагали и настаивали, что нужно запомнить такую-то главу учебника, теорему или факт истории. Предлагались еще задачи, доклады, эссе, другие творческие задачи. Однако, в конечном счете, это все выливалось только в достижение одной цели – больше «блоков»-знаний в головах студентов.\n\nИИ это вскрыл. Сейчас, когда ИИ сам полностью заменяет человека в роли хранителя «блоков»-знаний, встал вопрос, чем же отличается усвоение знаний человеком от «знаний» ИИ? Пониманием, человек понимает, то о чем думает или говорит. Это довольно распространенный и правильный ответ. Однако вот любопытный факт: как определить понимание? Удивительно, что этот вопрос со всей остротой встает именно сейчас, разве до этого мы не пытались научить людей пониманию? Возможно, пытались, но теперь ИИ нам показывает, что попытки эти были направлены не на то.\n\n2\\. С приходом ИИ кардинально меняется сама концепция знания. Теперь недостаточно «блоков»-знаний. Недостаточно знать формулу, даже недостаточно знать историю ее появления или доказательство. Нужно понимать формулу. Но что такое понимание? Почему мы говорим, что ИИ не понимает, а человек понимает, способен к пониманию?\n\n\"Понять предмет\" ‑ это усвоить его развитие, то есть переход от процесса к процессу, становление одного процесса из другого. Здесь речь не про следование одного процесса за другим, на такое \"пониманием\" способен и ИИ. Речь идет о становлении через противоречие, когда один процесс в своем развитии достигает стадии, на которой вступает в противоречие с другим процессом.\n\nОдна из моих гипотез состоит в том, что ИИ не может понимать как раз из-за того, что не способен работать с противоречиями. Я пытаюсь проверить это утверждение в ходе создания алгоритма, который с помощью ИИ ищет противоречия (именно ищет, а не берет готовые примеры противоречий из уже известного набора знаний).\n\n3\\. Понимание является точкой соединения человека и ИИ. От ИИ человек получает знания, а затем обогащает эти знания пониманием.\n\n4\\. Следующая моя гипотеза состоит в том, что реализовать такое соединение понимания от человека и знания от ИИ можно через специальную методику составления конспектов.\n\nЯ уже реализовал ранний рабочий прототип этого подхода в papanda (https://papanda.kz). Его основные функции работают, хотя система все еще активно дорабатывается. Я использую прототип, чтобы проверить, может ли этот метод помочь структурировать взаимодействие человека и ИИ таким образом, чтобы оно было направлено на развитие понимания, а не просто на получение ответов.\n\nЗдесь я говорю именно о студентах, хотя эта методика может быть применена любыми людьми, изучающими какой-то предмет. Однако именно студенты сейчас, на мой взгляд, под большей угрозой от неправильного применения ИИ, поэтому свое внимание я сосредотачиваю на инструментах для них.\n\nВот как реализуется эта методика:\n\n1\\) перед студентом стоит задача понять определенный предмет, тему. Для этого он должен найти простейший процесс, развитие которого даст противоречие, разрешение которого и приведет к тому предмету, теме, которые нужно понять;\n\n2\\) отыскать простейший процесс с одного раза сложно. Можно и нужно перебирать варианты, выстраивать по ним дальнейшие шаги алгоритма, убеждаться, что процесс действительно является простейшим;\n\n3\\) для найденного простейшего процесса необходимо отыскать развитие, то есть те процессы, с которыми взаимодействует простейший процесс;\n\n4\\) в развивающих процессах необходимо отыскать противоположность простейшему процессу. Под противоположностью понимается такой процесс, который делает невозможным простейший процесс;\n\n5\\) противоположность становится противоречием, когда мы берем развитие простейшего процесса и противоположного процесса в их единстве;\n\n6\\) противоречие разрешается в скачке, который дает тот процесс, который делает возможным либо совместное существование простейшего и противоположности, либо заменяет собой оба этих процесса, включая их в себя.\n\nВ ходе составления конспекта по указанному алгоритму студент не только получает конспект, показывающий, как развивается изучаемый предмет, но и тренирует способность понимания предмета.\n\n5\\. По пути составления конспекта студент может пользоваться помощью ИИ. Так, например, ИИ может предлагать варианты развивающих процессов. Задача студента оценивать, насколько эти предложенные ИИ варианты подходят. Это очень важно – студент должен уметь оценивать те решения, которые предоставляет ИИ.\n\n6\\. Студент может запросить полный конспект от ИИ. Это нужно для того, чтобы студент проверил «способности» ИИ. Так студент не только тренирует собственное понимание предмета, но и учится критически относится к ИИ.\n\n7\\. Весь процесс работы на конспектом документируется. Это необходимо как для саморефлексии студента, так и для преподавателей. Сколько раз студент вызывал ИИ? Сколько раз были приняты предложения ИИ? Такие и подобные вопросы должны учить осознанной работе с ИИ и самоконтролю, а преподавателям дают возможность видеть, насколько студент погружен в процесс понимания.\n\n8\\. Конспекты от студентов можно выкладывать в общестуденческий доступ. Другие студенты могут оценивать эти конспекты, но по особым требованиям. Оценивать нужно именно то, насколько понятнее стал процесс, который является предметом конспекта. Почему я на этом настаиваю? Представим, что в конспект допущена фактическая ошибка, но при этом сам процесс описан понятно – ценность именно в этом. В этом смысле «понятность» - это синоним «понимания».\n\n9\\. Из конспектов студентов, выложенных в общестуденческий доступ, формируется своего рода учебник. Это что-то типа Википедии. Только Википедия (хорошая иллюстрация для «блоков»-знаний) не пытается ничего объяснить. Сеть же конспектов именно объясняет как один процесс переходит в другой. Студенты могут, например, со временем написать свой учебник по физике или отдельному предмету. Раньше это было невозможно, но теперь, используя ИИ, причем правильно используя, это вполне реально.\n\n10\\. Оценка студентов смещается с экзаменов на трекинг всего пути усвоения. Представим, что с первых же дней в университете студент начинает работать с конспектами. За все время учебы у него выстраивается целое «дерево» таких конспектов, по которым реально можно отследить именно увеличение, улучшение его понимания. Понимание – это не понимание какого-то только предмета, это метанавык. Вот какой можно представить критерий: пускай студент-математик после двух-трех месяцев обучения по конспектам попробует разобраться в теме, скажем, по биологии. Если он это сможет на хорошем уровне, то это показатель роста именно понимания как способности.\n\nЗдесь же отмечу, что конспекты становятся портфолио студента. Это можно предъявлять не только преподавателям, но и будущим работодателям. Эти работодатели тоже будут иметь доступ к истории работы над конспектами, к оценкам со стороны студентов, к тому, как конспекты конкретного студента встраиваются в общестуденческое «дерево» конспектов. Для работодателя это реальная возможность оценить студентов.\n\n11\\. И завершая отмечу еще один любопытный момент. Теперь студенты с первого курса могут начинать работать над сложными задачами. В период, когда ИИ пытается доказать задачи тысячелетия, нужно ставить все более сложные задачи перед людьми. И это вполне реально. Пускай с первого курса студенты-математики начинают решать задачи, которые раньше считались неразрешимыми. Нам зачастую кажется, что это бессмысленно, потому что результата не будет. Но в ситуации, когда мы учим пониманию, именно движение к пониманию и есть результат.",
+      "body_en": "1\\. Traditionally, education has generally been understood as the transmission of knowledge. Knowledge itself was, to a large extent, conceived as a set of “blocks” that make up different sciences, fields, and subfields. Knowledge was understood, and to a considerable extent is still understood, as the accumulation of such “blocks.” This is why education has often been criticized for simply trying to “fill” students’ heads with blocks of knowledge.\n\nOf course, education was never limited to this. Teachers and university instructors did not merely ask students to memorize a particular textbook chapter, theorem, or historical fact. Students were also given problems, presentations, essays, and other creative assignments. Yet ultimately, all of this still tended to serve the same goal: putting more “blocks” of knowledge into students’ heads.\n\nAI has exposed the limitations of this model. Now that AI can increasingly take over the role of storing and reproducing such “blocks” of knowledge, a new question arises: what distinguishes human acquisition of knowledge from the “knowledge” possessed by AI?\n\nThe answer is understanding. A human being understands what they think or speak about. This is a fairly common and, in my view, correct answer. But an interesting question immediately follows: how do we define understanding?\n\nIt is striking that this question has become so urgent precisely now. Were we not trying to teach people understanding before? Perhaps we were, but AI is now showing us that these attempts may have been directed at the wrong target.\n\n2\\. With the arrival of AI, the very concept of knowledge is changing fundamentally. “Blocks” of knowledge are no longer sufficient. It is no longer enough to know a formula, or even to know the history of its emergence or its proof. One must understand the formula.\n\nBut what is understanding? Why do we say that AI does not understand, while a human being does, or at least is capable of understanding?\n\nTo “understand a subject” means to grasp its development: the transition from one process to another, the emergence of one process from another. This is not merely about one process following another. AI is capable of that kind of “understanding.” What I mean is emergence through contradiction, where a process develops to the point at which it enters into contradiction with another process.\n\nOne of my hypotheses is that AI cannot understand precisely because it is unable to work with contradictions. I am trying to test this hypothesis while developing an algorithm that uses AI to search for contradictions — specifically to search for them, rather than simply retrieve already known examples of contradictions from an existing body of knowledge.\n\n3\\. Understanding is the point at which the human being and AI meet. A human receives knowledge from AI and then enriches that knowledge with understanding.\n\n4\\. My next hypothesis is that this combination of human understanding and AI-provided knowledge can be implemented through a special method of note-taking.\n\nI have already implemented an early working prototype of this approach in papanda (https://papanda.kz). Its core functionality is operational, although the system is still under active development. I am using the prototype to test whether this method can help structure human-AI interaction around the development of understanding rather than the mere production of answers.\n\nHere I am speaking specifically about students, although the method may be used by anyone studying a particular subject. However, in my view, students are currently at greater risk from the improper use of AI, which is why I focus primarily on tools designed for them.\n\nThe method works as follows:\n\n1\\. The student is faced with the task of understanding a particular subject or topic. To do this, the student must identify the simplest process whose development gives rise to a contradiction, the resolution of which leads to the subject or topic that is to be understood.\n\n2\\. Identifying the simplest process correctly on the first attempt is difficult. Different alternatives can and should be tested, with the later stages of the algorithm constructed for each of them in order to determine whether the selected process is truly the simplest one.\n\n3\\. Once the simplest process has been identified, its development must be traced by identifying the processes with which it interacts.\n\n4\\. Within these developing processes, the student must identify an opposite to the simplest process. By an opposite, I mean a process that makes the simplest process impossible.\n\n5\\. The opposite becomes a contradiction when we consider the development of the simplest process and the opposing process in their unity.\n\n6\\. The contradiction is resolved through a leap, which produces a process that either makes the coexistence of the simplest process and its opposite possible, or replaces both processes while incorporating them into itself.\n\nBy creating notes according to this algorithm, the student does not merely produce a set of notes showing how the subject being studied develops. The student also trains the ability to understand the subject itself.\n\n5\\. During the process of creating the notes, the student can use AI assistance. For example, AI can suggest possible developing processes. The student’s task is to evaluate how appropriate the alternatives proposed by AI are.\n\nThis is very important: the student must be able to evaluate the solutions provided by AI.\n\n6\\. The student may also ask AI to generate a complete set of notes. The purpose of this is to allow the student to test AI’s “abilities.” In this way, the student not only trains their own understanding of the subject but also learns to approach AI critically.\n\n7\\. The entire process of working on the notes is documented. This is necessary both for the student’s self-reflection and for instructors.\n\nHow many times did the student call upon AI? How often were AI’s suggestions accepted? Questions of this kind should encourage conscious interaction with AI and self-monitoring, while also allowing instructors to see how deeply the student is engaged in the process of understanding.\n\n8\\. Students’ notes can be made available to the wider student community. Other students can evaluate these notes, but according to specific criteria.\n\nWhat should be evaluated is precisely the extent to which the notes make the process that is their subject easier to understand.\n\nWhy do I insist on this? Imagine that a set of notes contains a factual error, yet the process itself is explained clearly. The value lies precisely in this clarity. In this sense, “clarity” is a synonym for “understanding.”\n\n9\\. The notes made publicly available by students can gradually form a kind of textbook. It would be something similar to Wikipedia.\n\nBut Wikipedia — a good illustration of the “blocks of knowledge” model — does not attempt to explain how one process becomes another. A network of student notes, by contrast, would explain precisely how one process develops into another.\n\nStudents could, for example, gradually write their own textbook on physics or on a particular subject. Previously, this would have been practically impossible. Now, with the use of AI — and, importantly, with the proper use of AI — it becomes entirely realistic.\n\n10\\. Student assessment would shift away from examinations and toward tracking the entire process of learning.\n\nImagine that from their very first days at university, students begin working with such notes. Over the course of their studies, an entire “tree” of notes would emerge, making it possible to observe the actual growth and improvement of their understanding.\n\nUnderstanding is not merely understanding of a particular subject. It is a meta-skill.\n\nOne possible criterion could be the following: after two or three months of working with this note-taking method, a mathematics student could be asked to understand a topic from, for example, biology. If the student is able to do this at a good level, this may indicate growth in understanding as a general capability.\n\nThe notes would also become part of the student’s portfolio. They could be shown not only to instructors but also to future employers. Employers could have access to the history of the student’s work on the notes, evaluations from other students, and information about how the notes produced by that student fit into the broader collective “tree” of notes.\n\nFor an employer, this could provide a real opportunity to evaluate the student.\n\n11\\. Finally, I would like to note one more interesting point.\n\nStudents can now begin working on extremely difficult problems from their very first year of study. At a time when AI is attempting to solve problems that have remained open for decades or even centuries, increasingly difficult problems should also be given to humans.\n\nThis is entirely realistic. Mathematics students, for example, could begin working from their first year on problems that were previously considered far beyond their level.\n\nWe often assume that this is pointless because they will not obtain a final solution.\n\nBut if education is focused on developing understanding, then the movement toward understanding is itself a result.",
+      "researchAreas": [
+        "education",
+        "artificial-intelligence"
+      ],
+      "relatedProjects": [
+        "papanda"
+      ],
+      "relatedPublications": [],
+      "relatedJournal": [],
+      "featured": true,
+      "tags": [
+        "Education",
+        "AI",
+        "Notes"
+      ],
+      "heroImage": "",
+      "gallery": [],
+      "links": [
+        {
+          "label_ru": "Читать на Medium (английский)",
+          "label_en": "Read on Medium",
+          "url": "https://ruslan-nazarov.medium.com/human-understanding-in-the-age-of-ai-an-educational-framework-428edd79fae0"
+        }
+      ],
+      "timeline": [],
+      "editorialStatus": "external_publication",
+      "type": "article",
+      "order": 10
+    },
+    {
+      "id": "can-ai-think-differently",
+      "slug": "can-ai-think-differently",
+      "publish": true,
+      "ready_ru": true,
+      "ready_en": true,
+      "title_ru": "Можно ли научить ИИ мыслить иначе?",
+      "title_en": "Can AI Be Taught to Think Differently?",
+      "summary_ru": "Статья о попытке научить ИИ мыслить иначе: два движка и общее затруднение. Английская публикация на Medium.",
+      "summary_en": "An article on trying to teach AI to think differently: two engines and a shared difficulty. Published in English on Medium.",
+      "body_ru": "Статья о попытке научить ИИ мыслить иначе: два движка и общее затруднение. Английская публикация на Medium.\n\nЗдесь представлена аннотация. Полный текст доступен на Medium на английском языке по ссылке «Читать на Medium».",
+      "body_en": "An article on trying to teach AI to think differently: two engines and a shared difficulty. Published in English on Medium.\n\nThis page provides a short description. The complete English article is available via “Read on Medium”.",
+      "researchAreas": [
+        "artificial-intelligence"
+      ],
+      "relatedProjects": [],
+      "relatedPublications": [],
+      "relatedJournal": [],
+      "featured": false,
+      "tags": [
+        "AI",
+        "Experiments"
+      ],
+      "heroImage": "",
+      "gallery": [],
+      "links": [
+        {
+          "label_ru": "Читать на Medium (английский)",
+          "label_en": "Read on Medium",
+          "url": "https://ruslan-nazarov.medium.com/can-ai-be-taught-to-think-differently-e6441d5a6072"
+        }
+      ],
+      "timeline": [],
+      "editorialStatus": "external_publication",
+      "type": "article",
+      "order": 11
+    },
+    {
+      "id": "explaining-mathematics-ai",
+      "slug": "explaining-mathematics-ai",
+      "publish": true,
+      "ready_ru": true,
+      "ready_en": true,
+      "title_ru": "Как объяснять математику в эпоху ИИ?",
+      "title_en": "How to Explain Mathematics in the Age of AI?",
+      "summary_ru": "Замысел математического парсера: объяснять появление операций через их развитие и связывать количество, качество, историю и приёмы. Полный текст на русском и английском.",
+      "summary_en": "The mathematical parser’s educational approach: explaining how operations emerge through development, and connecting quantity, quality, history and mathematical techniques. Full text in Russian and English.",
+      "body_ru": "Искусственный интеллект дает ответы. Хорошие ответы, качественные, чаще правильные, чем нет. Но объясняет ли ИИ? Нам может казаться, что да. Но что такое «объяснение»? В чем объяснение того факта, что 3+2=5? А главное – зачем это надо? Попробуем в этом разобраться.\n\n## 1\n\nМы принимаем в этой статье, что «объяснить» – это означает показать не что за чем следует и даже не то «почему» за одним следует другое. Объяснить – это показать, почему в предшествующем уже был заложен то, что развилось, появилось и проявилось в последующем. Это принципиально важно.\n\nСмотрите, возьмем А и В. Когда мы говорим «В следует за А», «В следует за А потому что С», то мы не объясняем. Мы даем инструкцию думать так, как описали. Почему? Потому что нет никакой иной «необходимости» следовать В за А, кроме этого авторитарного утверждения «В следует за А». Мы не показали, что в самом А уже заложено В? Тогда мы не объяснили.\n\n## 2\n\nМы задумали создать такой алгоритм разбора математических выражений, который именно объясняет эти выражения. Для начала опишем несложный алгоритм, как это должно работать. Подчеркнем, этот алгоритм преследует исключительно образовательные цели, здесь не утверждается, что математика так работает на самом деле.\n\nИтак, центральное утверждение такое: любое математическое утверждение можно свести к суммированию единиц. Обратно: из суммирования единиц можно получить любое математическое утверждение.\n\nНо как осуществляется движение от простого суммирования, скажем, к умножению? Возьмем сумму единиц: 1+1. Мы используем суммирование для упрощения, нам так проще «схватить» этот мир в количественные понятия. Но продолжим прибавлять: 1+1+1+1… Единиц становится слишком много. Возникает противоречие: запись, которая изначально введена для простоты, усложнилась. Это противоречие надо разрешить – так появляется умножение: 4*1…\n\nПо такой схеме можно подняться до степеней, уравнений, тензоров, да до чего захотите. Важно здесь то, что мы показываем, как и для чего вводятся математические конструкции.\n\n## 3\n\nПриведенная схема формирует «количественный граф». Однако математика не о ограничивается только количеством. В чем отличие количества от качества, например? Качество – это конечное в бесконечном, а количество – это бесконечное в конечном. Возьмите такое качество как «зеленое» – это выделяет яблоко, зеленое яблоко, из всех яблок и всего мира. Возьмите «одно яблоко» – это показывает, что яблок бесконечно (теоретически, конечно).\n\nКоличество и качество – это про бесконечность, поэтому количество и качество – это про одно, но разными способами. Отсюда получаются любопытные идеи. Например. 2/3 это может быть отношение сторон фигуры. Но еще это может быть вероятностью. Самим 2/3 нет дела до того, к чему их отнесли, но они дают количественное измерение разным качествам. И это нужно указывать отдельным графом. Так появляется «качественный граф».\n\nМатематика столь же развивается в истории, как и любое другое явление. История же показывает те реальные корни, которые есть у математических операций. И это важно не только ради забавных моментов математики или жизни математиков. Это важно потому, что история – это «принудительное» развитие математичекой операции. Сами посудите, нам пришлось напрягаться, чтобы перейти от суммы единиц к умножению, а достаточно было просто почитать историю математики. Поэтому «исторический граф» столь же необходим, как и количественный и качественный.\n\nИ еще один граф требуется – «граф хитростей», хуков. Это такие приемы, правила, методы, способы, которые позволяют решать, считать, определять не по общим правилам, не по очевидным, а вот по таким-то и таким-то, по каким даже сразу и не скажем каким. Трюки – это старые добрые математические трюки. Зачем они нужны, потому что они связывают такие элементы графа, которые изначально могут показаться связанными слабо.\n\n## 4\n\nА ИИ? Какая у него роль. Искусственный интеллект может хорошо ответить на вопрос, но объясняет значительно хуже. Возможные причины этого мы разбирали в другой статье. Улучшить ответы ИИ можно, если «заставить» его проходить по определенному графу, например по такому: простейший процесс – развивающие процессы – противоположности – противоречие – разрешение противоречия. На таком жестком следовании графу мы пытаемся построить фреймворк ИИ-агентов специально под задачи образования.\n\nТак и все-таки, зачем нужен ИИ для объяснения математики. Четыре графа нашего алгоритма могут дать вполне законченное описание любой математической проблемы. Однако подбор информации, иллюстраций, а иногда и прямое следование за каждым шагом алгоритма – дело утомительное. Вот здесь хорошо пригодится ИИ. Именно это является правильным способом взаимодействия от ИИ: от ИИ мы получаем знания, а от себя добавляем понимание.",
+      "body_en": "*English translation prepared for this website from the Russian original supplied by the author.*\n\nArtificial intelligence gives answers. Good answers, of high quality, more often right than wrong. But does AI explain? It may seem that it does. But what is an “explanation”? What explains the fact that 3+2=5? And, most importantly, why do we need one? Let us try to work this out.\n\n## 1\n\nIn this article, we take “to explain” to mean showing neither what follows what nor even “why” one thing follows another. To explain means showing why the preceding thing already contained what developed, emerged and became apparent in the thing that followed. This is fundamentally important.\n\nConsider A and B. When we say “B follows A” or “B follows A because of C,” we are not explaining. We are giving an instruction to think in the way we have described. Why? Because there is no other “necessity” for B to follow A beyond the authoritative assertion that “B follows A.” If we have not shown that B is already contained in A, then we have not explained.\n\n## 2\n\nWe set out to create an algorithm for analysing mathematical expressions that actually explains those expressions. To begin with, let us describe a simple algorithm for how this should work. We stress that this algorithm serves exclusively educational purposes; we are not claiming that this is how mathematics actually works.\n\nThe central claim is this: any mathematical statement can be reduced to a sum of units. Conversely, any mathematical statement can be obtained from a sum of units.\n\nBut how do we move from simple addition to, say, multiplication? Take a sum of units: 1+1. We use addition to simplify things; it makes it easier to grasp the world in quantitative terms. But let us keep adding: 1+1+1+1… There are becoming too many units. A contradiction arises: the notation originally introduced for simplicity has become complicated. This contradiction must be resolved, and multiplication appears: 4*1…\n\nFollowing this scheme, we can move up to powers, equations, tensors, or whatever we wish. What matters is showing how and for what purpose mathematical constructions are introduced.\n\n## 3\n\nThis scheme forms a “quantitative graph.” However, mathematics is not limited to quantity. What, for example, distinguishes quantity from quality? Quality is the finite within the infinite, while quantity is the infinite within the finite. Take a quality such as “green”: it singles out an apple, a green apple, from all apples and from the entire world. Take “one apple”: this shows that there are infinitely many apples, theoretically, of course.\n\nQuantity and quality are about infinity, so they concern the same thing in different ways. Some interesting ideas follow. For example, 2/3 can be the ratio of the sides of a figure. It can also be a probability. The number 2/3 itself is indifferent to what we associate it with, yet it gives a quantitative measure of different qualities. This needs to be indicated in a separate graph. Thus, a “qualitative graph” appears.\n\nMathematics also develops in history, like any other phenomenon. History reveals the actual roots of mathematical operations. This matters for more than amusing episodes in mathematics or mathematicians’ lives. It matters because history is the “compelled” development of a mathematical operation. Consider that we had to make an effort to move from a sum of units to multiplication, when we could simply have read the history of mathematics. A “historical graph” is therefore as necessary as the quantitative and qualitative graphs.\n\nOne more graph is needed: a “graph of tricks,” or hooks. These are techniques, rules and methods that let us solve, calculate and determine things by routes other than the general or obvious rules, routes that may be hard to describe immediately. Tricks are the familiar mathematical tricks. Why do we need them? Because they connect graph elements whose relationship may initially seem weak.\n\n## 4\n\nWhat about AI? What is its role? Artificial intelligence can answer a question well, but it explains considerably less well. We discussed possible reasons for this in another article. AI’s answers can be improved by requiring it to follow a particular graph, for example: simplest process – developing processes – opposites – contradiction – resolution of the contradiction. We are trying to build an AI agent framework specifically for educational tasks around strict adherence to such a graph.\n\nSo why, after all, do we need AI to explain mathematics? The four graphs of our algorithm can provide a complete description of a mathematical problem. However, collecting information and illustrations, and sometimes following every step of the algorithm directly, is tiring work. This is where AI can help. This is the right way to interact with AI: we receive knowledge from AI and add understanding ourselves.",
+      "researchAreas": [
+        "mathematics",
+        "education",
+        "artificial-intelligence"
+      ],
+      "relatedProjects": [
+        "mathematical-parser"
+      ],
+      "relatedPublications": [],
+      "relatedJournal": [],
+      "featured": true,
+      "tags": [
+        "Mathematics",
+        "Graph",
+        "Education"
+      ],
+      "heroImage": "",
+      "gallery": [],
+      "links": [
+        {
+          "label_ru": "Читать на Medium (английский)",
+          "label_en": "Read on Medium",
+          "url": "https://ruslan-nazarov.medium.com/how-to-explain-mathematics-in-the-age-of-ai-037a9a62a556"
+        }
+      ],
+      "timeline": [],
+      "editorialStatus": "external_publication",
+      "type": "article",
+      "order": 12
+    },
+    {
+      "id": "opposites-algorithm-overview",
+      "slug": "opposites-algorithm-overview",
+      "publish": true,
+      "ready_ru": true,
+      "ready_en": true,
+      "title_ru": "Предварительный обзор алгоритма поиска противоположностей (противоречий)",
+      "title_en": "A Preliminary Overview of an Algorithm for Finding Opposites (Contradictions)",
+      "summary_ru": "Предварительная постановка задачи поиска противоположностей и её математического описания. Английская публикация на Medium.",
+      "summary_en": "A preliminary account of finding opposites and describing the proposed algorithm mathematically. Published in English on Medium.",
+      "body_ru": "Предварительная постановка задачи поиска противоположностей и её математического описания. Английская публикация на Medium.\n\nЗдесь представлена аннотация. Полный текст доступен на Medium на английском языке по ссылке «Читать на Medium».",
+      "body_en": "A preliminary account of finding opposites and describing the proposed algorithm mathematically. Published in English on Medium.\n\nThis page provides a short description. The complete English article is available via “Read on Medium”.",
+      "researchAreas": [
+        "artificial-intelligence",
+        "mathematics"
+      ],
+      "relatedProjects": [
+        "ai-algorithm"
+      ],
+      "relatedPublications": [],
+      "relatedJournal": [],
+      "featured": false,
+      "tags": [
+        "AI",
+        "Algorithms"
+      ],
+      "heroImage": "",
+      "gallery": [],
+      "links": [
+        {
+          "label_ru": "Читать на Medium (английский)",
+          "label_en": "Read on Medium",
+          "url": "https://ruslan-nazarov.medium.com/a-preliminary-overview-of-an-algorithm-for-finding-opposites-contradictions-0decb5eb2bfc"
+        }
+      ],
+      "timeline": [],
+      "editorialStatus": "external_publication",
+      "type": "article",
+      "order": 13
+    },
+    {
+      "id": "edge-ai-reasoning",
+      "slug": "edge-ai-reasoning",
+      "publish": true,
+      "ready_ru": true,
+      "ready_en": true,
+      "title_ru": "Где проходит граница рассуждений ИИ",
+      "title_en": "Finding the Edge of AI Reasoning",
+      "summary_ru": "Эксперимент с диалектическими промптами: различие между объяснением, причинностью и воспроизведением процедуры. Английская публикация на Medium.",
+      "summary_en": "A dialectical prompting experiment exploring explanation, causality and procedural imitation. Published in English on Medium.",
+      "body_ru": "Эксперимент с диалектическими промптами: различие между объяснением, причинностью и воспроизведением процедуры. Английская публикация на Medium.\n\nЗдесь представлена аннотация. Полный текст доступен на Medium на английском языке по ссылке «Читать на Medium».",
+      "body_en": "A dialectical prompting experiment exploring explanation, causality and procedural imitation. Published in English on Medium.\n\nThis page provides a short description. The complete English article is available via “Read on Medium”.",
+      "researchAreas": [
+        "artificial-intelligence",
+        "education"
+      ],
+      "relatedProjects": [
+        "papanda"
+      ],
+      "relatedPublications": [],
+      "relatedJournal": [],
+      "featured": false,
+      "tags": [
+        "AI",
+        "Experiments"
+      ],
+      "heroImage": "",
+      "gallery": [],
+      "links": [
+        {
+          "label_ru": "Читать на Medium (английский)",
+          "label_en": "Read on Medium",
+          "url": "https://ruslan-nazarov.medium.com/finding-the-edge-of-ai-reasoning-11e9d014ba42"
+        }
+      ],
+      "timeline": [],
+      "editorialStatus": "external_publication",
+      "type": "article",
+      "order": 14
+    },
+    {
+      "id": "future-education-ai",
+      "slug": "future-education-ai",
+      "publish": true,
+      "ready_ru": true,
+      "ready_en": true,
+      "title_ru": "Будущее образования с ИИ",
+      "title_en": "The Future of Education with AI",
+      "summary_ru": "Авторский взгляд на изменения образования под влиянием ИИ и поиск подхода, соединяющего знания и понимание. Английская публикация на Medium.",
+      "summary_en": "The author’s perspective on how AI changes education and on connecting knowledge with understanding. Published in English on Medium.",
+      "body_ru": "Авторский взгляд на изменения образования под влиянием ИИ и поиск подхода, соединяющего знания и понимание. Английская публикация на Medium.\n\nЗдесь представлена аннотация. Полный текст доступен на Medium на английском языке по ссылке «Читать на Medium».",
+      "body_en": "The author’s perspective on how AI changes education and on connecting knowledge with understanding. Published in English on Medium.\n\nThis page provides a short description. The complete English article is available via “Read on Medium”.",
+      "researchAreas": [
+        "education",
+        "artificial-intelligence"
+      ],
+      "relatedProjects": [
+        "papanda"
+      ],
+      "relatedPublications": [],
+      "relatedJournal": [],
+      "featured": false,
+      "tags": [
+        "Education",
+        "AI"
+      ],
+      "heroImage": "",
+      "gallery": [],
+      "links": [
+        {
+          "label_ru": "Читать на Medium (английский)",
+          "label_en": "Read on Medium",
+          "url": "https://ruslan-nazarov.medium.com/the-future-of-education-with-ai-dee9dc7e2266"
+        }
+      ],
+      "timeline": [],
+      "editorialStatus": "external_publication",
+      "type": "article",
+      "order": 15
+    },
+    {
+      "id": "arman-ai-architecture",
+      "slug": "arman-ai-architecture",
+      "publish": true,
+      "ready_ru": true,
+      "ready_en": true,
+      "title_ru": "Заметка об «Армане»: новая архитектура искусственного интеллекта",
+      "title_en": "A Note on “Arman”: A New Artificial Intelligence Architecture",
+      "summary_ru": "Исследовательский замысел альтернативной архитектуры ИИ, связанный с поиском противоположностей. Английская публикация на Medium.",
+      "summary_en": "A research proposal for an alternative AI architecture connected with the search for opposites. Published in English on Medium.",
+      "body_ru": "Исследовательский замысел альтернативной архитектуры ИИ, связанный с поиском противоположностей. Английская публикация на Medium.\n\nЗдесь представлена аннотация. Полный текст доступен на Medium на английском языке по ссылке «Читать на Medium».",
+      "body_en": "A research proposal for an alternative AI architecture connected with the search for opposites. Published in English on Medium.\n\nThis page provides a short description. The complete English article is available via “Read on Medium”.",
+      "researchAreas": [
+        "artificial-intelligence"
+      ],
+      "relatedProjects": [
+        "ai-algorithm"
+      ],
+      "relatedPublications": [],
+      "relatedJournal": [],
+      "featured": false,
+      "tags": [
+        "AI",
+        "Algorithms"
+      ],
+      "heroImage": "",
+      "gallery": [],
+      "links": [
+        {
+          "label_ru": "Читать на Medium (английский)",
+          "label_en": "Read on Medium",
+          "url": "https://ruslan-nazarov.medium.com/a-note-on-arman-a-new-artificial-intelligence-architecture-d009b05b6742"
+        }
+      ],
+      "timeline": [],
+      "editorialStatus": "external_publication",
+      "type": "article",
+      "order": 16
+    },
+    {
+      "id": "recurrent-networks-transformers",
+      "slug": "recurrent-networks-transformers",
+      "publish": true,
+      "ready_ru": true,
+      "ready_en": true,
+      "title_ru": "От рекуррентных сетей к трансформерам: что дальше?",
+      "title_en": "From Recurrent Networks to Transformers: What Comes Next?",
+      "summary_ru": "Авторская интерпретация предпосылок трансформеров и возможного альтернативного подхода к ИИ. Английская публикация на Medium.",
+      "summary_en": "The author’s interpretation of the premises behind Transformers and a possible alternative approach to AI. Published in English on Medium.",
+      "body_ru": "Авторская интерпретация предпосылок трансформеров и возможного альтернативного подхода к ИИ. Английская публикация на Medium.\n\nЗдесь представлена аннотация. Полный текст доступен на Medium на английском языке по ссылке «Читать на Medium».",
+      "body_en": "The author’s interpretation of the premises behind Transformers and a possible alternative approach to AI. Published in English on Medium.\n\nThis page provides a short description. The complete English article is available via “Read on Medium”.",
+      "researchAreas": [
+        "artificial-intelligence",
+        "mathematics"
+      ],
+      "relatedProjects": [
+        "ai-algorithm"
+      ],
+      "relatedPublications": [],
+      "relatedJournal": [],
+      "featured": false,
+      "tags": [
+        "AI",
+        "Mathematics"
+      ],
+      "heroImage": "",
+      "gallery": [],
+      "links": [
+        {
+          "label_ru": "Читать на Medium (английский)",
+          "label_en": "Read on Medium",
+          "url": "https://ruslan-nazarov.medium.com/from-recurrent-networks-to-transformers-what-comes-next-3a392dab055c"
+        }
+      ],
+      "timeline": [],
+      "editorialStatus": "external_publication",
+      "type": "article",
+      "date": "2026-07-24",
+      "order": 17
+    },
+    {
+      "id": "hash-mathematics-concept",
+      "slug": "hash-mathematics-concept",
+      "publish": true,
+      "ready_ru": true,
+      "ready_en": true,
+      "title_ru": "Как заставить ИИ работать с противоречиями: концепция хэш-математики",
+      "title_en": "Making AI Work with Contradictions: The Hash Mathematics Concept",
+      "summary_ru": "Ранняя исследовательская концепция хэш-математики для работы ИИ с процессами и противоположностями. Английская публикация на Medium.",
+      "summary_en": "An early research proposal for hash mathematics applied to processes and opposites in AI. Published in English on Medium.",
+      "body_ru": "Ранняя исследовательская концепция хэш-математики для работы ИИ с процессами и противоположностями. Английская публикация на Medium.\n\nЗдесь представлена аннотация. Полный текст доступен на Medium на английском языке по ссылке «Читать на Medium».",
+      "body_en": "An early research proposal for hash mathematics applied to processes and opposites in AI. Published in English on Medium.\n\nThis page provides a short description. The complete English article is available via “Read on Medium”.",
+      "researchAreas": [
+        "artificial-intelligence",
+        "mathematics"
+      ],
+      "relatedProjects": [
+        "ai-algorithm"
+      ],
+      "relatedPublications": [],
+      "relatedJournal": [],
+      "featured": false,
+      "tags": [
+        "AI",
+        "Mathematics"
+      ],
+      "heroImage": "",
+      "gallery": [],
+      "links": [
+        {
+          "label_ru": "Читать на Medium (английский)",
+          "label_en": "Read on Medium",
+          "url": "https://ruslan-nazarov.medium.com/making-ai-work-with-contradictions-the-hash-mathematics-concept-da4a25cf345d"
+        }
+      ],
+      "timeline": [],
+      "editorialStatus": "external_publication",
+      "type": "article",
+      "order": 18
+    },
+    {
+      "id": "beyond-memorization",
+      "slug": "beyond-memorization",
+      "publish": true,
+      "ready_ru": true,
+      "ready_en": true,
+      "title_ru": "За пределами запоминания: как ИИ побуждает к диалектическому сдвигу в образовании",
+      "title_en": "Beyond Memorization: How AI is Forcing a Dialectical Shift in Education",
+      "summary_ru": "Ранняя концепция перехода от накопления знаний к обучению пониманию и её связи с papanda. Английская публикация на Medium.",
+      "summary_en": "An early proposal for moving from accumulating knowledge to learning understanding, and its connection with papanda. Published in English on Medium.",
+      "body_ru": "Ранняя концепция перехода от накопления знаний к обучению пониманию и её связи с papanda. Английская публикация на Medium.\n\nЗдесь представлена аннотация. Полный текст доступен на Medium на английском языке по ссылке «Читать на Medium».",
+      "body_en": "An early proposal for moving from accumulating knowledge to learning understanding, and its connection with papanda. Published in English on Medium.\n\nThis page provides a short description. The complete English article is available via “Read on Medium”.",
+      "researchAreas": [
+        "education",
+        "artificial-intelligence"
+      ],
+      "relatedProjects": [
+        "papanda"
+      ],
+      "relatedPublications": [],
+      "relatedJournal": [],
+      "featured": false,
+      "tags": [
+        "Education",
+        "AI"
+      ],
+      "heroImage": "",
+      "gallery": [],
+      "links": [
+        {
+          "label_ru": "Читать на Medium (английский)",
+          "label_en": "Read on Medium",
+          "url": "https://ruslan-nazarov.medium.com/beyond-memorization-how-ai-is-forcing-a-dialectical-shift-in-education-163328affcf4"
+        }
+      ],
+      "timeline": [],
+      "editorialStatus": "external_publication",
+      "type": "article",
+      "order": 19
+    },
     {
       "id": "data-science-handbook",
       "slug": "data-science-handbook",

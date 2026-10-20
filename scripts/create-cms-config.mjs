@@ -34,7 +34,7 @@ const config={
   content:[
     {name:'site',label:'Главная / About / настройки',type:'file',path:'src/data/site.json',format:'json',fields:[
       f('name'),f('tagline'),f('portrait','image'),f('email'),f('formEndpoint'),f('cloudflareToken'),
-      objectList('profiles',[f('label'),f('url')]),...['ru','en'].map(l=>f(l,'object',{fields:Object.keys(site[l]).map(k=>f(k,k==='aboutBody'?'rich-text':'text'))}))
+      objectList('profiles',[f('label'),f('url')]),...['ru','en'].map(l=>f(l,'object',{fields:Object.keys(site[l]).map(k=>f(k,k.endsWith('Body')?'rich-text':'text'))}))
     ]},
     {name:'interface',label:'Подписи интерфейса RU / EN',type:'file',path:'src/data/ui.json',format:'json',fields:['ru','en'].map(l=>f(l,'object',{fields:Object.keys(ui[l]).map(k=>f(k,'text'))}))},
     ...Object.entries(extras).map(([name,fields])=>({name,label:name,type:'collection',path:`src/content/${name}`,format:'json',filename:'{fields.id}.json',view:{primary:'title_ru',fields:['id','title_ru','publish','ready_ru','ready_en']},fields:[...common,...fields]})),

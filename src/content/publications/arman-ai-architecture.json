@@ -1,0 +1,39 @@
+{
+  "id": "arman-ai-architecture",
+  "slug": "arman-ai-architecture",
+  "publish": true,
+  "ready_ru": true,
+  "ready_en": true,
+  "title_ru": "Заметка об «Армане»: новая архитектура искусственного интеллекта",
+  "title_en": "A Note on “Arman”: A New Artificial Intelligence Architecture",
+  "summary_ru": "Исследовательский замысел альтернативной архитектуры ИИ, связанный с поиском противоположностей. Английская публикация на Medium.",
+  "summary_en": "A research proposal for an alternative AI architecture connected with the search for opposites. Published in English on Medium.",
+  "body_ru": "Исследовательский замысел альтернативной архитектуры ИИ, связанный с поиском противоположностей. Английская публикация на Medium.\n\nЗдесь представлена аннотация. Полный текст доступен на Medium на английском языке по ссылке «Читать на Medium».",
+  "body_en": "A research proposal for an alternative AI architecture connected with the search for opposites. Published in English on Medium.\n\nThis page provides a short description. The complete English article is available via “Read on Medium”.",
+  "editorialStatus": "external_publication",
+  "type": "article",
+  "researchAreas": [
+    "artificial-intelligence"
+  ],
+  "relatedProjects": [
+    "ai-algorithm"
+  ],
+  "relatedPublications": [],
+  "relatedJournal": [],
+  "tags": [
+    "AI",
+    "Algorithms"
+  ],
+  "featured": false,
+  "heroImage": "",
+  "gallery": [],
+  "links": [
+    {
+      "label_ru": "Читать на Medium (английский)",
+      "label_en": "Read on Medium",
+      "url": "https://ruslan-nazarov.medium.com/a-note-on-arman-a-new-artificial-intelligence-architecture-d009b05b6742"
+    }
+  ],
+  "timeline": [],
+  "order": 16
+}

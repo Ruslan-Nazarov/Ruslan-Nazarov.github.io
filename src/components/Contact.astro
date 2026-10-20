@@ -3,7 +3,7 @@ import {site,readJSON} from '../lib/content.mjs';
 const {lang}=Astro.props;const t=readJSON('src/data/ui.json')[lang];
 ---
 <div class="contact-links">
-  {site.email?<a class="button" href={`mailto:${site.email}`}>{site.email} ↗</a>:<p class="muted">{site[lang].contactEmpty}</p>}
+  {site.email&&<a class="button" href={`mailto:${site.email}`}>{site.email} ↗</a>}
   {site.profiles.map((p:any)=><a class="button secondary" href={p.url} rel="noopener noreferrer">{p.label} ↗</a>)}
 </div>
 {site.formEndpoint&&<form class="contact-form" action={site.formEndpoint} method="POST" data-sending={t.sending} data-sent={t.sent} data-error={t.sendError}>

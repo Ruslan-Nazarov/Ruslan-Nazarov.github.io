@@ -3,6 +3,7 @@
    must not inherit the responsive max-width rule used for content images. */
 @layer components{.graph-page .react-flow svg{max-width:none}}
 @layer components{.skip-link:not(:focus){clip-path:inset(50%);width:1px;height:1px;padding:0;overflow:hidden}}
+@layer components{.home-narrative{max-width:780px;margin-bottom:36px}.home-narrative p:last-child{margin-bottom:0}.hero h1{font-size:clamp(38px,4.3vw,60px)}.hero .hero-method{font-size:14px;max-width:570px}}
 @layer base{
   :root{--bg:#fdfbf9;--paper:#ffffff;--tint:#fff5ec;--ink:#1e293b;--muted:#475569;--accent:#f2994a;--accent-strong:#d87d2d;--accent-ink:#9c4c16;--on-accent:#1e293b;--line:#e6ddd5;--soft:#fff3e0;--serif:Georgia,'Times New Roman',serif;--sans:Inter,'Segoe UI',Arial,sans-serif;color-scheme:light;--pagefind-ui-primary:var(--accent-ink);--pagefind-ui-text:var(--ink);--pagefind-ui-background:var(--paper);--pagefind-ui-border:var(--line);--pagefind-ui-tag:var(--soft);--pagefind-ui-font:var(--sans)}
   :root.dark{--bg:#211e1b;--paper:#2b2622;--tint:#302820;--ink:#f5efe9;--muted:#c3b7ac;--accent:#f2994a;--accent-strong:#fba158;--accent-ink:#fba158;--on-accent:#1e293b;--line:#4b4036;--soft:#3f3023;color-scheme:dark}

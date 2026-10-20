@@ -4,13 +4,13 @@
   "publish": true,
   "ready_ru": true,
   "ready_en": true,
-  "title_ru": "papanda",
-  "title_en": "papanda",
-  "summary_ru": "Образовательная система и диалектический конспект для самостоятельного построения понимания.",
-  "summary_en": "An educational system and dialectical notes for independently constructing understanding.",
-  "body_ru": "## Замысел\npapanda связывает образовательную систему с диалектическим конспектом. Учащийся восстанавливает процесс развития мысли, формулирует противоречия и рассматривает способы их разрешения.\n\n## Роль ИИ\nИИ может предоставлять сведения, критиковать рассуждение и поддерживать анализ. Самостоятельная работа учащегося остаётся центральной.\n\n## Границы утверждений\nДоступность приложения не доказывает эффективность метода. Реальные конспекты, иллюстрации и материалы пилотов будут добавлены после предоставления автором.",
-  "body_en": "## Intent\npapanda connects an educational system with dialectical notes. Learners reconstruct the development of an idea, formulate contradictions and examine possible resolutions.\n\n## The role of AI\nAI can supply information, critique reasoning and support analysis. The learner’s independent work remains central.\n\n## Limits of the claims\nAn available application does not establish the effectiveness of the method. Actual notes, illustrations and pilot materials will be added when supplied by the author.",
-  "editorialStatus": "awaiting_content",
+  "title_ru": "papanda конспект",
+  "title_en": "papanda notes",
+  "summary_ru": "Конспект для самостоятельного понимания: ИИ помогает получать знания, человек проверяет ответы и составляет собственный конспект.",
+  "summary_en": "Notes for independent understanding: AI helps provide knowledge, while the learner checks responses and writes their own notes.",
+  "body_ru": "«papanda конспект» — способ соединить сильные стороны искусственного интеллекта и человека в обучении. ИИ помогает получать знания по изучаемому предмету, а человек самостоятельно составляет конспект, проверяет ответы и извлекает из этих знаний собственное понимание.\n\nКоротко принцип можно сформулировать так: **«От ИИ — знания, от человека — понимание».** Это один из наиболее наглядных примеров того, как я пытаюсь применить свои исследовательские идеи на практике.",
+  "body_en": "“papanda notes” is an approach to learning that brings together the strengths of artificial intelligence and human thinking. AI helps provide knowledge about the subject being studied; the learner writes their own notes, checks AI's responses, and develops an understanding of the subject from that knowledge.\n\nThe principle is simple: **“AI provides knowledge. Humans build understanding.”** This project is one of the clearest practical expressions of the questions I study.",
+  "editorialStatus": "editorial_summary",
   "researchAreas": [
     "education"
   ],
@@ -29,9 +29,9 @@
   "gallery": [],
   "links": [
     {
-      "label_ru": "Открыть papanda",
-      "label_en": "Open papanda",
-      "url": "https://papanda.kz"
+      "label_ru": "Исходный код papanda конспекта",
+      "label_en": "papanda notes source code",
+      "url": "https://github.com/Ruslan-Nazarov/papanda"
     }
   ],
   "timeline": [],

@@ -1,0 +1,40 @@
+{
+  "id": "beyond-memorization",
+  "slug": "beyond-memorization",
+  "publish": true,
+  "ready_ru": true,
+  "ready_en": true,
+  "title_ru": "За пределами запоминания: как ИИ побуждает к диалектическому сдвигу в образовании",
+  "title_en": "Beyond Memorization: How AI is Forcing a Dialectical Shift in Education",
+  "summary_ru": "Ранняя концепция перехода от накопления знаний к обучению пониманию и её связи с papanda. Английская публикация на Medium.",
+  "summary_en": "An early proposal for moving from accumulating knowledge to learning understanding, and its connection with papanda. Published in English on Medium.",
+  "body_ru": "Ранняя концепция перехода от накопления знаний к обучению пониманию и её связи с papanda. Английская публикация на Medium.\n\nЗдесь представлена аннотация. Полный текст доступен на Medium на английском языке по ссылке «Читать на Medium».",
+  "body_en": "An early proposal for moving from accumulating knowledge to learning understanding, and its connection with papanda. Published in English on Medium.\n\nThis page provides a short description. The complete English article is available via “Read on Medium”.",
+  "editorialStatus": "external_publication",
+  "type": "article",
+  "researchAreas": [
+    "education",
+    "artificial-intelligence"
+  ],
+  "relatedProjects": [
+    "papanda"
+  ],
+  "relatedPublications": [],
+  "relatedJournal": [],
+  "tags": [
+    "Education",
+    "AI"
+  ],
+  "featured": false,
+  "heroImage": "",
+  "gallery": [],
+  "links": [
+    {
+      "label_ru": "Читать на Medium (английский)",
+      "label_en": "Read on Medium",
+      "url": "https://ruslan-nazarov.medium.com/beyond-memorization-how-ai-is-forcing-a-dialectical-shift-in-education-163328affcf4"
+    }
+  ],
+  "timeline": [],
+  "order": 19
+}

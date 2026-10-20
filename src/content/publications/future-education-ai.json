@@ -1,0 +1,40 @@
+{
+  "id": "future-education-ai",
+  "slug": "future-education-ai",
+  "publish": true,
+  "ready_ru": true,
+  "ready_en": true,
+  "title_ru": "Будущее образования с ИИ",
+  "title_en": "The Future of Education with AI",
+  "summary_ru": "Авторский взгляд на изменения образования под влиянием ИИ и поиск подхода, соединяющего знания и понимание. Английская публикация на Medium.",
+  "summary_en": "The author’s perspective on how AI changes education and on connecting knowledge with understanding. Published in English on Medium.",
+  "body_ru": "Авторский взгляд на изменения образования под влиянием ИИ и поиск подхода, соединяющего знания и понимание. Английская публикация на Medium.\n\nЗдесь представлена аннотация. Полный текст доступен на Medium на английском языке по ссылке «Читать на Medium».",
+  "body_en": "The author’s perspective on how AI changes education and on connecting knowledge with understanding. Published in English on Medium.\n\nThis page provides a short description. The complete English article is available via “Read on Medium”.",
+  "editorialStatus": "external_publication",
+  "type": "article",
+  "researchAreas": [
+    "education",
+    "artificial-intelligence"
+  ],
+  "relatedProjects": [
+    "papanda"
+  ],
+  "relatedPublications": [],
+  "relatedJournal": [],
+  "tags": [
+    "Education",
+    "AI"
+  ],
+  "featured": false,
+  "heroImage": "",
+  "gallery": [],
+  "links": [
+    {
+      "label_ru": "Читать на Medium (английский)",
+      "label_en": "Read on Medium",
+      "url": "https://ruslan-nazarov.medium.com/the-future-of-education-with-ai-dee9dc7e2266"
+    }
+  ],
+  "timeline": [],
+  "order": 15
+}

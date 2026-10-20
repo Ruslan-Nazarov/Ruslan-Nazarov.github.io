@@ -8,7 +8,8 @@ import {readFileSync} from 'node:fs';
 test('all public objects are complete bilingual pairs; private journal is excluded',()=>{
   validateAll();
   const data=allContent();
-  assert.equal(data.research.length,4);assert.equal(data.projects.length,6);assert.equal(data.publications.length,3);
+  assert.equal(data.research.length,4);assert.equal(data.projects.length,6);
+  for(const id of ['data-science-handbook','language-handbook','theses-2020-2026'])assert.ok(data.publications.some(p=>p.id===id));
   assert.equal(data.theses.length,5);assert.equal(data.journal.length,0);
   for(const rows of Object.values(data))for(const row of rows)assert.ok(isReady(row));
 });

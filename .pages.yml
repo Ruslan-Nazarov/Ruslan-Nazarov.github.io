@@ -103,6 +103,24 @@ content:
           - name: privacy
             label: privacy
             type: text
+          - name: heroEyebrow
+            label: heroEyebrow
+            type: text
+          - name: researchBody
+            label: researchBody
+            type: rich-text
+          - name: featuredBody
+            label: featuredBody
+            type: rich-text
+          - name: publicationsBody
+            label: publicationsBody
+            type: rich-text
+          - name: contactTitle
+            label: contactTitle
+            type: text
+          - name: contactText
+            label: contactText
+            type: text
       - name: en
         label: en
         type: object
@@ -157,6 +175,24 @@ content:
             type: text
           - name: privacy
             label: privacy
+            type: text
+          - name: heroEyebrow
+            label: heroEyebrow
+            type: text
+          - name: researchBody
+            label: researchBody
+            type: rich-text
+          - name: featuredBody
+            label: featuredBody
+            type: rich-text
+          - name: publicationsBody
+            label: publicationsBody
+            type: rich-text
+          - name: contactTitle
+            label: contactTitle
+            type: text
+          - name: contactText
+            label: contactText
             type: text
   - name: interface
     label: Подписи интерфейса RU / EN
