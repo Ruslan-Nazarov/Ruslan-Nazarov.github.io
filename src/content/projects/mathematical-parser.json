@@ -1,0 +1,35 @@
+{
+  "id": "mathematical-parser",
+  "slug": "mathematical-parser",
+  "publish": true,
+  "ready_ru": true,
+  "ready_en": true,
+  "title_ru": "Диалектический математический парсер",
+  "title_en": "Dialectical Mathematical Parser",
+  "summary_ru": "Граф развития математических операций: потребность, противоречие, разрешение.",
+  "summary_en": "A graph of the development of mathematical operations: need, contradiction, resolution.",
+  "body_ru": "## Проблема\nКак объяснить формулу через развитие операций из простейшего, а не только перечислить правила её преобразования?\n\n## Модель и алгоритм\nКонцептуальная цепочка связывает потребность, кризис прежнего средства и его разрешение. Количественные операции лежат в основании; качество описывает смысл пути, в том числе физический путь через измерение. Пропуски вывода обозначаются явно.\n\n## Реализация\nСайт принимает нормализованный JSON-экспорт из Python `OPERATIONS_GRAPH`. Публичные аннотации и разрешение на публикацию редактируются отдельно. Ввод произвольной формулы здесь не реализуется.\n\n## Ограничения\nАктуальный репозиторий парсера пока не подключён. Демонстрационный граф основан на снимке перечня узлов от 29.09.2026 и требует сверки с кодом. Он не является исторической реконструкцией или доказательством полноты модели.",
+  "body_en": "## Problem\nHow can a formula be explained through the development of operations from simple foundations, rather than by listing transformation rules?\n\n## Model and algorithm\nA conceptual chain connects a need, a crisis of an earlier method and its resolution. Quantitative operations form the foundation; quality describes the meaning of a path, including physical measurement. Missing derivations are stated explicitly.\n\n## Implementation\nThe site accepts a normalized JSON export from Python `OPERATIONS_GRAPH`. Public annotations and publication approval are edited separately. Arbitrary formula input is not implemented here.\n\n## Limitations\nThe current parser repository is not connected. The demonstration graph uses a node-inventory snapshot dated 29 September 2026 and needs reconciliation with the code. It is neither a historical reconstruction nor evidence of the model’s completeness.",
+  "editorialStatus": "awaiting_content",
+  "researchAreas": [
+    "mathematics",
+    "physics"
+  ],
+  "relatedProjects": [],
+  "relatedPublications": [
+    "theses-2020-2026"
+  ],
+  "relatedJournal": [],
+  "tags": [
+    "Python",
+    "Mathematics",
+    "Graph"
+  ],
+  "featured": true,
+  "heroImage": "",
+  "gallery": [],
+  "links": [],
+  "timeline": [],
+  "status": "active",
+  "order": 0
+}

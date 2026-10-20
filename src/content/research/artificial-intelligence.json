@@ -1,0 +1,36 @@
+{
+  "id": "artificial-intelligence",
+  "slug": "artificial-intelligence",
+  "publish": true,
+  "ready_ru": true,
+  "ready_en": true,
+  "title_ru": "Искусственный интеллект",
+  "title_en": "Artificial Intelligence",
+  "summary_ru": "Архитектуры, проверка действий и альтернативные способы построения ИИ.",
+  "summary_en": "Architectures, action verification and alternative approaches to building AI.",
+  "body_ru": "Исследование включает экспериментальную архитектуру агентов DialecticAI и незавершённую работу AI_algorithm. Это самостоятельные проекты: их не следует смешивать с математическим парсером.\n\nВ поле внимания — вероятностные и альтернативные подходы, математические модели, численные проверки и отклонённые гипотезы. Статья для arXiv находится в подготовке; опубликованный идентификатор не предоставлен.",
+  "body_en": "This area includes the experimental DialecticAI agent architecture and the unfinished AI_algorithm research. These are separate projects and should not be conflated with the mathematical parser.\n\nThe focus includes probabilistic and alternative approaches, mathematical models, numerical checks and rejected hypotheses. An arXiv paper is in preparation; no published identifier has been supplied.",
+  "editorialStatus": "awaiting_content",
+  "researchAreas": [],
+  "relatedProjects": [
+    "dialectic-ai",
+    "ai-algorithm"
+  ],
+  "relatedPublications": [
+    "data-science-handbook",
+    "theses-2020-2026"
+  ],
+  "relatedJournal": [],
+  "tags": [],
+  "featured": false,
+  "heroImage": "",
+  "gallery": [],
+  "links": [],
+  "timeline": [],
+  "questions_ru": "Какие предпосылки заложены в архитектуру?\nЧто подтверждает численная проверка, а что остаётся гипотезой?",
+  "questions_en": "Which assumptions are embedded in an architecture?\nWhat does a numerical check establish, and what remains a hypothesis?",
+  "openProblems_ru": "Подготовка проверяемого описания алгоритма, результатов тестов и рукописи статьи.",
+  "openProblems_en": "Preparing a verifiable description of the algorithm, test results and the paper manuscript.",
+  "symbol": "λ",
+  "order": 3
+}

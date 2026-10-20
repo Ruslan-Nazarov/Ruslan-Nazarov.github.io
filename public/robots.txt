@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ruslan-nazarov.github.io/sitemap-index.xml

@@ -1,0 +1,34 @@
+{
+  "id": "mathematics",
+  "slug": "mathematics",
+  "publish": true,
+  "ready_ru": true,
+  "ready_en": true,
+  "title_ru": "Математика",
+  "title_en": "Mathematics",
+  "summary_ru": "Как стремление упростить вычисление усложняет сам способ вычисления?",
+  "summary_en": "How does the drive to simplify computation make the method of computation more complex?",
+  "body_ru": "В центре исследования — отношение между упрощением операций и развитием всё более сложных средств этого упрощения. Математические понятия рассматриваются через потребности, возникающие при использовании прежних средств.\n\nОсновной проект — **диалектический математический парсер**. Его задача — показывать связи между операциями, кризисами и способами их разрешения. Это концептуальная реконструкция в авторской модели; исторические утверждения требуют отдельных источников.",
+  "body_en": "This research examines the relationship between simplifying operations and developing increasingly complex means of simplification. Mathematical concepts are considered through needs that arise from the use of earlier methods.\n\nThe main project is the **Dialectical Mathematical Parser**. It explores connections between operations, crises and their resolutions. This is a conceptual reconstruction within the author’s model; historical claims require separate sources.",
+  "editorialStatus": "awaiting_content",
+  "researchAreas": [],
+  "relatedProjects": [
+    "mathematical-parser"
+  ],
+  "relatedPublications": [
+    "theses-2020-2026"
+  ],
+  "relatedJournal": [],
+  "tags": [],
+  "featured": false,
+  "heroImage": "",
+  "gallery": [],
+  "links": [],
+  "timeline": [],
+  "questions_ru": "Как раскрыть необходимость перехода к новой операции?\nГде заканчивается частный пример и начинается общий вывод?\nКак явно показывать недостающие шаги?",
+  "questions_en": "What makes a transition to a new operation necessary?\nWhere does a particular example end and a general derivation begin?\nHow should missing steps be made explicit?",
+  "openProblems_ru": "Проверка полноты выводов и сверка публичного графа с актуальным кодом парсера.",
+  "openProblems_en": "Checking the completeness of derivations and reconciling the public graph with the current parser code.",
+  "symbol": "∑",
+  "order": 0
+}

@@ -1,0 +1,27 @@
+{
+  "id": "education",
+  "slug": "education",
+  "publish": true,
+  "ready_ru": true,
+  "ready_en": true,
+  "title_ru": "Образование",
+  "title_en": "Education",
+  "summary_ru": "Диалектическое обучение",
+  "summary_en": "Dialectical learning",
+  "body_ru": "",
+  "body_en": "",
+  "editorialStatus": "awaiting_content",
+  "researchAreas": [
+    "education"
+  ],
+  "relatedProjects": [],
+  "relatedPublications": [],
+  "relatedJournal": [],
+  "tags": [],
+  "featured": false,
+  "heroImage": "",
+  "gallery": [],
+  "links": [],
+  "timeline": [],
+  "order": 4
+}

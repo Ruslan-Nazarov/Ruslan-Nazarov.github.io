@@ -1,0 +1,39 @@
+{
+  "id": "data-science-handbook",
+  "slug": "data-science-handbook",
+  "publish": true,
+  "ready_ru": true,
+  "ready_en": true,
+  "title_ru": "Handbook Data Science 2025",
+  "title_en": "Handbook Data Science 2025",
+  "summary_ru": "Авторская книга по Data Science и искусственному интеллекту. Полный текст доступен на отдельном сайте.",
+  "summary_en": "The author’s book on Data Science and artificial intelligence. The full text is available on a separate site.",
+  "body_ru": "Книга представлена как самостоятельное внешнее издание. Эта карточка связывает её с исследовательским направлением искусственного интеллекта; полный текст и сведения об издании находятся на исходном сайте.\n\nЛицензия внешней книги сохраняется: **CC BY-NC-ND 4.0**. Она не заменяется лицензией новых текстов этого сайта.",
+  "body_en": "The book is presented as a separate external publication. This card connects it to the artificial intelligence research area; the full text and publication details remain on the original site.\n\nThe external book retains its **CC BY-NC-ND 4.0** licence. It is not replaced by the licence for new texts on this site.",
+  "editorialStatus": "external_publication",
+  "researchAreas": [
+    "artificial-intelligence"
+  ],
+  "relatedProjects": [
+    "ai-algorithm"
+  ],
+  "relatedPublications": [],
+  "relatedJournal": [],
+  "tags": [
+    "Data Science",
+    "AI"
+  ],
+  "featured": true,
+  "heroImage": "",
+  "gallery": [],
+  "links": [
+    {
+      "label_ru": "Читать книгу на исходном сайте",
+      "label_en": "Read the original book",
+      "url": "https://ruslan-nazarov.github.io/handbook_ai/"
+    }
+  ],
+  "timeline": [],
+  "type": "book",
+  "license": "CC BY-NC-ND 4.0"
+}

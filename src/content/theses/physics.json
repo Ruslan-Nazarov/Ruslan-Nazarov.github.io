@@ -1,0 +1,27 @@
+{
+  "id": "physics",
+  "slug": "physics",
+  "publish": true,
+  "ready_ru": true,
+  "ready_en": true,
+  "title_ru": "Физика",
+  "title_en": "Physics",
+  "summary_ru": "История физики · Эйнштейн · Диалектическая физика",
+  "summary_en": "History of physics · Einstein · Dialectical physics",
+  "body_ru": "",
+  "body_en": "",
+  "editorialStatus": "awaiting_content",
+  "researchAreas": [
+    "physics"
+  ],
+  "relatedProjects": [],
+  "relatedPublications": [],
+  "relatedJournal": [],
+  "tags": [],
+  "featured": false,
+  "heroImage": "",
+  "gallery": [],
+  "links": [],
+  "timeline": [],
+  "order": 3
+}

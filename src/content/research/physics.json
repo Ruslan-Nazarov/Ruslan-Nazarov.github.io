@@ -1,0 +1,34 @@
+{
+  "id": "physics",
+  "slug": "physics",
+  "publish": true,
+  "ready_ru": true,
+  "ready_en": true,
+  "title_ru": "Физика",
+  "title_en": "Physics",
+  "summary_ru": "Математическая форма и физический смысл: от операций к измерению.",
+  "summary_en": "Mathematical form and physical meaning: from operations to measurement.",
+  "body_ru": "Начальные материалы направления — главы готовящихся тезисов об истории физики, Эйнштейне и диалектической физике, а также физические узлы математического парсера.\n\nВ парсере физический смысл связывается с путём получения величины, включая измерение. Математический вывод, опытная предпосылка и область применимости должны быть различимы. Полные тексты глав ещё не предоставлены.",
+  "body_en": "The initial materials are chapters of the forthcoming theses on the history of physics, Einstein and dialectical physics, together with physical nodes in the mathematical parser.\n\nIn the parser, physical meaning is associated with the path by which a quantity is obtained, including measurement. Mathematical derivations, empirical premises and their domains of applicability must remain distinguishable. The full chapter texts have not yet been supplied.",
+  "editorialStatus": "awaiting_content",
+  "researchAreas": [],
+  "relatedProjects": [
+    "mathematical-parser"
+  ],
+  "relatedPublications": [
+    "theses-2020-2026"
+  ],
+  "relatedJournal": [],
+  "tags": [],
+  "featured": false,
+  "heroImage": "",
+  "gallery": [],
+  "links": [],
+  "timeline": [],
+  "questions_ru": "Как различать математический вывод и опытную предпосылку?\nКак путь через измерение определяет смысл величины?",
+  "questions_en": "How can mathematical derivation be distinguished from an empirical premise?\nHow does a measurement path determine the meaning of a quantity?",
+  "openProblems_ru": "Подготовка авторских глав и проверка источников для исторических утверждений.",
+  "openProblems_en": "Preparing the author’s chapters and verifying sources for historical claims.",
+  "symbol": "φ",
+  "order": 1
+}

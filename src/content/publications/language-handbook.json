@@ -1,0 +1,40 @@
+{
+  "id": "language-handbook",
+  "slug": "language-handbook",
+  "publish": true,
+  "ready_ru": true,
+  "ready_en": true,
+  "title_ru": "Как выучить много иностранных языков? Диалектический подход",
+  "title_en": "How to Learn Many Foreign Languages? A Dialectical Approach",
+  "summary_ru": "Книга о методике изучения языков. Внешнее издание на русском языке.",
+  "summary_en": "A book on language-learning methodology. The external edition is in Russian.",
+  "body_ru": "Авторская книга о диалектическом подходе к изучению иностранных языков. Здесь приводится краткая редакционная аннотация; оригинальный текст доступен на отдельном книжном сайте.\n\nКарточка связывает книгу с направлением образования и языковыми проектами. Наличие книги не является эмпирическим подтверждением эффективности описанного метода. Лицензия издания — **CC BY-NC-ND 4.0**.",
+  "body_en": "The author’s book on a dialectical approach to learning foreign languages. This page provides a short editorial description; the original text is available on its separate book site.\n\nThe card connects the book to education and language projects. The existence of the book is not empirical evidence of the method’s effectiveness. The edition is licensed under **CC BY-NC-ND 4.0**.",
+  "editorialStatus": "external_publication",
+  "researchAreas": [
+    "education"
+  ],
+  "relatedProjects": [
+    "papanda",
+    "papanda-languages"
+  ],
+  "relatedPublications": [],
+  "relatedJournal": [],
+  "tags": [
+    "Languages",
+    "Education"
+  ],
+  "featured": true,
+  "heroImage": "",
+  "gallery": [],
+  "links": [
+    {
+      "label_ru": "Читать книгу на исходном сайте",
+      "label_en": "Read the original book",
+      "url": "https://ruslan-nazarov.github.io/handbook_Languages/"
+    }
+  ],
+  "timeline": [],
+  "type": "book",
+  "license": "CC BY-NC-ND 4.0"
+}

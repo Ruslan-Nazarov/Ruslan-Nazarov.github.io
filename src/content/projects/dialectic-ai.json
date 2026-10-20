@@ -1,0 +1,31 @@
+{
+  "id": "dialectic-ai",
+  "slug": "dialectic-ai",
+  "publish": true,
+  "ready_ru": true,
+  "ready_en": true,
+  "title_ru": "DialecticAI",
+  "title_en": "DialecticAI",
+  "summary_ru": "Экспериментальная архитектура агентов Process / Contradiction / Leap.",
+  "summary_en": "An experimental Process / Contradiction / Leap agent architecture.",
+  "body_ru": "Архитектура исследует разделение ролей Process / Contradiction / Leap и проверку действий агентов. В описании проекта должны быть различимы архитектурные решения, тесты и наблюдаемость.\n\nИнженерная работоспособность не равна научному доказательству эффективности особого диалектического метода. Актуальные результаты тестов и материалы реализации ожидаются.",
+  "body_en": "The architecture explores Process / Contradiction / Leap roles and verification of agent actions. Its documentation should distinguish architectural decisions, tests and observability.\n\nEngineering functionality is not scientific evidence for the effectiveness of a distinct dialectical method. Current test results and implementation materials are awaited.",
+  "editorialStatus": "awaiting_content",
+  "researchAreas": [
+    "artificial-intelligence"
+  ],
+  "relatedProjects": [],
+  "relatedPublications": [],
+  "relatedJournal": [],
+  "tags": [
+    "Agents",
+    "Experiments"
+  ],
+  "featured": false,
+  "heroImage": "",
+  "gallery": [],
+  "links": [],
+  "timeline": [],
+  "status": "active",
+  "order": 3
+}

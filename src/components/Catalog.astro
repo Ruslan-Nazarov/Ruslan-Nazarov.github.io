@@ -1,0 +1,41 @@
+---
+import Card from './Card.astro';
+import {readJSON,localize as l} from '../lib/content.mjs';
+const {rows,collection,lang,research=[]}=Astro.props;
+const t=readJSON('src/data/ui.json')[lang];
+const types=[...new Set(rows.map((r:any)=>r.type||r.status).filter(Boolean))] as string[];
+const tags=[...new Set(rows.flatMap((r:any)=>r.tags))] as string[];
+---
+<section data-catalog>
+  <form class="filter-bar" aria-label={t.filter} onsubmit="return false">
+    <label class="filter-search"><span>{t.search}</span><input type="search" data-filter-search placeholder={t.filterSearch} /></label>
+    {research.length>0&&<label><span>{t.area}</span><select data-filter-area><option value="">{t.all}</option>{research.map((r:any)=><option value={r.id}>{l(r,'title',lang)}</option>)}</select></label>}
+    {types.length>0&&<label><span>{t.type}</span><select data-filter-type><option value="">{t.all}</option>{types.map(type=><option value={type}>{t[type]||type}</option>)}</select></label>}
+    {tags.length>0&&<label><span>{t.tag}</span><select data-filter-tag><option value="">{t.all}</option>{tags.map(tag=><option value={tag}>{t['tag:'+tag]||tag}</option>)}</select></label>}
+    <button type="reset" class="text-button">{t.reset}</button>
+  </form>
+  <p class="result-count" role="status" data-count-label={t.count}>{t.count}: <span data-result-count>{rows.length}</span></p>
+  <div class="card-grid">{rows.map((row:any,index:number)=><Card row={row} collection={collection} lang={lang} index={index}/>)}</div>
+  <p class="empty-state" data-no-results hidden={rows.length>0}>{rows.length?t.noResults:t.forthcoming}</p>
+</section>
+<script>
+  document.querySelectorAll<HTMLElement>('[data-catalog]').forEach(catalog=>{
+    const search=catalog.querySelector<HTMLInputElement>('[data-filter-search]');
+    const area=catalog.querySelector<HTMLSelectElement>('[data-filter-area]');
+    const type=catalog.querySelector<HTMLSelectElement>('[data-filter-type]');
+    const tag=catalog.querySelector<HTMLSelectElement>('[data-filter-tag]');
+    const update=()=>{
+      let count=0;
+      catalog.querySelectorAll<HTMLElement>('[data-filter-item]').forEach(item=>{
+        const visible=(!search?.value||item.dataset.text?.includes(search.value.toLocaleLowerCase().trim()))&&
+          (!area?.value||item.dataset.area?.split(' ').includes(area.value))&&
+          (!type?.value||item.dataset.type===type.value)&&(!tag?.value||item.dataset.tags?.split('|').includes(tag.value));
+        item.hidden=!visible;if(visible)count++;
+      });
+      const number=catalog.querySelector('[data-result-count]');if(number)number.textContent=String(count);
+      const empty=catalog.querySelector<HTMLElement>('[data-no-results]');if(empty)empty.hidden=count!==0;
+    };
+    catalog.querySelector('form')?.addEventListener('input',update);
+    catalog.querySelector('form')?.addEventListener('reset',()=>setTimeout(update,0));
+  });
+</script>

@@ -1,0 +1,27 @@
+{
+  "id": "artificial-intelligence",
+  "slug": "artificial-intelligence",
+  "publish": true,
+  "ready_ru": true,
+  "ready_en": true,
+  "title_ru": "Искусственный интеллект",
+  "title_en": "Artificial intelligence",
+  "summary_ru": "Исследование подходов к ИИ",
+  "summary_en": "Research into approaches to AI",
+  "body_ru": "",
+  "body_en": "",
+  "editorialStatus": "awaiting_content",
+  "researchAreas": [
+    "artificial-intelligence"
+  ],
+  "relatedProjects": [],
+  "relatedPublications": [],
+  "relatedJournal": [],
+  "tags": [],
+  "featured": false,
+  "heroImage": "",
+  "gallery": [],
+  "links": [],
+  "timeline": [],
+  "order": 5
+}

@@ -1,0 +1,12 @@
+import {chromium} from '@playwright/test';
+const browser=await chromium.launch();
+const page=await browser.newPage({viewport:{width:1440,height:1000}});
+await page.goto('http://127.0.0.1:4321/ru/projects/mathematical-parser/graph/');
+await page.locator('.react-flow__edge').first().waitFor();
+console.log(JSON.stringify(await page.locator('.react-flow__edge-path').evaluateAll(paths=>paths.map(p=>({d:p.getAttribute('d'),box:p.getBoundingClientRect().toJSON(),color:getComputedStyle(p).stroke}))),null,2));
+console.log(JSON.stringify(await page.locator('.react-flow__edge-path').first().evaluate(p=>{let a=p;const all=[];while(a){const s=getComputedStyle(a);all.push({tag:a.tagName,class:a.getAttribute('class'),width:s.width,height:s.height,overflow:s.overflow,opacity:s.opacity,z:s.zIndex});a=a.parentElement}return all}),null,2));
+await page.screenshot({path:'.local/graph-settled.png',fullPage:true});
+await page.goto('http://127.0.0.1:4321/ru/');
+await page.locator('#theme-select').selectOption('dark');
+await page.screenshot({path:'.local/home-dark.png',fullPage:false});
+await browser.close();

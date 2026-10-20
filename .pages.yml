@@ -1,0 +1,1461 @@
+# Pages CMS. Source graph and immutable IDs are deliberately outside editorial control.
+media:
+  - name: images
+    label: Images
+    input: public/images
+    output: /images
+  - name: files
+    label: PDF / Files
+    input: public/files
+    output: /files
+actions:
+  - name: release-content
+    label: Сохранить полные RU+EN версии перед новой редакцией
+    workflow: content-release.yml
+content:
+  - name: site
+    label: Главная / About / настройки
+    type: file
+    path: src/data/site.json
+    format: json
+    fields:
+      - name: name
+        label: name
+        type: string
+      - name: tagline
+        label: tagline
+        type: string
+      - name: portrait
+        label: portrait
+        type: image
+      - name: email
+        label: email
+        type: string
+      - name: formEndpoint
+        label: formEndpoint
+        type: string
+      - name: cloudflareToken
+        label: cloudflareToken
+        type: string
+      - name: profiles
+        label: profiles
+        type: object
+        list: true
+        fields:
+          - name: label
+            label: label
+            type: string
+          - name: url
+            label: url
+            type: string
+      - name: ru
+        label: ru
+        type: object
+        fields:
+          - name: role
+            label: role
+            type: text
+          - name: heroTitle
+            label: heroTitle
+            type: text
+          - name: heroText
+            label: heroText
+            type: text
+          - name: heroNote
+            label: heroNote
+            type: text
+          - name: intro
+            label: intro
+            type: text
+          - name: featured
+            label: featured
+            type: text
+          - name: publications
+            label: publications
+            type: text
+          - name: journal
+            label: journal
+            type: text
+          - name: collaborationTitle
+            label: collaborationTitle
+            type: text
+          - name: collaborationText
+            label: collaborationText
+            type: text
+          - name: aboutTitle
+            label: aboutTitle
+            type: text
+          - name: aboutBody
+            label: aboutBody
+            type: rich-text
+          - name: contactEmpty
+            label: contactEmpty
+            type: text
+          - name: journalEmpty
+            label: journalEmpty
+            type: text
+          - name: history
+            label: history
+            type: text
+          - name: rights
+            label: rights
+            type: text
+          - name: privacy
+            label: privacy
+            type: text
+      - name: en
+        label: en
+        type: object
+        fields:
+          - name: role
+            label: role
+            type: text
+          - name: heroTitle
+            label: heroTitle
+            type: text
+          - name: heroText
+            label: heroText
+            type: text
+          - name: heroNote
+            label: heroNote
+            type: text
+          - name: intro
+            label: intro
+            type: text
+          - name: featured
+            label: featured
+            type: text
+          - name: publications
+            label: publications
+            type: text
+          - name: journal
+            label: journal
+            type: text
+          - name: collaborationTitle
+            label: collaborationTitle
+            type: text
+          - name: collaborationText
+            label: collaborationText
+            type: text
+          - name: aboutTitle
+            label: aboutTitle
+            type: text
+          - name: aboutBody
+            label: aboutBody
+            type: rich-text
+          - name: contactEmpty
+            label: contactEmpty
+            type: text
+          - name: journalEmpty
+            label: journalEmpty
+            type: text
+          - name: history
+            label: history
+            type: text
+          - name: rights
+            label: rights
+            type: text
+          - name: privacy
+            label: privacy
+            type: text
+  - name: interface
+    label: Подписи интерфейса RU / EN
+    type: file
+    path: src/data/ui.json
+    format: json
+    fields:
+      - name: ru
+        label: ru
+        type: object
+        fields:
+          - name: home
+            label: home
+            type: text
+          - name: research
+            label: research
+            type: text
+          - name: projects
+            label: projects
+            type: text
+          - name: publications
+            label: publications
+            type: text
+          - name: journal
+            label: journal
+            type: text
+          - name: timeline
+            label: timeline
+            type: text
+          - name: about
+            label: about
+            type: text
+          - name: search
+            label: search
+            type: text
+          - name: legal
+            label: legal
+            type: text
+          - name: privacy
+            label: privacy
+            type: text
+          - name: skip
+            label: skip
+            type: text
+          - name: menu
+            label: menu
+            type: text
+          - name: theme
+            label: theme
+            type: text
+          - name: system
+            label: system
+            type: text
+          - name: light
+            label: light
+            type: text
+          - name: dark
+            label: dark
+            type: text
+          - name: explore
+            label: explore
+            type: text
+          - name: viewProjects
+            label: viewProjects
+            type: text
+          - name: allProjects
+            label: allProjects
+            type: text
+          - name: allPublications
+            label: allPublications
+            type: text
+          - name: allJournal
+            label: allJournal
+            type: text
+          - name: read
+            label: read
+            type: text
+          - name: contact
+            label: contact
+            type: text
+          - name: forthcoming
+            label: forthcoming
+            type: text
+          - name: editorial
+            label: editorial
+            type: text
+          - name: questions
+            label: questions
+            type: text
+          - name: openProblems
+            label: openProblems
+            type: text
+          - name: related
+            label: related
+            type: text
+          - name: relatedProjects
+            label: relatedProjects
+            type: text
+          - name: relatedPublications
+            label: relatedPublications
+            type: text
+          - name: thematicJournal
+            label: thematicJournal
+            type: text
+          - name: noRelated
+            label: noRelated
+            type: text
+          - name: all
+            label: all
+            type: text
+          - name: filter
+            label: filter
+            type: text
+          - name: area
+            label: area
+            type: text
+          - name: type
+            label: type
+            type: text
+          - name: tag
+            label: tag
+            type: text
+          - name: reset
+            label: reset
+            type: text
+          - name: filterSearch
+            label: filterSearch
+            type: text
+          - name: noResults
+            label: noResults
+            type: text
+          - name: book
+            label: book
+            type: text
+          - name: theses
+            label: theses
+            type: text
+          - name: article
+            label: article
+            type: text
+          - name: technical-note
+            label: technical-note
+            type: text
+          - name: news
+            label: news
+            type: text
+          - name: research-note
+            label: research-note
+            type: text
+          - name: experiment
+            label: experiment
+            type: text
+          - name: result
+            label: result
+            type: text
+          - name: active
+            label: active
+            type: text
+          - name: completed
+            label: completed
+            type: text
+          - name: paused
+            label: paused
+            type: text
+          - name: graph
+            label: graph
+            type: text
+          - name: openGraph
+            label: openGraph
+            type: text
+          - name: graphDescription
+            label: graphDescription
+            type: text
+          - name: demo
+            label: demo
+            type: text
+          - name: demoText
+            label: demoText
+            type: text
+          - name: publicGraph
+            label: publicGraph
+            type: text
+          - name: demoGraph
+            label: demoGraph
+            type: text
+          - name: noApproved
+            label: noApproved
+            type: text
+          - name: searchNodes
+            label: searchNodes
+            type: text
+          - name: nodeType
+            label: nodeType
+            type: text
+          - name: researchStatus
+            label: researchStatus
+            type: text
+          - name: кризис-разрешение
+            label: кризис-разрешение
+            type: text
+          - name: противоречие
+            label: противоречие
+            type: text
+          - name: частный_случай
+            label: частный_случай
+            type: text
+          - name: качество
+            label: качество
+            type: text
+          - name: подтверждено
+            label: подтверждено
+            type: text
+          - name: черновик
+            label: черновик
+            type: text
+          - name: не выведено
+            label: не выведено
+            type: text
+          - name: fit
+            label: fit
+            type: text
+          - name: predecessors
+            label: predecessors
+            type: text
+          - name: descendants
+            label: descendants
+            type: text
+          - name: allConnections
+            label: allConnections
+            type: text
+          - name: nodeList
+            label: nodeList
+            type: text
+          - name: selectNode
+            label: selectNode
+            type: text
+          - name: hiddenStructure
+            label: hiddenStructure
+            type: text
+          - name: modelNote
+            label: modelNote
+            type: text
+          - name: zoomIn
+            label: zoomIn
+            type: text
+          - name: zoomOut
+            label: zoomOut
+            type: text
+          - name: notes
+            label: notes
+            type: text
+          - name: gallery
+            label: gallery
+            type: text
+          - name: galleryEmpty
+            label: galleryEmpty
+            type: text
+          - name: contents
+            label: contents
+            type: text
+          - name: fullText
+            label: fullText
+            type: text
+          - name: chapters
+            label: chapters
+            type: text
+          - name: planned
+            label: planned
+            type: text
+          - name: chapterPending
+            label: chapterPending
+            type: text
+          - name: originalLicense
+            label: originalLicense
+            type: text
+          - name: history
+            label: history
+            type: text
+          - name: timelineDescription
+            label: timelineDescription
+            type: text
+          - name: upcoming
+            label: upcoming
+            type: text
+          - name: upcomingNote
+            label: upcomingNote
+            type: text
+          - name: portrait
+            label: portrait
+            type: text
+          - name: language
+            label: language
+            type: text
+          - name: searchHint
+            label: searchHint
+            type: text
+          - name: searchLoading
+            label: searchLoading
+            type: text
+          - name: searchUnavailable
+            label: searchUnavailable
+            type: text
+          - name: name
+            label: name
+            type: text
+          - name: email
+            label: email
+            type: text
+          - name: message
+            label: message
+            type: text
+          - name: send
+            label: send
+            type: text
+          - name: sending
+            label: sending
+            type: text
+          - name: sent
+            label: sent
+            type: text
+          - name: sendError
+            label: sendError
+            type: text
+          - name: consent
+            label: consent
+            type: text
+          - name: notFound
+            label: notFound
+            type: text
+          - name: notFoundText
+            label: notFoundText
+            type: text
+          - name: rss
+            label: rss
+            type: text
+          - name: back
+            label: back
+            type: text
+          - name: close
+            label: close
+            type: text
+          - name: status
+            label: status
+            type: text
+          - name: codeLicense
+            label: codeLicense
+            type: text
+          - name: analyticsOff
+            label: analyticsOff
+            type: text
+          - name: analyticsOn
+            label: analyticsOn
+            type: text
+          - name: count
+            label: count
+            type: text
+          - name: from
+            label: from
+            type: text
+          - name: tag:Mathematics
+            label: tag:Mathematics
+            type: text
+          - name: tag:Graph
+            label: tag:Graph
+            type: text
+          - name: tag:Learning
+            label: tag:Learning
+            type: text
+          - name: tag:Notes
+            label: tag:Notes
+            type: text
+          - name: tag:Languages
+            label: tag:Languages
+            type: text
+          - name: tag:Agents
+            label: tag:Agents
+            type: text
+          - name: tag:Experiments
+            label: tag:Experiments
+            type: text
+          - name: tag:Algorithms
+            label: tag:Algorithms
+            type: text
+          - name: tag:Research
+            label: tag:Research
+            type: text
+          - name: tag:Personal tool
+            label: tag:Personal tool
+            type: text
+          - name: tag:AI
+            label: tag:AI
+            type: text
+          - name: tag:Education
+            label: tag:Education
+            type: text
+          - name: tag:Theses
+            label: tag:Theses
+            type: text
+          - name: tag:demo
+            label: tag:demo
+            type: text
+          - name: notebook
+            label: notebook
+            type: text
+          - name: parserLabel
+            label: parserLabel
+            type: text
+      - name: en
+        label: en
+        type: object
+        fields:
+          - name: home
+            label: home
+            type: text
+          - name: research
+            label: research
+            type: text
+          - name: projects
+            label: projects
+            type: text
+          - name: publications
+            label: publications
+            type: text
+          - name: journal
+            label: journal
+            type: text
+          - name: timeline
+            label: timeline
+            type: text
+          - name: about
+            label: about
+            type: text
+          - name: search
+            label: search
+            type: text
+          - name: legal
+            label: legal
+            type: text
+          - name: privacy
+            label: privacy
+            type: text
+          - name: skip
+            label: skip
+            type: text
+          - name: menu
+            label: menu
+            type: text
+          - name: theme
+            label: theme
+            type: text
+          - name: system
+            label: system
+            type: text
+          - name: light
+            label: light
+            type: text
+          - name: dark
+            label: dark
+            type: text
+          - name: explore
+            label: explore
+            type: text
+          - name: viewProjects
+            label: viewProjects
+            type: text
+          - name: allProjects
+            label: allProjects
+            type: text
+          - name: allPublications
+            label: allPublications
+            type: text
+          - name: allJournal
+            label: allJournal
+            type: text
+          - name: read
+            label: read
+            type: text
+          - name: contact
+            label: contact
+            type: text
+          - name: forthcoming
+            label: forthcoming
+            type: text
+          - name: editorial
+            label: editorial
+            type: text
+          - name: questions
+            label: questions
+            type: text
+          - name: openProblems
+            label: openProblems
+            type: text
+          - name: related
+            label: related
+            type: text
+          - name: relatedProjects
+            label: relatedProjects
+            type: text
+          - name: relatedPublications
+            label: relatedPublications
+            type: text
+          - name: thematicJournal
+            label: thematicJournal
+            type: text
+          - name: noRelated
+            label: noRelated
+            type: text
+          - name: all
+            label: all
+            type: text
+          - name: filter
+            label: filter
+            type: text
+          - name: area
+            label: area
+            type: text
+          - name: type
+            label: type
+            type: text
+          - name: tag
+            label: tag
+            type: text
+          - name: reset
+            label: reset
+            type: text
+          - name: filterSearch
+            label: filterSearch
+            type: text
+          - name: noResults
+            label: noResults
+            type: text
+          - name: book
+            label: book
+            type: text
+          - name: theses
+            label: theses
+            type: text
+          - name: article
+            label: article
+            type: text
+          - name: technical-note
+            label: technical-note
+            type: text
+          - name: news
+            label: news
+            type: text
+          - name: research-note
+            label: research-note
+            type: text
+          - name: experiment
+            label: experiment
+            type: text
+          - name: result
+            label: result
+            type: text
+          - name: active
+            label: active
+            type: text
+          - name: completed
+            label: completed
+            type: text
+          - name: paused
+            label: paused
+            type: text
+          - name: graph
+            label: graph
+            type: text
+          - name: openGraph
+            label: openGraph
+            type: text
+          - name: graphDescription
+            label: graphDescription
+            type: text
+          - name: demo
+            label: demo
+            type: text
+          - name: demoText
+            label: demoText
+            type: text
+          - name: publicGraph
+            label: publicGraph
+            type: text
+          - name: demoGraph
+            label: demoGraph
+            type: text
+          - name: noApproved
+            label: noApproved
+            type: text
+          - name: searchNodes
+            label: searchNodes
+            type: text
+          - name: nodeType
+            label: nodeType
+            type: text
+          - name: researchStatus
+            label: researchStatus
+            type: text
+          - name: кризис-разрешение
+            label: кризис-разрешение
+            type: text
+          - name: противоречие
+            label: противоречие
+            type: text
+          - name: частный_случай
+            label: частный_случай
+            type: text
+          - name: качество
+            label: качество
+            type: text
+          - name: подтверждено
+            label: подтверждено
+            type: text
+          - name: черновик
+            label: черновик
+            type: text
+          - name: не выведено
+            label: не выведено
+            type: text
+          - name: fit
+            label: fit
+            type: text
+          - name: predecessors
+            label: predecessors
+            type: text
+          - name: descendants
+            label: descendants
+            type: text
+          - name: allConnections
+            label: allConnections
+            type: text
+          - name: nodeList
+            label: nodeList
+            type: text
+          - name: selectNode
+            label: selectNode
+            type: text
+          - name: hiddenStructure
+            label: hiddenStructure
+            type: text
+          - name: modelNote
+            label: modelNote
+            type: text
+          - name: zoomIn
+            label: zoomIn
+            type: text
+          - name: zoomOut
+            label: zoomOut
+            type: text
+          - name: notes
+            label: notes
+            type: text
+          - name: gallery
+            label: gallery
+            type: text
+          - name: galleryEmpty
+            label: galleryEmpty
+            type: text
+          - name: contents
+            label: contents
+            type: text
+          - name: fullText
+            label: fullText
+            type: text
+          - name: chapters
+            label: chapters
+            type: text
+          - name: planned
+            label: planned
+            type: text
+          - name: chapterPending
+            label: chapterPending
+            type: text
+          - name: originalLicense
+            label: originalLicense
+            type: text
+          - name: history
+            label: history
+            type: text
+          - name: timelineDescription
+            label: timelineDescription
+            type: text
+          - name: upcoming
+            label: upcoming
+            type: text
+          - name: upcomingNote
+            label: upcomingNote
+            type: text
+          - name: portrait
+            label: portrait
+            type: text
+          - name: language
+            label: language
+            type: text
+          - name: searchHint
+            label: searchHint
+            type: text
+          - name: searchLoading
+            label: searchLoading
+            type: text
+          - name: searchUnavailable
+            label: searchUnavailable
+            type: text
+          - name: name
+            label: name
+            type: text
+          - name: email
+            label: email
+            type: text
+          - name: message
+            label: message
+            type: text
+          - name: send
+            label: send
+            type: text
+          - name: sending
+            label: sending
+            type: text
+          - name: sent
+            label: sent
+            type: text
+          - name: sendError
+            label: sendError
+            type: text
+          - name: consent
+            label: consent
+            type: text
+          - name: notFound
+            label: notFound
+            type: text
+          - name: notFoundText
+            label: notFoundText
+            type: text
+          - name: rss
+            label: rss
+            type: text
+          - name: back
+            label: back
+            type: text
+          - name: close
+            label: close
+            type: text
+          - name: status
+            label: status
+            type: text
+          - name: codeLicense
+            label: codeLicense
+            type: text
+          - name: analyticsOff
+            label: analyticsOff
+            type: text
+          - name: analyticsOn
+            label: analyticsOn
+            type: text
+          - name: count
+            label: count
+            type: text
+          - name: from
+            label: from
+            type: text
+          - name: tag:Mathematics
+            label: tag:Mathematics
+            type: text
+          - name: tag:Graph
+            label: tag:Graph
+            type: text
+          - name: tag:Learning
+            label: tag:Learning
+            type: text
+          - name: tag:Notes
+            label: tag:Notes
+            type: text
+          - name: tag:Languages
+            label: tag:Languages
+            type: text
+          - name: tag:Agents
+            label: tag:Agents
+            type: text
+          - name: tag:Experiments
+            label: tag:Experiments
+            type: text
+          - name: tag:Algorithms
+            label: tag:Algorithms
+            type: text
+          - name: tag:Research
+            label: tag:Research
+            type: text
+          - name: tag:Personal tool
+            label: tag:Personal tool
+            type: text
+          - name: tag:AI
+            label: tag:AI
+            type: text
+          - name: tag:Education
+            label: tag:Education
+            type: text
+          - name: tag:Theses
+            label: tag:Theses
+            type: text
+          - name: tag:demo
+            label: tag:demo
+            type: text
+          - name: notebook
+            label: notebook
+            type: text
+          - name: parserLabel
+            label: parserLabel
+            type: text
+  - name: research
+    label: research
+    type: collection
+    path: src/content/research
+    format: json
+    filename: "{fields.id}.json"
+    view:
+      primary: title_ru
+      fields:
+        - id
+        - title_ru
+        - publish
+        - ready_ru
+        - ready_en
+    fields:
+      - &a1
+        name: id
+        label: id
+        type: string
+        required: true
+        pattern: ^[a-z0-9]+(?:-[a-z0-9]+)*$
+        description: Постоянный ID. Не менять после первого выпуска.
+      - &a2
+        name: slug
+        label: slug
+        type: string
+        required: true
+        pattern: ^[a-z0-9]+(?:-[a-z0-9]+)*$
+      - &a3
+        name: publish
+        label: Показывать на сайте
+        type: boolean
+        default: false
+        description: Публично только при готовности обоих языков. Черновики видны в
+          исходном GitHub, но не на сайте.
+      - &a4
+        name: ready_ru
+        label: Русская версия готова
+        type: boolean
+        default: false
+      - &a5
+        name: ready_en
+        label: English version ready
+        type: boolean
+        default: false
+      - &a6
+        name: title_ru
+        label: title_ru
+        type: string
+      - &a7
+        name: title_en
+        label: title_en
+        type: string
+      - &a8
+        name: summary_ru
+        label: summary_ru
+        type: text
+      - &a9
+        name: summary_en
+        label: summary_en
+        type: text
+      - &a10
+        name: body_ru
+        label: body_ru
+        type: rich-text
+      - &a11
+        name: body_en
+        label: body_en
+        type: rich-text
+      - &a12
+        name: editorialStatus
+        label: editorialStatus
+        type: select
+        options:
+          values:
+            - awaiting_content
+            - editorial_summary
+            - final
+            - external_publication
+        default: awaiting_content
+      - &a13
+        name: featured
+        label: featured
+        type: boolean
+      - &a14
+        name: order
+        label: Порядок отображения
+        type: number
+        default: 100
+      - &a15
+        name: heroImage
+        label: heroImage
+        type: image
+      - &a16
+        name: gallery
+        label: gallery
+        type: object
+        list: true
+        fields:
+          - name: src
+            label: src
+            type: image
+          - name: alt_ru
+            label: alt_ru
+            type: string
+          - name: alt_en
+            label: alt_en
+            type: string
+      - &a17
+        name: researchAreas
+        label: researchAreas
+        type: string
+        list: true
+      - &a18
+        name: relatedProjects
+        label: relatedProjects
+        type: string
+        list: true
+      - &a19
+        name: relatedPublications
+        label: relatedPublications
+        type: string
+        list: true
+      - &a20
+        name: relatedJournal
+        label: relatedJournal
+        type: string
+        list: true
+      - &a21
+        name: tags
+        label: tags
+        type: string
+        list: true
+      - &a22
+        name: links
+        label: links
+        type: object
+        list: true
+        fields:
+          - name: label_ru
+            label: label_ru
+            type: string
+          - name: label_en
+            label: label_en
+            type: string
+          - name: url
+            label: url
+            type: string
+      - &a23
+        name: timeline
+        label: timeline
+        type: object
+        list: true
+        fields:
+          - name: date
+            label: date
+            type: date
+            default: ""
+            options:
+              format: yyyy-MM-dd
+          - name: title_ru
+            label: title_ru
+            type: string
+          - name: title_en
+            label: title_en
+            type: string
+      - &a24
+        name: date
+        label: date
+        type: date
+        default: ""
+        options:
+          format: yyyy-MM-dd
+        description: Только реальная дата события или публикации. Оставить пустым, если
+          неизвестна.
+      - name: symbol
+        label: symbol
+        type: string
+      - name: questions_ru
+        label: questions_ru
+        type: text
+      - name: questions_en
+        label: questions_en
+        type: text
+      - name: openProblems_ru
+        label: openProblems_ru
+        type: text
+      - name: openProblems_en
+        label: openProblems_en
+        type: text
+  - name: projects
+    label: projects
+    type: collection
+    path: src/content/projects
+    format: json
+    filename: "{fields.id}.json"
+    view:
+      primary: title_ru
+      fields:
+        - id
+        - title_ru
+        - publish
+        - ready_ru
+        - ready_en
+    fields:
+      - *a1
+      - *a2
+      - *a3
+      - *a4
+      - *a5
+      - *a6
+      - *a7
+      - *a8
+      - *a9
+      - *a10
+      - *a11
+      - *a12
+      - *a13
+      - *a14
+      - *a15
+      - *a16
+      - *a17
+      - *a18
+      - *a19
+      - *a20
+      - *a21
+      - *a22
+      - *a23
+      - *a24
+      - name: status
+        label: status
+        type: select
+        options:
+          values:
+            - active
+            - completed
+            - paused
+        default: active
+  - name: publications
+    label: publications
+    type: collection
+    path: src/content/publications
+    format: json
+    filename: "{fields.id}.json"
+    view:
+      primary: title_ru
+      fields:
+        - id
+        - title_ru
+        - publish
+        - ready_ru
+        - ready_en
+    fields:
+      - *a1
+      - *a2
+      - *a3
+      - *a4
+      - *a5
+      - *a6
+      - *a7
+      - *a8
+      - *a9
+      - *a10
+      - *a11
+      - *a12
+      - *a13
+      - *a14
+      - *a15
+      - *a16
+      - *a17
+      - *a18
+      - *a19
+      - *a20
+      - *a21
+      - *a22
+      - *a23
+      - *a24
+      - name: type
+        label: type
+        type: select
+        options:
+          values:
+            - book
+            - theses
+            - article
+            - technical-note
+      - name: license
+        label: license
+        type: string
+      - name: targetDate
+        label: targetDate
+        type: date
+        default: ""
+        options:
+          format: yyyy-MM-dd
+      - name: startedDate
+        label: startedDate
+        type: date
+        default: ""
+        options:
+          format: yyyy-MM-dd
+      - name: pdf_ru
+        label: pdf_ru
+        type: file
+      - name: pdf_en
+        label: pdf_en
+        type: file
+  - name: journal
+    label: journal
+    type: collection
+    path: src/content/journal
+    format: json
+    filename: "{fields.id}.json"
+    view:
+      primary: title_ru
+      fields:
+        - id
+        - title_ru
+        - publish
+        - ready_ru
+        - ready_en
+    fields:
+      - *a1
+      - *a2
+      - *a3
+      - *a4
+      - *a5
+      - *a6
+      - *a7
+      - *a8
+      - *a9
+      - *a10
+      - *a11
+      - *a12
+      - *a13
+      - *a14
+      - *a15
+      - *a16
+      - *a17
+      - *a18
+      - *a19
+      - *a20
+      - *a21
+      - *a22
+      - *a23
+      - *a24
+      - name: type
+        label: type
+        type: select
+        options:
+          values:
+            - news
+            - research-note
+            - experiment
+            - result
+  - name: theses
+    label: theses
+    type: collection
+    path: src/content/theses
+    format: json
+    filename: "{fields.id}.json"
+    view:
+      primary: title_ru
+      fields:
+        - id
+        - title_ru
+        - publish
+        - ready_ru
+        - ready_en
+    fields:
+      - *a1
+      - *a2
+      - *a3
+      - *a4
+      - *a5
+      - *a6
+      - *a7
+      - *a8
+      - *a9
+      - *a10
+      - *a11
+      - *a12
+      - *a13
+      - *a14
+      - *a15
+      - *a16
+      - *a17
+      - *a18
+      - *a19
+      - *a20
+      - *a21
+      - *a22
+      - *a23
+      - *a24
+  - name: pages
+    label: pages
+    type: collection
+    path: src/content/pages
+    format: json
+    filename: "{fields.id}.json"
+    view:
+      primary: title_ru
+      fields:
+        - id
+        - title_ru
+        - publish
+        - ready_ru
+        - ready_en
+    fields:
+      - *a1
+      - *a2
+      - *a3
+      - *a4
+      - *a5
+      - *a6
+      - *a7
+      - *a8
+      - *a9
+      - *a10
+      - *a11
+      - *a12
+      - *a13
+      - *a14
+      - *a15
+      - *a16
+      - *a17
+      - *a18
+      - *a19
+      - *a20
+      - *a21
+      - *a22
+      - *a23
+      - *a24
+  - name: graph-overrides
+    label: Граф — разрешения и аннотации
+    type: collection
+    path: src/content/graph-overrides
+    format: json
+    filename: "{fields.id}.json"
+    operations:
+      create: false
+      delete: false
+      rename: false
+    view:
+      primary: id
+    fields:
+      - name: id
+        label: id
+        type: string
+        readonly: true
+      - name: approvedForPublication
+        label: Я разрешаю публикацию узла
+        type: boolean
+        default: false
+        description: Только владелец включает явно. Исследовательский статус не даёт
+          разрешение на публикацию.
+      - name: annotation_ru
+        label: annotation_ru
+        type: text
+      - name: annotation_en
+        label: annotation_en
+        type: text
+      - name: extra_ru
+        label: extra_ru
+        type: text
+      - name: extra_en
+        label: extra_en
+        type: text
+      - name: order
+        label: order
+        type: number
+      - name: featured
+        label: featured
+        type: boolean
+      - name: tags
+        label: tags
+        type: string
+        list: true
+      - name: image
+        label: image
+        type: image
+      - name: links
+        label: links
+        type: object
+        list: true
+        fields:
+          - name: url
+            label: url
+            type: string
+          - name: label_ru
+            label: label_ru
+            type: string
+          - name: label_en
+            label: label_en
+            type: string

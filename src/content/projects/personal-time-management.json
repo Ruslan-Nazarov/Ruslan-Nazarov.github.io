@@ -1,0 +1,28 @@
+{
+  "id": "personal-time-management",
+  "slug": "personal-time-management",
+  "publish": true,
+  "ready_ru": true,
+  "ready_en": true,
+  "title_ru": "Личный тайм-менеджмент",
+  "title_en": "Personal Time-Management App",
+  "summary_ru": "Приложение для организации личного времени и задач.",
+  "summary_en": "An application for organizing personal time and tasks.",
+  "body_ru": "Проект для личного использования. Эта страница предназначена для описания назначения, особенностей и галереи интерфейса.\n\nОбезличенные скриншоты с демонстрационными данными ещё не предоставлены. Они появятся здесь после загрузки автором. Публичный доступ, установка и репозиторий не предлагаются.",
+  "body_en": "A project for personal use. This page is intended to describe its purpose, features and interface gallery.\n\nAnonymized screenshots containing demonstration data have not yet been supplied. They will appear here once uploaded by the author. Public access, installation and a repository are not offered.",
+  "editorialStatus": "awaiting_content",
+  "researchAreas": [],
+  "relatedProjects": [],
+  "relatedPublications": [],
+  "relatedJournal": [],
+  "tags": [
+    "Personal tool"
+  ],
+  "featured": false,
+  "heroImage": "",
+  "gallery": [],
+  "links": [],
+  "timeline": [],
+  "status": "active",
+  "order": 5
+}

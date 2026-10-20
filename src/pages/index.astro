@@ -1,0 +1,10 @@
+---
+import '../styles/global.css';
+---
+<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Ruslan Nazarov | Independent Researcher</title><meta name="description" content="AI · Mathematics · Physics · Education. Independent research by Ruslan Nazarov."/><link rel="canonical" href="https://ruslan-nazarov.github.io/"/><link rel="alternate" hreflang="ru" href="https://ruslan-nazarov.github.io/ru/"/><link rel="alternate" hreflang="en" href="https://ruslan-nazarov.github.io/en/"/><link rel="alternate" hreflang="x-default" href="https://ruslan-nazarov.github.io/"/><link rel="icon" href="/favicon.svg"/></head><body><main class="language-landing"><span class="brand-mark">rn<span>·</span></span><h1>Ruslan Nazarov</h1><p>Independent Researcher</p><p>AI · Mathematics · Physics · Education</p><div class="hero-actions"><a class="button" href="/ru/" lang="ru" data-language="ru">Русский →</a><a class="button secondary" href="/en/" lang="en" data-language="en">English →</a></div></main><script is:inline>
+  if(!/bot|crawl|spider|slurp|lighthouse/i.test(navigator.userAgent)){
+    let lang;try{lang=localStorage.getItem('rn-language')}catch{}
+    if(lang!=='ru'&&lang!=='en')lang=(navigator.language||'en').toLowerCase().startsWith('ru')?'ru':'en';
+    location.replace('/'+lang+'/');
+  }
+</script></body></html>

@@ -1,0 +1,40 @@
+{
+  "id": "papanda",
+  "slug": "papanda",
+  "publish": true,
+  "ready_ru": true,
+  "ready_en": true,
+  "title_ru": "papanda",
+  "title_en": "papanda",
+  "summary_ru": "Образовательная система и диалектический конспект для самостоятельного построения понимания.",
+  "summary_en": "An educational system and dialectical notes for independently constructing understanding.",
+  "body_ru": "## Замысел\npapanda связывает образовательную систему с диалектическим конспектом. Учащийся восстанавливает процесс развития мысли, формулирует противоречия и рассматривает способы их разрешения.\n\n## Роль ИИ\nИИ может предоставлять сведения, критиковать рассуждение и поддерживать анализ. Самостоятельная работа учащегося остаётся центральной.\n\n## Границы утверждений\nДоступность приложения не доказывает эффективность метода. Реальные конспекты, иллюстрации и материалы пилотов будут добавлены после предоставления автором.",
+  "body_en": "## Intent\npapanda connects an educational system with dialectical notes. Learners reconstruct the development of an idea, formulate contradictions and examine possible resolutions.\n\n## The role of AI\nAI can supply information, critique reasoning and support analysis. The learner’s independent work remains central.\n\n## Limits of the claims\nAn available application does not establish the effectiveness of the method. Actual notes, illustrations and pilot materials will be added when supplied by the author.",
+  "editorialStatus": "awaiting_content",
+  "researchAreas": [
+    "education"
+  ],
+  "relatedProjects": [],
+  "relatedPublications": [
+    "language-handbook",
+    "theses-2020-2026"
+  ],
+  "relatedJournal": [],
+  "tags": [
+    "Learning",
+    "Notes"
+  ],
+  "featured": true,
+  "heroImage": "",
+  "gallery": [],
+  "links": [
+    {
+      "label_ru": "Открыть papanda",
+      "label_en": "Open papanda",
+      "url": "https://papanda.kz"
+    }
+  ],
+  "timeline": [],
+  "status": "active",
+  "order": 1
+}

@@ -1,0 +1,36 @@
+{
+  "id": "theses-2020-2026",
+  "slug": "theses-2020-2026",
+  "publish": true,
+  "ready_ru": true,
+  "ready_en": true,
+  "title_ru": "Тезисы 2020–2026",
+  "title_en": "Theses 2020–2026",
+  "summary_ru": "Предстоящая авторская публикация. Рабочее название; планируемый выпуск — 11 ноября 2026.",
+  "summary_en": "A forthcoming publication. Working title; target release: 11 November 2026.",
+  "body_ru": "Работа над тезисами начата **11 ноября 2020 года**. Целевой срок выпуска — **11 ноября 2026 года**. Это план, а не состоявшаяся публикация.\n\nОкончательный авторский текст редактируется и пока не предоставлен. Ниже показана рабочая структура из пяти глав. Введение, диалектика и восстановление до диалектики объединены в первую главу; три физических раздела — в главу о физике. Структура редактируется в CMS.",
+  "body_en": "Work on the theses began on **11 November 2020**. The target release date is **11 November 2026**. This is a plan, not a completed publication.\n\nThe final authorial text is being edited and has not yet been supplied. The working structure below contains five chapters. The introduction, dialectics and reconstruction before dialectics are grouped in the first chapter; three physics sections are grouped in the physics chapter. The structure can be edited in the CMS.",
+  "editorialStatus": "awaiting_content",
+  "researchAreas": [
+    "mathematics",
+    "physics",
+    "education",
+    "artificial-intelligence"
+  ],
+  "relatedProjects": [],
+  "relatedPublications": [],
+  "relatedJournal": [],
+  "tags": [
+    "Theses"
+  ],
+  "featured": true,
+  "heroImage": "",
+  "gallery": [],
+  "links": [],
+  "timeline": [],
+  "type": "theses",
+  "targetDate": "2026-11-11",
+  "startedDate": "2020-11-11",
+  "pdf_ru": "",
+  "pdf_en": ""
+}

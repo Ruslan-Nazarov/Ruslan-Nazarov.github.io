@@ -1,0 +1,27 @@
+{
+  "id": "mathematics",
+  "slug": "mathematics",
+  "publish": true,
+  "ready_ru": true,
+  "ready_en": true,
+  "title_ru": "Математика",
+  "title_en": "Mathematics",
+  "summary_ru": "Развитие математических операций",
+  "summary_en": "Development of mathematical operations",
+  "body_ru": "",
+  "body_en": "",
+  "editorialStatus": "awaiting_content",
+  "researchAreas": [
+    "mathematics"
+  ],
+  "relatedProjects": [],
+  "relatedPublications": [],
+  "relatedJournal": [],
+  "tags": [],
+  "featured": false,
+  "heroImage": "",
+  "gallery": [],
+  "links": [],
+  "timeline": [],
+  "order": 2
+}

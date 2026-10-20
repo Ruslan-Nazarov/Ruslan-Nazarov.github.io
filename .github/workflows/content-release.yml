@@ -1,0 +1,27 @@
+name: Save complete bilingual revisions
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run validate
+      - run: npm run content:release
+      - name: Save public snapshot on the selected editing branch
+        run: |
+          git add src/data/published.json
+          if git diff --staged --quiet; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Save complete bilingual content revisions"
+          git push origin "HEAD:${GITHUB_REF_NAME}"

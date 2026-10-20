@@ -1,0 +1,24 @@
+---
+import {site,readJSON} from '../lib/content.mjs';
+const {lang}=Astro.props;const t=readJSON('src/data/ui.json')[lang];
+---
+<div class="contact-links">
+  {site.email?<a class="button" href={`mailto:${site.email}`}>{site.email} ↗</a>:<p class="muted">{site[lang].contactEmpty}</p>}
+  {site.profiles.map((p:any)=><a class="button secondary" href={p.url} rel="noopener noreferrer">{p.label} ↗</a>)}
+</div>
+{site.formEndpoint&&<form class="contact-form" action={site.formEndpoint} method="POST" data-sending={t.sending} data-sent={t.sent} data-error={t.sendError}>
+  <label>{t.name}<input name="name" autocomplete="name" required maxlength="150" /></label>
+  <label>{t.email}<input name="email" type="email" autocomplete="email" required maxlength="254" /></label>
+  <label>{t.message}<textarea name="message" rows="6" required minlength="10" maxlength="10000"></textarea></label>
+  <div class="honeypot" aria-hidden="true"><label>Website<input name="_gotcha" tabindex="-1" autocomplete="off" /></label></div>
+  <label class="consent"><input type="checkbox" required name="consent" />{t.consent} <a href={`/${lang}/privacy/`}>{t.privacy}</a></label>
+  <button class="button" type="submit">{t.send}</button><p role="status" data-form-status></p>
+</form>}
+<script>
+document.querySelectorAll<HTMLFormElement>('.contact-form').forEach(form=>form.addEventListener('submit',async event=>{
+  event.preventDefault();const status=form.querySelector<HTMLElement>('[data-form-status]')!;const button=form.querySelector<HTMLButtonElement>('button[type=submit]')!;
+  if((form.elements.namedItem('_gotcha') as HTMLInputElement).value)return;
+  button.disabled=true;status.textContent=form.dataset.sending!;
+  try{const response=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'},signal:AbortSignal.timeout(20000)});if(!response.ok)throw new Error();status.textContent=form.dataset.sent!;form.reset()}catch{status.textContent=form.dataset.error!}finally{button.disabled=false}
+}));
+</script>

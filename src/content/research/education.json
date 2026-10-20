@@ -1,0 +1,36 @@
+{
+  "id": "education",
+  "slug": "education",
+  "publish": true,
+  "ready_ru": true,
+  "ready_en": true,
+  "title_ru": "Образование",
+  "title_en": "Education",
+  "summary_ru": "Понимание как самостоятельное восстановление развития мысли.",
+  "summary_en": "Understanding through independently reconstructing the development of an idea.",
+  "body_ru": "Направление объединяет диалектическое обучение, методику конспекта papanda и изучение языков. Основной интерес — как учащийся сам выстраивает связи между процессом, его развитием, противоречием и разрешением.\n\nИИ рассматривается как источник сведений, критики и поддержки анализа. Гипотеза о пользе такого подхода требует проверки: наличие приложения или пилота само по себе не подтверждает эффективность обучения.",
+  "body_en": "This area brings together dialectical learning, the papanda note-taking method and language learning. The central interest is how learners independently connect a process, its development, a contradiction and a resolution.\n\nAI is considered a source of information, criticism and analytical support. The proposed educational benefit requires evaluation: an application or pilot alone does not establish learning effectiveness.",
+  "editorialStatus": "awaiting_content",
+  "researchAreas": [],
+  "relatedProjects": [
+    "papanda",
+    "papanda-languages"
+  ],
+  "relatedPublications": [
+    "language-handbook",
+    "theses-2020-2026"
+  ],
+  "relatedJournal": [],
+  "tags": [],
+  "featured": false,
+  "heroImage": "",
+  "gallery": [],
+  "links": [],
+  "timeline": [],
+  "questions_ru": "Как сделать процесс построения понимания видимым?\nКак проверить образовательную гипотезу?\nКак соединить структуру языка и практику?",
+  "questions_en": "How can the construction of understanding become visible?\nHow should an educational hypothesis be evaluated?\nHow can language structure and practice be connected?",
+  "openProblems_ru": "Публикация реальных конспектов, описание ограничений метода и протоколов проверки.",
+  "openProblems_en": "Publishing actual notes and documenting the method’s limitations and evaluation protocols.",
+  "symbol": "↗",
+  "order": 2
+}

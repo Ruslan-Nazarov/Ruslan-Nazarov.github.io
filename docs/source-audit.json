@@ -1,0 +1,45 @@
+[
+  {
+    "metrikaFound": false,
+    "licences": [],
+    "status": 200,
+    "title": "Ruslan-Nazarov.github.io | Ruslan Nazarov",
+    "url": "https://ruslan-nazarov.github.io/"
+  },
+  {
+    "metrikaFound": false,
+    "licences": [],
+    "status": 200,
+    "title": "",
+    "url": "https://ruslan-nazarov.github.io/yandex_64f199e3e08207c6.html"
+  },
+  {
+    "metrikaFound": true,
+    "licences": [
+      "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ru"
+    ],
+    "status": 200,
+    "title": "О чем книга? — Handbook Data Science 2025",
+    "url": "https://ruslan-nazarov.github.io/handbook_ai/"
+  },
+  {
+    "metrikaFound": true,
+    "licences": [
+      "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ru"
+    ],
+    "status": 200,
+    "title": "Как выучить много иностранных языков? Диалектический подход — Как выучить много иностранных языков? Диалектический подход",
+    "url": "https://ruslan-nazarov.github.io/handbook_Languages/"
+  },
+  {
+    "metrikaFound": false,
+    "licences": [],
+    "status": 200,
+    "title": "Notes",
+    "url": "https://papanda.kz"
+  },
+  {
+    "url": "https://api.github.com/repos/Ruslan-Nazarov/Ruslan-Nazarov.github.io/pages",
+    "error": "Response status code does not indicate success: 404 (Not Found)."
+  }
+]

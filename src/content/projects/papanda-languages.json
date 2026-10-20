@@ -1,0 +1,33 @@
+{
+  "id": "papanda-languages",
+  "slug": "papanda-languages",
+  "publish": true,
+  "ready_ru": true,
+  "ready_en": true,
+  "title_ru": "papanda Languages",
+  "title_en": "papanda Languages",
+  "summary_ru": "Структурный разбор языка, контекстные примеры и практика повторения.",
+  "summary_en": "Language structure, contextual examples and repetition practice.",
+  "body_ru": "Самостоятельный проект приложения для изучения языков. В описанную функциональность входят структурный разбор предложений, работа с морфемами, контекстные примеры, словарь и интервальное повторение.\n\nТекущая стадия MVP или тестирования требует уточнения по актуальным материалам. Скриншоты и публичная ссылка пока не предоставлены. Описание функций не является отчётом об измеренных результатах обучения.",
+  "body_en": "A separate language-learning application project. The described functionality includes sentence structure analysis, morphemes, contextual examples, a dictionary and spaced repetition.\n\nThe current MVP or testing stage needs verification against current materials. Screenshots and a public link have not yet been supplied. This functionality description is not a report of measured learning outcomes.",
+  "editorialStatus": "awaiting_content",
+  "researchAreas": [
+    "education"
+  ],
+  "relatedProjects": [],
+  "relatedPublications": [
+    "language-handbook"
+  ],
+  "relatedJournal": [],
+  "tags": [
+    "Languages",
+    "Learning"
+  ],
+  "featured": false,
+  "heroImage": "",
+  "gallery": [],
+  "links": [],
+  "timeline": [],
+  "status": "active",
+  "order": 2
+}

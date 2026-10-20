@@ -1,0 +1,33 @@
+{
+  "id": "ai-algorithm",
+  "slug": "ai-algorithm",
+  "publish": true,
+  "ready_ru": true,
+  "ready_en": true,
+  "title_ru": "AI_algorithm",
+  "title_en": "AI_algorithm",
+  "summary_ru": "Незавершённое исследование альтернативной архитектуры искусственного интеллекта.",
+  "summary_en": "Unfinished research into an alternative artificial intelligence architecture.",
+  "body_ru": "Проект включает развитие итераций алгоритма, математическое описание, численные проверки и фиксацию отклонённых гипотез. Исследование не завершено.\n\nСтатья для arXiv готовится. Дата публикации, DOI и arXiv ID отсутствуют. Подтверждённые материалы и результаты будут добавляться по мере предоставления автором.",
+  "body_en": "The project involves algorithm iterations, mathematical descriptions, numerical checks and a record of rejected hypotheses. The research is unfinished.\n\nAn arXiv paper is in preparation. No publication date, DOI or arXiv ID is available. Verified materials and results will be added as the author supplies them.",
+  "editorialStatus": "awaiting_content",
+  "researchAreas": [
+    "artificial-intelligence"
+  ],
+  "relatedProjects": [],
+  "relatedPublications": [
+    "data-science-handbook"
+  ],
+  "relatedJournal": [],
+  "tags": [
+    "Algorithms",
+    "Research"
+  ],
+  "featured": true,
+  "heroImage": "",
+  "gallery": [],
+  "links": [],
+  "timeline": [],
+  "status": "active",
+  "order": 4
+}

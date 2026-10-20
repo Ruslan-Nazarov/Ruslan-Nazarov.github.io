@@ -1,0 +1,168 @@
+{
+  "demo": true,
+  "nodes": [
+    {
+      "id": "demo-addition",
+      "originalKey": "сложение",
+      "title_ru": "Сложение",
+      "title_en": "Addition",
+      "formula": "a+b",
+      "type": "кризис-разрешение",
+      "predecessors": [],
+      "researchStatus": "черновик",
+      "explanation_ru": "Демонстрационная карточка интерфейса по снимку перечня узлов от 29.09.2026. Полный вывод и тип требуют сверки с актуальным кодом. Эта запись не является одобренным узлом исследовательского графа.",
+      "explanation_en": "An interface demonstration card based on the node-inventory snapshot of 29 September 2026. The full derivation and type need reconciliation with the current code. This is not an approved research-graph node.",
+      "position": {
+        "x": 80,
+        "y": 80
+      },
+      "tags": [
+        "demo"
+      ],
+      "order": 0,
+      "links": []
+    },
+    {
+      "id": "demo-multiplication",
+      "originalKey": "умножение",
+      "title_ru": "Умножение",
+      "title_en": "Multiplication",
+      "formula": "a\\cdot b",
+      "type": "кризис-разрешение",
+      "predecessors": [
+        "demo-addition"
+      ],
+      "researchStatus": "черновик",
+      "explanation_ru": "Демонстрационная карточка интерфейса по снимку перечня узлов от 29.09.2026. Полный вывод и тип требуют сверки с актуальным кодом. Эта запись не является одобренным узлом исследовательского графа.",
+      "explanation_en": "An interface demonstration card based on the node-inventory snapshot of 29 September 2026. The full derivation and type need reconciliation with the current code. This is not an approved research-graph node.",
+      "position": {
+        "x": 350,
+        "y": 80
+      },
+      "tags": [
+        "demo"
+      ],
+      "order": 1,
+      "links": []
+    },
+    {
+      "id": "demo-power",
+      "originalKey": "степень",
+      "title_ru": "Степень",
+      "title_en": "Power",
+      "formula": "a^n",
+      "type": "кризис-разрешение",
+      "predecessors": [
+        "demo-multiplication"
+      ],
+      "researchStatus": "черновик",
+      "explanation_ru": "Демонстрационная карточка интерфейса по снимку перечня узлов от 29.09.2026. Полный вывод и тип требуют сверки с актуальным кодом. Эта запись не является одобренным узлом исследовательского графа.",
+      "explanation_en": "An interface demonstration card based on the node-inventory snapshot of 29 September 2026. The full derivation and type need reconciliation with the current code. This is not an approved research-graph node.",
+      "position": {
+        "x": 620,
+        "y": 80
+      },
+      "tags": [
+        "demo"
+      ],
+      "order": 2,
+      "links": []
+    },
+    {
+      "id": "demo-root",
+      "originalKey": "корень",
+      "title_ru": "Корень",
+      "title_en": "Root",
+      "formula": "\\sqrt[n]{a}",
+      "type": "кризис-разрешение",
+      "predecessors": [
+        "demo-power"
+      ],
+      "researchStatus": "черновик",
+      "explanation_ru": "Демонстрационная карточка интерфейса по снимку перечня узлов от 29.09.2026. Полный вывод и тип требуют сверки с актуальным кодом. Эта запись не является одобренным узлом исследовательского графа.",
+      "explanation_en": "An interface demonstration card based on the node-inventory snapshot of 29 September 2026. The full derivation and type need reconciliation with the current code. This is not an approved research-graph node.",
+      "position": {
+        "x": 890,
+        "y": 80
+      },
+      "tags": [
+        "demo"
+      ],
+      "order": 3,
+      "links": []
+    },
+    {
+      "id": "demo-division",
+      "originalKey": "деление",
+      "title_ru": "Деление",
+      "title_en": "Division",
+      "formula": "\\frac{a}{b}",
+      "type": "кризис-разрешение",
+      "predecessors": [
+        "demo-multiplication"
+      ],
+      "researchStatus": "черновик",
+      "explanation_ru": "Демонстрационная карточка интерфейса по снимку перечня узлов от 29.09.2026. Полный вывод и тип требуют сверки с актуальным кодом. Эта запись не является одобренным узлом исследовательского графа.",
+      "explanation_en": "An interface demonstration card based on the node-inventory snapshot of 29 September 2026. The full derivation and type need reconciliation with the current code. This is not an approved research-graph node.",
+      "position": {
+        "x": 620,
+        "y": 260
+      },
+      "tags": [
+        "demo"
+      ],
+      "order": 4,
+      "links": []
+    },
+    {
+      "id": "demo-division-case",
+      "originalKey": "частный_случай_деления",
+      "title_ru": "Частный случай деления",
+      "title_en": "A special case of division",
+      "formula": "\\frac{n}{n}=1\\quad(n\\ne0)",
+      "type": "частный_случай",
+      "predecessors": [
+        "demo-division"
+      ],
+      "researchStatus": "черновик",
+      "explanation_ru": "Демонстрационная карточка интерфейса по снимку перечня узлов от 29.09.2026. Полный вывод и тип требуют сверки с актуальным кодом. Эта запись не является одобренным узлом исследовательского графа.",
+      "explanation_en": "An interface demonstration card based on the node-inventory snapshot of 29 September 2026. The full derivation and type need reconciliation with the current code. This is not an approved research-graph node.",
+      "position": {
+        "x": 890,
+        "y": 260
+      },
+      "tags": [
+        "demo"
+      ],
+      "order": 5,
+      "links": []
+    }
+  ],
+  "edges": [
+    {
+      "id": "demo-addition--demo-multiplication",
+      "source": "demo-addition",
+      "target": "demo-multiplication"
+    },
+    {
+      "id": "demo-multiplication--demo-power",
+      "source": "demo-multiplication",
+      "target": "demo-power"
+    },
+    {
+      "id": "demo-power--demo-root",
+      "source": "demo-power",
+      "target": "demo-root"
+    },
+    {
+      "id": "demo-multiplication--demo-division",
+      "source": "demo-multiplication",
+      "target": "demo-division"
+    },
+    {
+      "id": "demo-division--demo-division-case",
+      "source": "demo-division",
+      "target": "demo-division-case"
+    }
+  ]
+}
