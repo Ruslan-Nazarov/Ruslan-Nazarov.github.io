@@ -183,12 +183,12 @@
       "publish": true,
       "ready_ru": true,
       "ready_en": true,
-      "title_ru": "papanda конспект",
-      "title_en": "papanda notes",
-      "summary_ru": "Конспект для самостоятельного понимания: ИИ помогает получать знания, человек проверяет ответы и составляет собственный конспект.",
-      "summary_en": "Notes for independent understanding: AI helps provide knowledge, while the learner checks responses and writes their own notes.",
-      "body_ru": "«papanda конспект» — способ соединить сильные стороны искусственного интеллекта и человека в обучении. ИИ помогает получать знания по изучаемому предмету, а человек самостоятельно составляет конспект, проверяет ответы и извлекает из этих знаний собственное понимание.\n\nКоротко принцип можно сформулировать так: **«От ИИ — знания, от человека — понимание».** Это один из наиболее наглядных примеров того, как я пытаюсь применить свои исследовательские идеи на практике.",
-      "body_en": "“papanda notes” is an approach to learning that brings together the strengths of artificial intelligence and human thinking. AI helps provide knowledge about the subject being studied; the learner writes their own notes, checks AI's responses, and develops an understanding of the subject from that knowledge.\n\nThe principle is simple: **“AI provides knowledge. Humans build understanding.”** This project is one of the clearest practical expressions of the questions I study.",
+      "title_ru": "papanda — диалектические конспекты",
+      "title_en": "papanda — Dialectical Notes",
+      "summary_ru": "Редактор конспектов: от простейшего процесса через противоречие к его разрешению. Человек выстраивает понимание с поддержкой ИИ.",
+      "summary_en": "A note editor tracing a subject from a simple process through contradiction to resolution. The learner builds understanding with AI support.",
+      "body_ru": "papanda — редактор диалектических конспектов. Изучаемый предмет разбирается через его развитие: простейший процесс → развитие → противоположность → противоречие → разрешение. Человек выстраивает и проверяет объяснение, а ИИ помогает сведениями и вариантами шагов.\n\nКонспект можно составлять вручную или с помощью ИИ. Редактор поддерживает формулы, историю версий, категории и публикацию конспектов по ссылке.",
+      "body_en": "papanda is an editor for dialectical notes. A subject is explored through its development: simplest process → development → opposite → contradiction → resolution. The learner builds and checks the explanation, while AI provides information and suggests possible steps.\n\nNotes can be written manually or with AI assistance. The editor supports formulas, version history, categories and sharing notes through public links.",
       "researchAreas": [
         "education"
       ],
@@ -207,8 +207,8 @@
       "gallery": [],
       "links": [
         {
-          "label_ru": "Исходный код papanda конспекта",
-          "label_en": "papanda notes source code",
+          "label_ru": "Репозиторий papanda",
+          "label_en": "papanda repository",
           "url": "https://github.com/Ruslan-Nazarov/papanda"
         }
       ],
@@ -1003,10 +1003,10 @@
       "publish": true,
       "ready_ru": true,
       "ready_en": true,
-      "title_ru": "Диалектический конспект",
+      "title_ru": "Диалектические конспекты",
       "title_en": "Dialectical Notes",
-      "summary_ru": "Методика papanda: от описания процесса к противоречию и его разрешению.",
-      "summary_en": "The papanda method: from describing a process to a contradiction and its resolution.",
+      "summary_ru": "Методика конспекта в papanda: восстановить развитие предмета через противоречие и его разрешение.",
+      "summary_en": "The papanda note-taking method: reconstructing a subject’s development through contradiction and its resolution.",
       "body_ru": "## Структура работы\n1. **Процесс.** Что происходит и в каких условиях?\n2. **Развитие.** Как меняется процесс и что порождают эти изменения?\n3. **Противоположный процесс.** Какая тенденция действует в ином направлении?\n4. **Противоречие.** Как связаны и сталкиваются эти тенденции?\n5. **Разрешение.** Что позволяет перейти к новой организации процесса?\n\n## Практика\nСтруктура служит опорой самостоятельного анализа, а не шаблоном для автоматического получения правильного ответа. Реальные авторские конспекты и изображения пока не предоставлены.\n\n## Ограничения\nНужны предметные знания, проверка источников и критика сделанных переходов. Эффективность обучения остаётся исследовательской гипотезой до эмпирической проверки.",
       "body_en": "## Working structure\n1. **Process.** What happens, and under which conditions?\n2. **Development.** How does the process change, and what do these changes produce?\n3. **Opposite process.** Which tendency acts in another direction?\n4. **Contradiction.** How are these tendencies connected, and how do they conflict?\n5. **Resolution.** What enables a new organization of the process?\n\n## Practice\nThe structure supports independent analysis; it is not a template that automatically yields a correct answer. Actual authorial notes and images have not yet been supplied.\n\n## Limitations\nSubject knowledge, source checking and criticism of proposed transitions are necessary. Educational effectiveness remains a research hypothesis pending empirical evaluation.",
       "researchAreas": [

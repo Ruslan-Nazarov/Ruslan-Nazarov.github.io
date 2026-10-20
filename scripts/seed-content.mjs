@@ -169,7 +169,7 @@ write('src/data/site.json', {
   portrait: '', email: '', formEndpoint: '', cloudflareToken: '',
   profiles: [{label:'GitHub', url:'https://github.com/Ruslan-Nazarov'}],
   ru: {
-    role:'Независимый исследователь', heroTitle:'Понимать, как развивается знание.',
+    role:'Исследователь искусственного интеллекта', heroTitle:'Понимать, как развивается знание.',
     heroText:'Исследую искусственный интеллект, математику, физику и образование. Соединяю вопросы, проекты и тексты в открытую карту исследовательской работы.',
     heroNote:'Диалектика — общая методология: рассматривать развитие через противоречия и способы их разрешения.',
     intro:'Вопросы, которые связывают исследования',
@@ -177,7 +177,7 @@ write('src/data/site.json', {
     collaborationTitle:'Открыт к содержательному диалогу.',
     collaborationText:'Вопросы, критика и обсуждение возможного сотрудничества — часть исследовательской работы.',
     aboutTitle:'Об авторе и контакты',
-    aboutBody:'Руслан Назаров — независимый исследователь. Основные интересы: искусственный интеллект, математика, физика и образование.\n\nДиалектика используется как общая исследовательская методология. Проекты охватывают математический парсер, архитектуры ИИ, образовательную систему papanda и изучение языков.\n\nРасширенная авторская биография и настоящий портрет готовятся. Представленные на сайте краткие описания подготовлены по техническому заданию; полные авторские материалы будут добавляться отдельно.',
+    aboutBody:'Руслан Назаров — исследователь искусственного интеллекта. Основные интересы: искусственный интеллект, математика, физика и образование.\n\nДиалектика используется как общая исследовательская методология. Проекты охватывают математический парсер, архитектуры ИИ, образовательную систему papanda и изучение языков.\n\nРасширенная авторская биография и настоящий портрет готовятся. Представленные на сайте краткие описания подготовлены по техническому заданию; полные авторские материалы будут добавляться отдельно.',
     contactEmpty:'Адрес электронной почты пока не указан. Доступен подтверждённый профиль GitHub.',
     journalEmpty:'Дневник начинается с 2026 года. Подтверждённые датированные записи ещё не добавлены.',
     history:'11 ноября 2020 года — начало работы над тезисами. Это краткая историческая справка, а не восстановленный задним числом дневник.',
@@ -185,7 +185,7 @@ write('src/data/site.json', {
     privacy:'Сайт статический, без собственной базы данных и учётных записей посетителей. Выбранные язык и тема сохраняются локально в браузере. При включении формы сообщения передаются указанному внешнему сервису. Аналитика загружается только при настроенном идентификаторе. Внешние сайты имеют собственные правила приватности.'
   },
   en: {
-    role:'Independent Researcher', heroTitle:'Understanding how knowledge develops.',
+    role:'AI Researcher', heroTitle:'Understanding how knowledge develops.',
     heroText:'I explore artificial intelligence, mathematics, physics and education, connecting questions, projects and texts into an open map of research.',
     heroNote:'Dialectics is the shared methodology: examining development through contradictions and their resolutions.',
     intro:'Questions connecting the research',
@@ -193,7 +193,7 @@ write('src/data/site.json', {
     collaborationTitle:'Open to thoughtful conversation.',
     collaborationText:'Questions, criticism and discussions of possible collaboration are part of the research process.',
     aboutTitle:'About & Contact',
-    aboutBody:'Ruslan Nazarov is an independent researcher with interests in artificial intelligence, mathematics, physics and education.\n\nDialectics serves as a shared research methodology. Projects span a mathematical parser, AI architectures, the papanda educational system and language learning.\n\nAn extended authorial biography and an authentic portrait are forthcoming. The short descriptions on this site were prepared from the project brief; full authorial materials will be added separately.',
+    aboutBody:'Ruslan Nazarov is an AI researcher with interests in artificial intelligence, mathematics, physics and education.\n\nDialectics serves as a shared research methodology. Projects span a mathematical parser, AI architectures, the papanda educational system and language learning.\n\nAn extended authorial biography and an authentic portrait are forthcoming. The short descriptions on this site were prepared from the project brief; full authorial materials will be added separately.',
     contactEmpty:'An email address has not yet been specified. The verified GitHub profile is available.',
     journalEmpty:'The journal begins in 2026. No verified dated entries have been added yet.',
     history:'11 November 2020 — work on the theses begins. This is a short historical reference, not a retrospectively reconstructed journal.',
