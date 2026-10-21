@@ -8,8 +8,8 @@
   "title_en": "Making AI Work with Contradictions: The Hash Mathematics Concept",
   "summary_ru": "Ранняя исследовательская концепция хэш-математики для работы ИИ с процессами и противоположностями. Английская публикация на Medium.",
   "summary_en": "An early research proposal for hash mathematics applied to processes and opposites in AI. Published in English on Medium.",
-  "body_ru": "Ранняя исследовательская концепция хэш-математики для работы ИИ с процессами и противоположностями. Английская публикация на Medium.\n\nЗдесь представлена аннотация. Полный текст доступен на Medium на английском языке по ссылке «Читать на Medium».",
-  "body_en": "An early research proposal for hash mathematics applied to processes and opposites in AI. Published in English on Medium.\n\nThis page provides a short description. The complete English article is available via “Read on Medium”.",
+  "body_ru": "Полный текст статьи опубликован на Medium на английском языке. Ниже — связанные проекты и материалы, которые помогают проследить развитие этой темы.",
+  "body_en": "The full article is published in English on Medium. Related projects and publications below provide context for this line of inquiry.",
   "editorialStatus": "external_publication",
   "type": "article",
   "researchAreas": [
@@ -36,5 +36,6 @@
     }
   ],
   "timeline": [],
-  "order": 18
+  "order": 18,
+  "readingMode": "external"
 }

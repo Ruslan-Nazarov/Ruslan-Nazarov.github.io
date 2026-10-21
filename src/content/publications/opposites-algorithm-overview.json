@@ -8,8 +8,8 @@
   "title_en": "A Preliminary Overview of an Algorithm for Finding Opposites (Contradictions)",
   "summary_ru": "Предварительная постановка задачи поиска противоположностей и её математического описания. Английская публикация на Medium.",
   "summary_en": "A preliminary account of finding opposites and describing the proposed algorithm mathematically. Published in English on Medium.",
-  "body_ru": "Предварительная постановка задачи поиска противоположностей и её математического описания. Английская публикация на Medium.\n\nЗдесь представлена аннотация. Полный текст доступен на Medium на английском языке по ссылке «Читать на Medium».",
-  "body_en": "A preliminary account of finding opposites and describing the proposed algorithm mathematically. Published in English on Medium.\n\nThis page provides a short description. The complete English article is available via “Read on Medium”.",
+  "body_ru": "Полный текст статьи опубликован на Medium на английском языке. Ниже — связанные проекты и материалы, которые помогают проследить развитие этой темы.",
+  "body_en": "The full article is published in English on Medium. Related projects and publications below provide context for this line of inquiry.",
   "editorialStatus": "external_publication",
   "type": "article",
   "researchAreas": [
@@ -36,5 +36,6 @@
     }
   ],
   "timeline": [],
-  "order": 13
+  "order": 13,
+  "readingMode": "external"
 }

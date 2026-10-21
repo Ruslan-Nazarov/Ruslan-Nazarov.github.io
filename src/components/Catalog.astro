@@ -10,7 +10,7 @@ const tags=[...new Set(rows.flatMap((r:any)=>r.tags))] as string[];
   <form class="filter-bar" aria-label={t.filter} onsubmit="return false">
     <label class="filter-search"><span>{t.search}</span><input type="search" data-filter-search placeholder={t.filterSearch} /></label>
     {research.length>0&&<label><span>{t.area}</span><select data-filter-area><option value="">{t.all}</option>{research.map((r:any)=><option value={r.id}>{l(r,'title',lang)}</option>)}</select></label>}
-    {types.length>0&&<label><span>{t.type}</span><select data-filter-type><option value="">{t.all}</option>{types.map(type=><option value={type}>{t[type]||type}</option>)}</select></label>}
+    {types.length>0&&<label><span>{collection==='projects'?t.status:t.type}</span><select data-filter-type><option value="">{t.all}</option>{types.map(type=><option value={type}>{t[type]||type}</option>)}</select></label>}
     {tags.length>0&&<label><span>{t.tag}</span><select data-filter-tag><option value="">{t.all}</option>{tags.map(tag=><option value={tag}>{t['tag:'+tag]||tag}</option>)}</select></label>}
     <button type="reset" class="text-button">{t.reset}</button>
   </form>

@@ -8,8 +8,8 @@
   "title_en": "Finding the Edge of AI Reasoning",
   "summary_ru": "Эксперимент с диалектическими промптами: различие между объяснением, причинностью и воспроизведением процедуры. Английская публикация на Medium.",
   "summary_en": "A dialectical prompting experiment exploring explanation, causality and procedural imitation. Published in English on Medium.",
-  "body_ru": "Эксперимент с диалектическими промптами: различие между объяснением, причинностью и воспроизведением процедуры. Английская публикация на Medium.\n\nЗдесь представлена аннотация. Полный текст доступен на Medium на английском языке по ссылке «Читать на Medium».",
-  "body_en": "A dialectical prompting experiment exploring explanation, causality and procedural imitation. Published in English on Medium.\n\nThis page provides a short description. The complete English article is available via “Read on Medium”.",
+  "body_ru": "Полный текст статьи опубликован на Medium на английском языке. Ниже — связанные проекты и материалы, которые помогают проследить развитие этой темы.",
+  "body_en": "The full article is published in English on Medium. Related projects and publications below provide context for this line of inquiry.",
   "editorialStatus": "external_publication",
   "type": "article",
   "researchAreas": [
@@ -36,5 +36,6 @@
     }
   ],
   "timeline": [],
-  "order": 14
+  "order": 14,
+  "readingMode": "external"
 }

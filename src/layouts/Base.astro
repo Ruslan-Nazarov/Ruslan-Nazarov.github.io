@@ -21,13 +21,16 @@ const documentTitle=path?`${title} | ${site.name}`:`${site.name} | ${site[lang].
     <link rel="canonical" href={url} />
     <link rel="alternate" hreflang="ru" href={new URL(`/ru/${path?path+'/':''}`,Astro.site)} />
     <link rel="alternate" hreflang="en" href={new URL(`/en/${path?path+'/':''}`,Astro.site)} />
-    <link rel="alternate" hreflang="x-default" href={new URL(`/en/${path?path+'/':''}`,Astro.site)} />
+    <link rel="alternate" hreflang="x-default" href={new URL(path?`/en/${path}/`:'/',Astro.site)} />
     <meta property="og:title" content={documentTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={url} />
     <meta property="og:locale" content={lang==='ru'?'ru_RU':'en_US'} />
-    <meta property="og:image" content={new URL('/images/social-card.svg',Astro.site)} />
+    <meta property="og:image" content={new URL('/images/social-card.png',Astro.site)} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={`${site.name} — ${site[lang].role}`} />
     <meta name="twitter:card" content="summary_large_image" />
     {noindex&&<meta name="robots" content="noindex,follow" />}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -51,7 +54,7 @@ const documentTitle=path?`${title} | ${site.name}`:`${site.name} | ${site[lang].
         <label class="theme-control"><span class="sr-only">{t.theme}</span><select id="theme-select" aria-label={t.theme}><option value="system">◐ {t.system}</option><option value="light">☼ {t.light}</option><option value="dark">☾ {t.dark}</option></select></label>
       </div>
     </header>
-    <main id="main" data-pagefind-body><slot /></main>
+    <main id="main" tabindex="-1" data-pagefind-body data-pagefind-ignore={noindex||undefined}><slot /></main>
     <dialog id="media-viewer" aria-label={lang==='ru'?'Просмотр изображения':'Image viewer'} data-pagefind-ignore>
       <form method="dialog"><button autofocus aria-label={lang==='ru'?'Закрыть':'Close'}>{lang==='ru'?'Закрыть':'Close'} ×</button></form>
       <div class="media-viewer-scroll"><img alt=""/></div><p></p>
@@ -59,7 +62,8 @@ const documentTitle=path?`${title} | ${site.name}`:`${site.name} | ${site[lang].
     <footer class="site-footer" data-pagefind-ignore>
       <div><a class="footer-name" href={`/${lang}/`}>{site.name}<span>·</span></a><p>{site.tagline}</p></div>
       <div class="footer-links"><a href={`/${lang}/legal/`}>{t.legal}</a><a href={`/${lang}/privacy/`}>{t.privacy}</a><a href={`/${lang}/rss.xml`}>RSS ↗</a><a href="https://github.com/Ruslan-Nazarov" rel="noopener noreferrer">GitHub ↗</a></div>
-      <small>© {new Date().getUTCFullYear()} {site.name} · CC BY 4.0</small>
+      <small>© {new Date().getUTCFullYear()} {site.name} · {t.footerLicense}</small>
+      <a class="back-to-top" href="#main">{t.backToTop} ↑</a>
     </footer>
     <script>
       const themeSelect=document.querySelector<HTMLSelectElement>('#theme-select');
@@ -70,10 +74,11 @@ const documentTitle=path?`${title} | ${site.name}`:`${site.name} | ${site[lang].
       document.querySelectorAll<HTMLAnchorElement>('[data-language]').forEach(a=>a.addEventListener('click',()=>{try{localStorage.setItem('rn-language',a.dataset.language!)}catch{}}));
       const menu=document.querySelector<HTMLButtonElement>('.menu-toggle');
       menu?.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')!=='true';menu.setAttribute('aria-expanded',String(open));document.querySelector('#main-nav')?.classList.toggle('open',open)});
-      document.addEventListener('keydown',e=>{if(e.key==='Escape'){menu?.setAttribute('aria-expanded','false');document.querySelector('#main-nav')?.classList.remove('open')}});
+      document.addEventListener('keydown',e=>{if(e.key==='Escape'&&menu?.getAttribute('aria-expanded')==='true'){menu.setAttribute('aria-expanded','false');document.querySelector('#main-nav')?.classList.remove('open');menu.focus()}});
       const viewer=document.querySelector<HTMLDialogElement>('#media-viewer');
       document.querySelectorAll<HTMLAnchorElement>('[data-media-viewer],.prose a:has(> img)').forEach(link=>link.addEventListener('click',event=>{
-        if(!viewer||event.ctrlKey||event.metaKey||event.shiftKey)return;
+        if(!viewer||event.ctrlKey||event.metaKey||event.shiftKey||event.altKey||event.button!==0)return;
+        if(!link.hasAttribute('data-media-viewer')&&!/\.(png|jpe?g|webp|gif|svg)(?:[?#]|$)/i.test(link.href))return;
         event.preventDefault();
         const img=link.querySelector('img'),target=viewer.querySelector('img')!;
         target.src=link.href;target.alt=img?.alt||'';

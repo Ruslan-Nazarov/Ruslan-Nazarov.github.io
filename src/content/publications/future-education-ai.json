@@ -8,8 +8,8 @@
   "title_en": "The Future of Education with AI",
   "summary_ru": "Авторский взгляд на изменения образования под влиянием ИИ и поиск подхода, соединяющего знания и понимание. Английская публикация на Medium.",
   "summary_en": "The author’s perspective on how AI changes education and on connecting knowledge with understanding. Published in English on Medium.",
-  "body_ru": "Авторский взгляд на изменения образования под влиянием ИИ и поиск подхода, соединяющего знания и понимание. Английская публикация на Medium.\n\nЗдесь представлена аннотация. Полный текст доступен на Medium на английском языке по ссылке «Читать на Medium».",
-  "body_en": "The author’s perspective on how AI changes education and on connecting knowledge with understanding. Published in English on Medium.\n\nThis page provides a short description. The complete English article is available via “Read on Medium”.",
+  "body_ru": "Полный текст статьи опубликован на Medium на английском языке. Ниже — связанные проекты и материалы, которые помогают проследить развитие этой темы.",
+  "body_en": "The full article is published in English on Medium. Related projects and publications below provide context for this line of inquiry.",
   "editorialStatus": "external_publication",
   "type": "article",
   "researchAreas": [
@@ -36,5 +36,6 @@
     }
   ],
   "timeline": [],
-  "order": 15
+  "order": 15,
+  "readingMode": "external"
 }

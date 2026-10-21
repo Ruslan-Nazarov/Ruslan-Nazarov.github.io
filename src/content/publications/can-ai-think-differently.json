@@ -8,8 +8,8 @@
   "title_en": "Can AI Be Taught to Think Differently?",
   "summary_ru": "Статья о попытке научить ИИ мыслить иначе: два движка и общее затруднение. Английская публикация на Medium.",
   "summary_en": "An article on trying to teach AI to think differently: two engines and a shared difficulty. Published in English on Medium.",
-  "body_ru": "Статья о попытке научить ИИ мыслить иначе: два движка и общее затруднение. Английская публикация на Medium.\n\nЗдесь представлена аннотация. Полный текст доступен на Medium на английском языке по ссылке «Читать на Medium».",
-  "body_en": "An article on trying to teach AI to think differently: two engines and a shared difficulty. Published in English on Medium.\n\nThis page provides a short description. The complete English article is available via “Read on Medium”.",
+  "body_ru": "Полный текст статьи опубликован на Medium на английском языке. Ниже — связанные проекты и материалы, которые помогают проследить развитие этой темы.",
+  "body_en": "The full article is published in English on Medium. Related projects and publications below provide context for this line of inquiry.",
   "editorialStatus": "external_publication",
   "type": "article",
   "researchAreas": [
@@ -33,5 +33,6 @@
     }
   ],
   "timeline": [],
-  "order": 11
+  "order": 11,
+  "readingMode": "external"
 }

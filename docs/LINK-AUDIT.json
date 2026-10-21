@@ -1,0 +1,323 @@
+{
+  "checkedAt": "2026-10-21T17:23:16.902Z",
+  "scope": "External hrefs in built public pages; GET requests; restricted responses do not prove a broken link.",
+  "results": [
+    {
+      "url": "https://creativecommons.org/licenses/by/4.0/",
+      "status": 200,
+      "finalUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "result": "ok",
+      "pages": [
+        "dist/en/legal/index.html",
+        "dist/ru/legal/index.html"
+      ]
+    },
+    {
+      "url": "https://expo.dev/accounts/runaz/projects/papanda-app/builds/ac5fed96-5e12-419e-b8c6-59dc8b1d452c",
+      "status": 200,
+      "finalUrl": "https://expo.dev/accounts/runaz/projects/papanda-app/builds/ac5fed96-5e12-419e-b8c6-59dc8b1d452c",
+      "result": "ok",
+      "pages": [
+        "dist/en/projects/papanda-languages/index.html",
+        "dist/ru/projects/papanda-languages/index.html"
+      ]
+    },
+    {
+      "url": "https://github.com/Ruslan-Nazarov",
+      "status": 200,
+      "finalUrl": "https://github.com/Ruslan-Nazarov",
+      "result": "ok",
+      "pages": [
+        "dist/en/about/index.html",
+        "dist/en/index.html",
+        "dist/en/journal/education-project-pages/index.html",
+        "dist/en/journal/index.html",
+        "dist/en/journal/parser-project-page/index.html",
+        "dist/en/legal/index.html",
+        "dist/en/privacy/index.html",
+        "dist/en/projects/ai-algorithm/index.html",
+        "dist/en/projects/dialectic-ai/index.html",
+        "dist/en/projects/index.html",
+        "dist/en/projects/mathematical-parser/graph/index.html",
+        "dist/en/projects/mathematical-parser/index.html",
+        "dist/en/projects/papanda/dialectical-notes/index.html",
+        "dist/en/projects/papanda/index.html",
+        "dist/en/projects/papanda-languages/index.html",
+        "dist/en/projects/personal-time-management/index.html",
+        "dist/en/publications/arman-ai-architecture/index.html",
+        "dist/en/publications/beyond-memorization/index.html",
+        "dist/en/publications/can-ai-think-differently/index.html",
+        "dist/en/publications/data-science-handbook/index.html",
+        "dist/en/publications/edge-ai-reasoning/index.html",
+        "dist/en/publications/explaining-mathematics-ai/index.html",
+        "dist/en/publications/future-education-ai/index.html",
+        "dist/en/publications/hash-mathematics-concept/index.html",
+        "dist/en/publications/human-understanding-ai-education/index.html",
+        "dist/en/publications/index.html",
+        "dist/en/publications/language-handbook/index.html",
+        "dist/en/publications/opposites-algorithm-overview/index.html",
+        "dist/en/publications/recurrent-networks-transformers/index.html",
+        "dist/en/publications/theses-2020-2026/chapters/artificial-intelligence/index.html",
+        "dist/en/publications/theses-2020-2026/chapters/education/index.html",
+        "dist/en/publications/theses-2020-2026/chapters/foundations/index.html",
+        "dist/en/publications/theses-2020-2026/chapters/mathematics/index.html",
+        "dist/en/publications/theses-2020-2026/chapters/physics/index.html",
+        "dist/en/publications/theses-2020-2026/full/index.html",
+        "dist/en/publications/theses-2020-2026/index.html",
+        "dist/en/research/artificial-intelligence/index.html",
+        "dist/en/research/education/index.html",
+        "dist/en/research/index.html",
+        "dist/en/research/mathematics/index.html",
+        "dist/en/research/physics/index.html",
+        "dist/en/search/index.html",
+        "dist/en/timeline/index.html",
+        "dist/ru/about/index.html",
+        "dist/ru/index.html",
+        "dist/ru/journal/education-project-pages/index.html",
+        "dist/ru/journal/index.html",
+        "dist/ru/journal/parser-project-page/index.html",
+        "dist/ru/legal/index.html",
+        "dist/ru/privacy/index.html",
+        "dist/ru/projects/ai-algorithm/index.html",
+        "dist/ru/projects/dialectic-ai/index.html",
+        "dist/ru/projects/index.html",
+        "dist/ru/projects/mathematical-parser/graph/index.html",
+        "dist/ru/projects/mathematical-parser/index.html",
+        "dist/ru/projects/papanda/dialectical-notes/index.html",
+        "dist/ru/projects/papanda/index.html",
+        "dist/ru/projects/papanda-languages/index.html",
+        "dist/ru/projects/personal-time-management/index.html",
+        "dist/ru/publications/arman-ai-architecture/index.html",
+        "dist/ru/publications/beyond-memorization/index.html",
+        "dist/ru/publications/can-ai-think-differently/index.html",
+        "dist/ru/publications/data-science-handbook/index.html",
+        "dist/ru/publications/edge-ai-reasoning/index.html",
+        "dist/ru/publications/explaining-mathematics-ai/index.html",
+        "dist/ru/publications/future-education-ai/index.html",
+        "dist/ru/publications/hash-mathematics-concept/index.html",
+        "dist/ru/publications/human-understanding-ai-education/index.html",
+        "dist/ru/publications/index.html",
+        "dist/ru/publications/language-handbook/index.html",
+        "dist/ru/publications/opposites-algorithm-overview/index.html",
+        "dist/ru/publications/recurrent-networks-transformers/index.html",
+        "dist/ru/publications/theses-2020-2026/chapters/artificial-intelligence/index.html",
+        "dist/ru/publications/theses-2020-2026/chapters/education/index.html",
+        "dist/ru/publications/theses-2020-2026/chapters/foundations/index.html",
+        "dist/ru/publications/theses-2020-2026/chapters/mathematics/index.html",
+        "dist/ru/publications/theses-2020-2026/chapters/physics/index.html",
+        "dist/ru/publications/theses-2020-2026/full/index.html",
+        "dist/ru/publications/theses-2020-2026/index.html",
+        "dist/ru/research/artificial-intelligence/index.html",
+        "dist/ru/research/education/index.html",
+        "dist/ru/research/index.html",
+        "dist/ru/research/mathematics/index.html",
+        "dist/ru/research/physics/index.html",
+        "dist/ru/search/index.html",
+        "dist/ru/timeline/index.html"
+      ]
+    },
+    {
+      "url": "https://github.com/Ruslan-Nazarov/dialectic_ai",
+      "status": 200,
+      "finalUrl": "https://github.com/Ruslan-Nazarov/dialectic_ai",
+      "result": "ok",
+      "pages": [
+        "dist/en/projects/dialectic-ai/index.html",
+        "dist/ru/projects/dialectic-ai/index.html"
+      ]
+    },
+    {
+      "url": "https://github.com/Ruslan-Nazarov/dialectic_ai/blob/main/docs/RESULTS.md",
+      "status": 200,
+      "finalUrl": "https://github.com/Ruslan-Nazarov/dialectic_ai/blob/main/docs/RESULTS.md",
+      "result": "ok",
+      "pages": [
+        "dist/en/projects/dialectic-ai/index.html",
+        "dist/ru/projects/dialectic-ai/index.html"
+      ]
+    },
+    {
+      "url": "https://github.com/Ruslan-Nazarov/papanda",
+      "status": 200,
+      "finalUrl": "https://github.com/Ruslan-Nazarov/papanda",
+      "result": "ok",
+      "pages": [
+        "dist/en/index.html",
+        "dist/en/projects/papanda/index.html",
+        "dist/ru/index.html",
+        "dist/ru/projects/papanda/index.html"
+      ]
+    },
+    {
+      "url": "https://github.com/Ruslan-Nazarov/papanda-language-app",
+      "status": 200,
+      "finalUrl": "https://github.com/Ruslan-Nazarov/papanda-language-app",
+      "result": "ok",
+      "pages": [
+        "dist/en/projects/papanda-languages/index.html",
+        "dist/ru/projects/papanda-languages/index.html"
+      ]
+    },
+    {
+      "url": "https://papanda.kz/",
+      "status": 200,
+      "finalUrl": "https://papanda.kz/",
+      "result": "ok",
+      "pages": [
+        "dist/en/publications/human-understanding-ai-education/index.html",
+        "dist/ru/publications/human-understanding-ai-education/index.html"
+      ]
+    },
+    {
+      "url": "https://reactflow.dev/?utm_source=attribution",
+      "status": 200,
+      "finalUrl": "https://reactflow.dev/?utm_source=attribution",
+      "result": "ok",
+      "pages": [
+        "dist/en/projects/mathematical-parser/graph/index.html",
+        "dist/ru/projects/mathematical-parser/graph/index.html"
+      ]
+    },
+    {
+      "url": "https://ruslan-nazarov.github.io/",
+      "status": 200,
+      "finalUrl": "https://ruslan-nazarov.github.io/",
+      "result": "ok",
+      "pages": [
+        "dist/index.html"
+      ]
+    },
+    {
+      "url": "https://ruslan-nazarov.github.io/handbook_ai/",
+      "status": 200,
+      "finalUrl": "https://ruslan-nazarov.github.io/handbook_ai/",
+      "result": "ok",
+      "pages": [
+        "dist/en/publications/data-science-handbook/index.html",
+        "dist/ru/publications/data-science-handbook/index.html"
+      ]
+    },
+    {
+      "url": "https://ruslan-nazarov.github.io/handbook_Languages/",
+      "status": 200,
+      "finalUrl": "https://ruslan-nazarov.github.io/handbook_Languages/",
+      "result": "ok",
+      "pages": [
+        "dist/en/projects/papanda-languages/index.html",
+        "dist/en/publications/language-handbook/index.html",
+        "dist/ru/projects/papanda-languages/index.html",
+        "dist/ru/publications/language-handbook/index.html"
+      ]
+    },
+    {
+      "url": "https://ruslan-nazarov.medium.com/",
+      "status": 403,
+      "finalUrl": "https://ruslan-nazarov.medium.com/",
+      "result": "access-limited",
+      "pages": [
+        "dist/en/about/index.html",
+        "dist/ru/about/index.html"
+      ]
+    },
+    {
+      "url": "https://ruslan-nazarov.medium.com/a-note-on-arman-a-new-artificial-intelligence-architecture-d009b05b6742",
+      "status": 403,
+      "finalUrl": "https://ruslan-nazarov.medium.com/a-note-on-arman-a-new-artificial-intelligence-architecture-d009b05b6742",
+      "result": "access-limited",
+      "pages": [
+        "dist/en/publications/arman-ai-architecture/index.html",
+        "dist/ru/publications/arman-ai-architecture/index.html"
+      ]
+    },
+    {
+      "url": "https://ruslan-nazarov.medium.com/a-preliminary-overview-of-an-algorithm-for-finding-opposites-contradictions-0decb5eb2bfc",
+      "status": 403,
+      "finalUrl": "https://ruslan-nazarov.medium.com/a-preliminary-overview-of-an-algorithm-for-finding-opposites-contradictions-0decb5eb2bfc",
+      "result": "access-limited",
+      "pages": [
+        "dist/en/publications/opposites-algorithm-overview/index.html",
+        "dist/ru/publications/opposites-algorithm-overview/index.html"
+      ]
+    },
+    {
+      "url": "https://ruslan-nazarov.medium.com/beyond-memorization-how-ai-is-forcing-a-dialectical-shift-in-education-163328affcf4",
+      "status": 403,
+      "finalUrl": "https://ruslan-nazarov.medium.com/beyond-memorization-how-ai-is-forcing-a-dialectical-shift-in-education-163328affcf4",
+      "result": "access-limited",
+      "pages": [
+        "dist/en/publications/beyond-memorization/index.html",
+        "dist/ru/publications/beyond-memorization/index.html"
+      ]
+    },
+    {
+      "url": "https://ruslan-nazarov.medium.com/can-ai-be-taught-to-think-differently-e6441d5a6072",
+      "status": 403,
+      "finalUrl": "https://ruslan-nazarov.medium.com/can-ai-be-taught-to-think-differently-e6441d5a6072",
+      "result": "access-limited",
+      "pages": [
+        "dist/en/publications/can-ai-think-differently/index.html",
+        "dist/ru/publications/can-ai-think-differently/index.html"
+      ]
+    },
+    {
+      "url": "https://ruslan-nazarov.medium.com/finding-the-edge-of-ai-reasoning-11e9d014ba42",
+      "status": 403,
+      "finalUrl": "https://ruslan-nazarov.medium.com/finding-the-edge-of-ai-reasoning-11e9d014ba42",
+      "result": "access-limited",
+      "pages": [
+        "dist/en/publications/edge-ai-reasoning/index.html",
+        "dist/ru/publications/edge-ai-reasoning/index.html"
+      ]
+    },
+    {
+      "url": "https://ruslan-nazarov.medium.com/from-recurrent-networks-to-transformers-what-comes-next-3a392dab055c",
+      "status": 403,
+      "finalUrl": "https://ruslan-nazarov.medium.com/from-recurrent-networks-to-transformers-what-comes-next-3a392dab055c",
+      "result": "access-limited",
+      "pages": [
+        "dist/en/publications/recurrent-networks-transformers/index.html",
+        "dist/ru/publications/recurrent-networks-transformers/index.html"
+      ]
+    },
+    {
+      "url": "https://ruslan-nazarov.medium.com/how-to-explain-mathematics-in-the-age-of-ai-037a9a62a556",
+      "status": 403,
+      "finalUrl": "https://ruslan-nazarov.medium.com/how-to-explain-mathematics-in-the-age-of-ai-037a9a62a556",
+      "result": "access-limited",
+      "pages": [
+        "dist/en/publications/explaining-mathematics-ai/index.html",
+        "dist/ru/publications/explaining-mathematics-ai/index.html"
+      ]
+    },
+    {
+      "url": "https://ruslan-nazarov.medium.com/human-understanding-in-the-age-of-ai-an-educational-framework-428edd79fae0",
+      "status": 403,
+      "finalUrl": "https://ruslan-nazarov.medium.com/human-understanding-in-the-age-of-ai-an-educational-framework-428edd79fae0",
+      "result": "access-limited",
+      "pages": [
+        "dist/en/publications/human-understanding-ai-education/index.html",
+        "dist/ru/publications/human-understanding-ai-education/index.html"
+      ]
+    },
+    {
+      "url": "https://ruslan-nazarov.medium.com/making-ai-work-with-contradictions-the-hash-mathematics-concept-da4a25cf345d",
+      "status": 403,
+      "finalUrl": "https://ruslan-nazarov.medium.com/making-ai-work-with-contradictions-the-hash-mathematics-concept-da4a25cf345d",
+      "result": "access-limited",
+      "pages": [
+        "dist/en/publications/hash-mathematics-concept/index.html",
+        "dist/ru/publications/hash-mathematics-concept/index.html"
+      ]
+    },
+    {
+      "url": "https://ruslan-nazarov.medium.com/the-future-of-education-with-ai-dee9dc7e2266",
+      "status": 403,
+      "finalUrl": "https://ruslan-nazarov.medium.com/the-future-of-education-with-ai-dee9dc7e2266",
+      "result": "access-limited",
+      "pages": [
+        "dist/en/publications/future-education-ai/index.html",
+        "dist/ru/publications/future-education-ai/index.html"
+      ]
+    }
+  ]
+}

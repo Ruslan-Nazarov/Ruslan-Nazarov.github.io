@@ -8,8 +8,8 @@
   "title_en": "Beyond Memorization: How AI is Forcing a Dialectical Shift in Education",
   "summary_ru": "Ранняя концепция перехода от накопления знаний к обучению пониманию и её связи с papanda. Английская публикация на Medium.",
   "summary_en": "An early proposal for moving from accumulating knowledge to learning understanding, and its connection with papanda. Published in English on Medium.",
-  "body_ru": "Ранняя концепция перехода от накопления знаний к обучению пониманию и её связи с papanda. Английская публикация на Medium.\n\nЗдесь представлена аннотация. Полный текст доступен на Medium на английском языке по ссылке «Читать на Medium».",
-  "body_en": "An early proposal for moving from accumulating knowledge to learning understanding, and its connection with papanda. Published in English on Medium.\n\nThis page provides a short description. The complete English article is available via “Read on Medium”.",
+  "body_ru": "Полный текст статьи опубликован на Medium на английском языке. Ниже — связанные проекты и материалы, которые помогают проследить развитие этой темы.",
+  "body_en": "The full article is published in English on Medium. Related projects and publications below provide context for this line of inquiry.",
   "editorialStatus": "external_publication",
   "type": "article",
   "researchAreas": [
@@ -36,5 +36,6 @@
     }
   ],
   "timeline": [],
-  "order": 19
+  "order": 19,
+  "readingMode": "external"
 }

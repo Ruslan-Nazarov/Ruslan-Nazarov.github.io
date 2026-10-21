@@ -1,4 +1,16 @@
 @layer base,layout,components,responsive;
+@layer components{
+  .article-contents{border:1px solid var(--line);background:var(--tint);padding:22px 26px;margin:0 0 36px;font-size:14px}
+  .article-contents strong{font-weight:600}.article-contents ol{margin:12px 0 0;padding-left:22px;columns:2;column-gap:30px}
+  .article-contents li{break-inside:avoid;padding:4px 0}.article-contents a{text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:4px}
+  .reading-mode,.card .reading-mode{font-size:12px;color:var(--accent-ink);margin:0 0 16px;line-height:1.5}
+  .card{min-width:0;overflow-wrap:anywhere}.card-bottom,.card-bottom .tag-list{min-width:0}.card-arrow{flex-shrink:0}
+  .publication-actions{display:flex;flex-wrap:wrap;gap:12px;margin:0 0 28px}
+  .back-to-top{font-size:13px;color:var(--accent-ink)}
+  .prose a{overflow-wrap:anywhere}.prose pre{overflow:auto;max-width:100%}.katex-display{overflow-x:auto;overflow-y:hidden;padding:6px 0}
+  main:focus{outline:none}.breadcrumbs{overflow-wrap:anywhere}.breadcrumbs a{min-width:0}
+  .breadcrumbs span:last-child{white-space:normal;max-width:100%}
+}
 /* React Flow edge containers intentionally have zero width. Their SVG viewport
    must not inherit the responsive max-width rule used for content images. */
 @layer components{.graph-page .react-flow svg{max-width:none}}
@@ -34,3 +46,11 @@
 /* Full-size media remain readable without shrinking formula screenshots. */
 .project-media .media-placeholder{flex-direction:column;gap:.6rem}
 .project-media{margin:2.5rem 0}.project-media img{display:block;max-width:100%;height:auto;border:1px solid var(--line);border-radius:6px}.project-media figcaption,figure figcaption{font-size:.9rem;line-height:1.6;color:var(--muted);margin-top:.8rem}.project-media .media-placeholder{min-height:200px;padding:2rem;text-align:center}.project-media .media-placeholder small{display:block;max-width:48ch;margin:auto}#media-viewer{width:min(96vw,1500px);max-height:94dvh;padding:1rem;background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:8px}#media-viewer::backdrop{background:#000b}#media-viewer form{text-align:right;margin:0 0 .7rem}#media-viewer button{cursor:pointer;padding:.5rem 1rem}.media-viewer-scroll{overflow:auto;max-height:72dvh}#media-viewer img{max-width:none;width:auto;height:auto}#media-viewer p{margin:.8rem 0 0;font-size:.9rem}.prose img{max-width:100%;height:auto}
+/* Keep unfilled editorial media slots compact until a real image is assigned. */
+.project-media:has(.media-placeholder){margin:1.5rem 0}.project-media .media-placeholder{min-height:0;padding:1rem 1.25rem;text-align:left;align-items:flex-start;gap:.3rem}.project-media .media-placeholder>span{display:none}.project-media .media-placeholder small{margin:0;max-width:none}.project-media .media-placeholder p{font-weight:600}.project-media:has(.media-placeholder) figcaption{font-size:12px}
+@layer responsive{
+  @media(max-width:700px){.hero h1{font-size:clamp(36px,10vw,48px)}.research-tile p,.publication-row p{font-size:13px}.theme-control select{width:100px;font-size:12px}.site-header{display:grid;grid-template-columns:1fr auto}.brand{min-width:0}.brand small{max-width:210px}.menu-toggle{grid-column:2;grid-row:1}.preferences{grid-column:1/-1;justify-content:flex-end;border-left:0;padding:0}.preferences a{padding:8px}#main-nav{grid-column:1/-1;margin:0}.research-tile{overflow-wrap:anywhere}}
+  @media(max-width:360px){.wrap{padding-left:18px;padding-right:18px}.research-grid{grid-template-columns:1fr}.research-tile{min-height:0;border-right:0;border-bottom:1px solid var(--line)}.research-tile:last-child{border-bottom:0}.filter-bar label{min-width:0;flex-basis:100%}.notebook-map{grid-template-columns:1fr}.hero-actions{align-items:flex-start;flex-direction:column}}
+}
+
+@layer responsive{@media(max-width:700px){.article-contents ol{columns:1}.article-contents{padding:18px}.notebook-map a{min-width:0}.notebook-map .map-symbol{flex-shrink:0}}}

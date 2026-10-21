@@ -27,6 +27,17 @@ for(const node of privateNodes)for(const value of [node.id,node.originalKey,node
   if(output.includes(value))throw new Error(`Private graph data leaked: ${node.id}`);
 for(const p of files.filter(p=>p.endsWith('.html'))){
   const html=readFileSync(p,'utf8');
+  const ids=[...html.matchAll(/\sid="([^"]+)"/g)].map(m=>m[1]);
+  if(new Set(ids).size!==ids.length)throw new Error(`Duplicate HTML IDs in ${p}`);
+  for(const [,href] of html.matchAll(/\shref="((?:\/[^\"]*|#[^\"]*))"/g)){
+    if(href.startsWith('//')||!href.includes('#'))continue;
+    const [pathname,fragment]=href.replaceAll('&amp;','&').split('#');if(!fragment)continue;
+    let target=pathname?resolve('dist','.'+decodeURIComponent(pathname.split('?')[0])):resolve(p);
+    if(existsSync(target)&&statSync(target).isDirectory())target=join(target,'index.html');
+    if(!target.endsWith('.html')||!existsSync(target))continue;
+    const targetIds=[...readFileSync(target,'utf8').matchAll(/\sid="([^"]+)"/g)].map(m=>m[1]);
+    if(!targetIds.includes(decodeURIComponent(fragment)))throw new Error(`Broken anchor ${href} in ${p}`);
+  }
   for(const [,url] of html.matchAll(/(?:href|src)="(\/(?!\/)[^"]*)"/g)){
     const target=decodeURIComponent(url.split(/[?#]/)[0]);
     if(!target)continue;
@@ -39,4 +50,4 @@ for(const p of files.filter(p=>p.endsWith('.html'))){
 }
 if(!existsSync('dist/pagefind/pagefind.js'))throw new Error('Pagefind index missing');
 if(!existsSync('dist/ru/rss.xml')||!existsSync('dist/en/rss.xml'))throw new Error('RSS missing');
-console.log(`Verified ${files.filter(p=>p.endsWith('.html')).length} HTML pages: local links, languages, draft exclusion, private graph boundary, RSS, Pagefind and unchanged Yandex bytes.`);
+console.log(`Verified ${files.filter(p=>p.endsWith('.html')).length} HTML pages: local links and anchors, unique IDs, languages, draft exclusion, private graph boundary, RSS, Pagefind and unchanged Yandex bytes.`);

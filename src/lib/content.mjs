@@ -5,8 +5,14 @@ import { z } from 'zod';
 export const collections = ['research','projects','publications','journal','theses','pages'];
 export const languages = ['ru','en'];
 const id = z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/);
-const safeUrl = z.string().refine(s => s === '' || /^https:\/\//.test(s) || /^\/(?!\/)/.test(s), 'Use HTTPS or a root-relative path');
-const link = z.object({label_ru:z.string(),label_en:z.string(),url:safeUrl});
+const calendarDate=z.string().regex(/^\d{4}-\d{2}-\d{2}$/).refine(s=>{const date=new Date(s+'T12:00:00Z');return !Number.isNaN(date.valueOf())&&date.toISOString().slice(0,10)===s},'Use a real calendar date');
+const optionalDate=z.preprocess(v=>v===''||v===null?undefined:v,calendarDate.optional());
+const safeUrl = z.string().refine(s => {
+  if(s==='')return true;
+  if(s.trim()!==s||s.includes('\\'))return false;
+  try{const url=new URL(s,'https://site.invalid');return /^https:\/\//.test(s)&&url.protocol==='https:'||/^\/(?!\/)/.test(s)&&url.origin==='https://site.invalid'}catch{return false}
+}, 'Use a valid HTTPS URL or a root-relative path');
+const link = z.object({label_ru:z.string().trim().min(1),label_en:z.string().trim().min(1),url:safeUrl.refine(Boolean,'A link needs a URL')});
 export const entrySchema = z.object({
   id, slug:id, publish:z.boolean().default(false),
   ready_ru:z.boolean().default(false), ready_en:z.boolean().default(false),
@@ -17,13 +23,14 @@ export const entrySchema = z.object({
   featured:z.boolean().default(false),tags:z.array(z.string()).default([]),
   heroImage:safeUrl.default(''),gallery:z.array(z.object({src:safeUrl,alt_ru:z.string().min(1),alt_en:z.string().min(1)})).default([]),
   links:z.array(link).default([]),timeline:z.array(z.object({
-    date:z.string().regex(/^\d{4}-\d{2}-\d{2}$/),title_ru:z.string().min(1),title_en:z.string().min(1)
+    date:calendarDate,title_ru:z.string().min(1),title_en:z.string().min(1)
   })).default([]),
   exampleLinks:z.array(z.object({id,label_ru:z.string(),label_en:z.string(),url_ru:safeUrl,url_en:safeUrl})).default([]),
   editorialStatus:z.enum(['awaiting_content','editorial_summary','final','external_publication']).default('awaiting_content'),
   status:z.enum(['active','completed','paused']).optional(),
   type:z.enum(['book','theses','article','technical-note','news','research-note','experiment','result']).optional(),
-  date:z.preprocess(v=>v===''||v===null?undefined:v,z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional()),
+  date:optionalDate,targetDate:optionalDate,startedDate:optionalDate,
+  readingMode:z.enum(['full','external','forthcoming']).optional(),
   order:z.number().optional(), pdf_ru:safeUrl.optional(),pdf_en:safeUrl.optional()
 }).passthrough();
 export function readJSON(path) { return JSON.parse(readFileSync(resolve(path),'utf8')); }
@@ -34,7 +41,7 @@ export function rawCollection(name, root='src/content') {
 export function isReady(row) {
   return row.publish === true && row.ready_ru === true && row.ready_en === true &&
     ['title_ru','title_en','summary_ru','summary_en'].every(k=>typeof row[k]==='string' && row[k].trim()) &&
-    (row.editorialStatus !== 'final' || ['body_ru','body_en'].every(k=>row[k]?.trim()));
+    (row.editorialStatus !== 'final' && row.readingMode !== 'full' || ['body_ru','body_en'].every(k=>row[k]?.trim()));
 }
 export function resolvePublication(candidate, previous) {
   if (!candidate.publish) return null;
@@ -58,6 +65,9 @@ export function events(data=allContent()) {
     for(const event of row.timeline||[]) result.push({...event,collection:name,row});
   }
   return result.sort((a,b)=>b.date.localeCompare(a.date));
+}
+export function timelineRows(data=allContent()) {
+  return events(data).filter(e=>e.date>='2026-01-01').map(e=>({...e.row,date:e.date,title_ru:e.title_ru,title_en:e.title_en,eventCollection:e.collection}));
 }
 export function routes() {
   const data=allContent();
@@ -83,6 +93,8 @@ export function validateAll() {
         throw new Error(`Journal entry needs a real date from 2026 and an entry type: ${row.id}`);
       if(name==='publications'&&isReady(row)&&!['book','theses','article','technical-note'].includes(row.type))
         throw new Error(`Publication type required: ${row.id}`);
+      if(name==='publications'&&isReady(row)&&row.readingMode==='external'&&!row.links.length)
+        throw new Error(`An external publication needs a reading link: ${row.id}`);
       if(name==='projects'&&isReady(row)&&!row.status)throw new Error(`Project status required: ${row.id}`);
       for(const [field,target] of Object.entries({researchAreas:'research',relatedProjects:'projects',relatedPublications:'publications',relatedJournal:'journal'}))
         for(const value of row[field]) if(!raw[target].some(p=>p.id===value)) throw new Error(`Unknown ${field} ${value} in ${row.id}`);

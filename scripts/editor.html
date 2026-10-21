@@ -9,11 +9,31 @@
 <div id="status" role="status" aria-live="polite">Выберите материал слева.</div><form id="document" onsubmit="return false"></form><details><summary>Журнал сборки</summary><pre id="log"></pre></details>
 </article></main>
 <script>
-const token='__CSRF_TOKEN__';let schemas=[],current=null,record=null,dirty=false;
+const token='__CSRF_TOKEN__';let schemas=[],current=null,record=null,dirty=false,working=false;
 const $=s=>document.querySelector(s),el=(tag,text)=>{const n=document.createElement(tag);if(text!==undefined)n.textContent=text;return n};
 function notify(text,error=false){$('#status').textContent=text;$('#status').className=error?'error':'success'}
 async function api(path,data){const response=await fetch(path,data?{method:'POST',headers:{'Content-Type':'application/json','X-Editor-Token':token},body:JSON.stringify(data)}:{});const result=await response.json();if(!response.ok)throw new Error(result.error||'Ошибка');return result}
-const defaults=fields=>Object.fromEntries(fields.map(f=>[f.name,f.list?[]:f.type==='boolean'?false:f.type==='number'?0:f.type==='object'?defaults(f.fields):f.default??'']));
+const defaults=fields=>Object.fromEntries(fields.map(f=>[f.name,f.default??(f.list?[]:f.type==='boolean'?false:f.type==='number'?0:f.type==='object'?defaults(f.fields):'')]));
+function lockEditor(lock){
+  working=lock;
+  document.querySelectorAll('#collections button,#document input,#document textarea,#document select,#document button,.toolbar button,.toolbar input').forEach(control=>{
+    if(lock){control.dataset.wasDisabled=String(control.disabled);control.disabled=true}
+    else{control.disabled=control.dataset.wasDisabled==='true';delete control.dataset.wasDisabled}
+  });
+  if(!lock)$('#save').disabled=!current;
+}
+function readiness(){
+  let panel=$('#readiness');if(!panel){panel=el('p');panel.id='readiness';panel.className='notice';$('#document').before(panel)}
+  panel.hidden=!record||!('publish' in record);if(panel.hidden)return;
+  const missing=[];
+  for(const [lang,label]of [['ru','русская'],['en','английская']]){
+    if(!record['ready_'+lang])missing.push(label+' версия не отмечена готовой');
+    if(!record['title_'+lang]?.trim()||!record['summary_'+lang]?.trim())missing.push(label+' версия: нужен заголовок и описание');
+    if((record.editorialStatus==='final'||record.readingMode==='full')&&!record['body_'+lang]?.trim())missing.push(label+' версия: нужен полный текст');
+  }
+  panel.textContent=!record.publish?'Скрыто с сайта. Включите «Показывать на сайте», когда материал будет готов.':missing.length?'Новая редакция пока не выйдет: '+missing.join('; ')+'. Если есть предыдущая полная версия, сайт покажет её.':'Оба языка готовы. После сохранения и пересборки материал появится в предпросмотре; публикация на сайте — отдельной кнопкой.';
+}
+document.querySelector('#document').addEventListener('input',readiness);
 function renderFields(fields,parent,value){
   for(const field of fields){
     if(field.list){
@@ -59,12 +79,13 @@ function renderFields(fields,parent,value){
   }
 }
 async function load(collection,name,isNew=false){
+  if(working)return;
   if(dirty&&!confirm('Есть несохранённые изменения. Перейти к другому материалу?'))return;
   current={collection,name};const schema=schemas.find(s=>s.name===collection);
   record=isNew?defaults(schema.fields):await api('/api/document?collection='+encodeURIComponent(collection)+'&name='+encodeURIComponent(name));
   if(isNew){record.id=name;record.slug=name;record.publish=false;record.ready_ru=false;record.ready_en=false}
   $('#document').replaceChildren();renderFields(schema.fields,$('#document'),record);$('#title').textContent=schema.label+' / '+name;$('#save').disabled=false;
-  document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('active',b.dataset.key===collection+'/'+name));dirty=false;notify(isNew?'Новая запись. Заполните оба языка и сохраните.':'Материал открыт.');
+  document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('active',b.dataset.key===collection+'/'+name));dirty=false;readiness();notify(isNew?'Новая запись. Заполните оба языка и сохраните.':'Материал открыт.');
 }
 async function index(){
   schemas=(await api('/api/index')).collections;$('#collections').replaceChildren();
@@ -76,25 +97,26 @@ async function index(){
 }
 function cleanOptional(data){
   // Optional date/type/status values should be absent, not empty strings.
-  for(const key of ['date','status','type'])if(data[key]==='')delete data[key];
+  for(const key of ['date','status','type','readingMode','targetDate','startedDate'])if(data[key]==='')delete data[key];
   return data;
 }
 $('#save').onclick=async()=>{
-  $('#save').disabled=true;
+  if(working||!current)return;lockEditor(true);
   try{const result=await api('/api/save',{...current,data:cleanOptional(record)});dirty=false;notify(result.message);await index()}
-  catch(e){notify(e.message,true)}finally{$('#save').disabled=false}
+  catch(e){notify(e.message,true)}finally{lockEditor(false);readiness()}
 };
 $('#build').onclick=async()=>{
+  if(working)return;
   if(dirty)return notify('Сначала сохраните изменения.',true);
-  $('#build').disabled=true;$('#save').disabled=true;notify('Проверка материалов, сборка страниц и поисковых индексов…');
+  lockEditor(true);notify('Проверка материалов, сборка страниц и поисковых индексов…');
   try{const result=await api('/api/build',{});notify(result.message);$('#log').textContent=result.output}
-  catch(e){notify('Сборка не завершена. '+e.message,true)}finally{$('#build').disabled=false;$('#save').disabled=!current}
+  catch(e){notify('Сборка не завершена. '+e.message,true)}finally{lockEditor(false)}
 };
 $('#publish').onclick=async()=>{
+  if(working)return;
   if(dirty)return notify('Сначала сохраните изменения.',true);
   if(!confirm('Опубликовать сохранённые изменения? Будут созданы коммит и push в GitHub; GitHub Actions обновит публичный сайт.'))return;
-  const controls=[...document.querySelectorAll('.toolbar button,.toolbar input')];
-  controls.forEach(control=>control.disabled=true);
+  lockEditor(true);
   notify('Проверка, сборка и отправка материалов в GitHub…');
   try{
     const result=await api('/api/publish',{confirmPublish:true});notify(result.message);
@@ -102,7 +124,7 @@ $('#publish').onclick=async()=>{
     $('#status').append(el('br'),link);
     $('#log').textContent='Коммит: '+result.sha;
   }catch(e){notify('Публикация не завершена. '+e.message,true)}
-  finally{controls.forEach(control=>control.disabled=false);$('#save').disabled=!current}
+  finally{lockEditor(false)}
 };
 $('#upload').onchange=async()=>{
   const file=$('#upload').files[0];if(!file)return;

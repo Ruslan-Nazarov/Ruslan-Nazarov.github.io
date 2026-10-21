@@ -79,7 +79,7 @@ content:
             label: intro
             type: text
           - name: featured
-            label: featured
+            label: Избранный материал
             type: text
           - name: publications
             label: publications
@@ -152,7 +152,7 @@ content:
             label: intro
             type: text
           - name: featured
-            label: featured
+            label: Избранный материал
             type: text
           - name: publications
             label: publications
@@ -231,7 +231,7 @@ content:
             label: journal
             type: text
           - name: timeline
-            label: timeline
+            label: События проекта
             type: text
           - name: about
             label: about
@@ -300,10 +300,10 @@ content:
             label: related
             type: text
           - name: relatedProjects
-            label: relatedProjects
+            label: Связанные проекты (ID)
             type: text
           - name: relatedPublications
-            label: relatedPublications
+            label: Связанные публикации (ID)
             type: text
           - name: thematicJournal
             label: thematicJournal
@@ -321,7 +321,7 @@ content:
             label: area
             type: text
           - name: type
-            label: type
+            label: Тип материала
             type: text
           - name: tag
             label: tag
@@ -456,7 +456,7 @@ content:
             label: notes
             type: text
           - name: gallery
-            label: gallery
+            label: Галерея
             type: text
           - name: galleryEmpty
             label: galleryEmpty
@@ -546,7 +546,7 @@ content:
             label: close
             type: text
           - name: status
-            label: status
+            label: Статус проекта
             type: text
           - name: codeLicense
             label: codeLicense
@@ -616,6 +616,42 @@ content:
             type: text
           - name: chapterOverview
             label: chapterOverview
+            type: text
+          - name: reading:full
+            label: reading:full
+            type: text
+          - name: reading:external
+            label: reading:external
+            type: text
+          - name: reading:forthcoming
+            label: reading:forthcoming
+            type: text
+          - name: researchDescription
+            label: researchDescription
+            type: text
+          - name: projectsDescription
+            label: projectsDescription
+            type: text
+          - name: publicationsDescription
+            label: publicationsDescription
+            type: text
+          - name: journalDescription
+            label: journalDescription
+            type: text
+          - name: searchDescription
+            label: searchDescription
+            type: text
+          - name: legalDescription
+            label: legalDescription
+            type: text
+          - name: privacyDescription
+            label: privacyDescription
+            type: text
+          - name: footerLicense
+            label: footerLicense
+            type: text
+          - name: backToTop
+            label: backToTop
             type: text
       - name: en
         label: en
@@ -637,7 +673,7 @@ content:
             label: journal
             type: text
           - name: timeline
-            label: timeline
+            label: События проекта
             type: text
           - name: about
             label: about
@@ -706,10 +742,10 @@ content:
             label: related
             type: text
           - name: relatedProjects
-            label: relatedProjects
+            label: Связанные проекты (ID)
             type: text
           - name: relatedPublications
-            label: relatedPublications
+            label: Связанные публикации (ID)
             type: text
           - name: thematicJournal
             label: thematicJournal
@@ -727,7 +763,7 @@ content:
             label: area
             type: text
           - name: type
-            label: type
+            label: Тип материала
             type: text
           - name: tag
             label: tag
@@ -862,7 +898,7 @@ content:
             label: notes
             type: text
           - name: gallery
-            label: gallery
+            label: Галерея
             type: text
           - name: galleryEmpty
             label: galleryEmpty
@@ -952,7 +988,7 @@ content:
             label: close
             type: text
           - name: status
-            label: status
+            label: Статус проекта
             type: text
           - name: codeLicense
             label: codeLicense
@@ -1023,8 +1059,44 @@ content:
           - name: chapterOverview
             label: chapterOverview
             type: text
+          - name: reading:full
+            label: reading:full
+            type: text
+          - name: reading:external
+            label: reading:external
+            type: text
+          - name: reading:forthcoming
+            label: reading:forthcoming
+            type: text
+          - name: researchDescription
+            label: researchDescription
+            type: text
+          - name: projectsDescription
+            label: projectsDescription
+            type: text
+          - name: publicationsDescription
+            label: publicationsDescription
+            type: text
+          - name: journalDescription
+            label: journalDescription
+            type: text
+          - name: searchDescription
+            label: searchDescription
+            type: text
+          - name: legalDescription
+            label: legalDescription
+            type: text
+          - name: privacyDescription
+            label: privacyDescription
+            type: text
+          - name: footerLicense
+            label: footerLicense
+            type: text
+          - name: backToTop
+            label: backToTop
+            type: text
   - name: research
-    label: research
+    label: Направления исследований
     type: collection
     path: src/content/research
     format: json
@@ -1040,14 +1112,14 @@ content:
     fields:
       - &a1
         name: id
-        label: id
+        label: Постоянный ID
         type: string
         required: true
         pattern: ^[a-z0-9]+(?:-[a-z0-9]+)*$
         description: Постоянный ID. Не менять после первого выпуска.
       - &a2
         name: slug
-        label: slug
+        label: Адрес страницы (slug)
         type: string
         required: true
         pattern: ^[a-z0-9]+(?:-[a-z0-9]+)*$
@@ -1070,31 +1142,31 @@ content:
         default: false
       - &a6
         name: title_ru
-        label: title_ru
+        label: Заголовок · RU
         type: string
       - &a7
         name: title_en
-        label: title_en
+        label: Title · EN
         type: string
       - &a8
         name: summary_ru
-        label: summary_ru
+        label: Краткое описание · RU
         type: text
       - &a9
         name: summary_en
-        label: summary_en
+        label: Summary · EN
         type: text
       - &a10
         name: body_ru
-        label: body_ru
+        label: Текст · RU
         type: rich-text
       - &a11
         name: body_en
-        label: body_en
+        label: Text · EN
         type: rich-text
       - &a12
         name: editorialStatus
-        label: editorialStatus
+        label: Готовность текста
         type: select
         options:
           values:
@@ -1105,7 +1177,7 @@ content:
         default: awaiting_content
       - &a13
         name: featured
-        label: featured
+        label: Избранный материал
         type: boolean
       - &a14
         name: order
@@ -1114,13 +1186,13 @@ content:
         default: 100
       - &a15
         name: heroImage
-        label: heroImage
+        label: Обложка
         type: image
         options:
           media: library
       - &a16
         name: gallery
-        label: gallery
+        label: Галерея
         type: object
         list: true
         fields:
@@ -1137,32 +1209,32 @@ content:
             type: string
       - &a17
         name: researchAreas
-        label: researchAreas
+        label: Направления (ID)
         type: string
         list: true
       - &a18
         name: relatedProjects
-        label: relatedProjects
+        label: Связанные проекты (ID)
         type: string
         list: true
       - &a19
         name: relatedPublications
-        label: relatedPublications
+        label: Связанные публикации (ID)
         type: string
         list: true
       - &a20
         name: relatedJournal
-        label: relatedJournal
+        label: Связанные записи дневника (ID)
         type: string
         list: true
       - &a21
         name: tags
-        label: tags
+        label: Теги
         type: string
         list: true
       - &a22
         name: links
-        label: links
+        label: Внешние ссылки
         type: object
         list: true
         fields:
@@ -1182,7 +1254,7 @@ content:
         list: true
         fields:
           - name: id
-            label: id
+            label: Постоянный ID
             type: string
           - name: label_ru
             label: label_ru
@@ -1198,25 +1270,25 @@ content:
             type: string
       - &a24
         name: timeline
-        label: timeline
+        label: События проекта
         type: object
         list: true
         fields:
           - name: date
-            label: date
+            label: Дата публикации / события
             type: date
             default: ""
             options:
               format: yyyy-MM-dd
           - name: title_ru
-            label: title_ru
+            label: Заголовок · RU
             type: string
           - name: title_en
-            label: title_en
+            label: Title · EN
             type: string
       - &a25
         name: date
-        label: date
+        label: Дата публикации / события
         type: date
         default: ""
         options:
@@ -1239,7 +1311,7 @@ content:
         label: openProblems_en
         type: text
   - name: projects
-    label: projects
+    label: Проекты
     type: collection
     path: src/content/projects
     format: json
@@ -1279,7 +1351,7 @@ content:
       - *a24
       - *a25
       - name: status
-        label: status
+        label: Статус проекта
         type: select
         options:
           values:
@@ -1306,7 +1378,7 @@ content:
         label: motto_en
         type: string
   - name: publications
-    label: publications
+    label: Публикации
     type: collection
     path: src/content/publications
     format: json
@@ -1346,7 +1418,7 @@ content:
       - *a24
       - *a25
       - name: type
-        label: type
+        label: Тип материала
         type: select
         options:
           values:
@@ -1354,17 +1426,28 @@ content:
             - theses
             - article
             - technical-note
+      - name: readingMode
+        label: Где читать материал
+        type: select
+        options:
+          values:
+            - value: full
+              label: Полный текст на сайте
+            - value: external
+              label: Оригинал на внешнем сайте
+            - value: forthcoming
+              label: Готовящаяся рукопись
       - name: license
         label: license
         type: string
       - name: targetDate
-        label: targetDate
+        label: Планируемая дата выпуска
         type: date
         default: ""
         options:
           format: yyyy-MM-dd
       - name: startedDate
-        label: startedDate
+        label: Дата начала работы
         type: date
         default: ""
         options:
@@ -1376,7 +1459,7 @@ content:
         label: pdf_en
         type: file
   - name: journal
-    label: journal
+    label: Дневник
     type: collection
     path: src/content/journal
     format: json
@@ -1416,7 +1499,7 @@ content:
       - *a24
       - *a25
       - name: type
-        label: type
+        label: Тип материала
         type: select
         options:
           values:
@@ -1425,7 +1508,7 @@ content:
             - experiment
             - result
   - name: theses
-    label: theses
+    label: Главы тезисов
     type: collection
     path: src/content/theses
     format: json
@@ -1465,7 +1548,7 @@ content:
       - *a24
       - *a25
   - name: pages
-    label: pages
+    label: Дополнительные страницы
     type: collection
     path: src/content/pages
     format: json
@@ -1518,7 +1601,7 @@ content:
       primary: id
     fields:
       - name: id
-        label: id
+        label: Постоянный ID
         type: string
         readonly: true
       - name: approvedForPublication
@@ -1543,17 +1626,17 @@ content:
         label: order
         type: number
       - name: featured
-        label: featured
+        label: Избранный материал
         type: boolean
       - name: tags
-        label: tags
+        label: Теги
         type: string
         list: true
       - name: image
         label: image
         type: image
       - name: links
-        label: links
+        label: Внешние ссылки
         type: object
         list: true
         fields:

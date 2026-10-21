@@ -8,8 +8,8 @@
   "title_en": "A Note on “Arman”: A New Artificial Intelligence Architecture",
   "summary_ru": "Исследовательский замысел альтернативной архитектуры ИИ, связанный с поиском противоположностей. Английская публикация на Medium.",
   "summary_en": "A research proposal for an alternative AI architecture connected with the search for opposites. Published in English on Medium.",
-  "body_ru": "Исследовательский замысел альтернативной архитектуры ИИ, связанный с поиском противоположностей. Английская публикация на Medium.\n\nЗдесь представлена аннотация. Полный текст доступен на Medium на английском языке по ссылке «Читать на Medium».",
-  "body_en": "A research proposal for an alternative AI architecture connected with the search for opposites. Published in English on Medium.\n\nThis page provides a short description. The complete English article is available via “Read on Medium”.",
+  "body_ru": "Полный текст статьи опубликован на Medium на английском языке. Ниже — связанные проекты и материалы, которые помогают проследить развитие этой темы.",
+  "body_en": "The full article is published in English on Medium. Related projects and publications below provide context for this line of inquiry.",
   "editorialStatus": "external_publication",
   "type": "article",
   "researchAreas": [
@@ -35,5 +35,6 @@
     }
   ],
   "timeline": [],
-  "order": 16
+  "order": 16,
+  "readingMode": "external"
 }

@@ -1,7 +1,8 @@
 import {writeFileSync} from 'node:fs';
 import {stringify} from 'yaml';
 import {readJSON} from '../src/lib/content.mjs';
-const f=(name,type='string',extra={})=>({name,label:name,type,...(type==='date'?{default:'',options:{format:'yyyy-MM-dd'}}:{}),...extra});
+const labels={id:'Постоянный ID',slug:'Адрес страницы (slug)',title_ru:'Заголовок · RU',title_en:'Title · EN',summary_ru:'Краткое описание · RU',summary_en:'Summary · EN',body_ru:'Текст · RU',body_en:'Text · EN',editorialStatus:'Готовность текста',featured:'Избранный материал',heroImage:'Обложка',gallery:'Галерея',researchAreas:'Направления (ID)',relatedProjects:'Связанные проекты (ID)',relatedPublications:'Связанные публикации (ID)',relatedJournal:'Связанные записи дневника (ID)',tags:'Теги',links:'Внешние ссылки',timeline:'События проекта',date:'Дата публикации / события',type:'Тип материала',status:'Статус проекта',targetDate:'Планируемая дата выпуска',startedDate:'Дата начала работы',readingMode:'Где читать материал'};
+const f=(name,type='string',extra={})=>({name,label:labels[name]||name,type,...(type==='date'?{default:'',options:{format:'yyyy-MM-dd'}}:{}),...extra});
 const bilingual=(key,type='text')=>['ru','en'].map(l=>f(`${key}_${l}`,type));
 const list=(name)=>f(name,'string',{list:true});
 const objectList=(name,fields)=>f(name,'object',{list:true,fields});
@@ -24,7 +25,7 @@ const common=[
 const extras={
   research:[f('symbol'),...bilingual('questions'),...bilingual('openProblems')],
   projects:[f('status','select',{options:{values:['active','completed','paused']},default:'active'}),...bilingual('statusLabel','string'),...bilingual('byline','string'),...bilingual('motto','string')],
-  publications:[f('type','select',{options:{values:['book','theses','article','technical-note']}}),f('license'),f('targetDate','date'),f('startedDate','date'),...bilingual('pdf','file')],
+  publications:[f('type','select',{options:{values:['book','theses','article','technical-note']}}),f('readingMode','select',{options:{values:[{value:'full',label:'Полный текст на сайте'},{value:'external',label:'Оригинал на внешнем сайте'},{value:'forthcoming',label:'Готовящаяся рукопись'}]}}),f('license'),f('targetDate','date'),f('startedDate','date'),...bilingual('pdf','file')],
   journal:[f('type','select',{options:{values:['news','research-note','experiment','result']}})],
   theses:[], pages:[]
 };
@@ -38,7 +39,7 @@ const config={
       objectList('profiles',[f('label'),f('url')]),...['ru','en'].map(l=>f(l,'object',{fields:Object.keys(site[l]).map(k=>f(k,k.endsWith('Body')?'rich-text':'text'))}))
     ]},
     {name:'interface',label:'Подписи интерфейса RU / EN',type:'file',path:'src/data/ui.json',format:'json',fields:['ru','en'].map(l=>f(l,'object',{fields:Object.keys(ui[l]).map(k=>f(k,'text'))}))},
-    ...Object.entries(extras).map(([name,fields])=>({name,label:name,type:'collection',path:`src/content/${name}`,format:'json',filename:'{fields.id}.json',view:{primary:'title_ru',fields:['id','title_ru','publish','ready_ru','ready_en']},fields:[...common,...fields]})),
+    ...Object.entries(extras).map(([name,fields])=>({name,label:({research:'Направления исследований',projects:'Проекты',publications:'Публикации',journal:'Дневник',theses:'Главы тезисов',pages:'Дополнительные страницы'})[name],type:'collection',path:`src/content/${name}`,format:'json',filename:'{fields.id}.json',view:{primary:'title_ru',fields:['id','title_ru','publish','ready_ru','ready_en']},fields:[...common,...fields]})),
     {name:'graph-overrides',label:'Граф — разрешения и аннотации',type:'collection',path:'src/content/graph-overrides',format:'json',filename:'{fields.id}.json',operations:{create:false,delete:false,rename:false},view:{primary:'id'},fields:[
       f('id','string',{readonly:true}),
       f('approvedForPublication','boolean',{default:false,label:'Я разрешаю публикацию узла',description:'Только владелец включает явно. Исследовательский статус не даёт разрешение на публикацию.'}),
