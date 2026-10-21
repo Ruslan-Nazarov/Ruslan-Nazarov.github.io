@@ -16,11 +16,15 @@ function fixture(){
 }
 test('editor publication commits content and pushes main only after successful build',async()=>{
   const f=fixture();f.write('src/data/site.json','{"name":"Updated"}\n');
+  f.write('src/data/media.json','{"items":[{"id":"test-image"}]}\n');
+  f.write('public/media/papanda/test.png','local media fixture');
   let built=false;
   const result=await publishContent({...f.options,build:async()=>{built=true;f.write('src/data/published.json','{"snapshot":true}\n')}});
   assert.equal(built,true);assert.match(result.message,/отправлены/);
   assert.equal(f.git('rev-parse','HEAD').trim(),f.git('rev-parse','origin/main').trim());
   assert.match(f.git('show','origin/main:src/data/published.json'),/snapshot/);
+  assert.match(f.git('show','origin/main:src/data/media.json'),/test-image/);
+  assert.equal(f.git('show','origin/main:public/media/papanda/test.png'),'local media fixture');
   const again=await publishContent({...f.options,build:async()=>{}});
   assert.match(again.message,/Новых изменений нет/);
 });

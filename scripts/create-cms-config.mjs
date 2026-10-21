@@ -13,23 +13,24 @@ const common=[
   f('ready_en','boolean',{default:false,label:'English version ready'}),
   ...bilingual('title','string'),...bilingual('summary'),...bilingual('body','rich-text'),
   f('editorialStatus','select',{options:{values:['awaiting_content','editorial_summary','final','external_publication']},default:'awaiting_content'}),
-  f('featured','boolean'),f('order','number',{default:100,label:'Порядок отображения'}),f('heroImage','image'),
-  objectList('gallery',[f('src','image'),...bilingual('alt','string')]),
+  f('featured','boolean'),f('order','number',{default:100,label:'Порядок отображения'}),f('heroImage','image',{options:{media:'library'}}),
+  objectList('gallery',[f('src','image',{options:{media:'library'}}),...bilingual('alt','string')]),
   list('researchAreas'),list('relatedProjects'),list('relatedPublications'),list('relatedJournal'),list('tags'),
   objectList('links',[...bilingual('label','string'),f('url')]),
+  objectList('exampleLinks',[f('id'),...bilingual('label','string'),...bilingual('url','string')]),
   objectList('timeline',[f('date','date'),...bilingual('title','string')]),
   f('date','date',{description:'Только реальная дата события или публикации. Оставить пустым, если неизвестна.'})
 ];
 const extras={
   research:[f('symbol'),...bilingual('questions'),...bilingual('openProblems')],
-  projects:[f('status','select',{options:{values:['active','completed','paused']},default:'active'})],
+  projects:[f('status','select',{options:{values:['active','completed','paused']},default:'active'}),...bilingual('statusLabel','string'),...bilingual('byline','string'),...bilingual('motto','string')],
   publications:[f('type','select',{options:{values:['book','theses','article','technical-note']}}),f('license'),f('targetDate','date'),f('startedDate','date'),...bilingual('pdf','file')],
   journal:[f('type','select',{options:{values:['news','research-note','experiment','result']}})],
   theses:[], pages:[]
 };
 const site=readJSON('src/data/site.json'),ui=readJSON('src/data/ui.json');
 const config={
-  media:[{name:'images',label:'Images',input:'public/images',output:'/images'},{name:'files',label:'PDF / Files',input:'public/files',output:'/files'}],
+  media:[{name:'library',label:'Медиабиблиотека',input:'public/media',output:'/media',extensions:['png','jpg','jpeg','webp','svg','gif']},{name:'images',label:'Images',input:'public/images',output:'/images'},{name:'files',label:'PDF / Files',input:'public/files',output:'/files'}],
   actions:[{name:'release-content',label:'Сохранить полные RU+EN версии перед новой редакцией',workflow:'content-release.yml'}],
   content:[
     {name:'site',label:'Главная / About / настройки',type:'file',path:'src/data/site.json',format:'json',fields:[

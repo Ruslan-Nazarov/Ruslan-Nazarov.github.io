@@ -1,0 +1,10 @@
+---
+import Media from './Media.astro';
+import {markdown} from '../lib/markdown.mjs';
+const {text,lang,prose=true}=Astro.props;
+const parts=await Promise.all(text.split(/(\[\[media:[a-z0-9-]+\]\])/g).map(async (part:string)=>{
+  const match=part.match(/^\[\[media:([a-z0-9-]+)\]\]$/);
+  return match?{id:match[1]}:{html:await markdown(part)};
+}));
+---
+<div class={prose?'prose':undefined}>{parts.map(part=>'id' in part?<Media id={part.id} lang={lang}/>:<div set:html={part.html}/>)}</div>

@@ -1,5 +1,16 @@
 # Pages CMS. Source graph and immutable IDs are deliberately outside editorial control.
 media:
+  - name: library
+    label: Медиабиблиотека
+    input: public/media
+    output: /media
+    extensions:
+      - png
+      - jpg
+      - jpeg
+      - webp
+      - svg
+      - gif
   - name: images
     label: Images
     input: public/images
@@ -1093,6 +1104,8 @@ content:
         name: heroImage
         label: heroImage
         type: image
+        options:
+          media: library
       - &a16
         name: gallery
         label: gallery
@@ -1102,6 +1115,8 @@ content:
           - name: src
             label: src
             type: image
+            options:
+              media: library
           - name: alt_ru
             label: alt_ru
             type: string
@@ -1149,6 +1164,27 @@ content:
             label: url
             type: string
       - &a23
+        name: exampleLinks
+        label: exampleLinks
+        type: object
+        list: true
+        fields:
+          - name: id
+            label: id
+            type: string
+          - name: label_ru
+            label: label_ru
+            type: string
+          - name: label_en
+            label: label_en
+            type: string
+          - name: url_ru
+            label: url_ru
+            type: string
+          - name: url_en
+            label: url_en
+            type: string
+      - &a24
         name: timeline
         label: timeline
         type: object
@@ -1166,7 +1202,7 @@ content:
           - name: title_en
             label: title_en
             type: string
-      - &a24
+      - &a25
         name: date
         label: date
         type: date
@@ -1229,6 +1265,7 @@ content:
       - *a22
       - *a23
       - *a24
+      - *a25
       - name: status
         label: status
         type: select
@@ -1238,6 +1275,24 @@ content:
             - completed
             - paused
         default: active
+      - name: statusLabel_ru
+        label: statusLabel_ru
+        type: string
+      - name: statusLabel_en
+        label: statusLabel_en
+        type: string
+      - name: byline_ru
+        label: byline_ru
+        type: string
+      - name: byline_en
+        label: byline_en
+        type: string
+      - name: motto_ru
+        label: motto_ru
+        type: string
+      - name: motto_en
+        label: motto_en
+        type: string
   - name: publications
     label: publications
     type: collection
@@ -1277,6 +1332,7 @@ content:
       - *a22
       - *a23
       - *a24
+      - *a25
       - name: type
         label: type
         type: select
@@ -1346,6 +1402,7 @@ content:
       - *a22
       - *a23
       - *a24
+      - *a25
       - name: type
         label: type
         type: select
@@ -1394,6 +1451,7 @@ content:
       - *a22
       - *a23
       - *a24
+      - *a25
   - name: pages
     label: pages
     type: collection
@@ -1433,6 +1491,7 @@ content:
       - *a22
       - *a23
       - *a24
+      - *a25
   - name: graph-overrides
     label: Граф — разрешения и аннотации
     type: collection

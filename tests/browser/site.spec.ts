@@ -108,6 +108,7 @@ test('local editor loads structured fields, saves locally and rejects unauthenti
 
 
 test('local editor publication button explains deployment result',async({page})=>{
+  page.on('dialog',dialog=>dialog.accept());
   await page.route('**/api/publish',async route=>{
     expect(route.request().method()).toBe('POST');
     expect(route.request().headers()['x-editor-token']).toBeTruthy();

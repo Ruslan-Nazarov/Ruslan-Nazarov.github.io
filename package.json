@@ -12,6 +12,7 @@
     "test": "node --test tests/*.test.mjs",
     "test:browser": "playwright test",
     "test:features": "node scripts/test-feature-fixtures.mjs",
+    "test:media": "node scripts/test-media-fixtures.mjs",
     "content:release": "node scripts/release-content.mjs",
     "graph:import": "node scripts/import-graph.mjs",
     "editor": "node scripts/local-editor.mjs"
@@ -32,6 +33,7 @@
     "remark-math": "^6.0.0",
     "remark-parse": "^11.0.0",
     "remark-rehype": "^11.1.2",
+    "sharp": "0.35.5",
     "unified": "^11.0.5",
     "yaml": "^2.8.1",
     "zod": "^3.25.76"

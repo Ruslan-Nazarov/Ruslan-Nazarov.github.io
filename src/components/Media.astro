@@ -1,0 +1,10 @@
+---
+import {resolveMedia} from '../lib/media.mjs';
+interface Props {id:string;lang:'ru'|'en'}
+const {id,lang}=Astro.props;
+const media=resolveMedia(id),alt=media[`alt_${lang}`]||'',caption=media[`caption_${lang}`]||'';
+---
+<figure class="project-media" data-media-id={id}>
+  {media.path?<a href={media.path} data-media-viewer aria-label={lang==='ru'?'Открыть изображение: '+alt:'Open image: '+alt}><img src={media.path} alt={alt} loading="lazy"/></a>:<div class="media-placeholder" role="img" aria-label={alt}><span aria-hidden="true">▧</span><p>{lang==='ru'?'Иллюстрация готовится':'Illustration pending'}</p><small>{alt}</small></div>}
+  <figcaption>{caption}</figcaption>
+</figure>

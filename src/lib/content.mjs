@@ -19,6 +19,7 @@ export const entrySchema = z.object({
   links:z.array(link).default([]),timeline:z.array(z.object({
     date:z.string().regex(/^\d{4}-\d{2}-\d{2}$/),title_ru:z.string().min(1),title_en:z.string().min(1)
   })).default([]),
+  exampleLinks:z.array(z.object({id,label_ru:z.string(),label_en:z.string(),url_ru:safeUrl,url_en:safeUrl})).default([]),
   editorialStatus:z.enum(['awaiting_content','editorial_summary','final','external_publication']).default('awaiting_content'),
   status:z.enum(['active','completed','paused']).optional(),
   type:z.enum(['book','theses','article','technical-note','news','research-note','experiment','result']).optional(),

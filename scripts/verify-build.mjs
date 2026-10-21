@@ -16,6 +16,7 @@ for(const p of ['public/yandex_64f199e3e08207c6.html','dist/yandex_64f199e3e0820
   if(hash(p)!==expected) throw new Error(`Yandex verification bytes changed: ${p}`);
 const textFiles=files.filter(p=>/\.(html|json|js|xml|txt|css)$/.test(p));
 const output=textFiles.map(p=>readFileSync(p,'utf8')).join('\n');
+for(const secret of ['__CSRF_TOKEN__','x-editor-token','/api/publish','/api/media/upload','GCM_INTERACTIVE','github_pat_'])if(output.includes(secret))throw new Error('Local editor/secret leakage: '+secret);
 const privateRows=collections.flatMap(c=>rawCollection(c).filter(r=>!r.publish));
 for(const row of privateRows) for(const value of [row.id,row.title_ru,row.title_en]){
   if(value.length>8&&output.includes(value))throw new Error(`Draft leakage: ${row.id}`);

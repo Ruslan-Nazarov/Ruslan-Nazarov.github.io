@@ -85,7 +85,7 @@ try{
     await page.goto(`${base}/${lang}/projects/mathematical-parser/`);
     assert.ok(await page.locator('a[href*="/journal/fixture-note/"]').count()>0);
     await page.goto(`${base}/${lang}/projects/papanda/`);
-    assert.equal(await page.locator('h1').innerText(),'papanda');
+    assert.equal(await page.locator('h1').innerText(),read('src/data/published.json').projects.find(p=>p.id==='papanda')[`title_${lang}`]);
   }
   await page.goto(base+'/ru/projects/mathematical-parser/graph/');
   await page.locator('.react-flow__node').first().waitFor();

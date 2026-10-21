@@ -52,6 +52,10 @@ const documentTitle=path?`${title} | ${site.name}`:`${site.name} | ${site[lang].
       </div>
     </header>
     <main id="main" data-pagefind-body><slot /></main>
+    <dialog id="media-viewer" aria-label={lang==='ru'?'Просмотр изображения':'Image viewer'} data-pagefind-ignore>
+      <form method="dialog"><button autofocus aria-label={lang==='ru'?'Закрыть':'Close'}>{lang==='ru'?'Закрыть':'Close'} ×</button></form>
+      <div class="media-viewer-scroll"><img alt=""/></div><p></p>
+    </dialog>
     <footer class="site-footer" data-pagefind-ignore>
       <div><a class="footer-name" href={`/${lang}/`}>{site.name}<span>·</span></a><p>{site.tagline}</p></div>
       <div class="footer-links"><a href={`/${lang}/legal/`}>{t.legal}</a><a href={`/${lang}/privacy/`}>{t.privacy}</a><a href={`/${lang}/rss.xml`}>RSS ↗</a><a href="https://github.com/Ruslan-Nazarov" rel="noopener noreferrer">GitHub ↗</a></div>
@@ -67,6 +71,16 @@ const documentTitle=path?`${title} | ${site.name}`:`${site.name} | ${site[lang].
       const menu=document.querySelector<HTMLButtonElement>('.menu-toggle');
       menu?.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')!=='true';menu.setAttribute('aria-expanded',String(open));document.querySelector('#main-nav')?.classList.toggle('open',open)});
       document.addEventListener('keydown',e=>{if(e.key==='Escape'){menu?.setAttribute('aria-expanded','false');document.querySelector('#main-nav')?.classList.remove('open')}});
+      const viewer=document.querySelector<HTMLDialogElement>('#media-viewer');
+      document.querySelectorAll<HTMLAnchorElement>('[data-media-viewer],.prose a:has(> img)').forEach(link=>link.addEventListener('click',event=>{
+        if(!viewer||event.ctrlKey||event.metaKey||event.shiftKey)return;
+        event.preventDefault();
+        const img=link.querySelector('img'),target=viewer.querySelector('img')!;
+        target.src=link.href;target.alt=img?.alt||'';
+        viewer.querySelector('p')!.textContent=link.closest('figure')?.querySelector('figcaption')?.textContent||img?.alt||'';
+        viewer.showModal();
+      }));
+      viewer?.addEventListener('click',event=>{if(event.target===viewer)viewer.close()});
     </script>
   </body>
 </html>
