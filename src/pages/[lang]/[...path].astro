@@ -49,7 +49,7 @@ const related=(name:string)=>data[name].filter(r=>row&&(row[name==='projects'?'r
           <section class="detail-section"><h2>{t.questions}</h2><ul class="question-list">{l(row,'questions',lang).split('\n').filter(Boolean).map((q:string)=><li>{q}</li>)}</ul></section>
           <section class="detail-section"><h2>{t.openProblems}</h2><p>{l(row,'openProblems',lang)}</p></section>
         </>}
-        {row.id==='mathematical-parser'&&<a class="button" href={`/${lang}/projects/mathematical-parser/graph/`}>{t.openGraph} ↗</a>}
+        {row.id==='mathematical-parser'&&<a class="button" href={`/${lang}/projects/mathematical-parser/graph/`}>{getPublicGraph().nodes.length?t.openGraph:t.demoGraph} ↗</a>}
         {row.id==='papanda'&&data.pages.some(p=>p.slug==='dialectical-notes')&&<a class="button" href={`/${lang}/projects/papanda/dialectical-notes/`}>{t.notes} ↗</a>}
         {row.id==='theses-2020-2026'&&<>
           <div class="thesis-toolbar"><a class="button" href={`/${lang}/publications/theses-2020-2026/full/`}>{t.fullText} ↗</a>{row[`pdf_${lang}`]&&<a class="button secondary" href={row[`pdf_${lang}`]}>PDF {lang.toUpperCase()} ↓</a>}</div>

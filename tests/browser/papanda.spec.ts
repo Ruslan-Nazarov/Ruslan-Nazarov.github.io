@@ -1,7 +1,7 @@
 import {test,expect} from '@playwright/test';
 import {readFileSync} from 'node:fs';
 const lib=JSON.parse(readFileSync('src/data/media.json','utf8'));
-for(const project of ['papanda','papanda-languages']){
+for(const project of ['papanda','papanda-languages','mathematical-parser']){
 const row=JSON.parse(readFileSync(`src/content/projects/${project}.json`,'utf8'));
 const slots=lib.slots.filter((s:any)=>s.project===project);
 for(const lang of ['ru','en'])test(`${project} ${lang}: copy, ordered placeholders, language switch and mobile`,async({page})=>{
@@ -10,6 +10,13 @@ for(const lang of ['ru','en'])test(`${project} ${lang}: copy, ordered placeholde
   await expect(page.locator('h1')).toHaveText(row['title_'+lang]);
   await expect(page.locator('.papanda-motto')).toHaveText(row['motto_'+lang]);
   await expect(page.locator('.page-description')).toHaveText(row['summary_'+lang]);
+  await expect(page.locator('.detail-sidebar .badge')).toHaveText(row['statusLabel_'+lang]);
+  if(project==='mathematical-parser'){
+    await expect(page.locator('.prose blockquote')).toContainText(lang==='ru'?'ещё не завершён':'is not complete');
+    await expect(page.locator('.prose blockquote')).toContainText(lang==='ru'?'Исходный код пока не опубликован':'The source code has not been published yet');
+    await expect(page.getByRole('link',{name:lang==='ru'?'Открыть демонстрацию ↗':'Open the demo ↗',exact:true})).toHaveAttribute('href',`/${lang}/projects/mathematical-parser/graph/`);
+    await expect(page.locator('.prose input')).toHaveCount(0);
+  }
   for(const link of row.links)await expect(page.locator('.detail-sidebar').getByRole('link',{name:link['label_'+lang]+' ↗',exact:true})).toHaveAttribute('href',link.url);
   const headings=[...row['body_'+lang].matchAll(/^#{2,3} (.+)$/gm)].map(match=>match[1]);
   expect(await page.locator('.prose h2,.prose h3').allTextContents()).toEqual(headings);
