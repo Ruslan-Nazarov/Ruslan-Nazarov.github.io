@@ -110,6 +110,28 @@
       "project": "papanda-languages",
       "mediaId": "",
       "status": "placeholder"
+    },
+    {
+      "id": "parser-graph-overview",
+      "title": "Граф операций / Operations graph",
+      "alt_ru": "Структура графа математических операций диалектического парсера",
+      "alt_en": "Structure of the dialectical parser’s mathematical operations graph",
+      "caption_ru": "Место для проверенной схемы или настоящего снимка графа с обозначением незавершённых переходов.",
+      "caption_en": "Space for a reviewed diagram or genuine graph screenshot identifying unfinished transitions.",
+      "project": "mathematical-parser",
+      "mediaId": "",
+      "status": "placeholder"
+    },
+    {
+      "id": "parser-formula-trace",
+      "title": "Путь объяснения / Explanation trace",
+      "alt_ru": "Шаги разбора формулы с опорами на узлы и явными пробелами вывода",
+      "alt_en": "Formula analysis steps with node references and explicit gaps in the derivation",
+      "caption_ru": "Место для реального примера разбора: основания шагов и пробелы должны оставаться видимыми.",
+      "caption_en": "Space for a genuine analysis example, keeping the basis of each step and any gaps visible.",
+      "project": "mathematical-parser",
+      "mediaId": "",
+      "status": "placeholder"
     }
   ]
 }
