@@ -77,6 +77,39 @@
       "caption_ru": "Инструменты проверки встроены в ход составления конспекта",
       "alt_en": "Working with formulas and sources in papanda",
       "caption_en": "Checking tools are integrated into the note-building workflow."
+    },
+    {
+      "id": "papanda-languages-sentence",
+      "title": "Разбор предложения / Sentence analysis",
+      "alt_ru": "Разбор предложения и морфем в papanda Languages",
+      "alt_en": "Sentence and morpheme analysis in papanda Languages",
+      "caption_ru": "Место для настоящего скриншота: структура предложения и смысловые части слов.",
+      "caption_en": "A genuine screenshot will show sentence structure and meaningful parts of words.",
+      "project": "papanda-languages",
+      "mediaId": "",
+      "status": "placeholder"
+    },
+    {
+      "id": "papanda-languages-vocabulary",
+      "title": "Многоязычный словарь / Multilingual dictionary",
+      "alt_ru": "Сопоставление слов на изучаемых языках в papanda Languages",
+      "alt_en": "Vocabulary comparison across languages in papanda Languages",
+      "caption_ru": "Место для настоящего скриншота многоязычного словаря.",
+      "caption_en": "Space for a genuine screenshot of the multilingual dictionary.",
+      "project": "papanda-languages",
+      "mediaId": "",
+      "status": "placeholder"
+    },
+    {
+      "id": "papanda-languages-practice",
+      "title": "Повторение и статистика / Review and statistics",
+      "alt_ru": "Тренировка узнавания слов и статистика занятий в papanda Languages",
+      "alt_en": "Word recognition practice and learning statistics in papanda Languages",
+      "caption_ru": "Место для настоящего скриншота тренировки или статистики с обезличенными данными.",
+      "caption_en": "Space for a genuine practice or statistics screenshot with anonymised data.",
+      "project": "papanda-languages",
+      "mediaId": "",
+      "status": "placeholder"
     }
   ]
 }
