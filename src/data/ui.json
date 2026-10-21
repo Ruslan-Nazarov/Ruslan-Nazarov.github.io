@@ -131,7 +131,9 @@
     "tag:Theses": "Тезисы",
     "tag:demo": "Демонстрация",
     "notebook": "Исследования / Заметки",
-    "parserLabel": "Математический парсер"
+    "parserLabel": "Математический парсер",
+    "thesisOverview": "Обзор и главы одной страницей",
+    "chapterOverview": "Предварительный обзор содержания главы. Окончательный авторский текст готовится."
   },
   "en": {
     "home": "Home",
@@ -265,6 +267,8 @@
     "tag:Theses": "Theses",
     "tag:demo": "demo",
     "notebook": "Research / Notes",
-    "parserLabel": "Mathematical Parser"
+    "parserLabel": "Mathematical Parser",
+    "thesisOverview": "Overview and chapters on one page",
+    "chapterOverview": "A preliminary overview of the chapter’s scope. The final authorial text is in preparation."
   }
 }

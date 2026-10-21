@@ -30,6 +30,7 @@ const featuredProject=data.projects.find((r:any)=>r.id==='papanda');
 <section class="section section-tint"><div class="wrap">
   <div class="section-heading"><div><p class="eyebrow">02 / {t.projects}</p><h2>{s.featured}</h2></div></div>
   <div class="prose home-narrative" set:html={await markdown(s.featuredBody)}/>
+  {featuredProject&&<a class="button" href={`/${lang}/projects/papanda/`}>{t.read} ↗</a>}
   {featuredProject?.links.map((link:any)=><a class="button secondary" href={link.url} rel="noopener noreferrer">{l(link,'label',lang)} ↗</a>)}
 </div></section>
 <section class="section wrap">

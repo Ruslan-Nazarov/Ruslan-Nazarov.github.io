@@ -611,6 +611,12 @@ content:
           - name: parserLabel
             label: parserLabel
             type: text
+          - name: thesisOverview
+            label: thesisOverview
+            type: text
+          - name: chapterOverview
+            label: chapterOverview
+            type: text
       - name: en
         label: en
         type: object
@@ -1010,6 +1016,12 @@ content:
             type: text
           - name: parserLabel
             label: parserLabel
+            type: text
+          - name: thesisOverview
+            label: thesisOverview
+            type: text
+          - name: chapterOverview
+            label: chapterOverview
             type: text
   - name: research
     label: research

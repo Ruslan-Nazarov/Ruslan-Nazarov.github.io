@@ -1,7 +1,7 @@
 import {test,expect} from '@playwright/test';
 import {readFileSync} from 'node:fs';
 const lib=JSON.parse(readFileSync('src/data/media.json','utf8'));
-for(const project of ['papanda','papanda-languages','mathematical-parser']){
+for(const project of ['papanda','papanda-languages','mathematical-parser','dialectic-ai','ai-algorithm','personal-time-management']){
 const row=JSON.parse(readFileSync(`src/content/projects/${project}.json`,'utf8'));
 const slots=lib.slots.filter((s:any)=>s.project===project);
 for(const lang of ['ru','en'])test(`${project} ${lang}: copy, ordered placeholders, language switch and mobile`,async({page})=>{
