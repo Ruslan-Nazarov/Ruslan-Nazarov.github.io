@@ -1,0 +1,34 @@
+{
+  "id": "education-project-pages",
+  "slug": "education-project-pages",
+  "publish": true,
+  "ready_ru": true,
+  "ready_en": true,
+  "title_ru": "На сайте представлены два образовательных проекта",
+  "title_en": "Two educational projects presented on the website",
+  "summary_ru": "Опубликованы страницы papanda и papanda Languages на русском и английском языках.",
+  "summary_en": "Russian and English pages for papanda and papanda Languages are published.",
+  "body_ru": "21 октября 2026 года на исследовательском сайте опубликованы развёрнутые страницы [papanda](/ru/projects/papanda/) и [papanda Languages](/ru/projects/papanda-languages/) на двух языках.\n\nОдна посвящена ручному построению диалектических конспектов, другая — разбору предложений и практике изучения языков. На языковой странице доступны ссылки на репозиторий, книгу о методе и предоставленную автором Android-сборку.\n\nЭта запись фиксирует обновление сайта. Она не является отчётом о новом исследовании учебной эффективности. Места для настоящих иллюстраций подготовлены; изображения будут дополняться позднее.",
+  "body_en": "On 21 October 2026, expanded bilingual pages for [papanda](/en/projects/papanda/) and [papanda Languages](/en/projects/papanda-languages/) were published on the research website.\n\nOne concerns manually constructing dialectical notes; the other covers sentence analysis and language-learning practice. The language page links to the repository, the methodology book and the Android build supplied by the author.\n\nThis entry records a website update, rather than a new educational-effectiveness study. Spaces for genuine illustrations are ready, with images to be added later.",
+  "editorialStatus": "final",
+  "researchAreas": [
+    "education"
+  ],
+  "relatedProjects": [
+    "papanda",
+    "papanda-languages"
+  ],
+  "relatedPublications": [
+    "language-handbook",
+    "human-understanding-ai-education"
+  ],
+  "relatedJournal": [],
+  "tags": [],
+  "featured": false,
+  "heroImage": "",
+  "gallery": [],
+  "links": [],
+  "timeline": [],
+  "date": "2026-10-21",
+  "type": "news"
+}

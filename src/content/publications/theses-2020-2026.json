@@ -8,17 +8,26 @@
   "title_en": "Theses 2020–2026",
   "summary_ru": "Предстоящая авторская публикация. Рабочее название; планируемый выпуск — 11 ноября 2026.",
   "summary_en": "A forthcoming publication. Working title; target release: 11 November 2026.",
-  "body_ru": "Работа над тезисами начата **11 ноября 2020 года**. Целевой срок выпуска — **11 ноября 2026 года**. Это план, а не состоявшаяся публикация.\n\nОкончательный авторский текст редактируется и пока не предоставлен. Ниже показана рабочая структура из пяти глав. Введение, диалектика и восстановление до диалектики объединены в первую главу; три физических раздела — в главу о физике. Структура редактируется в CMS.",
-  "body_en": "Work on the theses began on **11 November 2020**. The target release date is **11 November 2026**. This is a plan, not a completed publication.\n\nThe final authorial text is being edited and has not yet been supplied. The working structure below contains five chapters. The introduction, dialectics and reconstruction before dialectics are grouped in the first chapter; three physics sections are grouped in the physics chapter. The structure can be edited in the CMS.",
-  "editorialStatus": "awaiting_content",
+  "body_ru": "## Замысел публикации\n\n«Тезисы 2020–2026» — рабочее название авторской рукописи о понимании, мышлении и искусственном интеллекте. Работа начата **11 ноября 2020 года**. За несколько лет вопросы физики, математики и самостоятельного обучения стали связанными частями одного поиска.\n\n## Четыре направления и общая рамка\n\nВводная глава объединяет введение, диалектику и восстановление до диалектики. Затем следуют математика, физика, образование и ИИ. Такая структура позволяет читать работу по направлениям, сохраняя связь между исходным вопросом и конкретными предметами.\n\n## Статус текста\n\nОкончательная авторская редакция ещё готовится. На сайте размещены обзоры содержания пяти глав: они помогают ориентироваться в замысле и связанных материалах, но не являются финальными текстами глав. Полные тексты и PDF будут добавлены после их предоставления и утверждения.\n\nПланируемый срок выпуска — **11 ноября 2026 года**. Это цель, а не дата уже состоявшейся публикации. До выхода рукописи доступны связанные статьи, книги и страницы программных проектов.",
+  "body_en": "## Publication outline\n\nTheses 2020–2026 is the working title of a manuscript on understanding, thinking and artificial intelligence. Work began on **11 November 2020**. Over several years, physics, mathematics and self-directed learning became connected parts of the inquiry.\n\n## Four areas and a common framework\n\nThe opening chapter brings together the introduction, dialectics and reconstruction before dialectics. Mathematics, physics, education and AI follow. This structure offers routes through individual areas while retaining their connection to the initial question.\n\n## Text status\n\nThe final authorial revision is still in preparation. This website provides content overviews for five chapters: they introduce the plan and related materials, and are not the final chapter texts. Complete texts and PDFs will be added after they are supplied and approved.\n\nThe target release date is **11 November 2026**. This is a goal, not an already completed publication date. Related articles, books and software-project pages are available while the manuscript is being prepared.",
+  "editorialStatus": "editorial_summary",
   "researchAreas": [
     "mathematics",
     "physics",
     "education",
     "artificial-intelligence"
   ],
-  "relatedProjects": [],
-  "relatedPublications": [],
+  "relatedProjects": [
+    "mathematical-parser",
+    "papanda",
+    "papanda-languages",
+    "dialectic-ai",
+    "ai-algorithm"
+  ],
+  "relatedPublications": [
+    "explaining-mathematics-ai",
+    "human-understanding-ai-education"
+  ],
   "relatedJournal": [],
   "tags": [
     "Theses"

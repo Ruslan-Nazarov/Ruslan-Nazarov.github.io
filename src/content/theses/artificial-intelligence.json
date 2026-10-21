@@ -8,14 +8,19 @@
   "title_en": "Artificial intelligence",
   "summary_ru": "Исследование подходов к ИИ",
   "summary_en": "Research into approaches to AI",
-  "body_ru": "",
-  "body_en": "",
-  "editorialStatus": "awaiting_content",
+  "body_ru": "## Предмет главы\n\nВ этой части планируется сопоставить вопросы о человеческом понимании с возможностями и ограничениями ИИ. Существенно различать генерацию ответа, организацию рассуждения и основания для проверки результата.\n\n## Исследовательские линии\n\nС главой связаны алгоритмическое описание развития процессов и эксперименты со структурой работы языковых моделей. Текущие страницы [AI_algorithm](/ru/projects/ai-algorithm/) и [DialecticAI](/ru/projects/dialectic-ai/) показывают, как различаются теоретическая модель, реализация и экспериментальная проверка.\n\n## Открытая работа\n\nОкончательные аргументы, выбранные примеры и границы выводов должны определяться авторской редакцией. Публикация программы или успешный технический тест сами по себе не устанавливают новую теорию интеллекта.",
+  "body_en": "## Subject of the chapter\n\nThis part is intended to connect questions about human understanding with AI capabilities and limitations. Generating an answer, organising reasoning and establishing grounds for checking a result need to remain distinct.\n\n## Research lines\n\nRelated work includes an algorithmic account of developing processes and experiments with structured language-model workflows. The current [AI_algorithm](/en/projects/ai-algorithm/) and [DialecticAI](/en/projects/dialectic-ai/) pages distinguish theoretical models, implementation and experimental evaluation.\n\n## Work ahead\n\nThe final arguments, examples and limits of the conclusions belong to the author's revision. Publishing software or passing a technical test does not by itself establish a new theory of intelligence.",
+  "editorialStatus": "editorial_summary",
   "researchAreas": [
     "artificial-intelligence"
   ],
-  "relatedProjects": [],
-  "relatedPublications": [],
+  "relatedProjects": [
+    "dialectic-ai",
+    "ai-algorithm"
+  ],
+  "relatedPublications": [
+    "data-science-handbook"
+  ],
   "relatedJournal": [],
   "tags": [],
   "featured": false,

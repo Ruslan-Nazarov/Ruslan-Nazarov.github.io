@@ -8,8 +8,8 @@
   "title_en": "How to Learn Many Foreign Languages? A Dialectical Approach",
   "summary_ru": "Книга о методике изучения языков. Внешнее издание на русском языке.",
   "summary_en": "A book on language-learning methodology. The external edition is in Russian.",
-  "body_ru": "Авторская книга о диалектическом подходе к изучению иностранных языков. Здесь приводится краткая редакционная аннотация; оригинальный текст доступен на отдельном книжном сайте.\n\nКарточка связывает книгу с направлением образования и языковыми проектами. Наличие книги не является эмпирическим подтверждением эффективности описанного метода. Лицензия издания — **CC BY-NC-ND 4.0**.",
-  "body_en": "The author’s book on a dialectical approach to learning foreign languages. This page provides a short editorial description; the original text is available on its separate book site.\n\nThe card connects the book to education and language projects. The existence of the book is not empirical evidence of the method’s effectiveness. The edition is licensed under **CC BY-NC-ND 4.0**.",
+  "body_ru": "## О чём книга\n\nКнига излагает авторский подход к самостоятельному изучению иностранных языков. Отправная точка — предложение, его смысл и отношения, которые оно выражает. От этого рассматриваются роли слов и развитие структуры предложения.\n\n## Состав и применение\n\nВ описании книги представлены английский, итальянский, немецкий, французский, испанский и казахский языки; русский рассматривается в приложении. Предложен также шаблон, помогающий организовать собственный разбор другого языка.\n\n## Связь с приложениями\n\n[papanda Languages](/ru/projects/papanda-languages/) развивает практическую работу с предложениями, словарём и повторением. Книга даёт методический контекст, а приложение — отдельный формат занятий. Их наличие само по себе не является результатом сравнительного исследования учебной эффективности.\n\n## Полный текст и права\n\nОригинальное русскоязычное издание доступно на отдельном книжном сайте. Его лицензия **CC BY-NC-ND 4.0** сохраняется; текст книги здесь не переиздаётся и не переводится целиком.",
+  "body_en": "## About the book\n\nThe book presents the author's approach to independent foreign-language learning. Its starting point is the sentence, its meaning and the relationships it expresses. Word roles and the development of sentence structure are examined from there.\n\n## Scope and use\n\nThe book's description covers English, Italian, German, French, Spanish and Kazakh, with Russian treated in an appendix. It also offers a template for organising one's own analysis of another language.\n\n## Connection with the applications\n\n[papanda Languages](/en/projects/papanda-languages/) develops practical work with sentences, vocabulary and review. The book provides methodological context, while the application offers a separate practice format. Their existence alone is not a comparative evaluation of educational effectiveness.\n\n## Complete text and rights\n\nThe original Russian edition is available on its separate book site. Its **CC BY-NC-ND 4.0** licence remains unchanged; the book is not republished or translated in full here.",
   "editorialStatus": "external_publication",
   "researchAreas": [
     "education"
@@ -18,7 +18,10 @@
     "papanda",
     "papanda-languages"
   ],
-  "relatedPublications": [],
+  "relatedPublications": [
+    "human-understanding-ai-education",
+    "theses-2020-2026"
+  ],
   "relatedJournal": [],
   "tags": [
     "Languages",

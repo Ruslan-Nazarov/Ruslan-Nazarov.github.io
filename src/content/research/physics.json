@@ -8,9 +8,9 @@
   "title_en": "Physics",
   "summary_ru": "Математическая форма и физический смысл: от операций к измерению.",
   "summary_en": "Mathematical form and physical meaning: from operations to measurement.",
-  "body_ru": "Начальные материалы направления — главы готовящихся тезисов об истории физики, Эйнштейне и диалектической физике, а также физические узлы математического парсера.\n\nВ парсере физический смысл связывается с путём получения величины, включая измерение. Математический вывод, опытная предпосылка и область применимости должны быть различимы. Полные тексты глав ещё не предоставлены.",
-  "body_en": "The initial materials are chapters of the forthcoming theses on the history of physics, Einstein and dialectical physics, together with physical nodes in the mathematical parser.\n\nIn the parser, physical meaning is associated with the path by which a quantity is obtained, including measurement. Mathematical derivations, empirical premises and their domains of applicability must remain distinguishable. The full chapter texts have not yet been supplied.",
-  "editorialStatus": "awaiting_content",
+  "body_ru": "## От записи — к физическому смыслу\n\nРабота с физикой началась для меня с попытки разобраться в теории относительности. Этот путь привёл к вопросам о математике, измерении и том, как человек выстраивает объяснение сложного предмета.\n\nВ центре направления — связь математического выражения с процессом, который оно описывает. Как получена величина? Какие предпосылки взяты из опыта? При каких условиях применяется выбранная связь?\n\n## Разные основания утверждений\n\nВ авторской модели парсера физический смысл рассматривается в слое качества, включая путь через измерение. Математическое преобразование и опытная посылка требуют разных оснований. Формальная согласованность записи сама по себе не устанавливает, что она применима к конкретному физическому процессу.\n\n## Материалы в работе\n\nРабочая структура тезисов включает историю физики, Эйнштейна и диалектическую физику. Сейчас на сайте дан обзор планируемых тем, а не окончательный текст этих разделов.\n\nСвязанный программный проект — [математический парсер](/ru/projects/mathematical-parser/). Один из исследуемых маршрутов ведёт к уравнениям Навье–Стокса; его полнота не заявляется.",
+  "body_en": "## From notation to physical meaning\n\nMy work on physics began with an attempt to understand the theory of relativity. This led to questions about mathematics, measurement and how people construct explanations of difficult subjects.\n\nThe central concern is the relationship between a mathematical expression and the process it describes. How was a quantity obtained? Which premises come from empirical experience? Under what conditions does the proposed relationship apply?\n\n## Different grounds for claims\n\nIn the author's parser model, physical meaning belongs to the quality layer, including the path through measurement. A mathematical transformation and an empirical premise require different kinds of justification. Formal consistency alone does not establish applicability to a particular physical process.\n\n## Materials in development\n\nThe working theses structure includes the history of physics, Einstein and dialectical physics. The website currently provides an overview of planned topics, rather than the final text of those sections.\n\nThe related software project is the [mathematical parser](/en/projects/mathematical-parser/). One research path leads towards the Navier–Stokes equations; completeness is not claimed.",
+  "editorialStatus": "editorial_summary",
   "researchAreas": [],
   "relatedProjects": [
     "mathematical-parser"
@@ -25,10 +25,10 @@
   "gallery": [],
   "links": [],
   "timeline": [],
-  "questions_ru": "Как различать математический вывод и опытную предпосылку?\nКак путь через измерение определяет смысл величины?",
-  "questions_en": "How can mathematical derivation be distinguished from an empirical premise?\nHow does a measurement path determine the meaning of a quantity?",
-  "openProblems_ru": "Подготовка авторских глав и проверка источников для исторических утверждений.",
-  "openProblems_en": "Preparing the author’s chapters and verifying sources for historical claims.",
+  "questions_ru": "Как связать математическую запись с измеряемой величиной?\nГде проходит граница между выводом и опытной предпосылкой?\nКак указывать область применимости физического утверждения?",
+  "questions_en": "How does mathematical notation connect with a measured quantity?\nWhere is the boundary between a derivation and an empirical premise?\nHow should the applicability of a physical claim be stated?",
+  "openProblems_ru": "Подготовка авторских разделов тезисов, проверка исторических источников и явное описание опытных предпосылок в исследуемых примерах.",
+  "openProblems_en": "Preparing the author’s thesis sections, checking historical sources and making empirical premises explicit in the examples under investigation.",
   "symbol": "φ",
   "order": 1
 }

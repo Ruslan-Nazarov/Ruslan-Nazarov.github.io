@@ -6,16 +6,22 @@
   "ready_en": true,
   "title_ru": "DialecticAI",
   "title_en": "DialecticAI",
-  "summary_ru": "Экспериментальная архитектура агентов Process / Contradiction / Leap.",
-  "summary_en": "An experimental Process / Contradiction / Leap agent architecture.",
-  "body_ru": "Архитектура исследует разделение ролей Process / Contradiction / Leap и проверку действий агентов. В описании проекта должны быть различимы архитектурные решения, тесты и наблюдаемость.\n\nИнженерная работоспособность не равна научному доказательству эффективности особого диалектического метода. Актуальные результаты тестов и материалы реализации ожидаются.",
-  "body_en": "The architecture explores Process / Contradiction / Leap roles and verification of agent actions. Its documentation should distinguish architectural decisions, tests and observability.\n\nEngineering functionality is not scientific evidence for the effectiveness of a distinct dialectical method. Current test results and implementation materials are awaited.",
-  "editorialStatus": "awaiting_content",
+  "summary_ru": "Экспериментальный проект о том, как заданная извне структура рассуждения, представление предметной области и проверка влияют на работу языковых моделей. Текущий движок строит и пересматривает представление области в шесть этапов.",
+  "summary_en": "An experimental project studying how externally imposed reasoning structures, domain representations and verification affect language models. The current engine builds and revises a domain representation through six stages.",
+  "body_ru": "## Исследовательский вопрос\n\nГде заканчивается сгенерированное рассуждение и начинается необходимость внешней проверки, практики или человеческой оценки? В DialecticAI я исследую этот вопрос на существующих языковых моделях: меняю порядок работы, способ представления предмета и процедуры проверки, затем рассматриваю, что именно изменилось в ответах и действиях.\n\nЭто исследовательский прототип. Наличие исполняемого движка ещё не устанавливает преимущество метода в решении задач.\n\n## Как устроена текущая версия\n\nВ актуальной реализации построение представления предметной области разделено на шесть этапов:\n\n1. Предложить простейший процесс.\n2. Построить итерацию его развития.\n3. Сопоставить накопленное развитие и предложить кандидатов на противоположность.\n4. Проверить эти кандидаты.\n5. Сформулировать противоречие.\n6. Предложить разрешение через замену, опосредование либо зафиксировать отсутствие найденного перехода.\n\nСодержание формулирует языковая модель. Программа задаёт последовательность, проверяет формат и структурные связи, хранит версии и ход работы. Сформированное представление передаётся другому агенту как ограниченное по объёму описание предмета.\n\n[[media:dialectic-ai-architecture]]\n\n## Пересмотр и проверка\n\nПредставление можно пересматривать при появлении противоречащего наблюдения или внешнего сигнала. Изменения прослеживаются по зависимостям; прежние версии сохраняются для сравнения. Сигнал о совместимости наблюдения с представлением области не равен проверке правильности ответа.\n\nПорядок выполнения, сохранение версий и ссылки между записями можно проверять программными тестами. Содержательная верность найденной противоположности или разрешения требует другой проверки — по предмету и фактам.\n\n## Что показали опубликованные опыты\n\nВ репозитории сохранены результаты ранних вариантов архитектуры, включая сравнения на BFCL и ContractNLI. Устойчивое преимущество представления области в этих сравнениях не установлено. Некоторые опыты с организацией повторных попыток дали пользу в своих условиях, другие показали ухудшение.\n\nОтдельная проверка ответов в одном из исследований дала ограниченный полезный сигнал. Это не устанавливает общего преимущества многоагентных систем. Важны также стоимость, условия задания, состав примеров и то, что именно измерялось.\n\nИсторические результаты относятся к своим версиям системы. Для нынешнего шестистадийного движка опубликованы программные проверки и отдельные запуски; его сравнительная эффективность ещё не установлена.\n\n[[media:dialectic-ai-evidence]]\n\n## Следующий исследовательский шаг\n\nНужны контролируемые сравнения с обычным контекстом и сопоставимым бюджетом, независимые построения представлений и отдельный учёт точности, обнаружения ошибок и затрат. Отрицательный или неопределённый результат тоже должен сохраняться: он помогает уточнять гипотезу.\n\n## Материалы\n\nТекущая архитектура, результаты, ограничения и условия воспроизведения описаны в [открытом репозитории](https://github.com/Ruslan-Nazarov/dialectic_ai). Общая постановка связана с направлением [искусственного интеллекта](/ru/research/artificial-intelligence/) и отдельным проектом [AI_algorithm](/ru/projects/ai-algorithm/).",
+  "body_en": "## Research question\n\nWhere does generated reasoning end, and where do external verification, practical evidence or human judgement become necessary? In DialecticAI, I investigate this question using existing language models: varying the workflow, domain representation and verification procedures, then examining what changes in answers and actions.\n\nThis is a research prototype. An executable engine does not by itself establish an advantage in solving tasks.\n\n## The current implementation\n\nThe current implementation builds a domain representation through six stages:\n\n1. Propose a simplest process.\n2. Construct an iteration of its development.\n3. Compare the accumulated development and propose candidates for an opposite.\n4. Check these candidates.\n5. Formulate a contradiction.\n6. Propose a resolution through replacement or mediation, or record that no transition was found.\n\nThe language model supplies the content. The program controls the sequence, checks format and structural references, and stores versions and traces. The resulting representation is supplied to another agent as a bounded domain brief.\n\n[[media:dialectic-ai-architecture]]\n\n## Revision and verification\n\nA representation can be revised following an incompatible observation or an external signal. Changes follow dependencies, while earlier versions remain available for comparison. A signal about compatibility with a domain representation is different from checking whether an answer is correct.\n\nExecution order, version persistence and references can be tested in software. Whether a proposed opposite or resolution is substantively valid requires a different check against the subject and evidence.\n\n## Findings from published experiments\n\nThe repository preserves results from earlier architectures, including BFCL and ContractNLI comparisons. These comparisons did not establish a consistent advantage for the domain representation. Some orchestration experiments improved retry handling under their conditions, while others showed degradation.\n\nA separate answer verifier provided a modest useful signal in one study. This does not establish a general advantage for multi-agent systems. Cost, task conditions, sample selection and the target being measured also matter.\n\nHistorical results apply to their respective system versions. The current six-stage engine has published software checks and individual runs; its comparative efficacy has not yet been established.\n\n[[media:dialectic-ai-evidence]]\n\n## Next research step\n\nControlled comparisons with ordinary context and comparable budgets are needed, alongside independent representation builds and separate measurements of accuracy, error detection and cost. Negative and uncertain results should also be retained: they help refine the hypothesis.\n\n## Materials\n\nThe current architecture, evidence, limitations and reproduction conditions are documented in the [public repository](https://github.com/Ruslan-Nazarov/dialectic_ai). The broader question connects with [artificial intelligence research](/en/research/artificial-intelligence/) and the separate [AI_algorithm project](/en/projects/ai-algorithm/).",
+  "editorialStatus": "editorial_summary",
   "researchAreas": [
     "artificial-intelligence"
   ],
-  "relatedProjects": [],
-  "relatedPublications": [],
+  "relatedProjects": [
+    "ai-algorithm"
+  ],
+  "relatedPublications": [
+    "can-ai-think-differently",
+    "edge-ai-reasoning",
+    "theses-2020-2026"
+  ],
   "relatedJournal": [],
   "tags": [
     "Agents",
@@ -24,8 +30,25 @@
   "featured": false,
   "heroImage": "",
   "gallery": [],
-  "links": [],
+  "links": [
+    {
+      "label_ru": "Репозиторий DialecticAI",
+      "label_en": "DialecticAI repository",
+      "url": "https://github.com/Ruslan-Nazarov/dialectic_ai"
+    },
+    {
+      "label_ru": "Результаты и ограничения",
+      "label_en": "Results and limitations",
+      "url": "https://github.com/Ruslan-Nazarov/dialectic_ai/blob/main/docs/RESULTS.md"
+    }
+  ],
   "timeline": [],
   "status": "active",
-  "order": 3
+  "order": 3,
+  "byline_ru": "Руслан Назаров · Исследователь искусственного интеллекта",
+  "byline_en": "Ruslan Nazarov · AI Researcher",
+  "statusLabel_ru": "Исследовательский прототип",
+  "statusLabel_en": "Research prototype",
+  "motto_ru": "Структура рассуждения, проверка и основания для пересмотра.",
+  "motto_en": "Reasoning structure, verification and reasons to revise."
 }

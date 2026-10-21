@@ -8,9 +8,9 @@
   "title_en": "Personal Time-Management App",
   "summary_ru": "Приложение для организации личного времени и задач.",
   "summary_en": "An application for organizing personal time and tasks.",
-  "body_ru": "Проект для личного использования. Эта страница предназначена для описания назначения, особенностей и галереи интерфейса.\n\nОбезличенные скриншоты с демонстрационными данными ещё не предоставлены. Они появятся здесь после загрузки автором. Публичный доступ, установка и репозиторий не предлагаются.",
-  "body_en": "A project for personal use. This page is intended to describe its purpose, features and interface gallery.\n\nAnonymized screenshots containing demonstration data have not yet been supplied. They will appear here once uploaded by the author. Public access, installation and a repository are not offered.",
-  "editorialStatus": "awaiting_content",
+  "body_ru": "## Назначение\n\nЭто отдельный проект приложения для организации личного времени и задач. Его место на сайте — среди практических программных инструментов, связанных с повседневной работой автора.\n\nДля личного инструмента существенна связь между тем, что человек собирается сделать, и тем, как он организует собственную работу. Страница посвящена назначению и представлению приложения, без обещания универсального способа управления временем.\n\n## Как будет представлен интерфейс\n\nГалерея предназначена для настоящих снимков приложения с обезличенными демонстрационными данными. Она должна показывать устройство работы, не раскрывая личные задачи и записи. Подробности конкретных возможностей будут уточняться по этим материалам.\n\n[[media:time-management-overview]]\n\n[[media:time-management-workflow]]\n\n## Статус и доступ\n\nПроект предназначен для личного использования. Публичная установка, открытый репозиторий и общедоступная демонстрация сейчас не предлагаются.\n\n## Место среди других работ\n\nПрактические приложения позволяют переводить отдельные потребности в инструменты и наблюдать, насколько выбранный способ организации подходит конкретной задаче.",
+  "body_en": "## Purpose\n\nThis is a separate application project for organising personal time and tasks. It belongs among the practical software tools connected with the author's everyday work.\n\nFor a personal tool, the connection between intended tasks and the way someone organises their work matters. This page describes the application's purpose and presentation without promising a universal time-management method.\n\n## Presenting the interface\n\nThe gallery is intended for genuine application screenshots using anonymised demonstration data. It should show the workflow without exposing personal tasks or records. Specific capabilities will be described as those materials become available.\n\n[[media:time-management-overview]]\n\n[[media:time-management-workflow]]\n\n## Status and access\n\nThe project is intended for personal use. Public installation, an open repository and a public live demonstration are not currently offered.\n\n## Relationship to the other work\n\nPractical applications provide a way to turn particular needs into tools and observe how well a chosen workflow fits a task.",
+  "editorialStatus": "editorial_summary",
   "researchAreas": [],
   "relatedProjects": [],
   "relatedPublications": [],
@@ -24,5 +24,11 @@
   "links": [],
   "timeline": [],
   "status": "active",
-  "order": 5
+  "order": 5,
+  "byline_ru": "Руслан Назаров · Исследователь искусственного интеллекта",
+  "byline_en": "Ruslan Nazarov · AI Researcher",
+  "statusLabel_ru": "Для личного использования",
+  "statusLabel_en": "Personal use",
+  "motto_ru": "Инструмент организации собственного времени и задач.",
+  "motto_en": "A tool for organising personal time and tasks."
 }

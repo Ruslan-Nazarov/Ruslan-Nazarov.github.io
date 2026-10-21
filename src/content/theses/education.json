@@ -8,14 +8,20 @@
   "title_en": "Education",
   "summary_ru": "Диалектическое обучение",
   "summary_en": "Dialectical learning",
-  "body_ru": "",
-  "body_en": "",
-  "editorialStatus": "awaiting_content",
+  "body_ru": "## Предмет главы\n\nПланируемая глава посвящена самостоятельному пониманию в условиях доступности ответов ИИ. Вопрос заключается в том, как организовать изучение предмета, чтобы учащийся строил и проверял связи, применял знания и возвращался к своим объяснениям.\n\n## Метод и инструменты\n\nСвязанными практическими проектами служат диалектические конспекты papanda и приложение изучения языков. Здесь важно различать описание подхода, наличие программного инструмента и результаты проверки на участниках.\n\n## Материалы для знакомства\n\nДо выхода главы доступны [статья о человеческом понимании в образовании с ИИ](/ru/publications/human-understanding-ai-education/) и [обзор направления](/ru/research/education/). Они помогают увидеть постановку вопроса, но не заменяют итоговую редакцию тезисов.",
+  "body_en": "## Subject of the chapter\n\nThe planned chapter concerns independent understanding when AI answers are readily available. The question is how learning can support constructing and checking connections, applying knowledge and revisiting one's explanations.\n\n## Method and tools\n\nRelated practical projects are papanda dialectical notes and the language-learning application. Describing an approach, having a software tool and evaluating it with participants need to be distinguished.\n\n## Introductory materials\n\nUntil the chapter is released, readers can consult the [human understanding and AI education article](/en/publications/human-understanding-ai-education/) and the [research overview](/en/research/education/). They introduce the question without replacing the final theses.",
+  "editorialStatus": "editorial_summary",
   "researchAreas": [
     "education"
   ],
-  "relatedProjects": [],
-  "relatedPublications": [],
+  "relatedProjects": [
+    "papanda",
+    "papanda-languages"
+  ],
+  "relatedPublications": [
+    "human-understanding-ai-education",
+    "language-handbook"
+  ],
   "relatedJournal": [],
   "tags": [],
   "featured": false,

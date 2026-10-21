@@ -6,17 +6,22 @@
   "ready_en": true,
   "title_ru": "AI_algorithm",
   "title_en": "AI_algorithm",
-  "summary_ru": "Незавершённое исследование альтернативной архитектуры искусственного интеллекта.",
-  "summary_en": "Unfinished research into an alternative artificial intelligence architecture.",
-  "body_ru": "Проект включает развитие итераций алгоритма, математическое описание, численные проверки и фиксацию отклонённых гипотез. Исследование не завершено.\n\nСтатья для arXiv готовится. Дата публикации, DOI и arXiv ID отсутствуют. Подтверждённые материалы и результаты будут добавляться по мере предоставления автором.",
-  "body_en": "The project involves algorithm iterations, mathematical descriptions, numerical checks and a record of rejected hypotheses. The research is unfinished.\n\nAn arXiv paper is in preparation. No publication date, DOI or arXiv ID is available. Verified materials and results will be added as the author supplies them.",
-  "editorialStatus": "awaiting_content",
+  "summary_ru": "Незавершённое исследование алгоритма работы с развивающимися процессами, противоположностями и противоречиями. Задача — последовательно связать смысл шагов, математическое описание и проверку на ограниченных задачах.",
+  "summary_en": "Ongoing research into an algorithm for working with developing processes, opposites and contradictions. The aim is to connect the meaning of each step with a mathematical description and checks on bounded tasks.",
+  "body_ru": "## Что исследуется\n\nПроект посвящён тому, как описывать развитие предмета через связанные процессы, выделять противоположность, формулировать противоречие и искать его разрешение. Меня интересует, какие части этой работы можно задать алгоритмически, что должна выражать математическая модель и где сохраняется содержательное решение исследователя.\n\n## Как ведётся работа\n\nДля каждого шага необходимо различать его смысл, используемые предпосылки, математическое представление и способ проверки. Изменение алгоритма может потребовать пересмотра модели; удачная запись формул ещё не подтверждает, что она отражает нужное содержание.\n\nРабота развивается итерациями. Сохраняются промежуточные постановки, расхождения и отклонённые гипотезы. Численные проверки на выбранной задаче должны показывать, что следует из конкретных предпосылок и где модель не соответствует замыслу.\n\n[[media:ai-algorithm-model]]\n\n## Что требуется проверить\n\nОткрыты вопросы о представлении процессов и их связей, о переходе между итерациями и об основаниях выбора противоположности. Проверка должна различать формальную согласованность описания, результат моделируемой задачи и содержательную оценку полученного перехода.\n\nОтдельный пример не устанавливает работоспособность алгоритма для всех предметов. До сравнения с альтернативами нельзя делать вывод о преимуществе подхода.\n\n## Текущее состояние\n\nИсследование не завершено. Математическое описание и рукопись статьи продолжают разрабатываться. Подготовка публикации для arXiv остаётся планом; опубликованный идентификатор пока не указан.\n\nМатериалы ранних постановок доступны через связанные статьи. Они показывают развитие идеи, но не заменяют окончательное описание текущей модели.\n\n## Связь с другими проектами\n\n[DialecticAI](/ru/projects/dialectic-ai/) исследует исполняемые структуры работы с языковыми моделями и проверку их поведения. [Математический парсер](/ru/projects/mathematical-parser/) посвящён объяснению математических формул. У AI_algorithm свой предмет: построение и проверка алгоритма работы с развитием процессов.",
+  "body_en": "## What is being investigated\n\nThe project concerns describing a subject's development through connected processes, identifying an opposite, formulating a contradiction and seeking its resolution. I am interested in which parts can be specified algorithmically, what a mathematical model must represent and where substantive judgement remains necessary.\n\n## How the work proceeds\n\nFor each step, its meaning, premises, mathematical representation and verification method must be distinguished. A change to the algorithm can require the model to be revised; a workable set of formulas does not by itself establish that it captures the intended content.\n\nThe work proceeds through iterations. Intermediate formulations, discrepancies and rejected hypotheses are retained. Numerical checks on a selected task should expose what follows from particular assumptions and where the model fails to match its purpose.\n\n[[media:ai-algorithm-model]]\n\n## What needs checking\n\nOpen questions concern representing processes and their relationships, moving between iterations and justifying the choice of an opposite. Verification needs to distinguish formal consistency, the outcome of a simulated task and substantive assessment of the resulting transition.\n\nA single example does not establish applicability across all subjects. An advantage for the approach cannot be inferred before comparison with alternatives.\n\n## Current status\n\nThe research is unfinished. The mathematical description and paper manuscript remain in development. An arXiv submission is planned; no published identifier is currently supplied.\n\nRelated articles document earlier formulations. They show the development of the idea, while the current model still requires a complete account.\n\n## Related projects\n\n[DialecticAI](/en/projects/dialectic-ai/) investigates executable structures for working with language models and checking their behaviour. The [mathematical parser](/en/projects/mathematical-parser/) concerns explanations of mathematical formulas. AI_algorithm has its own subject: constructing and evaluating an algorithm for working with developing processes.",
+  "editorialStatus": "editorial_summary",
   "researchAreas": [
     "artificial-intelligence"
   ],
-  "relatedProjects": [],
+  "relatedProjects": [
+    "dialectic-ai"
+  ],
   "relatedPublications": [
-    "data-science-handbook"
+    "opposites-algorithm-overview",
+    "hash-mathematics-concept",
+    "data-science-handbook",
+    "theses-2020-2026"
   ],
   "relatedJournal": [],
   "tags": [
@@ -29,5 +34,11 @@
   "links": [],
   "timeline": [],
   "status": "active",
-  "order": 4
+  "order": 4,
+  "byline_ru": "Руслан Назаров · Исследователь искусственного интеллекта",
+  "byline_en": "Ruslan Nazarov · AI Researcher",
+  "statusLabel_ru": "Незавершённое исследование",
+  "statusLabel_en": "Research in progress",
+  "motto_ru": "От содержательного алгоритма — к проверяемой модели.",
+  "motto_en": "From a substantive algorithm to a testable model."
 }

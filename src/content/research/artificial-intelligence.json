@@ -8,9 +8,9 @@
   "title_en": "Artificial Intelligence",
   "summary_ru": "Архитектуры, проверка действий и альтернативные способы построения ИИ.",
   "summary_en": "Architectures, action verification and alternative approaches to building AI.",
-  "body_ru": "Исследование включает экспериментальную архитектуру агентов DialecticAI и незавершённую работу AI_algorithm. Это самостоятельные проекты: их не следует смешивать с математическим парсером.\n\nВ поле внимания — вероятностные и альтернативные подходы, математические модели, численные проверки и отклонённые гипотезы. Статья для arXiv находится в подготовке; опубликованный идентификатор не предоставлен.",
-  "body_en": "This area includes the experimental DialecticAI agent architecture and the unfinished AI_algorithm research. These are separate projects and should not be conflated with the mathematical parser.\n\nThe focus includes probabilistic and alternative approaches, mathematical models, numerical checks and rejected hypotheses. An arXiv paper is in preparation; no published identifier has been supplied.",
-  "editorialStatus": "awaiting_content",
+  "body_ru": "## Границы возможностей и роль проверки\n\nМой интерес к ИИ связан с вопросом о человеческом понимании. Сейчас мне важно исследовать, какие задачи можно передать модели, где нужны внешние основания и как организовать совместную работу человека и ИИ.\n\nОтвет модели, уверенность в ответе, формальная корректность шага и соответствие наблюдаемым фактам — разные объекты проверки. Внешняя структура работы может помогать в одних условиях и создавать дополнительные ошибки или затраты в других.\n\n## Два исследовательских проекта\n\n[DialecticAI](/ru/projects/dialectic-ai/) проверяет влияние структуры рассуждения, представления области и процедур пересмотра на существующие языковые модели. В открытых материалах сохранены результаты разных версий, включая отрицательные и неопределённые итоги. Нынешний движок требует отдельной оценки эффективности.\n\n[AI_algorithm](/ru/projects/ai-algorithm/) посвящён алгоритму работы с развитием процессов и его математическому описанию. Исследование и рукопись продолжают разрабатываться. Этот проект не следует отождествлять с парсером формул.\n\n## Публикации и практика\n\nКнига по ИИ и статьи фиксируют разные этапы постановки вопроса. Они образуют контекст исследований, а не перечень доказанных преимуществ новой архитектуры. Образовательные приложения дают отдельную область применения ИИ: помощь человеку в работе со сведениями, источниками и примерами.\n\n## Критерий продвижения\n\nДля нового утверждения нужны задача, исходные условия, сравнение, сохранённые результаты и границы вывода. Программные тесты проверяют поведение реализации; содержательная оценка требует дополнительной работы. Планы публикации также отделяются от уже доступных материалов.",
+  "body_en": "## Capability boundaries and verification\n\nMy interest in AI is connected with human understanding. Today I want to investigate which tasks can be delegated to a model, where external grounds are required and how human–AI collaboration should be organised.\n\nA model's answer, its confidence, the formal correctness of a step and agreement with observations are different verification targets. An externally imposed workflow may help under some conditions and introduce errors or additional costs under others.\n\n## Two research projects\n\n[DialecticAI](/en/projects/dialectic-ai/) tests the effects of reasoning structure, domain representations and revision procedures on existing language models. Its public materials preserve evidence from different versions, including negative and uncertain outcomes. The current engine needs a separate efficacy evaluation.\n\n[AI_algorithm](/en/projects/ai-algorithm/) concerns an algorithm for working with developing processes and its mathematical description. The research and manuscript remain in development. It should not be conflated with the formula parser.\n\n## Publications and practical work\n\nThe AI book and articles record different stages of the question. They provide research context, rather than a list of demonstrated advantages for a new architecture. Educational applications provide another use of AI: supporting a person working with information, sources and examples.\n\n## Assessing progress\n\nA new claim requires a task, initial conditions, a comparison, saved outcomes and stated limits. Software tests check implementation behaviour; substantive assessment requires further work. Planned publications are also distinguished from materials that are already available.",
+  "editorialStatus": "editorial_summary",
   "researchAreas": [],
   "relatedProjects": [
     "dialectic-ai",
@@ -18,7 +18,13 @@
   ],
   "relatedPublications": [
     "data-science-handbook",
-    "theses-2020-2026"
+    "theses-2020-2026",
+    "can-ai-think-differently",
+    "edge-ai-reasoning",
+    "recurrent-networks-transformers",
+    "hash-mathematics-concept",
+    "opposites-algorithm-overview",
+    "arman-ai-architecture"
   ],
   "relatedJournal": [],
   "tags": [],
@@ -27,10 +33,10 @@
   "gallery": [],
   "links": [],
   "timeline": [],
-  "questions_ru": "Какие предпосылки заложены в архитектуру?\nЧто подтверждает численная проверка, а что остаётся гипотезой?",
-  "questions_en": "Which assumptions are embedded in an architecture?\nWhat does a numerical check establish, and what remains a hypothesis?",
-  "openProblems_ru": "Подготовка проверяемого описания алгоритма, результатов тестов и рукописи статьи.",
-  "openProblems_en": "Preparing a verifiable description of the algorithm, test results and the paper manuscript.",
+  "questions_ru": "Где модели требуется внешнее основание для ответа?\nКак сравнить структурированную работу с обычным контекстом при сопоставимых затратах?\nЧто измеряет отдельная проверка: совместимость, уверенность или правильность?\nКакие выводы сохраняются при смене модели и условий задачи?",
+  "questions_en": "Where does a model need external grounds for an answer?\nHow can structured work and ordinary context be compared at comparable cost?\nDoes a check measure compatibility, confidence or correctness?\nWhich conclusions survive changes of model and task conditions?",
+  "openProblems_ru": "Контролируемые сравнения текущей версии DialecticAI, завершение описания AI_algorithm и раздельная оценка точности, обнаружения ошибок и стоимости.",
+  "openProblems_en": "Controlled comparisons of the current DialecticAI version, completion of the AI_algorithm description and separate evaluation of accuracy, error detection and cost.",
   "symbol": "λ",
   "order": 3
 }

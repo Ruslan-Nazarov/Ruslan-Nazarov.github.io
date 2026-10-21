@@ -8,14 +8,18 @@
   "title_en": "Mathematics",
   "summary_ru": "Развитие математических операций",
   "summary_en": "Development of mathematical operations",
-  "body_ru": "",
-  "body_en": "",
-  "editorialStatus": "awaiting_content",
+  "body_ru": "## Основной вопрос\n\nГлава намечает исследование отношения между упрощением вычислений и усложнением средств, которыми это достигается. В центре — необходимость переходов между математическими действиями, а не только применение готовых правил.\n\n## Планируемые связи\n\nПредполагается связать развитие количественных операций с вопросами смысла, исторических оснований и учебного объяснения. Концептуальная реконструкция, частный пример и общий вывод должны рассматриваться раздельно.\n\n## Материалы рядом\n\nТекущая постановка отражена в [статье о математическом объяснении](/ru/publications/explaining-mathematics-ai/) и проекте [диалектического парсера](/ru/projects/mathematical-parser/). Программный проект продолжается и не означает, что глава уже завершена.",
+  "body_en": "## Main question\n\nThis chapter outlines an inquiry into the relationship between simplifying calculations and developing more complex means of doing so. It focuses on the necessity of transitions between mathematical actions, beyond applying established rules.\n\n## Planned connections\n\nThe intended scope connects quantitative operations with meaning, historical foundations and educational explanation. A conceptual reconstruction, a particular example and a general derivation need separate treatment.\n\n## Related materials\n\nThe current question is reflected in the [mathematical explanation article](/en/publications/explaining-mathematics-ai/) and the [dialectical parser project](/en/projects/mathematical-parser/). The software remains in development and does not imply that the chapter is complete.",
+  "editorialStatus": "editorial_summary",
   "researchAreas": [
     "mathematics"
   ],
-  "relatedProjects": [],
-  "relatedPublications": [],
+  "relatedProjects": [
+    "mathematical-parser"
+  ],
+  "relatedPublications": [
+    "explaining-mathematics-ai"
+  ],
   "relatedJournal": [],
   "tags": [],
   "featured": false,

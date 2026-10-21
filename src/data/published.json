@@ -10,14 +10,16 @@
       "title_en": "Mathematics",
       "summary_ru": "Как стремление упростить вычисление усложняет сам способ вычисления?",
       "summary_en": "How does the drive to simplify computation make the method of computation more complex?",
-      "body_ru": "В центре исследования — отношение между упрощением операций и развитием всё более сложных средств этого упрощения. Математические понятия рассматриваются через потребности, возникающие при использовании прежних средств.\n\nОсновной проект — **диалектический математический парсер**. Его задача — показывать связи между операциями, кризисами и способами их разрешения. Это концептуальная реконструкция в авторской модели; исторические утверждения требуют отдельных источников.",
-      "body_en": "This research examines the relationship between simplifying operations and developing increasingly complex means of simplification. Mathematical concepts are considered through needs that arise from the use of earlier methods.\n\nThe main project is the **Dialectical Mathematical Parser**. It explores connections between operations, crises and their resolutions. This is a conceptual reconstruction within the author’s model; historical claims require separate sources.",
+      "body_ru": "## Центральный вопрос\n\nВ математике меня интересует отношение между стремлением упростить вычисление и развитием всё более сложных средств этого упрощения. Как возникает потребность в новой операции? Что прежний способ уже позволяет сделать и где перестаёт быть достаточным?\n\n## Развитие объяснения\n\nИсходной точкой авторской модели служат простейшие количественные действия и сумма единиц. Сложное выражение предполагается раскрывать через последовательность переходов, для каждого из которых нужны основание и объяснение необходимости. Недостающий переход должен оставаться видимым пробелом.\n\nЗдесь важно различать пример, формальную проверку преобразования и общий вывод. Исторический порядок развития математических средств также требует собственных источников и не выводится из удобства концептуальной схемы.\n\n## Основной проект\n\n[Диалектический математический парсер](/ru/projects/mathematical-parser/) объединяет граф операций, смысловые связи и задачи автоматизации объяснений. Проект ещё не завершён; на сайте доступна отдельная демонстрация интерфейса графа.\n\n## Связь с физикой и образованием\n\nОдна и та же математическая запись получает предметный смысл через путь её применения, в том числе через измерение. В обучении важно прослеживать этот путь, сохраняя различие между вычислением и пониманием. Эти вопросы связывают математику с направлениями физики и образования.",
+      "body_en": "## Central question\n\nIn mathematics, I am interested in the relationship between simplifying calculations and developing increasingly complex means of simplification. How does the need for a new operation arise? What can an earlier method already do, and where does it become insufficient?\n\n## Developing an explanation\n\nThe author's model starts from elementary quantitative actions and a sum of units. A complex expression is to be unfolded through transitions, each requiring a basis and an explanation of its necessity. A missing transition should remain an explicit gap.\n\nAn example, a formal check of a transformation and a general derivation need to be distinguished. The actual historical development of mathematical methods also requires its own sources; it does not follow from the convenience of a conceptual scheme.\n\n## Main project\n\nThe [Dialectical Mathematical Parser](/en/projects/mathematical-parser/) brings together an operations graph, semantic connections and automation of explanations. The project remains unfinished; this website offers a separate graph-interface demonstration.\n\n## Connections with physics and education\n\nThe same mathematical notation acquires subject-specific meaning through how it is applied, including measurement. In learning, tracing that path matters while retaining the distinction between calculation and understanding. These questions connect mathematics with physics and education.",
       "researchAreas": [],
       "relatedProjects": [
         "mathematical-parser"
       ],
       "relatedPublications": [
-        "theses-2020-2026"
+        "explaining-mathematics-ai",
+        "theses-2020-2026",
+        "hash-mathematics-concept"
       ],
       "relatedJournal": [],
       "featured": false,
@@ -27,12 +29,12 @@
       "links": [],
       "timeline": [],
       "exampleLinks": [],
-      "editorialStatus": "awaiting_content",
+      "editorialStatus": "editorial_summary",
       "order": 0,
-      "questions_ru": "Как раскрыть необходимость перехода к новой операции?\nГде заканчивается частный пример и начинается общий вывод?\nКак явно показывать недостающие шаги?",
-      "questions_en": "What makes a transition to a new operation necessary?\nWhere does a particular example end and a general derivation begin?\nHow should missing steps be made explicit?",
-      "openProblems_ru": "Проверка полноты выводов и сверка публичного графа с актуальным кодом парсера.",
-      "openProblems_en": "Checking the completeness of derivations and reconciling the public graph with the current parser code.",
+      "questions_ru": "Из какой потребности возникает новая операция?\nКак показать необходимость перехода, а не только правило преобразования?\nГде частный пример перестаёт быть достаточным основанием?\nКак явно обозначать недостающие шаги объяснения?",
+      "questions_en": "What need gives rise to a new operation?\nHow can the necessity of a transition be shown beyond a transformation rule?\nWhen is a particular example insufficient as justification?\nHow should missing steps in an explanation be made explicit?",
+      "openProblems_ru": "Развитие и проверка графа парсера, обоснование переходов, источники исторических сведений и исследование учебной полезности объяснений.",
+      "openProblems_en": "Developing and checking the parser graph, justifying transitions, sourcing historical claims and investigating the educational usefulness of explanations.",
       "symbol": "∑"
     },
     {
@@ -45,8 +47,8 @@
       "title_en": "Physics",
       "summary_ru": "Математическая форма и физический смысл: от операций к измерению.",
       "summary_en": "Mathematical form and physical meaning: from operations to measurement.",
-      "body_ru": "Начальные материалы направления — главы готовящихся тезисов об истории физики, Эйнштейне и диалектической физике, а также физические узлы математического парсера.\n\nВ парсере физический смысл связывается с путём получения величины, включая измерение. Математический вывод, опытная предпосылка и область применимости должны быть различимы. Полные тексты глав ещё не предоставлены.",
-      "body_en": "The initial materials are chapters of the forthcoming theses on the history of physics, Einstein and dialectical physics, together with physical nodes in the mathematical parser.\n\nIn the parser, physical meaning is associated with the path by which a quantity is obtained, including measurement. Mathematical derivations, empirical premises and their domains of applicability must remain distinguishable. The full chapter texts have not yet been supplied.",
+      "body_ru": "## От записи — к физическому смыслу\n\nРабота с физикой началась для меня с попытки разобраться в теории относительности. Этот путь привёл к вопросам о математике, измерении и том, как человек выстраивает объяснение сложного предмета.\n\nВ центре направления — связь математического выражения с процессом, который оно описывает. Как получена величина? Какие предпосылки взяты из опыта? При каких условиях применяется выбранная связь?\n\n## Разные основания утверждений\n\nВ авторской модели парсера физический смысл рассматривается в слое качества, включая путь через измерение. Математическое преобразование и опытная посылка требуют разных оснований. Формальная согласованность записи сама по себе не устанавливает, что она применима к конкретному физическому процессу.\n\n## Материалы в работе\n\nРабочая структура тезисов включает историю физики, Эйнштейна и диалектическую физику. Сейчас на сайте дан обзор планируемых тем, а не окончательный текст этих разделов.\n\nСвязанный программный проект — [математический парсер](/ru/projects/mathematical-parser/). Один из исследуемых маршрутов ведёт к уравнениям Навье–Стокса; его полнота не заявляется.",
+      "body_en": "## From notation to physical meaning\n\nMy work on physics began with an attempt to understand the theory of relativity. This led to questions about mathematics, measurement and how people construct explanations of difficult subjects.\n\nThe central concern is the relationship between a mathematical expression and the process it describes. How was a quantity obtained? Which premises come from empirical experience? Under what conditions does the proposed relationship apply?\n\n## Different grounds for claims\n\nIn the author's parser model, physical meaning belongs to the quality layer, including the path through measurement. A mathematical transformation and an empirical premise require different kinds of justification. Formal consistency alone does not establish applicability to a particular physical process.\n\n## Materials in development\n\nThe working theses structure includes the history of physics, Einstein and dialectical physics. The website currently provides an overview of planned topics, rather than the final text of those sections.\n\nThe related software project is the [mathematical parser](/en/projects/mathematical-parser/). One research path leads towards the Navier–Stokes equations; completeness is not claimed.",
       "researchAreas": [],
       "relatedProjects": [
         "mathematical-parser"
@@ -62,12 +64,12 @@
       "links": [],
       "timeline": [],
       "exampleLinks": [],
-      "editorialStatus": "awaiting_content",
+      "editorialStatus": "editorial_summary",
       "order": 1,
-      "questions_ru": "Как различать математический вывод и опытную предпосылку?\nКак путь через измерение определяет смысл величины?",
-      "questions_en": "How can mathematical derivation be distinguished from an empirical premise?\nHow does a measurement path determine the meaning of a quantity?",
-      "openProblems_ru": "Подготовка авторских глав и проверка источников для исторических утверждений.",
-      "openProblems_en": "Preparing the author’s chapters and verifying sources for historical claims.",
+      "questions_ru": "Как связать математическую запись с измеряемой величиной?\nГде проходит граница между выводом и опытной предпосылкой?\nКак указывать область применимости физического утверждения?",
+      "questions_en": "How does mathematical notation connect with a measured quantity?\nWhere is the boundary between a derivation and an empirical premise?\nHow should the applicability of a physical claim be stated?",
+      "openProblems_ru": "Подготовка авторских разделов тезисов, проверка исторических источников и явное описание опытных предпосылок в исследуемых примерах.",
+      "openProblems_en": "Preparing the author’s thesis sections, checking historical sources and making empirical premises explicit in the examples under investigation.",
       "symbol": "φ"
     },
     {
@@ -80,15 +82,19 @@
       "title_en": "Education",
       "summary_ru": "Понимание как самостоятельное восстановление развития мысли.",
       "summary_en": "Understanding through independently reconstructing the development of an idea.",
-      "body_ru": "Направление объединяет диалектическое обучение, методику конспекта papanda и изучение языков. Основной интерес — как учащийся сам выстраивает связи между процессом, его развитием, противоречием и разрешением.\n\nИИ рассматривается как источник сведений, критики и поддержки анализа. Гипотеза о пользе такого подхода требует проверки: наличие приложения или пилота само по себе не подтверждает эффективность обучения.",
-      "body_en": "This area brings together dialectical learning, the papanda note-taking method and language learning. The central interest is how learners independently connect a process, its development, a contradiction and a resolution.\n\nAI is considered a source of information, criticism and analytical support. The proposed educational benefit requires evaluation: an application or pilot alone does not establish learning effectiveness.",
+      "body_ru": "## Понимание и готовый ответ\n\nИИ делает объяснения и справочные сведения доступнее. Мой исследовательский вопрос — как организовать работу с ними так, чтобы учащийся сам строил связи и проверял рассуждение, а не только принимал предложенный текст.\n\nЯ рассматриваю понимание через самостоятельное восстановление развития предмета: от простейшего процесса к обстоятельствам его развития, противоположностям, противоречию и попытке разрешения. Содержательное обоснование переходов остаётся частью обучения.\n\n## Конспекты и изучение языков\n\nВ [papanda](/ru/projects/papanda/) человек вручную строит диалектический конспект, а ИИ предоставляет материал для проверки и работы с источниками. В [papanda Languages](/ru/projects/papanda-languages/) внимание сосредоточено на предложении, роли слов, их устройстве и практике повторения.\n\nКнига о методике языков и статьи об образовании дают контекст этих проектов. Они описывают авторский подход; наличие публикации или приложения само по себе не подтверждает учебную эффективность.\n\n## Что предстоит исследовать\n\nДля проверки нужны конкретные учебные задачи, критерии понимания, сравнение с альтернативными способами работы и наблюдение за применением знаний. Важно различать качество составленного конспекта, успешность решения задачи и устойчивость понимания со временем.\n\nУчастие преподавателя, самостоятельная критика ответа ИИ и возможная проверка конспекта другими студентами рассматриваются как направления развития. Их реализация и результаты должны описываться отдельно.",
+      "body_en": "## Understanding and ready-made answers\n\nAI makes explanations and reference information easier to obtain. My research question is how to organise work with them so that learners construct connections and check reasoning themselves, rather than simply accept a proposed text.\n\nI approach understanding through independently reconstructing a subject's development: from a simplest process to the circumstances of its development, opposites, a contradiction and an attempted resolution. Substantive justification for the transitions remains part of learning.\n\n## Notes and language learning\n\nIn [papanda](/en/projects/papanda/), a person manually builds dialectical notes while AI supplies material for checking and working with sources. [papanda Languages](/en/projects/papanda-languages/) focuses on sentences, word roles and structure, and review practice.\n\nThe language-learning book and education articles provide context for these projects. They describe the author's approach; a publication or application does not by itself establish educational effectiveness.\n\n## What remains to be investigated\n\nEvaluation requires specific learning tasks, criteria for understanding, comparisons with alternative workflows and observation of how knowledge is applied. The quality of a set of notes, success on a problem and retention of understanding over time need to be distinguished.\n\nTeacher involvement, independent criticism of AI output and possible peer review of notes are development directions. Their implementation and outcomes should be described separately.",
       "researchAreas": [],
       "relatedProjects": [
         "papanda",
         "papanda-languages"
       ],
       "relatedPublications": [
+        "human-understanding-ai-education",
+        "explaining-mathematics-ai",
         "language-handbook",
+        "future-education-ai",
+        "beyond-memorization",
         "theses-2020-2026"
       ],
       "relatedJournal": [],
@@ -99,12 +105,12 @@
       "links": [],
       "timeline": [],
       "exampleLinks": [],
-      "editorialStatus": "awaiting_content",
+      "editorialStatus": "editorial_summary",
       "order": 2,
-      "questions_ru": "Как сделать процесс построения понимания видимым?\nКак проверить образовательную гипотезу?\nКак соединить структуру языка и практику?",
-      "questions_en": "How can the construction of understanding become visible?\nHow should an educational hypothesis be evaluated?\nHow can language structure and practice be connected?",
-      "openProblems_ru": "Публикация реальных конспектов, описание ограничений метода и протоколов проверки.",
-      "openProblems_en": "Publishing actual notes and documenting the method’s limitations and evaluation protocols.",
+      "questions_ru": "Как отличить самостоятельное понимание от воспроизведения готового ответа?\nКакие задания проверяют перенос знаний в новую ситуацию?\nКак организовать помощь преподавателя и критику ответов ИИ?\nКаким должно быть сравнение учебных подходов?",
+      "questions_en": "How can independent understanding be distinguished from reproducing an answer?\nWhich tasks test the application of knowledge in a new situation?\nHow should teacher support and criticism of AI answers be organised?\nHow should learning approaches be compared?",
+      "openProblems_ru": "Практические протоколы оценки понимания, проверка образовательных приложений на участниках и уточнение роли преподавателя. Подтверждённые результаты такой проверки пока не представлены.",
+      "openProblems_en": "Practical protocols for assessing understanding, participant-based evaluation of the educational applications and clarification of the teacher’s role. Verified evaluation results have not yet been presented.",
       "symbol": "↗"
     },
     {
@@ -117,8 +123,8 @@
       "title_en": "Artificial Intelligence",
       "summary_ru": "Архитектуры, проверка действий и альтернативные способы построения ИИ.",
       "summary_en": "Architectures, action verification and alternative approaches to building AI.",
-      "body_ru": "Исследование включает экспериментальную архитектуру агентов DialecticAI и незавершённую работу AI_algorithm. Это самостоятельные проекты: их не следует смешивать с математическим парсером.\n\nВ поле внимания — вероятностные и альтернативные подходы, математические модели, численные проверки и отклонённые гипотезы. Статья для arXiv находится в подготовке; опубликованный идентификатор не предоставлен.",
-      "body_en": "This area includes the experimental DialecticAI agent architecture and the unfinished AI_algorithm research. These are separate projects and should not be conflated with the mathematical parser.\n\nThe focus includes probabilistic and alternative approaches, mathematical models, numerical checks and rejected hypotheses. An arXiv paper is in preparation; no published identifier has been supplied.",
+      "body_ru": "## Границы возможностей и роль проверки\n\nМой интерес к ИИ связан с вопросом о человеческом понимании. Сейчас мне важно исследовать, какие задачи можно передать модели, где нужны внешние основания и как организовать совместную работу человека и ИИ.\n\nОтвет модели, уверенность в ответе, формальная корректность шага и соответствие наблюдаемым фактам — разные объекты проверки. Внешняя структура работы может помогать в одних условиях и создавать дополнительные ошибки или затраты в других.\n\n## Два исследовательских проекта\n\n[DialecticAI](/ru/projects/dialectic-ai/) проверяет влияние структуры рассуждения, представления области и процедур пересмотра на существующие языковые модели. В открытых материалах сохранены результаты разных версий, включая отрицательные и неопределённые итоги. Нынешний движок требует отдельной оценки эффективности.\n\n[AI_algorithm](/ru/projects/ai-algorithm/) посвящён алгоритму работы с развитием процессов и его математическому описанию. Исследование и рукопись продолжают разрабатываться. Этот проект не следует отождествлять с парсером формул.\n\n## Публикации и практика\n\nКнига по ИИ и статьи фиксируют разные этапы постановки вопроса. Они образуют контекст исследований, а не перечень доказанных преимуществ новой архитектуры. Образовательные приложения дают отдельную область применения ИИ: помощь человеку в работе со сведениями, источниками и примерами.\n\n## Критерий продвижения\n\nДля нового утверждения нужны задача, исходные условия, сравнение, сохранённые результаты и границы вывода. Программные тесты проверяют поведение реализации; содержательная оценка требует дополнительной работы. Планы публикации также отделяются от уже доступных материалов.",
+      "body_en": "## Capability boundaries and verification\n\nMy interest in AI is connected with human understanding. Today I want to investigate which tasks can be delegated to a model, where external grounds are required and how human–AI collaboration should be organised.\n\nA model's answer, its confidence, the formal correctness of a step and agreement with observations are different verification targets. An externally imposed workflow may help under some conditions and introduce errors or additional costs under others.\n\n## Two research projects\n\n[DialecticAI](/en/projects/dialectic-ai/) tests the effects of reasoning structure, domain representations and revision procedures on existing language models. Its public materials preserve evidence from different versions, including negative and uncertain outcomes. The current engine needs a separate efficacy evaluation.\n\n[AI_algorithm](/en/projects/ai-algorithm/) concerns an algorithm for working with developing processes and its mathematical description. The research and manuscript remain in development. It should not be conflated with the formula parser.\n\n## Publications and practical work\n\nThe AI book and articles record different stages of the question. They provide research context, rather than a list of demonstrated advantages for a new architecture. Educational applications provide another use of AI: supporting a person working with information, sources and examples.\n\n## Assessing progress\n\nA new claim requires a task, initial conditions, a comparison, saved outcomes and stated limits. Software tests check implementation behaviour; substantive assessment requires further work. Planned publications are also distinguished from materials that are already available.",
       "researchAreas": [],
       "relatedProjects": [
         "dialectic-ai",
@@ -126,7 +132,13 @@
       ],
       "relatedPublications": [
         "data-science-handbook",
-        "theses-2020-2026"
+        "theses-2020-2026",
+        "can-ai-think-differently",
+        "edge-ai-reasoning",
+        "recurrent-networks-transformers",
+        "hash-mathematics-concept",
+        "opposites-algorithm-overview",
+        "arman-ai-architecture"
       ],
       "relatedJournal": [],
       "featured": false,
@@ -136,12 +148,12 @@
       "links": [],
       "timeline": [],
       "exampleLinks": [],
-      "editorialStatus": "awaiting_content",
+      "editorialStatus": "editorial_summary",
       "order": 3,
-      "questions_ru": "Какие предпосылки заложены в архитектуру?\nЧто подтверждает численная проверка, а что остаётся гипотезой?",
-      "questions_en": "Which assumptions are embedded in an architecture?\nWhat does a numerical check establish, and what remains a hypothesis?",
-      "openProblems_ru": "Подготовка проверяемого описания алгоритма, результатов тестов и рукописи статьи.",
-      "openProblems_en": "Preparing a verifiable description of the algorithm, test results and the paper manuscript.",
+      "questions_ru": "Где модели требуется внешнее основание для ответа?\nКак сравнить структурированную работу с обычным контекстом при сопоставимых затратах?\nЧто измеряет отдельная проверка: совместимость, уверенность или правильность?\nКакие выводы сохраняются при смене модели и условий задачи?",
+      "questions_en": "Where does a model need external grounds for an answer?\nHow can structured work and ordinary context be compared at comparable cost?\nDoes a check measure compatibility, confidence or correctness?\nWhich conclusions survive changes of model and task conditions?",
+      "openProblems_ru": "Контролируемые сравнения текущей версии DialecticAI, завершение описания AI_algorithm и раздельная оценка точности, обнаружения ошибок и стоимости.",
+      "openProblems_en": "Controlled comparisons of the current DialecticAI version, completion of the AI_algorithm description and separate evaluation of accuracy, error detection and cost.",
       "symbol": "λ"
     }
   ],
@@ -326,15 +338,21 @@
       "ready_en": true,
       "title_ru": "DialecticAI",
       "title_en": "DialecticAI",
-      "summary_ru": "Экспериментальная архитектура агентов Process / Contradiction / Leap.",
-      "summary_en": "An experimental Process / Contradiction / Leap agent architecture.",
-      "body_ru": "Архитектура исследует разделение ролей Process / Contradiction / Leap и проверку действий агентов. В описании проекта должны быть различимы архитектурные решения, тесты и наблюдаемость.\n\nИнженерная работоспособность не равна научному доказательству эффективности особого диалектического метода. Актуальные результаты тестов и материалы реализации ожидаются.",
-      "body_en": "The architecture explores Process / Contradiction / Leap roles and verification of agent actions. Its documentation should distinguish architectural decisions, tests and observability.\n\nEngineering functionality is not scientific evidence for the effectiveness of a distinct dialectical method. Current test results and implementation materials are awaited.",
+      "summary_ru": "Экспериментальный проект о том, как заданная извне структура рассуждения, представление предметной области и проверка влияют на работу языковых моделей. Текущий движок строит и пересматривает представление области в шесть этапов.",
+      "summary_en": "An experimental project studying how externally imposed reasoning structures, domain representations and verification affect language models. The current engine builds and revises a domain representation through six stages.",
+      "body_ru": "## Исследовательский вопрос\n\nГде заканчивается сгенерированное рассуждение и начинается необходимость внешней проверки, практики или человеческой оценки? В DialecticAI я исследую этот вопрос на существующих языковых моделях: меняю порядок работы, способ представления предмета и процедуры проверки, затем рассматриваю, что именно изменилось в ответах и действиях.\n\nЭто исследовательский прототип. Наличие исполняемого движка ещё не устанавливает преимущество метода в решении задач.\n\n## Как устроена текущая версия\n\nВ актуальной реализации построение представления предметной области разделено на шесть этапов:\n\n1. Предложить простейший процесс.\n2. Построить итерацию его развития.\n3. Сопоставить накопленное развитие и предложить кандидатов на противоположность.\n4. Проверить эти кандидаты.\n5. Сформулировать противоречие.\n6. Предложить разрешение через замену, опосредование либо зафиксировать отсутствие найденного перехода.\n\nСодержание формулирует языковая модель. Программа задаёт последовательность, проверяет формат и структурные связи, хранит версии и ход работы. Сформированное представление передаётся другому агенту как ограниченное по объёму описание предмета.\n\n[[media:dialectic-ai-architecture]]\n\n## Пересмотр и проверка\n\nПредставление можно пересматривать при появлении противоречащего наблюдения или внешнего сигнала. Изменения прослеживаются по зависимостям; прежние версии сохраняются для сравнения. Сигнал о совместимости наблюдения с представлением области не равен проверке правильности ответа.\n\nПорядок выполнения, сохранение версий и ссылки между записями можно проверять программными тестами. Содержательная верность найденной противоположности или разрешения требует другой проверки — по предмету и фактам.\n\n## Что показали опубликованные опыты\n\nВ репозитории сохранены результаты ранних вариантов архитектуры, включая сравнения на BFCL и ContractNLI. Устойчивое преимущество представления области в этих сравнениях не установлено. Некоторые опыты с организацией повторных попыток дали пользу в своих условиях, другие показали ухудшение.\n\nОтдельная проверка ответов в одном из исследований дала ограниченный полезный сигнал. Это не устанавливает общего преимущества многоагентных систем. Важны также стоимость, условия задания, состав примеров и то, что именно измерялось.\n\nИсторические результаты относятся к своим версиям системы. Для нынешнего шестистадийного движка опубликованы программные проверки и отдельные запуски; его сравнительная эффективность ещё не установлена.\n\n[[media:dialectic-ai-evidence]]\n\n## Следующий исследовательский шаг\n\nНужны контролируемые сравнения с обычным контекстом и сопоставимым бюджетом, независимые построения представлений и отдельный учёт точности, обнаружения ошибок и затрат. Отрицательный или неопределённый результат тоже должен сохраняться: он помогает уточнять гипотезу.\n\n## Материалы\n\nТекущая архитектура, результаты, ограничения и условия воспроизведения описаны в [открытом репозитории](https://github.com/Ruslan-Nazarov/dialectic_ai). Общая постановка связана с направлением [искусственного интеллекта](/ru/research/artificial-intelligence/) и отдельным проектом [AI_algorithm](/ru/projects/ai-algorithm/).",
+      "body_en": "## Research question\n\nWhere does generated reasoning end, and where do external verification, practical evidence or human judgement become necessary? In DialecticAI, I investigate this question using existing language models: varying the workflow, domain representation and verification procedures, then examining what changes in answers and actions.\n\nThis is a research prototype. An executable engine does not by itself establish an advantage in solving tasks.\n\n## The current implementation\n\nThe current implementation builds a domain representation through six stages:\n\n1. Propose a simplest process.\n2. Construct an iteration of its development.\n3. Compare the accumulated development and propose candidates for an opposite.\n4. Check these candidates.\n5. Formulate a contradiction.\n6. Propose a resolution through replacement or mediation, or record that no transition was found.\n\nThe language model supplies the content. The program controls the sequence, checks format and structural references, and stores versions and traces. The resulting representation is supplied to another agent as a bounded domain brief.\n\n[[media:dialectic-ai-architecture]]\n\n## Revision and verification\n\nA representation can be revised following an incompatible observation or an external signal. Changes follow dependencies, while earlier versions remain available for comparison. A signal about compatibility with a domain representation is different from checking whether an answer is correct.\n\nExecution order, version persistence and references can be tested in software. Whether a proposed opposite or resolution is substantively valid requires a different check against the subject and evidence.\n\n## Findings from published experiments\n\nThe repository preserves results from earlier architectures, including BFCL and ContractNLI comparisons. These comparisons did not establish a consistent advantage for the domain representation. Some orchestration experiments improved retry handling under their conditions, while others showed degradation.\n\nA separate answer verifier provided a modest useful signal in one study. This does not establish a general advantage for multi-agent systems. Cost, task conditions, sample selection and the target being measured also matter.\n\nHistorical results apply to their respective system versions. The current six-stage engine has published software checks and individual runs; its comparative efficacy has not yet been established.\n\n[[media:dialectic-ai-evidence]]\n\n## Next research step\n\nControlled comparisons with ordinary context and comparable budgets are needed, alongside independent representation builds and separate measurements of accuracy, error detection and cost. Negative and uncertain results should also be retained: they help refine the hypothesis.\n\n## Materials\n\nThe current architecture, evidence, limitations and reproduction conditions are documented in the [public repository](https://github.com/Ruslan-Nazarov/dialectic_ai). The broader question connects with [artificial intelligence research](/en/research/artificial-intelligence/) and the separate [AI_algorithm project](/en/projects/ai-algorithm/).",
       "researchAreas": [
         "artificial-intelligence"
       ],
-      "relatedProjects": [],
-      "relatedPublications": [],
+      "relatedProjects": [
+        "ai-algorithm"
+      ],
+      "relatedPublications": [
+        "can-ai-think-differently",
+        "edge-ai-reasoning",
+        "theses-2020-2026"
+      ],
       "relatedJournal": [],
       "featured": false,
       "tags": [
@@ -343,12 +361,29 @@
       ],
       "heroImage": "",
       "gallery": [],
-      "links": [],
+      "links": [
+        {
+          "label_ru": "Репозиторий DialecticAI",
+          "label_en": "DialecticAI repository",
+          "url": "https://github.com/Ruslan-Nazarov/dialectic_ai"
+        },
+        {
+          "label_ru": "Результаты и ограничения",
+          "label_en": "Results and limitations",
+          "url": "https://github.com/Ruslan-Nazarov/dialectic_ai/blob/main/docs/RESULTS.md"
+        }
+      ],
       "timeline": [],
       "exampleLinks": [],
-      "editorialStatus": "awaiting_content",
+      "editorialStatus": "editorial_summary",
       "status": "active",
-      "order": 3
+      "order": 3,
+      "byline_ru": "Руслан Назаров · Исследователь искусственного интеллекта",
+      "byline_en": "Ruslan Nazarov · AI Researcher",
+      "statusLabel_ru": "Исследовательский прототип",
+      "statusLabel_en": "Research prototype",
+      "motto_ru": "Структура рассуждения, проверка и основания для пересмотра.",
+      "motto_en": "Reasoning structure, verification and reasons to revise."
     },
     {
       "id": "ai-algorithm",
@@ -358,16 +393,21 @@
       "ready_en": true,
       "title_ru": "AI_algorithm",
       "title_en": "AI_algorithm",
-      "summary_ru": "Незавершённое исследование альтернативной архитектуры искусственного интеллекта.",
-      "summary_en": "Unfinished research into an alternative artificial intelligence architecture.",
-      "body_ru": "Проект включает развитие итераций алгоритма, математическое описание, численные проверки и фиксацию отклонённых гипотез. Исследование не завершено.\n\nСтатья для arXiv готовится. Дата публикации, DOI и arXiv ID отсутствуют. Подтверждённые материалы и результаты будут добавляться по мере предоставления автором.",
-      "body_en": "The project involves algorithm iterations, mathematical descriptions, numerical checks and a record of rejected hypotheses. The research is unfinished.\n\nAn arXiv paper is in preparation. No publication date, DOI or arXiv ID is available. Verified materials and results will be added as the author supplies them.",
+      "summary_ru": "Незавершённое исследование алгоритма работы с развивающимися процессами, противоположностями и противоречиями. Задача — последовательно связать смысл шагов, математическое описание и проверку на ограниченных задачах.",
+      "summary_en": "Ongoing research into an algorithm for working with developing processes, opposites and contradictions. The aim is to connect the meaning of each step with a mathematical description and checks on bounded tasks.",
+      "body_ru": "## Что исследуется\n\nПроект посвящён тому, как описывать развитие предмета через связанные процессы, выделять противоположность, формулировать противоречие и искать его разрешение. Меня интересует, какие части этой работы можно задать алгоритмически, что должна выражать математическая модель и где сохраняется содержательное решение исследователя.\n\n## Как ведётся работа\n\nДля каждого шага необходимо различать его смысл, используемые предпосылки, математическое представление и способ проверки. Изменение алгоритма может потребовать пересмотра модели; удачная запись формул ещё не подтверждает, что она отражает нужное содержание.\n\nРабота развивается итерациями. Сохраняются промежуточные постановки, расхождения и отклонённые гипотезы. Численные проверки на выбранной задаче должны показывать, что следует из конкретных предпосылок и где модель не соответствует замыслу.\n\n[[media:ai-algorithm-model]]\n\n## Что требуется проверить\n\nОткрыты вопросы о представлении процессов и их связей, о переходе между итерациями и об основаниях выбора противоположности. Проверка должна различать формальную согласованность описания, результат моделируемой задачи и содержательную оценку полученного перехода.\n\nОтдельный пример не устанавливает работоспособность алгоритма для всех предметов. До сравнения с альтернативами нельзя делать вывод о преимуществе подхода.\n\n## Текущее состояние\n\nИсследование не завершено. Математическое описание и рукопись статьи продолжают разрабатываться. Подготовка публикации для arXiv остаётся планом; опубликованный идентификатор пока не указан.\n\nМатериалы ранних постановок доступны через связанные статьи. Они показывают развитие идеи, но не заменяют окончательное описание текущей модели.\n\n## Связь с другими проектами\n\n[DialecticAI](/ru/projects/dialectic-ai/) исследует исполняемые структуры работы с языковыми моделями и проверку их поведения. [Математический парсер](/ru/projects/mathematical-parser/) посвящён объяснению математических формул. У AI_algorithm свой предмет: построение и проверка алгоритма работы с развитием процессов.",
+      "body_en": "## What is being investigated\n\nThe project concerns describing a subject's development through connected processes, identifying an opposite, formulating a contradiction and seeking its resolution. I am interested in which parts can be specified algorithmically, what a mathematical model must represent and where substantive judgement remains necessary.\n\n## How the work proceeds\n\nFor each step, its meaning, premises, mathematical representation and verification method must be distinguished. A change to the algorithm can require the model to be revised; a workable set of formulas does not by itself establish that it captures the intended content.\n\nThe work proceeds through iterations. Intermediate formulations, discrepancies and rejected hypotheses are retained. Numerical checks on a selected task should expose what follows from particular assumptions and where the model fails to match its purpose.\n\n[[media:ai-algorithm-model]]\n\n## What needs checking\n\nOpen questions concern representing processes and their relationships, moving between iterations and justifying the choice of an opposite. Verification needs to distinguish formal consistency, the outcome of a simulated task and substantive assessment of the resulting transition.\n\nA single example does not establish applicability across all subjects. An advantage for the approach cannot be inferred before comparison with alternatives.\n\n## Current status\n\nThe research is unfinished. The mathematical description and paper manuscript remain in development. An arXiv submission is planned; no published identifier is currently supplied.\n\nRelated articles document earlier formulations. They show the development of the idea, while the current model still requires a complete account.\n\n## Related projects\n\n[DialecticAI](/en/projects/dialectic-ai/) investigates executable structures for working with language models and checking their behaviour. The [mathematical parser](/en/projects/mathematical-parser/) concerns explanations of mathematical formulas. AI_algorithm has its own subject: constructing and evaluating an algorithm for working with developing processes.",
       "researchAreas": [
         "artificial-intelligence"
       ],
-      "relatedProjects": [],
+      "relatedProjects": [
+        "dialectic-ai"
+      ],
       "relatedPublications": [
-        "data-science-handbook"
+        "opposites-algorithm-overview",
+        "hash-mathematics-concept",
+        "data-science-handbook",
+        "theses-2020-2026"
       ],
       "relatedJournal": [],
       "featured": true,
@@ -380,9 +420,15 @@
       "links": [],
       "timeline": [],
       "exampleLinks": [],
-      "editorialStatus": "awaiting_content",
+      "editorialStatus": "editorial_summary",
       "status": "active",
-      "order": 4
+      "order": 4,
+      "byline_ru": "Руслан Назаров · Исследователь искусственного интеллекта",
+      "byline_en": "Ruslan Nazarov · AI Researcher",
+      "statusLabel_ru": "Незавершённое исследование",
+      "statusLabel_en": "Research in progress",
+      "motto_ru": "От содержательного алгоритма — к проверяемой модели.",
+      "motto_en": "From a substantive algorithm to a testable model."
     },
     {
       "id": "personal-time-management",
@@ -394,8 +440,8 @@
       "title_en": "Personal Time-Management App",
       "summary_ru": "Приложение для организации личного времени и задач.",
       "summary_en": "An application for organizing personal time and tasks.",
-      "body_ru": "Проект для личного использования. Эта страница предназначена для описания назначения, особенностей и галереи интерфейса.\n\nОбезличенные скриншоты с демонстрационными данными ещё не предоставлены. Они появятся здесь после загрузки автором. Публичный доступ, установка и репозиторий не предлагаются.",
-      "body_en": "A project for personal use. This page is intended to describe its purpose, features and interface gallery.\n\nAnonymized screenshots containing demonstration data have not yet been supplied. They will appear here once uploaded by the author. Public access, installation and a repository are not offered.",
+      "body_ru": "## Назначение\n\nЭто отдельный проект приложения для организации личного времени и задач. Его место на сайте — среди практических программных инструментов, связанных с повседневной работой автора.\n\nДля личного инструмента существенна связь между тем, что человек собирается сделать, и тем, как он организует собственную работу. Страница посвящена назначению и представлению приложения, без обещания универсального способа управления временем.\n\n## Как будет представлен интерфейс\n\nГалерея предназначена для настоящих снимков приложения с обезличенными демонстрационными данными. Она должна показывать устройство работы, не раскрывая личные задачи и записи. Подробности конкретных возможностей будут уточняться по этим материалам.\n\n[[media:time-management-overview]]\n\n[[media:time-management-workflow]]\n\n## Статус и доступ\n\nПроект предназначен для личного использования. Публичная установка, открытый репозиторий и общедоступная демонстрация сейчас не предлагаются.\n\n## Место среди других работ\n\nПрактические приложения позволяют переводить отдельные потребности в инструменты и наблюдать, насколько выбранный способ организации подходит конкретной задаче.",
+      "body_en": "## Purpose\n\nThis is a separate application project for organising personal time and tasks. It belongs among the practical software tools connected with the author's everyday work.\n\nFor a personal tool, the connection between intended tasks and the way someone organises their work matters. This page describes the application's purpose and presentation without promising a universal time-management method.\n\n## Presenting the interface\n\nThe gallery is intended for genuine application screenshots using anonymised demonstration data. It should show the workflow without exposing personal tasks or records. Specific capabilities will be described as those materials become available.\n\n[[media:time-management-overview]]\n\n[[media:time-management-workflow]]\n\n## Status and access\n\nThe project is intended for personal use. Public installation, an open repository and a public live demonstration are not currently offered.\n\n## Relationship to the other work\n\nPractical applications provide a way to turn particular needs into tools and observe how well a chosen workflow fits a task.",
       "researchAreas": [],
       "relatedProjects": [],
       "relatedPublications": [],
@@ -409,9 +455,15 @@
       "links": [],
       "timeline": [],
       "exampleLinks": [],
-      "editorialStatus": "awaiting_content",
+      "editorialStatus": "editorial_summary",
       "status": "active",
-      "order": 5
+      "order": 5,
+      "byline_ru": "Руслан Назаров · Исследователь искусственного интеллекта",
+      "byline_en": "Ruslan Nazarov · AI Researcher",
+      "statusLabel_ru": "Для личного использования",
+      "statusLabel_en": "Personal use",
+      "motto_ru": "Инструмент организации собственного времени и задач.",
+      "motto_en": "A tool for organising personal time and tasks."
     }
   ],
   "publications": [
@@ -835,15 +887,18 @@
       "title_en": "Handbook Data Science 2025",
       "summary_ru": "Авторская книга по Data Science и искусственному интеллекту. Полный текст доступен на отдельном сайте.",
       "summary_en": "The author’s book on Data Science and artificial intelligence. The full text is available on a separate site.",
-      "body_ru": "Книга представлена как самостоятельное внешнее издание. Эта карточка связывает её с исследовательским направлением искусственного интеллекта; полный текст и сведения об издании находятся на исходном сайте.\n\nЛицензия внешней книги сохраняется: **CC BY-NC-ND 4.0**. Она не заменяется лицензией новых текстов этого сайта.",
-      "body_en": "The book is presented as a separate external publication. This card connects it to the artificial intelligence research area; the full text and publication details remain on the original site.\n\nThe external book retains its **CC BY-NC-ND 4.0** licence. It is not replaced by the licence for new texts on this site.",
+      "body_ru": "## Об издании\n\nКнига посвящена базовым понятиям Data Science и искусственного интеллекта. В авторском подходе существенен путь от исходного вопроса к развитию способов его решения: понятия рассматриваются в связи с задачами, ради которых они вводятся.\n\n## Место в исследовательской работе\n\nУчебный опыт автора в Data Science стал одним из истоков более общего интереса к пониманию и обучению. Книга связана с этим направлением работы; более поздние программные эксперименты представлены отдельно на страницах проектов.\n\n## Как читать\n\nПолный текст находится на отдельном книжном сайте под заголовком **Handbook Data Science 2025**. Его навигация и материалы сохраняются на исходном адресе. Эта карточка связывает издание с исследовательским сайтом и не заменяет книгу.\n\nЛицензия оригинального издания — **CC BY-NC-ND 4.0**. Лицензия новых текстов исследовательского сайта её не меняет.",
+      "body_en": "## About the edition\n\nThe book concerns foundational concepts in Data Science and artificial intelligence. The author's approach follows an initial question through the development of methods for addressing it, relating concepts to the tasks for which they are introduced.\n\n## Research context\n\nThe author's Data Science learning experience contributed to a broader interest in understanding and education. The book belongs to that line of work; later software experiments have their own project pages.\n\n## Reading the book\n\nThe complete text remains on a separate book site under the title **Handbook Data Science 2025**. Its navigation and materials stay at the original address. This card connects the edition with the research website without replacing the book.\n\nThe original edition retains **CC BY-NC-ND 4.0**. The licence for new research-site writing does not change it.",
       "researchAreas": [
         "artificial-intelligence"
       ],
       "relatedProjects": [
-        "ai-algorithm"
+        "ai-algorithm",
+        "dialectic-ai"
       ],
-      "relatedPublications": [],
+      "relatedPublications": [
+        "theses-2020-2026"
+      ],
       "relatedJournal": [],
       "featured": true,
       "tags": [
@@ -875,8 +930,8 @@
       "title_en": "How to Learn Many Foreign Languages? A Dialectical Approach",
       "summary_ru": "Книга о методике изучения языков. Внешнее издание на русском языке.",
       "summary_en": "A book on language-learning methodology. The external edition is in Russian.",
-      "body_ru": "Авторская книга о диалектическом подходе к изучению иностранных языков. Здесь приводится краткая редакционная аннотация; оригинальный текст доступен на отдельном книжном сайте.\n\nКарточка связывает книгу с направлением образования и языковыми проектами. Наличие книги не является эмпирическим подтверждением эффективности описанного метода. Лицензия издания — **CC BY-NC-ND 4.0**.",
-      "body_en": "The author’s book on a dialectical approach to learning foreign languages. This page provides a short editorial description; the original text is available on its separate book site.\n\nThe card connects the book to education and language projects. The existence of the book is not empirical evidence of the method’s effectiveness. The edition is licensed under **CC BY-NC-ND 4.0**.",
+      "body_ru": "## О чём книга\n\nКнига излагает авторский подход к самостоятельному изучению иностранных языков. Отправная точка — предложение, его смысл и отношения, которые оно выражает. От этого рассматриваются роли слов и развитие структуры предложения.\n\n## Состав и применение\n\nВ описании книги представлены английский, итальянский, немецкий, французский, испанский и казахский языки; русский рассматривается в приложении. Предложен также шаблон, помогающий организовать собственный разбор другого языка.\n\n## Связь с приложениями\n\n[papanda Languages](/ru/projects/papanda-languages/) развивает практическую работу с предложениями, словарём и повторением. Книга даёт методический контекст, а приложение — отдельный формат занятий. Их наличие само по себе не является результатом сравнительного исследования учебной эффективности.\n\n## Полный текст и права\n\nОригинальное русскоязычное издание доступно на отдельном книжном сайте. Его лицензия **CC BY-NC-ND 4.0** сохраняется; текст книги здесь не переиздаётся и не переводится целиком.",
+      "body_en": "## About the book\n\nThe book presents the author's approach to independent foreign-language learning. Its starting point is the sentence, its meaning and the relationships it expresses. Word roles and the development of sentence structure are examined from there.\n\n## Scope and use\n\nThe book's description covers English, Italian, German, French, Spanish and Kazakh, with Russian treated in an appendix. It also offers a template for organising one's own analysis of another language.\n\n## Connection with the applications\n\n[papanda Languages](/en/projects/papanda-languages/) develops practical work with sentences, vocabulary and review. The book provides methodological context, while the application offers a separate practice format. Their existence alone is not a comparative evaluation of educational effectiveness.\n\n## Complete text and rights\n\nThe original Russian edition is available on its separate book site. Its **CC BY-NC-ND 4.0** licence remains unchanged; the book is not republished or translated in full here.",
       "researchAreas": [
         "education"
       ],
@@ -884,7 +939,10 @@
         "papanda",
         "papanda-languages"
       ],
-      "relatedPublications": [],
+      "relatedPublications": [
+        "human-understanding-ai-education",
+        "theses-2020-2026"
+      ],
       "relatedJournal": [],
       "featured": true,
       "tags": [
@@ -916,16 +974,25 @@
       "title_en": "Theses 2020–2026",
       "summary_ru": "Предстоящая авторская публикация. Рабочее название; планируемый выпуск — 11 ноября 2026.",
       "summary_en": "A forthcoming publication. Working title; target release: 11 November 2026.",
-      "body_ru": "Работа над тезисами начата **11 ноября 2020 года**. Целевой срок выпуска — **11 ноября 2026 года**. Это план, а не состоявшаяся публикация.\n\nОкончательный авторский текст редактируется и пока не предоставлен. Ниже показана рабочая структура из пяти глав. Введение, диалектика и восстановление до диалектики объединены в первую главу; три физических раздела — в главу о физике. Структура редактируется в CMS.",
-      "body_en": "Work on the theses began on **11 November 2020**. The target release date is **11 November 2026**. This is a plan, not a completed publication.\n\nThe final authorial text is being edited and has not yet been supplied. The working structure below contains five chapters. The introduction, dialectics and reconstruction before dialectics are grouped in the first chapter; three physics sections are grouped in the physics chapter. The structure can be edited in the CMS.",
+      "body_ru": "## Замысел публикации\n\n«Тезисы 2020–2026» — рабочее название авторской рукописи о понимании, мышлении и искусственном интеллекте. Работа начата **11 ноября 2020 года**. За несколько лет вопросы физики, математики и самостоятельного обучения стали связанными частями одного поиска.\n\n## Четыре направления и общая рамка\n\nВводная глава объединяет введение, диалектику и восстановление до диалектики. Затем следуют математика, физика, образование и ИИ. Такая структура позволяет читать работу по направлениям, сохраняя связь между исходным вопросом и конкретными предметами.\n\n## Статус текста\n\nОкончательная авторская редакция ещё готовится. На сайте размещены обзоры содержания пяти глав: они помогают ориентироваться в замысле и связанных материалах, но не являются финальными текстами глав. Полные тексты и PDF будут добавлены после их предоставления и утверждения.\n\nПланируемый срок выпуска — **11 ноября 2026 года**. Это цель, а не дата уже состоявшейся публикации. До выхода рукописи доступны связанные статьи, книги и страницы программных проектов.",
+      "body_en": "## Publication outline\n\nTheses 2020–2026 is the working title of a manuscript on understanding, thinking and artificial intelligence. Work began on **11 November 2020**. Over several years, physics, mathematics and self-directed learning became connected parts of the inquiry.\n\n## Four areas and a common framework\n\nThe opening chapter brings together the introduction, dialectics and reconstruction before dialectics. Mathematics, physics, education and AI follow. This structure offers routes through individual areas while retaining their connection to the initial question.\n\n## Text status\n\nThe final authorial revision is still in preparation. This website provides content overviews for five chapters: they introduce the plan and related materials, and are not the final chapter texts. Complete texts and PDFs will be added after they are supplied and approved.\n\nThe target release date is **11 November 2026**. This is a goal, not an already completed publication date. Related articles, books and software-project pages are available while the manuscript is being prepared.",
       "researchAreas": [
         "mathematics",
         "physics",
         "education",
         "artificial-intelligence"
       ],
-      "relatedProjects": [],
-      "relatedPublications": [],
+      "relatedProjects": [
+        "mathematical-parser",
+        "papanda",
+        "papanda-languages",
+        "dialectic-ai",
+        "ai-algorithm"
+      ],
+      "relatedPublications": [
+        "explaining-mathematics-ai",
+        "human-understanding-ai-education"
+      ],
       "relatedJournal": [],
       "featured": true,
       "tags": [
@@ -936,7 +1003,7 @@
       "links": [],
       "timeline": [],
       "exampleLinks": [],
-      "editorialStatus": "awaiting_content",
+      "editorialStatus": "editorial_summary",
       "type": "theses",
       "pdf_ru": "",
       "pdf_en": "",
@@ -944,7 +1011,77 @@
       "startedDate": "2020-11-11"
     }
   ],
-  "journal": [],
+  "journal": [
+    {
+      "id": "education-project-pages",
+      "slug": "education-project-pages",
+      "publish": true,
+      "ready_ru": true,
+      "ready_en": true,
+      "title_ru": "На сайте представлены два образовательных проекта",
+      "title_en": "Two educational projects presented on the website",
+      "summary_ru": "Опубликованы страницы papanda и papanda Languages на русском и английском языках.",
+      "summary_en": "Russian and English pages for papanda and papanda Languages are published.",
+      "body_ru": "21 октября 2026 года на исследовательском сайте опубликованы развёрнутые страницы [papanda](/ru/projects/papanda/) и [papanda Languages](/ru/projects/papanda-languages/) на двух языках.\n\nОдна посвящена ручному построению диалектических конспектов, другая — разбору предложений и практике изучения языков. На языковой странице доступны ссылки на репозиторий, книгу о методе и предоставленную автором Android-сборку.\n\nЭта запись фиксирует обновление сайта. Она не является отчётом о новом исследовании учебной эффективности. Места для настоящих иллюстраций подготовлены; изображения будут дополняться позднее.",
+      "body_en": "On 21 October 2026, expanded bilingual pages for [papanda](/en/projects/papanda/) and [papanda Languages](/en/projects/papanda-languages/) were published on the research website.\n\nOne concerns manually constructing dialectical notes; the other covers sentence analysis and language-learning practice. The language page links to the repository, the methodology book and the Android build supplied by the author.\n\nThis entry records a website update, rather than a new educational-effectiveness study. Spaces for genuine illustrations are ready, with images to be added later.",
+      "researchAreas": [
+        "education"
+      ],
+      "relatedProjects": [
+        "papanda",
+        "papanda-languages"
+      ],
+      "relatedPublications": [
+        "language-handbook",
+        "human-understanding-ai-education"
+      ],
+      "relatedJournal": [],
+      "featured": false,
+      "tags": [],
+      "heroImage": "",
+      "gallery": [],
+      "links": [],
+      "timeline": [],
+      "exampleLinks": [],
+      "editorialStatus": "final",
+      "type": "news",
+      "date": "2026-10-21"
+    },
+    {
+      "id": "parser-project-page",
+      "slug": "parser-project-page",
+      "publish": true,
+      "ready_ru": true,
+      "ready_en": true,
+      "title_ru": "Опубликована страница незавершённого математического парсера",
+      "title_en": "The unfinished mathematical parser has a project page",
+      "summary_ru": "Описание метода и целей отделено от демонстрации интерфейса графа. Исходный код пока не выложен.",
+      "summary_en": "The method and research goals are distinguished from the graph-interface demo. The source code has not yet been published.",
+      "body_ru": "21 октября 2026 года опубликована [страница диалектического математического парсера](/ru/projects/mathematical-parser/) на русском и английском языках.\n\nНа ней описаны постановка задачи, слои количества, качества, истории и хуков, а также направление автоматизации объяснений. Проект явно отмечен как незавершённый; автор подтвердил, что его исходный код пока не выложен.\n\nДоступный на сайте граф остаётся отдельной демонстрацией интерфейса по снимку перечня узлов. Публикация страницы не означает выпуска готового универсального парсера.",
+      "body_en": "On 21 October 2026, the [Dialectical Mathematical Parser page](/en/projects/mathematical-parser/) was published in Russian and English.\n\nIt introduces the research question, quantity, quality, history and hook layers, and the direction of explanation automation. The project is explicitly unfinished; the author confirmed that its source has not yet been published.\n\nThe graph available on this website remains a separate interface demonstration based on an inventory snapshot. Publishing the page is not a release of a completed universal parser.",
+      "researchAreas": [
+        "mathematics",
+        "physics"
+      ],
+      "relatedProjects": [
+        "mathematical-parser"
+      ],
+      "relatedPublications": [
+        "explaining-mathematics-ai"
+      ],
+      "relatedJournal": [],
+      "featured": false,
+      "tags": [],
+      "heroImage": "",
+      "gallery": [],
+      "links": [],
+      "timeline": [],
+      "exampleLinks": [],
+      "editorialStatus": "final",
+      "type": "news",
+      "date": "2026-10-21"
+    }
+  ],
   "theses": [
     {
       "id": "foundations",
@@ -954,10 +1091,10 @@
       "ready_en": true,
       "title_ru": "Введение и диалектика",
       "title_en": "Introduction and dialectics",
-      "summary_ru": "Введение · Диалектика · Восстановление до диалектики",
-      "summary_en": "Introduction · Dialectics · Reconstruction before dialectics",
-      "body_ru": "",
-      "body_en": "",
+      "summary_ru": "Исходный вопрос о понимании, общий метод и предпосылки исследования.",
+      "summary_en": "The initial question about understanding, the common method and research premises.",
+      "body_ru": "## Исходный вопрос\n\nВводная часть должна связать вопросы о понимании, искусственном интеллекте, математике, физике и обучении. Отправная точка — исследовательский путь автора, начатый в 2020 году, и изменение первоначальных представлений о возможности переноса человеческого понимания в ИИ.\n\n## Методологическая рамка\n\nРазделы о диалектике и восстановлении до диалектики входят в первую главу. Здесь намечается обсуждение того, как выбирается простейшее, обосновывается переход и различаются полученный результат, предпосылка и открытый вопрос.\n\n## Связь с остальными главами\n\nДальнейшие части должны раскрывать эту рамку на материале математики, физики, образования и ИИ. Представленный обзор задаёт читательский маршрут; окончательные определения и аргументы будут даны в авторском тексте.",
+      "body_en": "## Initial question\n\nThe introduction is intended to connect understanding, artificial intelligence, mathematics, physics and learning. It begins with the author's research path from 2020 and the revision of an early view about transferring human understanding into AI.\n\n## Methodological framework\n\nDialectics and reconstruction before dialectics form part of this first chapter. Planned discussion concerns choosing a simplest starting point, justifying a transition and distinguishing results, premises and open questions.\n\n## Connections with the other chapters\n\nThe later parts are intended to develop this framework through mathematics, physics, education and AI. This overview offers a reading route; final definitions and arguments belong to the author's forthcoming text.",
       "researchAreas": [],
       "relatedProjects": [],
       "relatedPublications": [],
@@ -969,7 +1106,7 @@
       "links": [],
       "timeline": [],
       "exampleLinks": [],
-      "editorialStatus": "awaiting_content",
+      "editorialStatus": "editorial_summary",
       "order": 1
     },
     {
@@ -982,13 +1119,17 @@
       "title_en": "Mathematics",
       "summary_ru": "Развитие математических операций",
       "summary_en": "Development of mathematical operations",
-      "body_ru": "",
-      "body_en": "",
+      "body_ru": "## Основной вопрос\n\nГлава намечает исследование отношения между упрощением вычислений и усложнением средств, которыми это достигается. В центре — необходимость переходов между математическими действиями, а не только применение готовых правил.\n\n## Планируемые связи\n\nПредполагается связать развитие количественных операций с вопросами смысла, исторических оснований и учебного объяснения. Концептуальная реконструкция, частный пример и общий вывод должны рассматриваться раздельно.\n\n## Материалы рядом\n\nТекущая постановка отражена в [статье о математическом объяснении](/ru/publications/explaining-mathematics-ai/) и проекте [диалектического парсера](/ru/projects/mathematical-parser/). Программный проект продолжается и не означает, что глава уже завершена.",
+      "body_en": "## Main question\n\nThis chapter outlines an inquiry into the relationship between simplifying calculations and developing more complex means of doing so. It focuses on the necessity of transitions between mathematical actions, beyond applying established rules.\n\n## Planned connections\n\nThe intended scope connects quantitative operations with meaning, historical foundations and educational explanation. A conceptual reconstruction, a particular example and a general derivation need separate treatment.\n\n## Related materials\n\nThe current question is reflected in the [mathematical explanation article](/en/publications/explaining-mathematics-ai/) and the [dialectical parser project](/en/projects/mathematical-parser/). The software remains in development and does not imply that the chapter is complete.",
       "researchAreas": [
         "mathematics"
       ],
-      "relatedProjects": [],
-      "relatedPublications": [],
+      "relatedProjects": [
+        "mathematical-parser"
+      ],
+      "relatedPublications": [
+        "explaining-mathematics-ai"
+      ],
       "relatedJournal": [],
       "featured": false,
       "tags": [],
@@ -997,7 +1138,7 @@
       "links": [],
       "timeline": [],
       "exampleLinks": [],
-      "editorialStatus": "awaiting_content",
+      "editorialStatus": "editorial_summary",
       "order": 2
     },
     {
@@ -1010,8 +1151,8 @@
       "title_en": "Physics",
       "summary_ru": "История физики · Эйнштейн · Диалектическая физика",
       "summary_en": "History of physics · Einstein · Dialectical physics",
-      "body_ru": "",
-      "body_en": "",
+      "body_ru": "## Состав главы\n\nВ рабочем плане объединены три раздела: история физики, Эйнштейн и диалектическая физика. Их связывает вопрос о том, как математическое описание приобретает физический смысл и какие основания нужны для его применения.\n\n## Что должно быть различимо\n\nМатематический вывод, историческое свидетельство и опытная предпосылка выполняют разные роли. В окончательном тексте важно указывать источники, допущения и границы применимости, не превращая концептуальную схему в утверждение о фактической истории.\n\n## Связь с исследованием\n\nОбщее направление представлено на [странице физики](/ru/research/physics/). Этот обзор сообщает состав и вопросы главы; конкретные физические выводы здесь не подменяются редакционным пересказом.",
+      "body_en": "## Chapter structure\n\nThe working plan brings together three sections: the history of physics, Einstein and dialectical physics. They are connected by the question of how mathematical descriptions acquire physical meaning and what grounds are needed for their application.\n\n## Distinctions to preserve\n\nMathematical derivation, historical evidence and empirical premises have different roles. The final text needs sources, assumptions and applicability limits, without turning a conceptual scheme into a claim about actual history.\n\n## Research connection\n\nThe broader direction is presented on the [physics page](/en/research/physics/). This overview states the chapter's scope and questions; it does not substitute an editorial account for specific physical derivations.",
       "researchAreas": [
         "physics"
       ],
@@ -1025,7 +1166,7 @@
       "links": [],
       "timeline": [],
       "exampleLinks": [],
-      "editorialStatus": "awaiting_content",
+      "editorialStatus": "editorial_summary",
       "order": 3
     },
     {
@@ -1038,13 +1179,19 @@
       "title_en": "Education",
       "summary_ru": "Диалектическое обучение",
       "summary_en": "Dialectical learning",
-      "body_ru": "",
-      "body_en": "",
+      "body_ru": "## Предмет главы\n\nПланируемая глава посвящена самостоятельному пониманию в условиях доступности ответов ИИ. Вопрос заключается в том, как организовать изучение предмета, чтобы учащийся строил и проверял связи, применял знания и возвращался к своим объяснениям.\n\n## Метод и инструменты\n\nСвязанными практическими проектами служат диалектические конспекты papanda и приложение изучения языков. Здесь важно различать описание подхода, наличие программного инструмента и результаты проверки на участниках.\n\n## Материалы для знакомства\n\nДо выхода главы доступны [статья о человеческом понимании в образовании с ИИ](/ru/publications/human-understanding-ai-education/) и [обзор направления](/ru/research/education/). Они помогают увидеть постановку вопроса, но не заменяют итоговую редакцию тезисов.",
+      "body_en": "## Subject of the chapter\n\nThe planned chapter concerns independent understanding when AI answers are readily available. The question is how learning can support constructing and checking connections, applying knowledge and revisiting one's explanations.\n\n## Method and tools\n\nRelated practical projects are papanda dialectical notes and the language-learning application. Describing an approach, having a software tool and evaluating it with participants need to be distinguished.\n\n## Introductory materials\n\nUntil the chapter is released, readers can consult the [human understanding and AI education article](/en/publications/human-understanding-ai-education/) and the [research overview](/en/research/education/). They introduce the question without replacing the final theses.",
       "researchAreas": [
         "education"
       ],
-      "relatedProjects": [],
-      "relatedPublications": [],
+      "relatedProjects": [
+        "papanda",
+        "papanda-languages"
+      ],
+      "relatedPublications": [
+        "human-understanding-ai-education",
+        "language-handbook"
+      ],
       "relatedJournal": [],
       "featured": false,
       "tags": [],
@@ -1053,7 +1200,7 @@
       "links": [],
       "timeline": [],
       "exampleLinks": [],
-      "editorialStatus": "awaiting_content",
+      "editorialStatus": "editorial_summary",
       "order": 4
     },
     {
@@ -1066,13 +1213,18 @@
       "title_en": "Artificial intelligence",
       "summary_ru": "Исследование подходов к ИИ",
       "summary_en": "Research into approaches to AI",
-      "body_ru": "",
-      "body_en": "",
+      "body_ru": "## Предмет главы\n\nВ этой части планируется сопоставить вопросы о человеческом понимании с возможностями и ограничениями ИИ. Существенно различать генерацию ответа, организацию рассуждения и основания для проверки результата.\n\n## Исследовательские линии\n\nС главой связаны алгоритмическое описание развития процессов и эксперименты со структурой работы языковых моделей. Текущие страницы [AI_algorithm](/ru/projects/ai-algorithm/) и [DialecticAI](/ru/projects/dialectic-ai/) показывают, как различаются теоретическая модель, реализация и экспериментальная проверка.\n\n## Открытая работа\n\nОкончательные аргументы, выбранные примеры и границы выводов должны определяться авторской редакцией. Публикация программы или успешный технический тест сами по себе не устанавливают новую теорию интеллекта.",
+      "body_en": "## Subject of the chapter\n\nThis part is intended to connect questions about human understanding with AI capabilities and limitations. Generating an answer, organising reasoning and establishing grounds for checking a result need to remain distinct.\n\n## Research lines\n\nRelated work includes an algorithmic account of developing processes and experiments with structured language-model workflows. The current [AI_algorithm](/en/projects/ai-algorithm/) and [DialecticAI](/en/projects/dialectic-ai/) pages distinguish theoretical models, implementation and experimental evaluation.\n\n## Work ahead\n\nThe final arguments, examples and limits of the conclusions belong to the author's revision. Publishing software or passing a technical test does not by itself establish a new theory of intelligence.",
       "researchAreas": [
         "artificial-intelligence"
       ],
-      "relatedProjects": [],
-      "relatedPublications": [],
+      "relatedProjects": [
+        "dialectic-ai",
+        "ai-algorithm"
+      ],
+      "relatedPublications": [
+        "data-science-handbook"
+      ],
       "relatedJournal": [],
       "featured": false,
       "tags": [],
@@ -1081,7 +1233,7 @@
       "links": [],
       "timeline": [],
       "exampleLinks": [],
-      "editorialStatus": "awaiting_content",
+      "editorialStatus": "editorial_summary",
       "order": 5
     }
   ],
@@ -1096,8 +1248,8 @@
       "title_en": "Dialectical Notes",
       "summary_ru": "Методика конспекта в papanda: восстановить развитие предмета через противоречие и его разрешение.",
       "summary_en": "The papanda note-taking method: reconstructing a subject’s development through contradiction and its resolution.",
-      "body_ru": "## Структура работы\n1. **Процесс.** Что происходит и в каких условиях?\n2. **Развитие.** Как меняется процесс и что порождают эти изменения?\n3. **Противоположный процесс.** Какая тенденция действует в ином направлении?\n4. **Противоречие.** Как связаны и сталкиваются эти тенденции?\n5. **Разрешение.** Что позволяет перейти к новой организации процесса?\n\n## Практика\nСтруктура служит опорой самостоятельного анализа, а не шаблоном для автоматического получения правильного ответа. Реальные авторские конспекты и изображения пока не предоставлены.\n\n## Ограничения\nНужны предметные знания, проверка источников и критика сделанных переходов. Эффективность обучения остаётся исследовательской гипотезой до эмпирической проверки.",
-      "body_en": "## Working structure\n1. **Process.** What happens, and under which conditions?\n2. **Development.** How does the process change, and what do these changes produce?\n3. **Opposite process.** Which tendency acts in another direction?\n4. **Contradiction.** How are these tendencies connected, and how do they conflict?\n5. **Resolution.** What enables a new organization of the process?\n\n## Practice\nThe structure supports independent analysis; it is not a template that automatically yields a correct answer. Actual authorial notes and images have not yet been supplied.\n\n## Limitations\nSubject knowledge, source checking and criticism of proposed transitions are necessary. Educational effectiveness remains a research hypothesis pending empirical evaluation.",
+      "body_ru": "## Структура работы\n1. **Процесс.** Что происходит и в каких условиях?\n2. **Развитие.** Как меняется процесс и что порождают эти изменения?\n3. **Противоположный процесс.** Какая тенденция действует в ином направлении?\n4. **Противоречие.** Как связаны и сталкиваются эти тенденции?\n5. **Разрешение.** Что позволяет перейти к новой организации процесса?\n\n## Практика\nСтруктура служит опорой самостоятельного анализа, а не шаблоном для автоматического получения правильного ответа. Реальные авторские конспекты и изображения пока не предоставлены.\n\n## Ограничения\nНужны предметные знания, проверка источников и критика сделанных переходов. Эффективность обучения остаётся исследовательской гипотезой до эмпирической проверки.\n\n## С чего начать\n\nВыбрать предметный вопрос, попытаться определить простейший процесс и записать основания каждого перехода. Предложения ИИ можно использовать как материал для критики и уточнения, сохраняя самостоятельную оценку.\n\nНа [странице papanda](/ru/projects/papanda/) подробнее описаны ручной режим и пример работы с двумя версиями конспекта об одноканальном ЭКГ. Проверенные ссылки на сами конспекты будут добавлены отдельно.",
+      "body_en": "## Working structure\n1. **Process.** What happens, and under which conditions?\n2. **Development.** How does the process change, and what do these changes produce?\n3. **Opposite process.** Which tendency acts in another direction?\n4. **Contradiction.** How are these tendencies connected, and how do they conflict?\n5. **Resolution.** What enables a new organization of the process?\n\n## Practice\nThe structure supports independent analysis; it is not a template that automatically yields a correct answer. Actual authorial notes and images have not yet been supplied.\n\n## Limitations\nSubject knowledge, source checking and criticism of proposed transitions are necessary. Educational effectiveness remains a research hypothesis pending empirical evaluation.\n\n## Where to begin\n\nChoose a subject-specific question, try to identify a simplest process and record the basis of each transition. AI suggestions can provide material for criticism and refinement while judgement remains with the learner.\n\nThe [papanda page](/en/projects/papanda/) describes manual work and an example involving two versions of single-channel ECG notes. Verified links to the notes themselves will be added separately.",
       "researchAreas": [
         "education"
       ],
@@ -1113,7 +1265,7 @@
       "links": [],
       "timeline": [],
       "exampleLinks": [],
-      "editorialStatus": "awaiting_content"
+      "editorialStatus": "editorial_summary"
     }
   ]
 }

@@ -8,9 +8,9 @@
   "title_en": "Physics",
   "summary_ru": "История физики · Эйнштейн · Диалектическая физика",
   "summary_en": "History of physics · Einstein · Dialectical physics",
-  "body_ru": "",
-  "body_en": "",
-  "editorialStatus": "awaiting_content",
+  "body_ru": "## Состав главы\n\nВ рабочем плане объединены три раздела: история физики, Эйнштейн и диалектическая физика. Их связывает вопрос о том, как математическое описание приобретает физический смысл и какие основания нужны для его применения.\n\n## Что должно быть различимо\n\nМатематический вывод, историческое свидетельство и опытная предпосылка выполняют разные роли. В окончательном тексте важно указывать источники, допущения и границы применимости, не превращая концептуальную схему в утверждение о фактической истории.\n\n## Связь с исследованием\n\nОбщее направление представлено на [странице физики](/ru/research/physics/). Этот обзор сообщает состав и вопросы главы; конкретные физические выводы здесь не подменяются редакционным пересказом.",
+  "body_en": "## Chapter structure\n\nThe working plan brings together three sections: the history of physics, Einstein and dialectical physics. They are connected by the question of how mathematical descriptions acquire physical meaning and what grounds are needed for their application.\n\n## Distinctions to preserve\n\nMathematical derivation, historical evidence and empirical premises have different roles. The final text needs sources, assumptions and applicability limits, without turning a conceptual scheme into a claim about actual history.\n\n## Research connection\n\nThe broader direction is presented on the [physics page](/en/research/physics/). This overview states the chapter's scope and questions; it does not substitute an editorial account for specific physical derivations.",
+  "editorialStatus": "editorial_summary",
   "researchAreas": [
     "physics"
   ],

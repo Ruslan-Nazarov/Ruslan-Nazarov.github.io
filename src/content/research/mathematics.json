@@ -8,15 +8,17 @@
   "title_en": "Mathematics",
   "summary_ru": "Как стремление упростить вычисление усложняет сам способ вычисления?",
   "summary_en": "How does the drive to simplify computation make the method of computation more complex?",
-  "body_ru": "В центре исследования — отношение между упрощением операций и развитием всё более сложных средств этого упрощения. Математические понятия рассматриваются через потребности, возникающие при использовании прежних средств.\n\nОсновной проект — **диалектический математический парсер**. Его задача — показывать связи между операциями, кризисами и способами их разрешения. Это концептуальная реконструкция в авторской модели; исторические утверждения требуют отдельных источников.",
-  "body_en": "This research examines the relationship between simplifying operations and developing increasingly complex means of simplification. Mathematical concepts are considered through needs that arise from the use of earlier methods.\n\nThe main project is the **Dialectical Mathematical Parser**. It explores connections between operations, crises and their resolutions. This is a conceptual reconstruction within the author’s model; historical claims require separate sources.",
-  "editorialStatus": "awaiting_content",
+  "body_ru": "## Центральный вопрос\n\nВ математике меня интересует отношение между стремлением упростить вычисление и развитием всё более сложных средств этого упрощения. Как возникает потребность в новой операции? Что прежний способ уже позволяет сделать и где перестаёт быть достаточным?\n\n## Развитие объяснения\n\nИсходной точкой авторской модели служат простейшие количественные действия и сумма единиц. Сложное выражение предполагается раскрывать через последовательность переходов, для каждого из которых нужны основание и объяснение необходимости. Недостающий переход должен оставаться видимым пробелом.\n\nЗдесь важно различать пример, формальную проверку преобразования и общий вывод. Исторический порядок развития математических средств также требует собственных источников и не выводится из удобства концептуальной схемы.\n\n## Основной проект\n\n[Диалектический математический парсер](/ru/projects/mathematical-parser/) объединяет граф операций, смысловые связи и задачи автоматизации объяснений. Проект ещё не завершён; на сайте доступна отдельная демонстрация интерфейса графа.\n\n## Связь с физикой и образованием\n\nОдна и та же математическая запись получает предметный смысл через путь её применения, в том числе через измерение. В обучении важно прослеживать этот путь, сохраняя различие между вычислением и пониманием. Эти вопросы связывают математику с направлениями физики и образования.",
+  "body_en": "## Central question\n\nIn mathematics, I am interested in the relationship between simplifying calculations and developing increasingly complex means of simplification. How does the need for a new operation arise? What can an earlier method already do, and where does it become insufficient?\n\n## Developing an explanation\n\nThe author's model starts from elementary quantitative actions and a sum of units. A complex expression is to be unfolded through transitions, each requiring a basis and an explanation of its necessity. A missing transition should remain an explicit gap.\n\nAn example, a formal check of a transformation and a general derivation need to be distinguished. The actual historical development of mathematical methods also requires its own sources; it does not follow from the convenience of a conceptual scheme.\n\n## Main project\n\nThe [Dialectical Mathematical Parser](/en/projects/mathematical-parser/) brings together an operations graph, semantic connections and automation of explanations. The project remains unfinished; this website offers a separate graph-interface demonstration.\n\n## Connections with physics and education\n\nThe same mathematical notation acquires subject-specific meaning through how it is applied, including measurement. In learning, tracing that path matters while retaining the distinction between calculation and understanding. These questions connect mathematics with physics and education.",
+  "editorialStatus": "editorial_summary",
   "researchAreas": [],
   "relatedProjects": [
     "mathematical-parser"
   ],
   "relatedPublications": [
-    "theses-2020-2026"
+    "explaining-mathematics-ai",
+    "theses-2020-2026",
+    "hash-mathematics-concept"
   ],
   "relatedJournal": [],
   "tags": [],
@@ -25,10 +27,10 @@
   "gallery": [],
   "links": [],
   "timeline": [],
-  "questions_ru": "Как раскрыть необходимость перехода к новой операции?\nГде заканчивается частный пример и начинается общий вывод?\nКак явно показывать недостающие шаги?",
-  "questions_en": "What makes a transition to a new operation necessary?\nWhere does a particular example end and a general derivation begin?\nHow should missing steps be made explicit?",
-  "openProblems_ru": "Проверка полноты выводов и сверка публичного графа с актуальным кодом парсера.",
-  "openProblems_en": "Checking the completeness of derivations and reconciling the public graph with the current parser code.",
+  "questions_ru": "Из какой потребности возникает новая операция?\nКак показать необходимость перехода, а не только правило преобразования?\nГде частный пример перестаёт быть достаточным основанием?\nКак явно обозначать недостающие шаги объяснения?",
+  "questions_en": "What need gives rise to a new operation?\nHow can the necessity of a transition be shown beyond a transformation rule?\nWhen is a particular example insufficient as justification?\nHow should missing steps in an explanation be made explicit?",
+  "openProblems_ru": "Развитие и проверка графа парсера, обоснование переходов, источники исторических сведений и исследование учебной полезности объяснений.",
+  "openProblems_en": "Developing and checking the parser graph, justifying transitions, sourcing historical claims and investigating the educational usefulness of explanations.",
   "symbol": "∑",
   "order": 0
 }

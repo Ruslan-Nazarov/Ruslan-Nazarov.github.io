@@ -8,16 +8,20 @@
   "title_en": "Education",
   "summary_ru": "Понимание как самостоятельное восстановление развития мысли.",
   "summary_en": "Understanding through independently reconstructing the development of an idea.",
-  "body_ru": "Направление объединяет диалектическое обучение, методику конспекта papanda и изучение языков. Основной интерес — как учащийся сам выстраивает связи между процессом, его развитием, противоречием и разрешением.\n\nИИ рассматривается как источник сведений, критики и поддержки анализа. Гипотеза о пользе такого подхода требует проверки: наличие приложения или пилота само по себе не подтверждает эффективность обучения.",
-  "body_en": "This area brings together dialectical learning, the papanda note-taking method and language learning. The central interest is how learners independently connect a process, its development, a contradiction and a resolution.\n\nAI is considered a source of information, criticism and analytical support. The proposed educational benefit requires evaluation: an application or pilot alone does not establish learning effectiveness.",
-  "editorialStatus": "awaiting_content",
+  "body_ru": "## Понимание и готовый ответ\n\nИИ делает объяснения и справочные сведения доступнее. Мой исследовательский вопрос — как организовать работу с ними так, чтобы учащийся сам строил связи и проверял рассуждение, а не только принимал предложенный текст.\n\nЯ рассматриваю понимание через самостоятельное восстановление развития предмета: от простейшего процесса к обстоятельствам его развития, противоположностям, противоречию и попытке разрешения. Содержательное обоснование переходов остаётся частью обучения.\n\n## Конспекты и изучение языков\n\nВ [papanda](/ru/projects/papanda/) человек вручную строит диалектический конспект, а ИИ предоставляет материал для проверки и работы с источниками. В [papanda Languages](/ru/projects/papanda-languages/) внимание сосредоточено на предложении, роли слов, их устройстве и практике повторения.\n\nКнига о методике языков и статьи об образовании дают контекст этих проектов. Они описывают авторский подход; наличие публикации или приложения само по себе не подтверждает учебную эффективность.\n\n## Что предстоит исследовать\n\nДля проверки нужны конкретные учебные задачи, критерии понимания, сравнение с альтернативными способами работы и наблюдение за применением знаний. Важно различать качество составленного конспекта, успешность решения задачи и устойчивость понимания со временем.\n\nУчастие преподавателя, самостоятельная критика ответа ИИ и возможная проверка конспекта другими студентами рассматриваются как направления развития. Их реализация и результаты должны описываться отдельно.",
+  "body_en": "## Understanding and ready-made answers\n\nAI makes explanations and reference information easier to obtain. My research question is how to organise work with them so that learners construct connections and check reasoning themselves, rather than simply accept a proposed text.\n\nI approach understanding through independently reconstructing a subject's development: from a simplest process to the circumstances of its development, opposites, a contradiction and an attempted resolution. Substantive justification for the transitions remains part of learning.\n\n## Notes and language learning\n\nIn [papanda](/en/projects/papanda/), a person manually builds dialectical notes while AI supplies material for checking and working with sources. [papanda Languages](/en/projects/papanda-languages/) focuses on sentences, word roles and structure, and review practice.\n\nThe language-learning book and education articles provide context for these projects. They describe the author's approach; a publication or application does not by itself establish educational effectiveness.\n\n## What remains to be investigated\n\nEvaluation requires specific learning tasks, criteria for understanding, comparisons with alternative workflows and observation of how knowledge is applied. The quality of a set of notes, success on a problem and retention of understanding over time need to be distinguished.\n\nTeacher involvement, independent criticism of AI output and possible peer review of notes are development directions. Their implementation and outcomes should be described separately.",
+  "editorialStatus": "editorial_summary",
   "researchAreas": [],
   "relatedProjects": [
     "papanda",
     "papanda-languages"
   ],
   "relatedPublications": [
+    "human-understanding-ai-education",
+    "explaining-mathematics-ai",
     "language-handbook",
+    "future-education-ai",
+    "beyond-memorization",
     "theses-2020-2026"
   ],
   "relatedJournal": [],
@@ -27,10 +31,10 @@
   "gallery": [],
   "links": [],
   "timeline": [],
-  "questions_ru": "Как сделать процесс построения понимания видимым?\nКак проверить образовательную гипотезу?\nКак соединить структуру языка и практику?",
-  "questions_en": "How can the construction of understanding become visible?\nHow should an educational hypothesis be evaluated?\nHow can language structure and practice be connected?",
-  "openProblems_ru": "Публикация реальных конспектов, описание ограничений метода и протоколов проверки.",
-  "openProblems_en": "Publishing actual notes and documenting the method’s limitations and evaluation protocols.",
+  "questions_ru": "Как отличить самостоятельное понимание от воспроизведения готового ответа?\nКакие задания проверяют перенос знаний в новую ситуацию?\nКак организовать помощь преподавателя и критику ответов ИИ?\nКаким должно быть сравнение учебных подходов?",
+  "questions_en": "How can independent understanding be distinguished from reproducing an answer?\nWhich tasks test the application of knowledge in a new situation?\nHow should teacher support and criticism of AI answers be organised?\nHow should learning approaches be compared?",
+  "openProblems_ru": "Практические протоколы оценки понимания, проверка образовательных приложений на участниках и уточнение роли преподавателя. Подтверждённые результаты такой проверки пока не представлены.",
+  "openProblems_en": "Practical protocols for assessing understanding, participant-based evaluation of the educational applications and clarification of the teacher’s role. Verified evaluation results have not yet been presented.",
   "symbol": "↗",
   "order": 2
 }

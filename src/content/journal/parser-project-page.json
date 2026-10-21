@@ -1,0 +1,33 @@
+{
+  "id": "parser-project-page",
+  "slug": "parser-project-page",
+  "publish": true,
+  "ready_ru": true,
+  "ready_en": true,
+  "title_ru": "Опубликована страница незавершённого математического парсера",
+  "title_en": "The unfinished mathematical parser has a project page",
+  "summary_ru": "Описание метода и целей отделено от демонстрации интерфейса графа. Исходный код пока не выложен.",
+  "summary_en": "The method and research goals are distinguished from the graph-interface demo. The source code has not yet been published.",
+  "body_ru": "21 октября 2026 года опубликована [страница диалектического математического парсера](/ru/projects/mathematical-parser/) на русском и английском языках.\n\nНа ней описаны постановка задачи, слои количества, качества, истории и хуков, а также направление автоматизации объяснений. Проект явно отмечен как незавершённый; автор подтвердил, что его исходный код пока не выложен.\n\nДоступный на сайте граф остаётся отдельной демонстрацией интерфейса по снимку перечня узлов. Публикация страницы не означает выпуска готового универсального парсера.",
+  "body_en": "On 21 October 2026, the [Dialectical Mathematical Parser page](/en/projects/mathematical-parser/) was published in Russian and English.\n\nIt introduces the research question, quantity, quality, history and hook layers, and the direction of explanation automation. The project is explicitly unfinished; the author confirmed that its source has not yet been published.\n\nThe graph available on this website remains a separate interface demonstration based on an inventory snapshot. Publishing the page is not a release of a completed universal parser.",
+  "editorialStatus": "final",
+  "researchAreas": [
+    "mathematics",
+    "physics"
+  ],
+  "relatedProjects": [
+    "mathematical-parser"
+  ],
+  "relatedPublications": [
+    "explaining-mathematics-ai"
+  ],
+  "relatedJournal": [],
+  "tags": [],
+  "featured": false,
+  "heroImage": "",
+  "gallery": [],
+  "links": [],
+  "timeline": [],
+  "date": "2026-10-21",
+  "type": "news"
+}

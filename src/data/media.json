@@ -132,6 +132,61 @@
       "project": "mathematical-parser",
       "mediaId": "",
       "status": "placeholder"
+    },
+    {
+      "id": "dialectic-ai-architecture",
+      "project": "dialectic-ai",
+      "title": "Шесть этапов DialecticAI / Six-stage DialecticAI",
+      "alt_ru": "Шестистадийное построение представления области в DialecticAI",
+      "alt_en": "Six-stage domain-representation building in DialecticAI",
+      "caption_ru": "Место для проверенной схемы текущего движка; исторические варианты описываются отдельно.",
+      "caption_en": "Space for a reviewed diagram of the current engine; historical versions are described separately.",
+      "mediaId": "",
+      "status": "placeholder"
+    },
+    {
+      "id": "dialectic-ai-evidence",
+      "project": "dialectic-ai",
+      "title": "Материалы проверки / Evaluation evidence",
+      "alt_ru": "Проверяемые материалы экспериментов DialecticAI с указанием версии и условий",
+      "alt_en": "DialecticAI experimental evidence identifying the version and conditions",
+      "caption_ru": "Место для реального фрагмента результатов с условиями сравнения и ограничениями.",
+      "caption_en": "Space for a genuine results excerpt with comparison conditions and limitations.",
+      "mediaId": "",
+      "status": "placeholder"
+    },
+    {
+      "id": "ai-algorithm-model",
+      "project": "ai-algorithm",
+      "title": "Модель алгоритма / Algorithm model",
+      "alt_ru": "Рабочая схема AI_algorithm с обозначенными открытыми вопросами",
+      "alt_en": "Working AI_algorithm diagram identifying open questions",
+      "caption_ru": "Место для согласованной авторской схемы незавершённого исследования.",
+      "caption_en": "Space for an author-approved diagram of the unfinished research.",
+      "mediaId": "",
+      "status": "placeholder"
+    },
+    {
+      "id": "time-management-overview",
+      "project": "personal-time-management",
+      "title": "Общий вид приложения / Application overview",
+      "alt_ru": "Интерфейс личного приложения тайм-менеджмента с обезличенными данными",
+      "alt_en": "Personal time-management application interface with anonymised data",
+      "caption_ru": "Место для настоящего снимка интерфейса без личных записей.",
+      "caption_en": "Space for a genuine interface screenshot without personal records.",
+      "mediaId": "",
+      "status": "placeholder"
+    },
+    {
+      "id": "time-management-workflow",
+      "project": "personal-time-management",
+      "title": "Организация задач / Task organisation",
+      "alt_ru": "Работа с задачами в личном приложении на демонстрационных данных",
+      "alt_en": "Working with tasks in the personal application using demonstration data",
+      "caption_ru": "Место для обезличенного примера работы; функции уточняются по реальному интерфейсу.",
+      "caption_en": "Space for an anonymised workflow example; capabilities will be described from the actual interface.",
+      "mediaId": "",
+      "status": "placeholder"
     }
   ]
 }
