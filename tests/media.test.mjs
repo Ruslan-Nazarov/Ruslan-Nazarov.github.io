@@ -50,7 +50,7 @@ test('replacement preserves URLs and format; editorial Git allowlist includes me
 test('papanda uses the same seven ordered media IDs in both languages without unconfirmed live/download links',()=>{
   const row=JSON.parse(readFileSync('src/content/projects/papanda.json','utf8'));
   const ids=lang=>[...row['body_'+lang].matchAll(/\[\[media:([a-z0-9-]+)\]\]/g)].map(x=>x[1]);
-  assert.deepEqual(ids('ru'),ids('en'));assert.equal(ids('ru').length,7);assert.deepEqual(ids('ru'),readLibrary().slots.map(x=>x.id));
+  assert.deepEqual(ids('ru'),ids('en'));assert.equal(ids('ru').length,7);assert.deepEqual(ids('ru'),readLibrary().slots.filter(x=>x.project==='papanda').map(x=>x.id));
   assert.deepEqual(row.links.map(x=>x.url),['https://github.com/Ruslan-Nazarov/papanda']);
   assert.ok(row.exampleLinks.every(x=>!x.url_ru&&!x.url_en));
   assert.match(row.body_ru,/эксперименты, подтверждающие образовательный эффект papanda на других людях, пока не проводились/);
