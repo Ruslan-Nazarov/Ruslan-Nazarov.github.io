@@ -1,0 +1,9 @@
+---
+import {authorshipOf} from '../lib/authorship.mjs';
+import {authorshipCopy} from '../lib/authorship-copy.mjs';
+const {record,field,lang}=Astro.props;
+const state=authorshipOf(record,field);
+const label=state==='ai'?(lang==='ru'?'ИИ':'AI'):'✎';
+const description=authorshipCopy(state,lang);
+---
+{state&&<span class="authorship-mark" role="button" tabindex="0" aria-label={description} aria-haspopup="dialog" aria-expanded="false" data-authorship={state} data-explanation={description} data-contact={`/${lang}/about/#contact`} data-pagefind-ignore>{label}</span>}

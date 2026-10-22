@@ -1,6 +1,7 @@
 import { readdirSync, existsSync } from 'node:fs';
 import { z } from 'zod';
 import { readJSON } from './content.mjs';
+import {authorshipSchema} from './authorship.mjs';
 export const nodeTypes=['кризис-разрешение','противоречие','частный_случай','качество'];
 export const researchStatuses=['подтверждено','черновик','не выведено'];
 const id=z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/);
@@ -15,12 +16,13 @@ export const graphSchema=z.object({
   edges:z.array(z.object({id,source:id,target:id}).strict())
 }).strict();
 export const overrideSchema=z.object({
+  _authorship:authorshipSchema,
   id,approvedForPublication:z.boolean().default(false),
   annotation_ru:z.string().default(''),annotation_en:z.string().default(''),
   extra_ru:z.string().default(''),extra_en:z.string().default(''),
   order:z.number().default(0),featured:z.boolean().default(false),
   tags:z.array(z.string()).default([]),image:z.string().default(''),
-  links:z.array(z.object({url:z.string().url().refine(x=>x.startsWith('https://')),label_ru:z.string(),label_en:z.string()})).default([])
+  links:z.array(z.object({_authorship:authorshipSchema,url:z.string().url().refine(x=>x.startsWith('https://')),label_ru:z.string(),label_en:z.string()})).default([])
 }).strict();
 export function validateGraph(input){
   const graph=graphSchema.parse(input),ids=new Set(),keys=new Set(),edgeIds=new Set();
@@ -61,6 +63,7 @@ export function publicGraph(input, overrides){
       return {id:n.id,type:n.type,researchStatus:n.researchStatus,title_ru:n.title_ru,title_en:n.title_en,
         explanation_ru:o.annotation_ru||n.explanation_ru,explanation_en:o.annotation_en||n.explanation_en,
         extra_ru:o.extra_ru,extra_en:o.extra_en,formula:n.formula,
+        _authorship:{explanation_ru:o.annotation_ru?o._authorship?.annotation_ru:undefined,explanation_en:o.annotation_en?o._authorship?.annotation_en:undefined,extra_ru:o._authorship?.extra_ru,extra_en:o._authorship?.extra_en},
         predecessors:n.predecessors.filter(p=>ids.has(p)),hasUnpublishedStructure:n.predecessors.some(p=>!ids.has(p)),
         position:n.position||{x:(i%4)*270,y:Math.floor(i/4)*180},tags:o.tags,image:o.image,order:o.order,featured:o.featured,links:o.links};
     }).sort((a,b)=>a.order-b.order),

@@ -1,18 +1,19 @@
 ---
+import Text from './Text.astro';
 import {site,readJSON} from '../lib/content.mjs';
 const {lang}=Astro.props;const t=readJSON('src/data/ui.json')[lang];
 ---
 <div class="contact-links">
-  {site.email&&<a class="button" href={`mailto:${site.email}`}>{site.email} ↗</a>}
-  {site.profiles.map((p:any)=><a class="button secondary" href={p.url} rel="noopener noreferrer">{p.label} ↗</a>)}
+  {site.email&&<a class="button" href={`mailto:${site.email}`}><Text record={site} field="email" lang={lang}/> ↗</a>}
+  {site.profiles.map((p:any)=><a class="button secondary" href={p.url} rel="noopener noreferrer"><Text record={p} field="label" lang={lang}/> ↗</a>)}
 </div>
 {site.formEndpoint&&<form class="contact-form" action={site.formEndpoint} method="POST" data-sending={t.sending} data-sent={t.sent} data-error={t.sendError}>
-  <label>{t.name}<input name="name" autocomplete="name" required maxlength="150" /></label>
-  <label>{t.email}<input name="email" type="email" autocomplete="email" required maxlength="254" /></label>
-  <label>{t.message}<textarea name="message" rows="6" required minlength="10" maxlength="10000"></textarea></label>
+  <label><Text record={t} field="name" lang={lang}/><input name="name" autocomplete="name" required maxlength="150" /></label>
+  <label><Text record={t} field="email" lang={lang}/><input name="email" type="email" autocomplete="email" required maxlength="254" /></label>
+  <label><Text record={t} field="message" lang={lang}/><textarea name="message" rows="6" required minlength="10" maxlength="10000"></textarea></label>
   <div class="honeypot" aria-hidden="true"><label>Website<input name="_gotcha" tabindex="-1" autocomplete="off" /></label></div>
-  <label class="consent"><input type="checkbox" required name="consent" />{t.consent} <a href={`/${lang}/privacy/`}>{t.privacy}</a></label>
-  <button class="button" type="submit">{t.send}</button><p role="status" data-form-status></p>
+  <label class="consent"><input type="checkbox" required name="consent" /><Text record={t} field="consent" lang={lang}/> <a href={`/${lang}/privacy/`}><Text record={t} field="privacy" lang={lang}/></a></label>
+  <button class="button" type="submit"><Text record={t} field="send" lang={lang}/></button><p role="status" data-form-status></p>
 </form>}
 <script>
 document.querySelectorAll<HTMLFormElement>('.contact-form').forEach(form=>form.addEventListener('submit',async event=>{

@@ -6,6 +6,7 @@ import {randomBytes} from 'node:crypto';
 import {execFile} from 'node:child_process';
 import {promisify} from 'node:util';
 import {parse} from 'yaml';
+import {validateAuthorship} from '../src/lib/authorship.mjs';
 import {entrySchema} from '../src/lib/content.mjs';
 import {overrideSchema} from '../src/lib/graph.mjs';
 import {publishContent} from './publish-content.mjs';
@@ -86,6 +87,7 @@ http.createServer(async(req,res)=>{
     }
     if(url.pathname==='/api/save'){
       const {schema,path}=documentPath(payload.collection,payload.name);
+      validateAuthorship(payload.data);
       if(schema.name==='graph-overrides'&&!existsSync(path))throw new Error('Import graph nodes before editing their annotations.');
       if(schema.type==='collection'){
         if(payload.data.id!==payload.name)throw new Error('ID must match filename. Existing IDs cannot be renamed in this editor.');

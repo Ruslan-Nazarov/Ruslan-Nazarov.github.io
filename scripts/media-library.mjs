@@ -84,7 +84,7 @@ export async function uploadMedia(root,payload){
   if(previous&&extname(previous.path).replace('.jpeg','.jpg')!==extension.replace('.jpeg','.jpg'))throw new Error('Для сохранения ссылок заменяйте файлом того же формата.');
   const project=payload.project||'';
   const safeName=(String(payload.name).slice(0,-extension.length).replace(/[^a-zA-Z0-9_-]/g,'-').replace(/-+/g,'-').slice(0,60)||'image');
-  const asset=previous||assetSchema.parse({id:id(),path:`/media/${project||'shared'}/${safeName}-${randomBytes(4).toString('hex')}${extension}`,title:payload.title||payload.name,alt_ru:payload.alt_ru||'',alt_en:payload.alt_en||'',caption_ru:payload.caption_ru||'',caption_en:payload.caption_en||'',tags:payload.tags||[],project,uploadedAt:new Date().toISOString()});
+  const asset=previous||assetSchema.parse({_authorship:payload._authorship,id:id(),path:`/media/${project||'shared'}/${safeName}-${randomBytes(4).toString('hex')}${extension}`,title:payload.title||payload.name,alt_ru:payload.alt_ru||'',alt_en:payload.alt_en||'',caption_ru:payload.caption_ru||'',caption_en:payload.caption_en||'',tags:payload.tags||[],project,uploadedAt:new Date().toISOString()});
   assetSchema.parse(asset);
   const path=localMediaPath(root,asset.path);mkdirSync(resolve(path,'..'),{recursive:true});
   writeFileSync(path+'.tmp',bytes);renameSync(path+'.tmp',path);
@@ -107,7 +107,7 @@ export function bindSlot(root,{slotId,mediaId}){
 export function updateSlot(root,data){
   const lib=listLibrary(root),slot=lib.slots.find(s=>s.id===data.id);
   if(!slot)throw new Error('Unknown slot');
-  for(const key of ['title','alt_ru','alt_en','caption_ru','caption_en'])slot[key]=data[key];
+  for(const key of ['_authorship','title','alt_ru','alt_en','caption_ru','caption_en'])slot[key]=data[key];
   saveLibrary(root,lib);return slot;
 }
 export function mediaUsage(root,asset){

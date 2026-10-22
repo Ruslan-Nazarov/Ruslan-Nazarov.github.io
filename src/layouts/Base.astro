@@ -1,4 +1,6 @@
 ---
+import AuthorshipHelp from '../components/AuthorshipHelp.astro';
+import Text from '../components/Text.astro';
 import '../styles/global.css';
 import 'katex/dist/katex.min.css';
 import { site, readJSON } from '../lib/content.mjs';
@@ -41,17 +43,17 @@ const documentTitle=path?`${title} | ${site.name}`:`${site.name} | ${site[lang].
     {site.cloudflareToken&&<script is:inline defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon={JSON.stringify({token:site.cloudflareToken})}></script>}
   </head>
   <body>
-    <a class="skip-link" href="#main">{t.skip}</a>
+    <a class="skip-link" href="#main"><Text record={t} field="skip" lang={lang}/></a>
     <header class="site-header">
-      <a class="brand" href={`/${lang}/`} aria-label={`${site.name} — ${t.home}`}><span class="brand-mark">rn<span>·</span></span><span>{site.name}<small>{site[lang].role}</small></span></a>
-      <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">{t.menu} ☰</button>
+      <a class="brand" href={`/${lang}/`} aria-label={`${site.name} — ${t.home}`}><span class="brand-mark">rn<span>·</span></span><span><Text record={site} field="name" lang={lang}/><small><Text record={site[lang]} field="role" lang={lang}/></small></span></a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav"><Text record={t} field="menu" lang={lang}/> ☰</button>
       <nav id="main-nav" aria-label={t.menu}>
         {nav.map(n=><a href={`/${lang}/${n}/`} aria-current={path.split('/')[0]===n?'page':undefined}>{t[n]}</a>)}
-        <a class="search-link" href={`/${lang}/search/`} aria-label={t.search} title={t.search}><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><circle cx="10" cy="10" r="6.5"/><path d="m15 15 5 5"/></svg><span class="mobile-only">{t.search}</span></a>
+        <a class="search-link" href={`/${lang}/search/`} aria-label={t.search} title={t.search}><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><circle cx="10" cy="10" r="6.5"/><path d="m15 15 5 5"/></svg><span class="mobile-only"><Text record={t} field="search" lang={lang}/></span></a>
       </nav>
       <div class="preferences">
         <a class="language-link" data-language={other} lang={other} hreflang={other} href={`/${other}/${path?path+'/':''}`} aria-label={other==='ru'?'Русский':'English'}>{other.toUpperCase()}</a>
-        <label class="theme-control"><span class="sr-only">{t.theme}</span><select id="theme-select" aria-label={t.theme}><option value="system">◐ {t.system}</option><option value="light">☼ {t.light}</option><option value="dark">☾ {t.dark}</option></select></label>
+        <label class="theme-control"><span class="sr-only"><Text record={t} field="theme" lang={lang}/></span><select id="theme-select" aria-label={t.theme}><option value="system">◐ {t.system}</option><option value="light">☼ {t.light}</option><option value="dark">☾ {t.dark}</option></select></label>
       </div>
     </header>
     <main id="main" tabindex="-1" data-pagefind-body data-pagefind-ignore={noindex||undefined}><slot /></main>
@@ -59,11 +61,12 @@ const documentTitle=path?`${title} | ${site.name}`:`${site.name} | ${site[lang].
       <form method="dialog"><button autofocus aria-label={lang==='ru'?'Закрыть':'Close'}>{lang==='ru'?'Закрыть':'Close'} ×</button></form>
       <div class="media-viewer-scroll"><img alt=""/></div><p></p>
     </dialog>
+    <AuthorshipHelp lang={lang}/>
     <footer class="site-footer" data-pagefind-ignore>
-      <div><a class="footer-name" href={`/${lang}/`}>{site.name}<span>·</span></a><p>{site.tagline}</p></div>
-      <div class="footer-links"><a href={`/${lang}/legal/`}>{t.legal}</a><a href={`/${lang}/privacy/`}>{t.privacy}</a><a href={`/${lang}/rss.xml`}>RSS ↗</a><a href="https://github.com/Ruslan-Nazarov" rel="noopener noreferrer">GitHub ↗</a></div>
-      <small>© {new Date().getUTCFullYear()} {site.name} · {t.footerLicense}</small>
-      <a class="back-to-top" href="#main">{t.backToTop} ↑</a>
+      <div><a class="footer-name" href={`/${lang}/`}><Text record={site} field="name" lang={lang}/><span>·</span></a><p><Text record={site} field="tagline" lang={lang}/></p></div>
+      <div class="footer-links"><a href={`/${lang}/legal/`}><Text record={t} field="legal" lang={lang}/></a><a href={`/${lang}/privacy/`}><Text record={t} field="privacy" lang={lang}/></a><a href={`/${lang}/rss.xml`}>RSS ↗</a><a href="https://github.com/Ruslan-Nazarov" rel="noopener noreferrer">GitHub ↗</a></div>
+      <small>© {new Date().getUTCFullYear()} <Text record={site} field="name" lang={lang}/> · {t.footerLicense}</small>
+      <a class="back-to-top" href="#main"><Text record={t} field="backToTop" lang={lang}/> ↑</a>
     </footer>
     <script>
       const themeSelect=document.querySelector<HTMLSelectElement>('#theme-select');

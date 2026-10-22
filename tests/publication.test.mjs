@@ -40,7 +40,7 @@ test('CMS covers every editable data field, including all homepage/about strings
   }
   const site=readJSON('src/data/site.json'),siteFields=config.content.find(c=>c.name==='site').fields;
   for(const k of Object.keys(site))assert.ok(siteFields.some(f=>f.name===k));
-  for(const lang of ['ru','en'])for(const key of Object.keys(site[lang]))assert.ok(siteFields.find(f=>f.name===lang).fields.some(f=>f.name===key));
+  for(const lang of ['ru','en'])for(const key of Object.keys(site[lang]).filter(key=>key!=='_authorship'))assert.ok(siteFields.find(f=>f.name===lang).fields.some(f=>f.name===key));
   const graphFields=config.content.find(c=>c.name==='graph-overrides').fields.map(f=>f.name);
   for(const logic of ['type','predecessors','edges','researchStatus'])assert.ok(!graphFields.includes(logic));
 });

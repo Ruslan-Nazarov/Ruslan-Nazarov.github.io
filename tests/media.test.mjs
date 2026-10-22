@@ -4,7 +4,7 @@ import {mkdtempSync,mkdirSync,writeFileSync,readFileSync,existsSync} from 'node:
 import {resolve} from 'node:path';
 import sharp from 'sharp';
 import {uploadMedia,listLibrary,updateMetadata,bindSlot,deleteMedia,localMediaPath,validateUpload,mediaUsage} from '../scripts/media-library.mjs';
-import {readLibrary} from '../src/lib/media.mjs';
+import {readLibrary,resolveMedia} from '../src/lib/media.mjs';
 import {isEditablePath} from '../scripts/publish-content.mjs';
 function fixture(){
   mkdirSync('.local/tests',{recursive:true});const root=mkdtempSync(resolve('.local/tests/media-'));
@@ -17,9 +17,11 @@ test('media upload, discovery, metadata, binding, replacement, persistence and s
   const root=fixture(),asset=await uploadMedia(root,payload);
   assert.equal(listLibrary(root).items.length,1);assert.match(asset.path,/^\/media\/papanda\/[a-zA-Z0-9_-]+\.png$/);
   assert.equal(readFileSync(localMediaPath(root,asset.path)).equals(png),true);
-  const changed=updateMetadata(root,{...asset,title:'Renamed screenshot',alt_en:'Updated alt'});
+  const changed=updateMetadata(root,{...asset,title:'Renamed screenshot',alt_en:'Updated alt',_authorship:{caption_ru:'ai'}});
   assert.equal(readLibrary(root).items[0].alt_en,'Updated alt');
   bindSlot(root,{slotId:'ecg-final',mediaId:asset.id});assert.equal(readLibrary(root).slots.find(x=>x.id==='ecg-final').status,'ready');
+  assert.equal(resolveMedia(asset.id,root)._authorship.caption_ru,'ai');
+  assert.equal(resolveMedia('ecg-final',root)._authorship,undefined);
   const replacement=await uploadMedia(root,{...payload,replaceId:asset.id});assert.equal(replacement.id,asset.id);assert.equal(replacement.path,asset.path);assert.equal(replacement.title,changed.title);
   const warning=deleteMedia(root,{id:asset.id});assert.equal(warning.confirmationRequired,true);assert.deepEqual(warning.usage.slots,['ecg-final']);assert.ok(existsSync(localMediaPath(root,asset.path)));
   deleteMedia(root,{id:asset.id,confirm:true});assert.equal(readLibrary(root).items.length,0);assert.equal(readLibrary(root).slots.find(x=>x.id==='ecg-final').mediaId,'');assert.ok(!existsSync(localMediaPath(root,asset.path)));

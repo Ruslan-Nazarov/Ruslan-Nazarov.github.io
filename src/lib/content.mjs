@@ -1,6 +1,7 @@
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { z } from 'zod';
+import {authorshipSchema,validateAuthorship} from './authorship.mjs';
 
 export const collections = ['research','projects','publications','journal','theses','pages'];
 export const languages = ['ru','en'];
@@ -12,8 +13,9 @@ const safeUrl = z.string().refine(s => {
   if(s.trim()!==s||s.includes('\\'))return false;
   try{const url=new URL(s,'https://site.invalid');return /^https:\/\//.test(s)&&url.protocol==='https:'||/^\/(?!\/)/.test(s)&&url.origin==='https://site.invalid'}catch{return false}
 }, 'Use a valid HTTPS URL or a root-relative path');
-const link = z.object({label_ru:z.string().trim().min(1),label_en:z.string().trim().min(1),url:safeUrl.refine(Boolean,'A link needs a URL')});
+const link = z.object({_authorship:authorshipSchema,label_ru:z.string().trim().min(1),label_en:z.string().trim().min(1),url:safeUrl.refine(Boolean,'A link needs a URL')});
 export const entrySchema = z.object({
+  _authorship:authorshipSchema,
   id, slug:id, publish:z.boolean().default(false),
   ready_ru:z.boolean().default(false), ready_en:z.boolean().default(false),
   title_ru:z.string(),title_en:z.string(),summary_ru:z.string(),summary_en:z.string(),
@@ -21,11 +23,11 @@ export const entrySchema = z.object({
   researchAreas:z.array(id).default([]),relatedProjects:z.array(id).default([]),
   relatedPublications:z.array(id).default([]),relatedJournal:z.array(id).default([]),
   featured:z.boolean().default(false),tags:z.array(z.string()).default([]),
-  heroImage:safeUrl.default(''),gallery:z.array(z.object({src:safeUrl,alt_ru:z.string().min(1),alt_en:z.string().min(1)})).default([]),
+  heroImage:safeUrl.default(''),gallery:z.array(z.object({_authorship:authorshipSchema,src:safeUrl,alt_ru:z.string().min(1),alt_en:z.string().min(1)})).default([]),
   links:z.array(link).default([]),timeline:z.array(z.object({
-    date:calendarDate,title_ru:z.string().min(1),title_en:z.string().min(1)
+    _authorship:authorshipSchema,date:calendarDate,title_ru:z.string().min(1),title_en:z.string().min(1)
   })).default([]),
-  exampleLinks:z.array(z.object({id,label_ru:z.string(),label_en:z.string(),url_ru:safeUrl,url_en:safeUrl})).default([]),
+  exampleLinks:z.array(z.object({_authorship:authorshipSchema,id,label_ru:z.string(),label_en:z.string(),url_ru:safeUrl,url_en:safeUrl})).default([]),
   editorialStatus:z.enum(['awaiting_content','editorial_summary','final','external_publication']).default('awaiting_content'),
   status:z.enum(['active','completed','paused']).optional(),
   type:z.enum(['book','theses','article','technical-note','news','research-note','experiment','result']).optional(),
@@ -61,13 +63,13 @@ export const pathFor=(collection,row,lang)=>collection==='theses'
 export function events(data=allContent()) {
   const result=[];
   for(const name of ['projects','publications','journal']) for(const row of data[name]){
-    if(row.date) result.push({date:row.date,title_ru:row.title_ru,title_en:row.title_en,collection:name,row});
+    if(row.date) result.push({date:row.date,title_ru:row.title_ru,title_en:row.title_en,_authorship:row._authorship,collection:name,row});
     for(const event of row.timeline||[]) result.push({...event,collection:name,row});
   }
   return result.sort((a,b)=>b.date.localeCompare(a.date));
 }
 export function timelineRows(data=allContent()) {
-  return events(data).filter(e=>e.date>='2026-01-01').map(e=>({...e.row,date:e.date,title_ru:e.title_ru,title_en:e.title_en,eventCollection:e.collection}));
+  return events(data).filter(e=>e.date>='2026-01-01').map(e=>({...e.row,date:e.date,title_ru:e.title_ru,title_en:e.title_en,_authorship:{...e.row._authorship,title_ru:e._authorship?.title_ru,title_en:e._authorship?.title_en},eventCollection:e.collection}));
 }
 export function routes() {
   const data=allContent();
@@ -100,7 +102,8 @@ export function validateAll() {
         for(const value of row[field]) if(!raw[target].some(p=>p.id===value)) throw new Error(`Unknown ${field} ${value} in ${row.id}`);
     }
   }
-  for(const l of languages) if(!site[l]||Object.values(site[l]).some(v=>typeof v!=='string'||!v.trim())) throw new Error(`Incomplete site language: ${l}`);
+  validateAuthorship(site);validateAuthorship(raw);validateAuthorship(readJSON('src/data/ui.json'));
+  for(const l of languages) if(!site[l]||Object.entries(site[l]).some(([key,v])=>key!=='_authorship'&&(typeof v!=='string'||!v.trim()))) throw new Error(`Incomplete site language: ${l}`);
   if(site.email&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(site.email)) throw new Error('Invalid email');
   if(site.formEndpoint&&!/^https:\/\/formspree\.io\/f\/[a-zA-Z0-9]+$/.test(site.formEndpoint)) throw new Error('Use a Formspree /f/ endpoint');
   if(site.cloudflareToken&&!/^[a-f0-9]{32}$/i.test(site.cloudflareToken)) throw new Error('Invalid Cloudflare analytics token');

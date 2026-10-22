@@ -48,14 +48,17 @@ function renderMediaGrid(){
   if(!filtered.length)grid.append(Object.assign(el('p','Изображения не найдены.'),{className:'media-empty'}));
 }
 function mediaField(parent,key,label,value='',multiline=false){
-  const wrapper=el('label',label),input=el(multiline?'textarea':'input');input.name=key;input.value=value;wrapper.append(input);parent.append(wrapper);return input;
+  const wrapper=el('div'),fieldLabel=el('label',label),input=el(multiline?'textarea':'input');input.name=key;input.value=value;fieldLabel.append(input);wrapper.append(fieldLabel);parent.append(wrapper);return input;
 }
 function metadataFields(parent,item={}){
+  parent.authorship={_authorship:{...item._authorship}};
   mediaField(parent,'title','Название',item.title||'');mediaField(parent,'project','Проект (латинский ID)',item.project||'').setAttribute('list','media-project-options');
   mediaField(parent,'tags','Теги через запятую',(item.tags||[]).join(', '));
   for(const lang of ['ru','en']){mediaField(parent,'alt_'+lang,'Alt '+lang.toUpperCase(),item['alt_'+lang]||'');mediaField(parent,'caption_'+lang,'Подпись '+lang.toUpperCase(),item['caption_'+lang]||'',true)}
+  for(const key of ['title','alt_ru','alt_en','caption_ru','caption_en'])authorshipControl(parent.elements.namedItem(key).parentElement.parentElement,parent.authorship,key,key,()=>{});
 }
-function formMetadata(form){const data=Object.fromEntries(new FormData(form));data.tags=data.tags.split(',').map(x=>x.trim()).filter(Boolean);return data}
+function parentAuthorship(form){return form.authorship?._authorship||{}}
+function formMetadata(form){const data=Object.fromEntries(new FormData(form));data._authorship=parentAuthorship(form);data.tags=data.tags.split(',').map(x=>x.trim()).filter(Boolean);return data}
 function previewMedia(item){full.querySelector('img').src=fileUrl(item.path);full.querySelector('img').alt=item.alt_ru||item.title;full.showModal()}
 function action(parent,text,task){const button=el('button',text);button.type='button';button.onclick=mediaTask(task);parent.append(button);return button}
 function editMedia(item){
@@ -84,12 +87,15 @@ async function filePayload(file){
 $('#media-new').onclick=()=>{
   $('#media-assets').hidden=false;$('#media-slots').hidden=true;mediaSelected=null;renderMediaGrid();const aside=$('#media-edit');aside.replaceChildren(el('h3','Новое изображение'));
   const form=el('form');form.onsubmit=e=>e.preventDefault();const file=mediaField(form,'file','Файл');file.type='file';file.accept='.png,.jpg,.jpeg,.webp,.gif,.svg';metadataFields(form);aside.append(form);
+  mediaNotify('Выберите фото, при необходимости заполните подписи и нажмите «Загрузить и сохранить локально». Alt RU и EN можно добавить перед вставкой в материал.');
+  file.onchange=()=>{if(file.files[0]){if(!form.elements.namedItem('title').value)form.elements.namedItem('title').value=file.files[0].name;mediaNotify('Выбран файл: '+file.files[0].name+'. Нажмите «Загрузить и сохранить локально».')}};
   const upload=action(form,'Загрузить и сохранить локально',async()=>{
     if(!file.files[0])throw new Error('Выберите файл.');
     const metadata=formMetadata(form);delete metadata.file;
-    if(!metadata.alt_ru.trim()||!metadata.alt_en.trim())throw new Error('Заполните alt RU и EN.');
-    upload.disabled=true;try{const item=await api('/api/media/upload',{...metadata,...await filePayload(file.files[0])});await readMedia();editMedia(item);mediaNotify('Изображение сохранено локально и добавлено в медиабиблиотеку.')}finally{upload.disabled=false}
+    // Alt is required when inserting/binding, not when storing a new file.
+    mediaNotify('Загрузка изображения…');upload.disabled=true;try{const item=await api('/api/media/upload',{...metadata,...await filePayload(file.files[0])});await readMedia();editMedia(item);mediaNotify('Изображение сохранено локально и добавлено в медиабиблиотеку.')}finally{upload.disabled=false}
   });
+  aside.scrollIntoView({block:'nearest'});file.click();
 };
 function renderSlots(){
   const container=$('#media-slots');container.replaceChildren(el('p','Назначьте существующий файл. ID и место в тексте останутся прежними. Alt и подписи этого места редактируются отдельно от общих метаданных файла.'));
@@ -99,8 +105,9 @@ function renderSlots(){
     const label=el('label','Изображение из медиабиблиотеки '),select=el('select');select.setAttribute('aria-label','Изображение '+slot.id);select.append(new Option('Без изображения — заглушка',''));
     for(const item of mediaLibrary.items)select.append(new Option(item.title,item.id));select.value=slot.mediaId;label.append(select);row.append(label);
     action(row,'Сохранить привязку',async()=>{await api('/api/media/bind',{slotId:slot.id,mediaId:select.value});await readMedia();mediaNotify('Привязка сохранена локально. Пересоберите сайт и проверьте RU / EN.');});
-    const details=el('details');details.append(el('summary','Изменить alt и подписи RU / EN'));const form=el('form');form.onsubmit=e=>e.preventDefault();form.className='media-edit';
+    const details=el('details');details.append(el('summary','Изменить alt и подписи RU / EN'));const form=el('form');form.onsubmit=e=>e.preventDefault();form.className='media-edit';form.authorship={_authorship:{...slot._authorship}};
     mediaField(form,'title','Название',slot.title);for(const lang of ['ru','en']){mediaField(form,'alt_'+lang,'Alt '+lang.toUpperCase(),slot['alt_'+lang]);mediaField(form,'caption_'+lang,'Подпись '+lang.toUpperCase(),slot['caption_'+lang],true)}
-    action(form,'Сохранить тексты заглушки',async()=>{await api('/api/media/slot',{...slot,...Object.fromEntries(new FormData(form))});await readMedia();mediaNotify('Тексты заглушки сохранены локально.');});details.append(form);row.append(details);container.append(row);
+    for(const key of ['title','alt_ru','alt_en','caption_ru','caption_en'])authorshipControl(form.elements.namedItem(key).parentElement.parentElement,form.authorship,key,key,()=>{});
+    action(form,'Сохранить тексты заглушки',async()=>{await api('/api/media/slot',{...slot,...Object.fromEntries(new FormData(form)),_authorship:parentAuthorship(form)});await readMedia();mediaNotify('Тексты заглушки сохранены локально.');});details.append(form);row.append(details);container.append(row);
   }
 }

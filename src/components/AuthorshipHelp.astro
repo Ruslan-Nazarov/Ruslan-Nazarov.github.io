@@ -1,0 +1,56 @@
+---
+const {lang}=Astro.props;
+---
+<div id="authorship-help" hidden role="dialog" aria-label={lang==='ru'?'Об авторстве текста':'About text authorship'} data-pagefind-ignore>
+  <button type="button" class="authorship-close" aria-label={lang==='ru'?'Закрыть':'Close'}>×</button>
+  <p></p><a href={`/${lang}/about/#contact`}>{lang==='ru'?'Написать автору →':'Contact the author →'}</a>
+</div>
+<script>
+  const help=document.querySelector<HTMLElement>('#authorship-help')!;
+  let active:HTMLElement|null=null,timer:ReturnType<typeof setTimeout>;
+  let restoring=false;
+  function close(restore=false){
+    clearTimeout(timer);help.hidden=true;
+    active?.setAttribute('aria-expanded','false');active?.removeAttribute('aria-controls');
+    if(restore){restoring=true;active?.focus({preventScroll:true});restoring=false}
+  }
+  function position(){
+    if(!active||help.hidden)return;
+    const rect=active.getBoundingClientRect();
+    if(rect.bottom<0||rect.top>innerHeight){close();return}
+    help.style.left=Math.max(8,Math.min(rect.left,innerWidth-help.offsetWidth-8))+'px';
+    help.style.top=Math.max(8,Math.min(rect.bottom+6,innerHeight-help.offsetHeight-8))+'px';
+  }
+  function show(mark:HTMLElement){
+    if(restoring||document.querySelector('dialog[open]'))return;
+    clearTimeout(timer);
+    active?.setAttribute('aria-expanded','false');active?.removeAttribute('aria-controls');active=mark;
+    help.querySelector('p')!.textContent=mark.dataset.explanation!;
+    help.querySelector('a')!.href=mark.dataset.contact!;
+    help.hidden=false;mark.setAttribute('aria-expanded','true');mark.setAttribute('aria-controls','authorship-help');
+    position();
+  }
+  const later=()=>{timer=setTimeout(()=>{if(!help.matches(':hover')&&!help.contains(document.activeElement)&&document.activeElement!==active)close()},250)};
+  const markFor=(e:Event)=>(e.target as Element)?.closest<HTMLElement>('[data-authorship]');
+  // Delegation also covers annotations rendered later by the interactive graph.
+  document.addEventListener('pointerover',e=>{const mark=markFor(e);if(mark)show(mark)});
+  document.addEventListener('focusin',e=>{const mark=markFor(e);if(mark)show(mark)});
+  for(const event of ['pointerout','focusout'])document.addEventListener(event,e=>{if(markFor(e))later()});
+  document.addEventListener('click',e=>{const mark=markFor(e);if(mark){e.preventDefault();e.stopPropagation();show(mark)}else if(!help.contains(e.target as Node))close()},true);
+  document.addEventListener('keydown',e=>{
+    if(e.key==='Escape'&&!help.hidden){e.preventDefault();e.stopPropagation();close(true);return}
+    const mark=markFor(e);if(mark&&(e.key==='Enter'||e.key===' ')){e.preventDefault();e.stopPropagation();show(mark);help.querySelector('a')!.focus()}
+  },true);
+  help.addEventListener('pointerenter',()=>clearTimeout(timer));help.addEventListener('pointerleave',later);
+  help.addEventListener('focusout',later);
+  help.querySelector('button')!.addEventListener('click',()=>close(true));
+  window.addEventListener('scroll',position,{passive:true});window.addEventListener('resize',position);
+</script>
+<style is:global>
+  .authorship-mark{display:inline-block;margin-inline-start:.35em;padding:.05em .25em;font:500 10px/1.4 system-ui,sans-serif;vertical-align:middle;color:var(--muted,#756b61);border:1px solid currentColor;border-radius:4px;cursor:help;letter-spacing:0;text-transform:none;white-space:nowrap}
+  .authorship-mark:hover,.authorship-mark:focus-visible{color:var(--accent,#9c4c16);outline:1px solid currentColor;outline-offset:2px}
+  #authorship-help{position:fixed;z-index:1000;inset:auto;margin:0;width:min(340px,calc(100vw - 16px));max-height:calc(100dvh - 16px);overflow:auto;padding:18px 22px;border:1px solid var(--line,#d9c6b6);border-radius:8px;background:var(--bg,#fdfbf9);color:var(--text,#25211d);box-shadow:0 8px 35px #0002;font:14px/1.6 system-ui,sans-serif}
+  #authorship-help[hidden]{display:none}
+  #authorship-help p{margin:0 0 12px;padding-right:12px}#authorship-help a{color:var(--accent,#9c4c16)}
+  .authorship-close{position:absolute;right:6px;top:3px;border:0;background:none;color:inherit;cursor:pointer;font-size:20px}
+</style>

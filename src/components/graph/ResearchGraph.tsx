@@ -2,12 +2,20 @@ import {useMemo,useState} from 'react';
 import {ReactFlow,ReactFlowProvider,Background,Controls,useReactFlow,MarkerType,Position} from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 import katex from 'katex';
+import {authorshipCopy} from '../../lib/authorship-copy.mjs';
 
-type GraphNode={
+type Authored={_authorship?:Record<string,'human'|'ai'|undefined>};
+function Authorship({record,field,lang}:{record:Authored;field:string;lang:'ru'|'en'}){
+  const state=record._authorship?.[field];if(!state)return null;
+  const description=authorshipCopy(state,lang);
+  return <span className="authorship-mark" role="button" tabIndex={0} aria-label={description} aria-haspopup="dialog" aria-expanded={false} data-authorship={state} data-explanation={description} data-contact={`/${lang}/about/#contact`} data-pagefind-ignore>{state==='ai'?(lang==='ru'?'ИИ':'AI'):'✎'}</span>;
+}
+
+type GraphNode=Authored & {
   id:string;title_ru:string;title_en:string;type:string;researchStatus:string;
   formula:string;explanation_ru:string;explanation_en:string;extra_ru?:string;extra_en?:string;
   predecessors:string[];position:{x:number;y:number};tags:string[];hasUnpublishedStructure?:boolean;
-  image?:string;links?:{url:string;label_ru:string;label_en:string}[];
+  image?:string;links?:(Authored & {url:string;label_ru:string;label_en:string})[];
 };
 type Graph={demo:boolean;nodes:GraphNode[];edges:{id:string;source:string;target:string}[]};
 type Props={lang:'ru'|'en';t:Record<string,string>;publicData:Graph;demoData:Graph};
@@ -77,13 +85,13 @@ function Viewer({lang,t,publicData,demoData}:Props){
           <h2>{selectedNode[`title_${lang}`]}</h2>
           <span className="badge">{t[selectedNode.researchStatus]}</span>
           <div className="detail-formula"><Formula value={selectedNode.formula}/></div>
-          <p>{selectedNode[`explanation_${lang}`]}</p>
-          {selectedNode[`extra_${lang}`]&&<p>{selectedNode[`extra_${lang}`]}</p>}
+          <p>{selectedNode[`explanation_${lang}`]}<Authorship record={selectedNode} field={`explanation_${lang}`} lang={lang}/></p>
+          {selectedNode[`extra_${lang}`]&&<p>{selectedNode[`extra_${lang}`]}<Authorship record={selectedNode} field={`extra_${lang}`} lang={lang}/></p>}
           {selectedNode.image&&<img src={selectedNode.image} alt={selectedNode[`title_${lang}`]}/>}
           {selectedNode.hasUnpublishedStructure&&<p className="notice">{t.hiddenStructure}</p>}
           <label className="relation-filter">{t.allConnections}<select value={relation} onChange={e=>setRelation(e.target.value)}><option value="all">{t.allConnections}</option><option value="predecessors">{t.predecessors}</option><option value="descendants">{t.descendants}</option></select></label>
           <div className="graph-related">{data.nodes.filter(n=>n.id!==selected&&connected.has(n.id)).map(n=><button type="button" key={n.id} onClick={()=>choose(n.id)}>{n[`title_${lang}`]} ↗</button>)}</div>
-          {selectedNode.links?.map(link=><a key={link.url} href={link.url} rel="noopener noreferrer">{link[`label_${lang}`]} ↗</a>)}
+          {selectedNode.links?.map(link=><a key={link.url} href={link.url} rel="noopener noreferrer">{link[`label_${lang}`]}<Authorship record={link} field={`label_${lang}`} lang={lang}/> ↗</a>)}
         </>:<><span className="graph-detail-symbol" aria-hidden="true">∑</span><p>{t.selectNode}</p></>}
         <p className="small muted">{t.modelNote}</p>
       </aside>
