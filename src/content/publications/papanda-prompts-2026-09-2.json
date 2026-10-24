@@ -1,0 +1,53 @@
+{
+  "id": "papanda-prompts-2026-09-2",
+  "slug": "papanda-prompts-2026-09-2",
+  "publish": true,
+  "ready_ru": true,
+  "ready_en": true,
+  "type": "article",
+  "readingMode": "full",
+  "editorialStatus": "final",
+  "title_ru": "Промпты papanda — 2. Восстановление до диалектики",
+  "title_en": "papanda Prompts — 2. Restoring information to dialectics",
+  "summary_ru": "Серия «Промпты papanda», сентябрь 2026. Пост 2 из 7: Восстановление до диалектики.",
+  "summary_en": "The “papanda Prompts” series, September 2026. Post 2 of 7: Restoring information to dialectics.",
+  "body_ru": "1. От пользователя приходит запрос.\r\n\r\n2\\. Восстановить до диалектики означает показать, что информацию из запроса пользователя можно превратить в развитие процесса, результатом которого и будет информация из запроса. Например, запрос \"2+2\" можно превратить в развитие процесса суммирования единиц, противоречие процесса суммирования и усложнения (увеличения количества единиц) процесса суммирования, одним из разрешений которого выступает \"2+2\".\r\n\r\n3\\. Для восстановления до диалектики нужно попробовать последовательно следующие шаги:\r\n\r\n3.1 определить исторический путь, по которому пришли к информации из запроса. Например, можно показать исторический путь развития феодализма, который привел его к противоречию с капитализмом.\r\n\r\n3.2 провести диалектический анализ, указанный в 1\\_главный\\_промпт.md.\r\n\r\n3.2.1 Если процесс является развитием, то на нем может быть выполнен диалектический анализ. Если процесс сам развитием не является, это означает, что он — элемент другого развития, и поэтому может быть диалектически проанализирован именно как такой элемент.\r\n\r\n4\\. Если возникают сложности с восстановлением, то нужно проверить информацию из запроса на следующее:\r\n\r\n4.1 нельзя получить простейший процесс;\r\n\r\n4.2 простейший процесс получить можно, но нельзя вывести, обнаружить развивающие процессы;\r\n\r\n4.3 даны ошибочные простейший процесс и (или) развивающие процессы;\r\n\r\n4.4 не получается обнаружить противоположность;\r\n\r\n4.5 не получается взять простейший процесс и противоположность в единстве как противоречие;\r\n\r\n4.4 нельзя получить, обнаружить процесс, разрешающий противоречие.\r\n\r\n5\\. Определив причину сложности с восстановлением можно ее устранить и повторить восстановление.\r\n\r\n6\\. По результатам восстановления информация собирается, обобщается, оформляется ответ.",
+  "body_en": "1. A query is received from the user.\n\n2\\. Restoring information to dialectics means showing that the information in the user's query can be transformed into the development of a process whose result is the information in the query. For example, “2+2” can be transformed into the development of the process of summing units, the contradiction between summation and the increasing complexity (number of units) of summation, one resolution of which is “2+2.”\n\n3\\. To restore information to dialectics, try the following steps in sequence:\n\n3.1 Identify the historical path that led to the information in the query. For example, show the historical development of feudalism that brought it into contradiction with capitalism.\n\n3.2 Conduct the dialectical analysis specified in `1_главный_промпт.md`.\n\n3.2.1 If the process is development, dialectical analysis can be performed on it. If it is not itself development, this means it is an element of some other development and can therefore be dialectically analyzed precisely as such an element.\n\n4\\. If difficulties arise during restoration, check the information in the query for the following:\n\n4.1 The simplest process cannot be obtained.\n\n4.2 The simplest process can be obtained, but the developing processes cannot be derived or discovered.\n\n4.3 The simplest process and/or the developing processes are incorrect.\n\n4.4 The opposite cannot be discovered.\n\n4.5 The simplest process and the opposite cannot be taken in unity as a contradiction.\n\n4.4 The process resolving the contradiction cannot be obtained or discovered.\n\n5\\. After determining the cause of the difficulty, correct it and repeat the restoration.\n\n6\\. Collect and summarize the information resulting from the restoration and prepare the answer.",
+  "articleCategory": "papanda_conspect",
+  "researchAreas": [
+    "artificial-intelligence"
+  ],
+  "series": "papanda-prompts-2026-09",
+  "seriesOrder": 2,
+  "relatedProjects": [
+    "papanda"
+  ],
+  "relatedPublications": [
+    "papanda-prompts-2026-09-1",
+    "papanda-prompts-2026-09-3",
+    "papanda-prompts-2026-09-4",
+    "papanda-prompts-2026-09-5",
+    "papanda-prompts-2026-09-6",
+    "papanda-prompts-2026-09-7"
+  ],
+  "tags": [
+    "AI",
+    "Notes",
+    "Prompts"
+  ],
+  "date": "2026-09-06",
+  "datePrecision": "month",
+  "dateSource": {
+    "kind": "filesystem",
+    "property": "CreationTime"
+  },
+  "order": 42,
+  "featured": false,
+  "heroImage": "",
+  "gallery": [],
+  "links": [],
+  "_authorship": {
+    "body_ru": "human",
+    "body_en": "ai"
+  }
+}

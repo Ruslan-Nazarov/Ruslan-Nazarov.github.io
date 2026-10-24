@@ -38,5 +38,12 @@
   ],
   "timeline": [],
   "order": 10,
-  "readingMode": "full"
+  "readingMode": "full",
+  "articleCategory": "education",
+  "date": "2026-09-24",
+  "datePrecision": "month",
+  "dateSource": {
+    "kind": "docx",
+    "property": "dcterms:created"
+  }
 }

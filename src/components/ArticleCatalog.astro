@@ -1,0 +1,31 @@
+---
+import {articleCategories,publicationDate} from '../lib/article-categories.mjs';
+import {localize as l,pathFor} from '../lib/content.mjs';
+interface Props {rows:any[];lang:'ru'|'en'}
+const {rows,lang}=Astro.props;
+const groups=articleCategories.map(category=>{
+  const articles=rows.filter((row:any)=>row.articleCategory===category.id).sort((a:any,b:any)=>(b.date||'').localeCompare(a.date||'')||(a.order||0)-(b.order||0));
+  const months=[...new Set<string>(articles.map((row:any)=>row.date?.slice(0,7)||''))];
+  return {...category,articles,months};
+}).filter(group=>group.articles.length);
+---
+<div class="article-catalog">
+  {groups.map(group=><section id={group.id} class="article-category">
+    <h2>{group[lang]}</h2>
+    {group.months.map(month=><section class="article-month">
+      {month&&<h3 class="article-month-title"><time datetime={month}>{publicationDate({date:month+'-01',datePrecision:'month'},lang)}</time></h3>}
+      {group.articles.filter((row:any)=>(row.date?.slice(0,7)||'')===month).map((row:any)=><article class="article-entry">
+        <h4><a href={pathFor('publications',row,lang)}>{l(row,'title',lang)}</a></h4>
+        <p>{l(row,'summary',lang)}</p>
+      </article>)}
+    </section>)}
+  </section>)}
+</div>
+<style>
+  .article-category{margin-bottom:42px;scroll-margin-top:24px}
+  .article-category>h2{padding-bottom:14px;border-bottom:1px solid var(--line)}
+  .article-month{margin:24px 0 32px}.article-month-title{font-size:16px;color:var(--muted);font-weight:500;text-transform:capitalize}
+  .article-entry{padding:20px 0;border-bottom:1px solid var(--line)}
+  .article-entry h4{font:550 23px/1.4 var(--sans);margin:0 0 12px}
+  .article-entry p{font-size:15px;max-width:760px;color:var(--muted);margin:0}
+</style>

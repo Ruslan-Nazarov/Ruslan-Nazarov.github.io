@@ -4,6 +4,8 @@ import {pageMaterials} from '../../lib/page-materials.mjs';
 import Base from '../../layouts/Base.astro';
 import Home from '../../components/Home.astro';
 import Catalog from '../../components/Catalog.astro';
+import ArticleCatalog from '../../components/ArticleCatalog.astro';
+import {articleCategory,publicationDate} from '../../lib/article-categories.mjs';
 import Contact from '../../components/Contact.astro';
 import PageMaterials from '../../components/PageMaterials.astro';
 import MediaBody from '../../components/MediaBody.astro';
@@ -16,7 +18,7 @@ const lang=Astro.params.lang as 'ru'|'en';
 const path=Astro.params.path||'';
 const t=readJSON('src/data/ui.json')[lang],s=site[lang],data=allContent() as Record<string,any[]>;
 const sections=path.split('/'),section=sections[0];
-const sectionContent=readJSON('src/data/sections.json')[path];
+const sectionContent=path==='articles'?{title_ru:'Статьи',title_en:'Articles',summary_ru:'Полные тексты статей по темам и датам.',summary_en:'Full articles by topic and date.'}:readJSON('src/data/sections.json')[path];
 const catalogueRows=sectionContent?(data[section]||[]).filter((row:any)=>!sectionContent.excludedMaterials?.includes(row.id)):[];
 const graph=path==='projects/mathematical-parser/graph',full=path==='publications/theses-2020-2026/full';
 const row=Object.entries(data).flatMap(([collection,rows])=>rows.map(r=>({...r,collection}))).find(r=>pathFor(r.collection,r,lang)===`/${lang}/${path}/`);
@@ -51,8 +53,11 @@ const related=(name:string)=>pageMaterials(row,data).filter(ref=>ref.collection=
       <aside class="toc"><h2><Text record={t} field="contents" lang={lang}/></h2>{chapters.map((c:any)=><a href={`#chapter-${c.id}`}>{c.order}. {l(c,'title',lang)}</a>)}<a href={`/${lang}/publications/theses-2020-2026/`}><Text record={t} field="back" lang={lang}/> ↗</a></aside>
       <article class="prose"><div class="notice"><Text record={thesis} field={`summary_${lang}`} lang={lang}/></div><MediaBody record={thesis} field={`body_${lang}`} text={l(thesis,'body',lang)} lang={lang} prose={false} headingPrefix="overview-" showContents={false}/>{chapters.map(c=><section id={`chapter-${c.id}`}><h2>{c.order}. <Text record={c} field={`title_${lang}`} lang={lang}/></h2><p class="muted"><Text record={c} field={`summary_${lang}`} lang={lang}/></p>{l(c,'body',lang)?<>{c.editorialStatus!=='final'&&<p class="notice" data-chapter-overview><Text record={t} field="chapterOverview" lang={lang}/></p>}<MediaBody record={c} field={`body_${lang}`} text={l(c,'body',lang)} lang={lang} prose={false} headingPrefix={`chapter-${c.id}-`} showContents={false}/></>:<p class="notice"><Text record={t} field="chapterPending" lang={lang}/></p>}<a href={pathFor('theses',c,lang)}><Text record={t} field="read" lang={lang}/> ↗</a></section>)}</article>
     </div>
+    :section==='articles'?<div class="wrap catalog-section"><ArticleCatalog rows={data.publications.filter(r=>r.type==='article'&&r.readingMode==='full')} lang={lang}/></div>
     :row?<div class="wrap detail-layout">
       <article>
+        {row.type==='article'&&articleCategory(row)&&<p class="small"><a href={`/${lang}/articles/#${row.articleCategory}`}>{articleCategory(row)![lang]}</a>{row.date&&<> · <time datetime={row.date.slice(0,7)}>{publicationDate(row,lang)}</time></>}</p>}
+        {row.type==='article'&&row[`pdf_${lang}`]&&<p><a class="button secondary" href={row[`pdf_${lang}`]}>{lang==='ru'?'Оригинал статьи (PDF)':'Original article (PDF)'} ↓</a></p>}
         {row.heroImage&&<figure><a href={row.heroImage} data-media-viewer><img class="detail-hero-image" src={row.heroImage} alt={l(mediaForPath(row.heroImage)||{},'alt',lang)||title}/></a>{mediaForPath(row.heroImage)&&<figcaption><Text record={mediaForPath(row.heroImage)} field={`caption_${lang}`} lang={lang}/></figcaption>}</figure>}
         {row.editorialStatus==='awaiting_content'&&row.collection!=='theses'&&<p class="editorial-note"><Text record={t} field="editorial" lang={lang}/></p>}
         {row.collection==='theses'&&row.editorialStatus!=='final'&&<p class="notice" data-chapter-overview>{l(row,'body',lang)?t.chapterOverview:t.chapterPending}</p>}
@@ -76,7 +81,7 @@ const related=(name:string)=>pageMaterials(row,data).filter(ref=>ref.collection=
       </article>
       <aside class="detail-sidebar">
         {row.status&&<div><span class="eyebrow"><Text record={t} field="status" lang={lang}/></span><p><span class="badge"><span class="status-dot"></span>{l(row,'statusLabel',lang)?<Text record={row} field={`statusLabel_${lang}`} lang={lang}/>:<Text record={t} field={row.status} lang={lang}/>}</span></p></div>}
-        {row.date&&<time datetime={row.date}>{date(row.date)}</time>}
+        {row.date&&row.type!=='article'&&<time datetime={row.date}>{publicationDate(row,lang)}</time>}
         {row.targetDate&&<div><span class="eyebrow"><Text record={t} field="planned" lang={lang}/></span><p>{date(row.targetDate)}</p></div>}
         {row.researchAreas.length>0&&<div><span class="eyebrow"><Text record={t} field="research" lang={lang}/></span>{row.researchAreas.map((id:string)=>data.research.find(r=>r.id===id)).filter(Boolean).map((r:any)=><a href={pathFor('research',r,lang)}><Text record={r} field={`title_${lang}`} lang={lang}/> ↗</a>)}</div>}
         {row.links.length>0&&row.readingMode!=='external'&&<div class="external-links">{row.links.map((link:any)=><a class="button secondary" href={link.url} rel="noopener noreferrer"><Text record={link} field={`label_${lang}`} lang={lang}/> ↗</a>)}</div>}

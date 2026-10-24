@@ -39,5 +39,12 @@
   ],
   "timeline": [],
   "order": 12,
-  "readingMode": "full"
+  "readingMode": "full",
+  "articleCategory": "mathematics",
+  "date": "2026-09-19",
+  "datePrecision": "month",
+  "dateSource": {
+    "kind": "docx",
+    "property": "dcterms:created"
+  }
 }

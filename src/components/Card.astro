@@ -1,6 +1,7 @@
 ---
 import {materialHref} from '../lib/page-materials.mjs';
 import Text from './Text.astro';
+import {publicationDate} from '../lib/article-categories.mjs';
 import {localize as l,readJSON} from '../lib/content.mjs';
 import {mediaForPath} from '../lib/media.mjs';
 const {row,collection,lang,index=0}=Astro.props;
@@ -11,7 +12,7 @@ const t=readJSON('src/data/ui.json')[lang];
   {row.heroImage&&<img class="card-image" src={row.heroImage} alt={l(mediaForPath(row.heroImage)||{},'alt',lang)||l(row,'title',lang)} loading="lazy" />}
   <h3><a href={materialHref(row.eventCollection||collection,row,lang)}><Text record={row} field={`title_${lang}`} lang={lang}/></a></h3>
   {row.readingMode&&<p class="reading-mode">{t['reading:'+row.readingMode]}</p>}
-  {row.date&&<time class="small muted" datetime={row.date}>{new Intl.DateTimeFormat(lang==='ru'?'ru-RU':'en-GB',{dateStyle:'long',timeZone:'UTC'}).format(new Date(row.date+'T12:00:00Z'))}</time>}
+  {row.date&&<time class="small muted" datetime={row.date}>{publicationDate(row,lang)}</time>}
   <p><Text record={row} field={`summary_${lang}`} lang={lang}/></p>
   <div class="card-bottom"><div class="tag-list">{row.tags.slice(0,3).map((tag:string)=><span>{t['tag:'+tag]||tag}</span>)}</div><span aria-hidden="true" class="card-arrow">↗</span></div>
 </article>

@@ -8,7 +8,7 @@ const { lang, title, description=site[lang].heroText, path='',noindex=false }=As
 const t=readJSON('src/data/ui.json')[lang];
 const other=lang==='ru'?'en':'ru';
 const url=new URL(`/${lang}/${path?path+'/':''}`,Astro.site);
-const nav=['research','projects','publications','journal','timeline','about'];
+const nav=['research','projects','articles','publications','journal','timeline','about'];
 const customPages=getCollection('pages').filter(row=>row.showInMenu);
 const documentTitle=path?`${title} | ${site.name}`:`${site.name} | ${site[lang].role}`;
 ---
@@ -49,7 +49,7 @@ const documentTitle=path?`${title} | ${site.name}`:`${site.name} | ${site[lang].
       <a class="brand" href={`/${lang}/`} aria-label={`${site.name} — ${t.home}`}><span class="brand-mark">{site.monogram}<span>·</span></span><span><Text record={site} field="name" lang={lang}/><small><Text record={site[lang]} field="role" lang={lang}/></small></span></a>
       <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav"><Text record={t} field="menu" lang={lang}/> ☰</button>
       <nav id="main-nav" aria-label={t.menu}>
-        {nav.map(n=><a href={`/${lang}/${n}/`} aria-current={path.split('/')[0]===n?'page':undefined}>{t[n]}</a>)}
+        {nav.map(n=><a href={`/${lang}/${n}/`} aria-current={path.split('/')[0]===n?'page':undefined}>{n==='articles'?(lang==='ru'?'Статьи':'Articles'):t[n]}</a>)}
         {customPages.map(row=><a href={pathFor('pages',row,lang)} aria-current={pathFor('pages',row,lang)===`/${lang}/${path}/`?'page':undefined}>{localize(row,'title',lang)}</a>)}
         <a class="search-link" href={`/${lang}/search/`} aria-label={t.search} title={t.search}><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><circle cx="10" cy="10" r="6.5"/><path d="m15 15 5 5"/></svg><span class="mobile-only"><Text record={t} field="search" lang={lang}/></span></a>
       </nav>

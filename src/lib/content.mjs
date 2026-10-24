@@ -79,7 +79,7 @@ export function timelineRows(data=allContent()) {
 }
 export function routes() {
   const data=allContent();
-  const result=['','research','projects','publications','journal','timeline','about','search','legal','privacy'];
+  const result=['','articles','research','projects','publications','journal','timeline','about','search','legal','privacy'];
   const hasTheses=data.publications.some(p=>p.id==='theses-2020-2026');
   if(data.projects.some(p=>p.id==='mathematical-parser'))result.push('projects/mathematical-parser/graph');
   if(hasTheses)result.push('publications/theses-2020-2026/full');
@@ -108,7 +108,7 @@ export function validateAll() {
       for(const material of row.materials)if(!raw[material.collection].some(p=>p.id===material.id))throw new Error(`Unknown material ${material.collection}/${material.id} in ${row.id}`);
     }
   }
-  const pagePaths=new Set(['','research','projects','publications','journal','timeline','about','search','legal','privacy']);
+  const pagePaths=new Set(['','articles','research','projects','publications','journal','timeline','about','search','legal','privacy']);
   for(const [collection,rows] of Object.entries(raw))for(const row of rows){
     const path=pathFor(collection,row,'ru').replace(/^\/ru\/|\/$/g,'');
     if(pagePaths.has(path)||['projects/mathematical-parser/graph','publications/theses-2020-2026/full'].includes(path))throw new Error(`Page address already exists: ${path}`);

@@ -1,0 +1,53 @@
+{
+  "id": "papanda-prompts-2026-09-6",
+  "slug": "papanda-prompts-2026-09-6",
+  "publish": true,
+  "ready_ru": true,
+  "ready_en": true,
+  "type": "article",
+  "readingMode": "full",
+  "editorialStatus": "final",
+  "title_ru": "Промпты papanda — 6. Проверка",
+  "title_en": "papanda Prompts — 6. Verification",
+  "summary_ru": "Серия «Промпты papanda», сентябрь 2026. Пост 6 из 7: Проверка.",
+  "summary_en": "The “papanda Prompts” series, September 2026. Post 6 of 7: Verification.",
+  "body_ru": "1. Проверка должна включать следующие аспекты:\r\n\r\n1.1. \\*\\*Логика и связность:\\*\\* Проверьте логическую последовательность утверждений, отсутствие внутренних противоречий (если они не являются сознательно выделенными диалектическими противоречиями) и ясность изложения.\r\n\r\n1.2. \\*\\*Фактическая точность:\\*\\* Проверьте упомянутые факты, даты, имена, научные сведения и обстоятельства на предмет достоверности. Если какое-то утверждение вызывает сомнения или требует проверки, укажите на это.\r\n\r\n2\\. По результатам проверки возвращается отчет, где указывается либо наличие ошибок с их перечислением, либо указывается, что ошибок нет.",
+  "body_en": "1. The check must include the following aspects:\n\n1.1. **Logic and coherence:** Check the logical sequence of propositions, the absence of internal contradictions (unless they are deliberately identified dialectical contradictions), and the clarity of the presentation.\n\n1.2. **Factual accuracy:** Check the reliability of the facts, dates, names, scientific information, and circumstances mentioned. Indicate any assertion that raises doubts or needs verification.\n\n2\\. Return a report giving either a list of the errors found or a statement that there are no errors.",
+  "articleCategory": "papanda_conspect",
+  "researchAreas": [
+    "artificial-intelligence"
+  ],
+  "series": "papanda-prompts-2026-09",
+  "seriesOrder": 6,
+  "relatedProjects": [
+    "papanda"
+  ],
+  "relatedPublications": [
+    "papanda-prompts-2026-09-1",
+    "papanda-prompts-2026-09-2",
+    "papanda-prompts-2026-09-3",
+    "papanda-prompts-2026-09-4",
+    "papanda-prompts-2026-09-5",
+    "papanda-prompts-2026-09-7"
+  ],
+  "tags": [
+    "AI",
+    "Notes",
+    "Prompts"
+  ],
+  "date": "2026-09-06",
+  "datePrecision": "month",
+  "dateSource": {
+    "kind": "filesystem",
+    "property": "CreationTime"
+  },
+  "order": 46,
+  "featured": false,
+  "heroImage": "",
+  "gallery": [],
+  "links": [],
+  "_authorship": {
+    "body_ru": "human",
+    "body_en": "ai"
+  }
+}

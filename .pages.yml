@@ -728,6 +728,51 @@ content:
       - *a27
       - *a28
       - *a29
+      - name: articleCategory
+        label: Рубрика статьи
+        type: select
+        options:
+          values:
+            - physics
+            - mathematics
+            - ai
+            - education
+            - papanda_conspect
+      - name: datePrecision
+        label: Точность даты
+        type: select
+        options:
+          values:
+            - day
+            - month
+      - name: dateSource
+        label: Источник даты
+        type: object
+        readonly: true
+        fields:
+          - name: kind
+            label: kind
+            type: string
+          - name: property
+            label: property
+            type: string
+      - name: series
+        label: Серия постов
+        type: string
+      - name: seriesOrder
+        label: Номер в серии
+        type: number
+      - name: _authorship
+        label: Авторство текста
+        type: object
+        readonly: true
+        fields:
+          - name: body_ru
+            label: Текст · RU
+            type: string
+          - name: body_en
+            label: Text · EN
+            type: string
       - name: type
         label: Тип материала
         type: select

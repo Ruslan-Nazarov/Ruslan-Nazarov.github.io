@@ -1,0 +1,53 @@
+{
+  "id": "papanda-prompts-2026-09-3",
+  "slug": "papanda-prompts-2026-09-3",
+  "publish": true,
+  "ready_ru": true,
+  "ready_en": true,
+  "type": "article",
+  "readingMode": "full",
+  "editorialStatus": "final",
+  "title_ru": "Промпты papanda — 3. Контекст",
+  "title_en": "papanda Prompts — 3. Context",
+  "summary_ru": "Серия «Промпты papanda», сентябрь 2026. Пост 3 из 7: Контекст.",
+  "summary_en": "The “papanda Prompts” series, September 2026. Post 3 of 7: Context.",
+  "body_ru": "1. Если пользователь выделил текст и вызывал функцию \"Что это?\", то ему необходимо объяснить диалектически смысл выделенного текста.\r\n2. Для подготовки ответа нужно использовать диалектический анализ из промпта 2_восстановление_промпт.md.\r\n3. Для диалектического анализа исходят из того, что выделенный текст является разрешающим противоречие процессом. Объяснением диалектического смысла будет весь процесс от простейшего процесса до разрешающего процесса.",
+  "body_en": "1. If the user has selected text and invoked the “What is this?” function, explain the dialectical meaning of the selected text.\n2. To prepare the answer, use the dialectical analysis from `2_восстановление_промпт.md`.\n3. For the dialectical analysis, assume that the selected text is a process that resolves a contradiction. The explanation of its dialectical meaning will be the entire process from the simplest process to the resolving process.",
+  "articleCategory": "papanda_conspect",
+  "researchAreas": [
+    "artificial-intelligence"
+  ],
+  "series": "papanda-prompts-2026-09",
+  "seriesOrder": 3,
+  "relatedProjects": [
+    "papanda"
+  ],
+  "relatedPublications": [
+    "papanda-prompts-2026-09-1",
+    "papanda-prompts-2026-09-2",
+    "papanda-prompts-2026-09-4",
+    "papanda-prompts-2026-09-5",
+    "papanda-prompts-2026-09-6",
+    "papanda-prompts-2026-09-7"
+  ],
+  "tags": [
+    "AI",
+    "Notes",
+    "Prompts"
+  ],
+  "date": "2026-09-06",
+  "datePrecision": "month",
+  "dateSource": {
+    "kind": "filesystem",
+    "property": "CreationTime"
+  },
+  "order": 43,
+  "featured": false,
+  "heroImage": "",
+  "gallery": [],
+  "links": [],
+  "_authorship": {
+    "body_ru": "human",
+    "body_en": "ai"
+  }
+}

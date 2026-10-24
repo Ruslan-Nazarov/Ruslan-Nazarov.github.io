@@ -27,7 +27,7 @@ const common=[
 const extras={
   research:[f('symbol'),...bilingual('questions'),...bilingual('openProblems')],
   projects:[f('status','select',{options:{values:['active','completed','paused']},default:'active'}),...bilingual('statusLabel','string'),...bilingual('byline','string'),...bilingual('motto','string')],
-  publications:[f('type','select',{options:{values:['book','theses','article','technical-note']}}),f('readingMode','select',{options:{values:[{value:'full',label:'Полный текст на сайте'},{value:'external',label:'Оригинал на внешнем сайте'},{value:'forthcoming',label:'Готовящаяся рукопись'}]}}),f('license'),f('targetDate','date'),f('startedDate','date'),...bilingual('pdf','file')],
+  publications:[f('articleCategory','select',{label:'Рубрика статьи',options:{values:['physics','mathematics','ai','education','papanda_conspect']}}),f('datePrecision','select',{label:'Точность даты',options:{values:['day','month']}}),f('dateSource','object',{label:'Источник даты',readonly:true,fields:[f('kind'),f('property')]}),f('series','string',{label:'Серия постов'}),f('seriesOrder','number',{label:'Номер в серии'}),f('_authorship','object',{label:'Авторство текста',readonly:true,fields:[f('body_ru'),f('body_en')]}),f('type','select',{options:{values:['book','theses','article','technical-note']}}),f('readingMode','select',{options:{values:[{value:'full',label:'Полный текст на сайте'},{value:'external',label:'Оригинал на внешнем сайте'},{value:'forthcoming',label:'Готовящаяся рукопись'}]}}),f('license'),f('targetDate','date'),f('startedDate','date'),...bilingual('pdf','file')],
   journal:[f('type','select',{options:{values:['news','research-note','experiment','result']}})],
   theses:[], pages:[]
 };
