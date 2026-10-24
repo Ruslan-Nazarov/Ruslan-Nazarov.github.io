@@ -1,82 +1,132 @@
 {
-  "items": [],
+  "items": [
+    {
+      "id": "media-f9e47b2417415589",
+      "path": "/images/social-card.png",
+      "title": "social-card.png",
+      "alt_ru": "",
+      "alt_en": "",
+      "caption_ru": "",
+      "caption_en": "",
+      "tags": [],
+      "project": "",
+      "uploadedAt": "2026-10-21T17:20:59.780Z"
+    },
+    {
+      "id": "media-12722a66d6e055d0",
+      "path": "/images/social-card.svg",
+      "title": "social-card.svg",
+      "alt_ru": "",
+      "alt_en": "",
+      "caption_ru": "",
+      "caption_en": "",
+      "tags": [],
+      "project": "",
+      "uploadedAt": "2026-10-20T08:43:56.913Z"
+    },
+    {
+      "id": "media-e50153427d1f83ea",
+      "path": "/media/shared/-38--d28ad527.jpg",
+      "_authorship": {
+        "tags": "ai",
+        "caption_ru": "ai",
+        "alt_ru": "ai"
+      },
+      "title": "официальное фото 38 лет.jpg",
+      "alt_ru": "Руслан Назаров",
+      "alt_en": "Ruslan Nazarov",
+      "caption_ru": "Руслан Назаров",
+      "caption_en": "Ruslan Nazarov",
+      "tags": [
+        "portrait",
+        "man",
+        "glasses",
+        "hoodie",
+        "casual clothing",
+        "neutral background",
+        "close-up"
+      ],
+      "project": "",
+      "uploadedAt": "2026-10-22T02:21:36.551Z"
+    }
+  ],
   "slots": [
     {
       "id": "papanda-method-architecture",
       "title": "papanda-method-architecture",
+      "alt_ru": "Архитектура диалектического конспекта: простейший процесс, развитие, противоположный процесс, противоречие, разрешение",
+      "alt_en": "Structure of dialectical notes: simplest process, development, opposing process, contradiction, resolution",
+      "caption_ru": "Этапы определяют структуру конспекта и ход работы автора",
+      "caption_en": "The stages shape both the notes and the author's workflow.",
       "project": "papanda",
       "mediaId": "",
-      "status": "placeholder",
-      "alt_ru": "Архитектура диалектического конспекта: простейший процесс, развитие, противоположный процесс, противоречие, разрешение",
-      "caption_ru": "Этапы определяют структуру конспекта и ход работы автора",
-      "alt_en": "Structure of dialectical notes: simplest process, development, opposing process, contradiction, resolution",
-      "caption_en": "The stages shape both the notes and the author's workflow."
+      "status": "placeholder"
     },
     {
       "id": "papanda-editor",
       "title": "papanda-editor",
+      "alt_ru": "Редактор диалектических конспектов papanda",
+      "alt_en": "The papanda dialectical notes editor",
+      "caption_ru": "Ручное построение — основной способ работы",
+      "caption_en": "Manual construction is the primary workflow.",
       "project": "papanda",
       "mediaId": "",
-      "status": "placeholder",
-      "alt_ru": "Редактор диалектических конспектов papanda",
-      "caption_ru": "Ручное построение — основной способ работы",
-      "alt_en": "The papanda dialectical notes editor",
-      "caption_en": "Manual construction is the primary workflow."
+      "status": "placeholder"
     },
     {
       "id": "papanda-ai-assistance",
       "title": "papanda-ai-assistance",
+      "alt_ru": "Помощь ИИ при работе с отдельным блоком конспекта",
+      "alt_en": "AI assistance for an individual note block",
+      "caption_ru": "ИИ предоставляет сведения и пояснения; человек проверяет и принимает решения",
+      "caption_en": "AI supplies information and explanations; the person evaluates them and makes decisions.",
       "project": "papanda",
       "mediaId": "",
-      "status": "placeholder",
-      "alt_ru": "Помощь ИИ при работе с отдельным блоком конспекта",
-      "caption_ru": "ИИ предоставляет сведения и пояснения; человек проверяет и принимает решения",
-      "alt_en": "AI assistance for an individual note block",
-      "caption_en": "AI supplies information and explanations; the person evaluates them and makes decisions."
+      "status": "placeholder"
     },
     {
       "id": "ecg-original",
       "title": "ecg-original",
+      "alt_ru": "Первоначальная структура конспекта ЭКГ, предложенная ИИ",
+      "alt_en": "Initial single-channel ECG notes proposed by AI",
+      "caption_ru": "Исходный материал для анализа и критики",
+      "caption_en": "The starting material for analysis and critique.",
       "project": "papanda",
       "mediaId": "",
-      "status": "placeholder",
-      "alt_ru": "Первоначальная структура конспекта ЭКГ, предложенная ИИ",
-      "caption_ru": "Исходный материал для анализа и критики",
-      "alt_en": "Initial single-channel ECG notes proposed by AI",
-      "caption_en": "The starting material for analysis and critique."
+      "status": "placeholder"
     },
     {
       "id": "ecg-critique",
       "title": "ecg-critique",
+      "alt_ru": "Авторский разбор ошибок и переходов в конспекте ЭКГ",
+      "alt_en": "Critical examination of the ECG notes",
+      "caption_ru": "Здесь важно показать конкретное основание для изменения структуры",
+      "caption_en": "The illustration should show a concrete reason for revising the structure.",
       "project": "papanda",
       "mediaId": "",
-      "status": "placeholder",
-      "alt_ru": "Авторский разбор ошибок и переходов в конспекте ЭКГ",
-      "caption_ru": "Здесь важно показать конкретное основание для изменения структуры",
-      "alt_en": "Critical examination of the ECG notes",
-      "caption_en": "The illustration should show a concrete reason for revising the structure."
+      "status": "placeholder"
     },
     {
       "id": "ecg-final",
       "title": "ecg-final",
+      "alt_ru": "Итоговая структура диалектического конспекта об одноканальном ЭКГ",
+      "alt_en": "Revised dialectical notes on a single-channel ECG",
+      "caption_ru": "Переработанная структура после критического анализа",
+      "caption_en": "The structure developed after critical review.",
       "project": "papanda",
       "mediaId": "",
-      "status": "placeholder",
-      "alt_ru": "Итоговая структура диалектического конспекта об одноканальном ЭКГ",
-      "caption_ru": "Переработанная структура после критического анализа",
-      "alt_en": "Revised dialectical notes on a single-channel ECG",
-      "caption_en": "The structure developed after critical review."
+      "status": "placeholder"
     },
     {
       "id": "ecg-formula-source",
       "title": "ecg-formula-source",
+      "alt_ru": "Работа с формулами и источниками в papanda",
+      "alt_en": "Working with formulas and sources in papanda",
+      "caption_ru": "Инструменты проверки встроены в ход составления конспекта",
+      "caption_en": "Checking tools are integrated into the note-building workflow.",
       "project": "papanda",
       "mediaId": "",
-      "status": "placeholder",
-      "alt_ru": "Работа с формулами и источниками в papanda",
-      "caption_ru": "Инструменты проверки встроены в ход составления конспекта",
-      "alt_en": "Working with formulas and sources in papanda",
-      "caption_en": "Checking tools are integrated into the note-building workflow."
+      "status": "placeholder"
     },
     {
       "id": "papanda-languages-sentence",
@@ -135,56 +185,56 @@
     },
     {
       "id": "dialectic-ai-architecture",
-      "project": "dialectic-ai",
       "title": "Шесть этапов DialecticAI / Six-stage DialecticAI",
       "alt_ru": "Шестистадийное построение представления области в DialecticAI",
       "alt_en": "Six-stage domain-representation building in DialecticAI",
       "caption_ru": "Место для проверенной схемы текущего движка; исторические варианты описываются отдельно.",
       "caption_en": "Space for a reviewed diagram of the current engine; historical versions are described separately.",
+      "project": "dialectic-ai",
       "mediaId": "",
       "status": "placeholder"
     },
     {
       "id": "dialectic-ai-evidence",
-      "project": "dialectic-ai",
       "title": "Материалы проверки / Evaluation evidence",
       "alt_ru": "Проверяемые материалы экспериментов DialecticAI с указанием версии и условий",
       "alt_en": "DialecticAI experimental evidence identifying the version and conditions",
       "caption_ru": "Место для реального фрагмента результатов с условиями сравнения и ограничениями.",
       "caption_en": "Space for a genuine results excerpt with comparison conditions and limitations.",
+      "project": "dialectic-ai",
       "mediaId": "",
       "status": "placeholder"
     },
     {
       "id": "ai-algorithm-model",
-      "project": "ai-algorithm",
       "title": "Модель алгоритма / Algorithm model",
       "alt_ru": "Рабочая схема AI_algorithm с обозначенными открытыми вопросами",
       "alt_en": "Working AI_algorithm diagram identifying open questions",
       "caption_ru": "Место для согласованной авторской схемы незавершённого исследования.",
       "caption_en": "Space for an author-approved diagram of the unfinished research.",
+      "project": "ai-algorithm",
       "mediaId": "",
       "status": "placeholder"
     },
     {
       "id": "time-management-overview",
-      "project": "personal-time-management",
       "title": "Общий вид приложения / Application overview",
       "alt_ru": "Интерфейс личного приложения тайм-менеджмента с обезличенными данными",
       "alt_en": "Personal time-management application interface with anonymised data",
       "caption_ru": "Место для настоящего снимка интерфейса без личных записей.",
       "caption_en": "Space for a genuine interface screenshot without personal records.",
+      "project": "personal-time-management",
       "mediaId": "",
       "status": "placeholder"
     },
     {
       "id": "time-management-workflow",
-      "project": "personal-time-management",
       "title": "Организация задач / Task organisation",
       "alt_ru": "Работа с задачами в личном приложении на демонстрационных данных",
       "alt_en": "Working with tasks in the personal application using demonstration data",
       "caption_ru": "Место для обезличенного примера работы; функции уточняются по реальному интерфейсу.",
       "caption_en": "Space for an anonymised workflow example; capabilities will be described from the actual interface.",
+      "project": "personal-time-management",
       "mediaId": "",
       "status": "placeholder"
     }
