@@ -48,6 +48,24 @@ content:
       - name: cloudflareToken
         label: cloudflareToken
         type: string
+      - name: monogram
+        label: Монограмма автора
+        type: string
+      - name: favicon
+        label: Значок вкладки сайта
+        type: image
+      - name: socialImage
+        label: Изображение для публикации ссылки в соцсетях
+        type: image
+      - name: footerGithubUrl
+        label: "GitHub: ссылка в подвале"
+        type: string
+      - name: textLicenseUrl
+        label: Ссылка на лицензию текстов
+        type: string
+      - name: featuredProject
+        label: Проект в фокусе на главной (ID)
+        type: string
       - name: profiles
         label: profiles
         type: object
@@ -205,896 +223,337 @@ content:
           - name: contactText
             label: contactText
             type: text
-  - name: interface
-    label: Подписи интерфейса RU / EN
+  - name: sections
+    label: Страницы разделов
     type: file
-    path: src/data/ui.json
+    path: src/data/sections.json
     format: json
     fields:
-      - name: ru
-        label: ru
+      - name: research
+        label: research
         type: object
         fields:
-          - name: home
-            label: home
-            type: text
-          - name: research
-            label: research
-            type: text
-          - name: projects
-            label: projects
-            type: text
-          - name: publications
-            label: publications
-            type: text
-          - name: journal
-            label: journal
-            type: text
-          - name: timeline
-            label: События проекта
-            type: text
-          - name: about
-            label: about
-            type: text
-          - name: search
-            label: search
-            type: text
-          - name: legal
-            label: legal
-            type: text
-          - name: privacy
-            label: privacy
-            type: text
-          - name: skip
-            label: skip
-            type: text
-          - name: menu
-            label: menu
-            type: text
-          - name: theme
-            label: theme
-            type: text
-          - name: system
-            label: system
-            type: text
-          - name: light
-            label: light
-            type: text
-          - name: dark
-            label: dark
-            type: text
-          - name: explore
-            label: explore
-            type: text
-          - name: viewProjects
-            label: viewProjects
-            type: text
-          - name: allProjects
-            label: allProjects
-            type: text
-          - name: allPublications
-            label: allPublications
-            type: text
-          - name: allJournal
-            label: allJournal
-            type: text
-          - name: read
-            label: read
-            type: text
-          - name: contact
-            label: contact
-            type: text
-          - name: forthcoming
-            label: forthcoming
-            type: text
-          - name: editorial
-            label: editorial
-            type: text
-          - name: questions
-            label: questions
-            type: text
-          - name: openProblems
-            label: openProblems
-            type: text
-          - name: related
-            label: related
-            type: text
-          - name: relatedProjects
-            label: Связанные проекты (ID)
-            type: text
-          - name: relatedPublications
-            label: Связанные публикации (ID)
-            type: text
-          - name: thematicJournal
-            label: thematicJournal
-            type: text
-          - name: noRelated
-            label: noRelated
-            type: text
-          - name: all
-            label: all
-            type: text
-          - name: filter
-            label: filter
-            type: text
-          - name: area
-            label: area
-            type: text
-          - name: type
-            label: Тип материала
-            type: text
-          - name: tag
-            label: tag
-            type: text
-          - name: reset
-            label: reset
-            type: text
-          - name: filterSearch
-            label: filterSearch
-            type: text
-          - name: noResults
-            label: noResults
-            type: text
-          - name: book
-            label: book
-            type: text
-          - name: theses
-            label: theses
-            type: text
-          - name: article
-            label: article
-            type: text
-          - name: technical-note
-            label: technical-note
-            type: text
-          - name: news
-            label: news
-            type: text
-          - name: research-note
-            label: research-note
-            type: text
-          - name: experiment
-            label: experiment
-            type: text
-          - name: result
-            label: result
-            type: text
-          - name: active
-            label: active
-            type: text
-          - name: completed
-            label: completed
-            type: text
-          - name: paused
-            label: paused
-            type: text
-          - name: graph
-            label: graph
-            type: text
-          - name: openGraph
-            label: openGraph
-            type: text
-          - name: graphDescription
-            label: graphDescription
-            type: text
-          - name: demo
-            label: demo
-            type: text
-          - name: demoText
-            label: demoText
-            type: text
-          - name: publicGraph
-            label: publicGraph
-            type: text
-          - name: demoGraph
-            label: demoGraph
-            type: text
-          - name: noApproved
-            label: noApproved
-            type: text
-          - name: searchNodes
-            label: searchNodes
-            type: text
-          - name: nodeType
-            label: nodeType
-            type: text
-          - name: researchStatus
-            label: researchStatus
-            type: text
-          - name: кризис-разрешение
-            label: кризис-разрешение
-            type: text
-          - name: противоречие
-            label: противоречие
-            type: text
-          - name: частный_случай
-            label: частный_случай
-            type: text
-          - name: качество
-            label: качество
-            type: text
-          - name: подтверждено
-            label: подтверждено
-            type: text
-          - name: черновик
-            label: черновик
-            type: text
-          - name: не выведено
-            label: не выведено
-            type: text
-          - name: fit
-            label: fit
-            type: text
-          - name: predecessors
-            label: predecessors
-            type: text
-          - name: descendants
-            label: descendants
-            type: text
-          - name: allConnections
-            label: allConnections
-            type: text
-          - name: nodeList
-            label: nodeList
-            type: text
-          - name: selectNode
-            label: selectNode
-            type: text
-          - name: hiddenStructure
-            label: hiddenStructure
-            type: text
-          - name: modelNote
-            label: modelNote
-            type: text
-          - name: zoomIn
-            label: zoomIn
-            type: text
-          - name: zoomOut
-            label: zoomOut
-            type: text
-          - name: notes
-            label: notes
-            type: text
-          - name: gallery
+          - &a1
+            name: id
+            label: Постоянный ID
+            type: string
+            required: true
+            pattern: ^[a-z0-9]+(?:-[a-z0-9]+)*$
+            description: Постоянный ID. Не менять после первого выпуска.
+          - &a2
+            name: slug
+            label: Адрес страницы (slug)
+            type: string
+            required: true
+            pattern: ^[a-z0-9]+(?:-[a-z0-9]+)*$
+          - &a3
+            name: showInMenu
+            label: Добавить страницу в меню
+            type: boolean
+          - &a4
+            name: materials
+            label: materials
+            type: object
+            list: true
+            fields:
+              - name: collection
+                label: collection
+                type: string
+              - name: id
+                label: Постоянный ID
+                type: string
+          - &a5
+            name: excludedMaterials
+            label: excludedMaterials
+            type: string
+            list: true
+          - &a6
+            name: hiddenMaterials
+            label: hiddenMaterials
+            type: object
+            list: true
+            fields:
+              - name: collection
+                label: collection
+                type: string
+              - name: id
+                label: Постоянный ID
+                type: string
+          - &a7
+            name: publish
+            label: Показывать на сайте
+            type: boolean
+            default: false
+            description: Публично только при готовности обоих языков. Черновики видны в
+              исходном GitHub, но не на сайте.
+          - &a8
+            name: ready_ru
+            label: Русская версия готова
+            type: boolean
+            default: false
+          - &a9
+            name: ready_en
+            label: English version ready
+            type: boolean
+            default: false
+          - &a10
+            name: title_ru
+            label: Заголовок · RU
+            type: string
+          - &a11
+            name: title_en
+            label: Title · EN
+            type: string
+          - &a12
+            name: summary_ru
+            label: Краткое описание · RU
+            type: text
+          - &a13
+            name: summary_en
+            label: Summary · EN
+            type: text
+          - &a14
+            name: body_ru
+            label: Текст · RU
+            type: rich-text
+          - &a15
+            name: body_en
+            label: Text · EN
+            type: rich-text
+          - &a16
+            name: editorialStatus
+            label: Готовность текста
+            type: select
+            options:
+              values:
+                - awaiting_content
+                - editorial_summary
+                - final
+                - external_publication
+            default: awaiting_content
+          - &a17
+            name: featured
+            label: Избранный материал
+            type: boolean
+          - &a18
+            name: order
+            label: Порядок отображения
+            type: number
+            default: 100
+          - &a19
+            name: heroImage
+            label: Обложка
+            type: image
+            options:
+              media: library
+          - &a20
+            name: gallery
             label: Галерея
-            type: text
-          - name: galleryEmpty
-            label: galleryEmpty
-            type: text
-          - name: contents
-            label: contents
-            type: text
-          - name: fullText
-            label: fullText
-            type: text
-          - name: chapters
-            label: chapters
-            type: text
-          - name: planned
-            label: planned
-            type: text
-          - name: chapterPending
-            label: chapterPending
-            type: text
-          - name: originalLicense
-            label: originalLicense
-            type: text
-          - name: history
-            label: history
-            type: text
-          - name: timelineDescription
-            label: timelineDescription
-            type: text
-          - name: upcoming
-            label: upcoming
-            type: text
-          - name: upcomingNote
-            label: upcomingNote
-            type: text
-          - name: portrait
-            label: portrait
-            type: text
-          - name: language
-            label: language
-            type: text
-          - name: searchHint
-            label: searchHint
-            type: text
-          - name: searchLoading
-            label: searchLoading
-            type: text
-          - name: searchUnavailable
-            label: searchUnavailable
-            type: text
-          - name: name
-            label: name
-            type: text
-          - name: email
-            label: email
-            type: text
-          - name: message
-            label: message
-            type: text
-          - name: send
-            label: send
-            type: text
-          - name: sending
-            label: sending
-            type: text
-          - name: sent
-            label: sent
-            type: text
-          - name: sendError
-            label: sendError
-            type: text
-          - name: consent
-            label: consent
-            type: text
-          - name: notFound
-            label: notFound
-            type: text
-          - name: notFoundText
-            label: notFoundText
-            type: text
-          - name: rss
-            label: rss
-            type: text
-          - name: back
-            label: back
-            type: text
-          - name: close
-            label: close
-            type: text
-          - name: status
-            label: Статус проекта
-            type: text
-          - name: codeLicense
-            label: codeLicense
-            type: text
-          - name: analyticsOff
-            label: analyticsOff
-            type: text
-          - name: analyticsOn
-            label: analyticsOn
-            type: text
-          - name: count
-            label: count
-            type: text
-          - name: from
-            label: from
-            type: text
-          - name: tag:Mathematics
-            label: tag:Mathematics
-            type: text
-          - name: tag:Graph
-            label: tag:Graph
-            type: text
-          - name: tag:Learning
-            label: tag:Learning
-            type: text
-          - name: tag:Notes
-            label: tag:Notes
-            type: text
-          - name: tag:Languages
-            label: tag:Languages
-            type: text
-          - name: tag:Agents
-            label: tag:Agents
-            type: text
-          - name: tag:Experiments
-            label: tag:Experiments
-            type: text
-          - name: tag:Algorithms
-            label: tag:Algorithms
-            type: text
-          - name: tag:Research
-            label: tag:Research
-            type: text
-          - name: tag:Personal tool
-            label: tag:Personal tool
-            type: text
-          - name: tag:AI
-            label: tag:AI
-            type: text
-          - name: tag:Education
-            label: tag:Education
-            type: text
-          - name: tag:Theses
-            label: tag:Theses
-            type: text
-          - name: tag:demo
-            label: tag:demo
-            type: text
-          - name: notebook
-            label: notebook
-            type: text
-          - name: parserLabel
-            label: parserLabel
-            type: text
-          - name: thesisOverview
-            label: thesisOverview
-            type: text
-          - name: chapterOverview
-            label: chapterOverview
-            type: text
-          - name: reading:full
-            label: reading:full
-            type: text
-          - name: reading:external
-            label: reading:external
-            type: text
-          - name: reading:forthcoming
-            label: reading:forthcoming
-            type: text
-          - name: researchDescription
-            label: researchDescription
-            type: text
-          - name: projectsDescription
-            label: projectsDescription
-            type: text
-          - name: publicationsDescription
-            label: publicationsDescription
-            type: text
-          - name: journalDescription
-            label: journalDescription
-            type: text
-          - name: searchDescription
-            label: searchDescription
-            type: text
-          - name: legalDescription
-            label: legalDescription
-            type: text
-          - name: privacyDescription
-            label: privacyDescription
-            type: text
-          - name: footerLicense
-            label: footerLicense
-            type: text
-          - name: backToTop
-            label: backToTop
-            type: text
-      - name: en
-        label: en
+            type: object
+            list: true
+            fields:
+              - name: src
+                label: src
+                type: image
+                options:
+                  media: library
+              - name: alt_ru
+                label: Описание изображения · RU
+                type: string
+                description: Описание для этого места в галерее. Подпись под изображением
+                  берётся из медиабиблиотеки, если заполнена.
+              - name: alt_en
+                label: Описание изображения · EN
+                type: string
+                description: Описание для этого места в галерее. Подпись под изображением
+                  берётся из медиабиблиотеки, если заполнена.
+          - &a21
+            name: researchAreas
+            label: Направления (ID)
+            type: string
+            list: true
+          - &a22
+            name: relatedProjects
+            label: Связанные проекты (ID)
+            type: string
+            list: true
+          - &a23
+            name: relatedPublications
+            label: Связанные публикации (ID)
+            type: string
+            list: true
+          - &a24
+            name: relatedJournal
+            label: Связанные записи дневника (ID)
+            type: string
+            list: true
+          - &a25
+            name: tags
+            label: Теги
+            type: string
+            list: true
+          - &a26
+            name: links
+            label: Внешние ссылки
+            type: object
+            list: true
+            fields:
+              - name: label_ru
+                label: label_ru
+                type: string
+              - name: label_en
+                label: label_en
+                type: string
+              - name: url
+                label: url
+                type: string
+          - &a27
+            name: exampleLinks
+            label: exampleLinks
+            type: object
+            list: true
+            fields:
+              - name: id
+                label: Постоянный ID
+                type: string
+              - name: label_ru
+                label: label_ru
+                type: string
+              - name: label_en
+                label: label_en
+                type: string
+              - name: url_ru
+                label: url_ru
+                type: string
+              - name: url_en
+                label: url_en
+                type: string
+          - &a28
+            name: timeline
+            label: События проекта
+            type: object
+            list: true
+            fields:
+              - name: date
+                label: Дата публикации / события
+                type: date
+                default: ""
+                options:
+                  format: yyyy-MM-dd
+              - name: title_ru
+                label: Заголовок · RU
+                type: string
+              - name: title_en
+                label: Title · EN
+                type: string
+          - &a29
+            name: date
+            label: Дата публикации / события
+            type: date
+            default: ""
+            options:
+              format: yyyy-MM-dd
+            description: Только реальная дата события или публикации. Оставить пустым, если
+              неизвестна.
+      - name: projects
+        label: projects
         type: object
         fields:
-          - name: home
-            label: home
-            type: text
-          - name: research
-            label: research
-            type: text
-          - name: projects
-            label: projects
-            type: text
-          - name: publications
-            label: publications
-            type: text
-          - name: journal
-            label: journal
-            type: text
-          - name: timeline
-            label: События проекта
-            type: text
-          - name: about
-            label: about
-            type: text
-          - name: search
-            label: search
-            type: text
-          - name: legal
-            label: legal
-            type: text
-          - name: privacy
-            label: privacy
-            type: text
-          - name: skip
-            label: skip
-            type: text
-          - name: menu
-            label: menu
-            type: text
-          - name: theme
-            label: theme
-            type: text
-          - name: system
-            label: system
-            type: text
-          - name: light
-            label: light
-            type: text
-          - name: dark
-            label: dark
-            type: text
-          - name: explore
-            label: explore
-            type: text
-          - name: viewProjects
-            label: viewProjects
-            type: text
-          - name: allProjects
-            label: allProjects
-            type: text
-          - name: allPublications
-            label: allPublications
-            type: text
-          - name: allJournal
-            label: allJournal
-            type: text
-          - name: read
-            label: read
-            type: text
-          - name: contact
-            label: contact
-            type: text
-          - name: forthcoming
-            label: forthcoming
-            type: text
-          - name: editorial
-            label: editorial
-            type: text
-          - name: questions
-            label: questions
-            type: text
-          - name: openProblems
-            label: openProblems
-            type: text
-          - name: related
-            label: related
-            type: text
-          - name: relatedProjects
-            label: Связанные проекты (ID)
-            type: text
-          - name: relatedPublications
-            label: Связанные публикации (ID)
-            type: text
-          - name: thematicJournal
-            label: thematicJournal
-            type: text
-          - name: noRelated
-            label: noRelated
-            type: text
-          - name: all
-            label: all
-            type: text
-          - name: filter
-            label: filter
-            type: text
-          - name: area
-            label: area
-            type: text
-          - name: type
-            label: Тип материала
-            type: text
-          - name: tag
-            label: tag
-            type: text
-          - name: reset
-            label: reset
-            type: text
-          - name: filterSearch
-            label: filterSearch
-            type: text
-          - name: noResults
-            label: noResults
-            type: text
-          - name: book
-            label: book
-            type: text
-          - name: theses
-            label: theses
-            type: text
-          - name: article
-            label: article
-            type: text
-          - name: technical-note
-            label: technical-note
-            type: text
-          - name: news
-            label: news
-            type: text
-          - name: research-note
-            label: research-note
-            type: text
-          - name: experiment
-            label: experiment
-            type: text
-          - name: result
-            label: result
-            type: text
-          - name: active
-            label: active
-            type: text
-          - name: completed
-            label: completed
-            type: text
-          - name: paused
-            label: paused
-            type: text
-          - name: graph
-            label: graph
-            type: text
-          - name: openGraph
-            label: openGraph
-            type: text
-          - name: graphDescription
-            label: graphDescription
-            type: text
-          - name: demo
-            label: demo
-            type: text
-          - name: demoText
-            label: demoText
-            type: text
-          - name: publicGraph
-            label: publicGraph
-            type: text
-          - name: demoGraph
-            label: demoGraph
-            type: text
-          - name: noApproved
-            label: noApproved
-            type: text
-          - name: searchNodes
-            label: searchNodes
-            type: text
-          - name: nodeType
-            label: nodeType
-            type: text
-          - name: researchStatus
-            label: researchStatus
-            type: text
-          - name: кризис-разрешение
-            label: кризис-разрешение
-            type: text
-          - name: противоречие
-            label: противоречие
-            type: text
-          - name: частный_случай
-            label: частный_случай
-            type: text
-          - name: качество
-            label: качество
-            type: text
-          - name: подтверждено
-            label: подтверждено
-            type: text
-          - name: черновик
-            label: черновик
-            type: text
-          - name: не выведено
-            label: не выведено
-            type: text
-          - name: fit
-            label: fit
-            type: text
-          - name: predecessors
-            label: predecessors
-            type: text
-          - name: descendants
-            label: descendants
-            type: text
-          - name: allConnections
-            label: allConnections
-            type: text
-          - name: nodeList
-            label: nodeList
-            type: text
-          - name: selectNode
-            label: selectNode
-            type: text
-          - name: hiddenStructure
-            label: hiddenStructure
-            type: text
-          - name: modelNote
-            label: modelNote
-            type: text
-          - name: zoomIn
-            label: zoomIn
-            type: text
-          - name: zoomOut
-            label: zoomOut
-            type: text
-          - name: notes
-            label: notes
-            type: text
-          - name: gallery
-            label: Галерея
-            type: text
-          - name: galleryEmpty
-            label: galleryEmpty
-            type: text
-          - name: contents
-            label: contents
-            type: text
-          - name: fullText
-            label: fullText
-            type: text
-          - name: chapters
-            label: chapters
-            type: text
-          - name: planned
-            label: planned
-            type: text
-          - name: chapterPending
-            label: chapterPending
-            type: text
-          - name: originalLicense
-            label: originalLicense
-            type: text
-          - name: history
-            label: history
-            type: text
-          - name: timelineDescription
-            label: timelineDescription
-            type: text
-          - name: upcoming
-            label: upcoming
-            type: text
-          - name: upcomingNote
-            label: upcomingNote
-            type: text
-          - name: portrait
-            label: portrait
-            type: text
-          - name: language
-            label: language
-            type: text
-          - name: searchHint
-            label: searchHint
-            type: text
-          - name: searchLoading
-            label: searchLoading
-            type: text
-          - name: searchUnavailable
-            label: searchUnavailable
-            type: text
-          - name: name
-            label: name
-            type: text
-          - name: email
-            label: email
-            type: text
-          - name: message
-            label: message
-            type: text
-          - name: send
-            label: send
-            type: text
-          - name: sending
-            label: sending
-            type: text
-          - name: sent
-            label: sent
-            type: text
-          - name: sendError
-            label: sendError
-            type: text
-          - name: consent
-            label: consent
-            type: text
-          - name: notFound
-            label: notFound
-            type: text
-          - name: notFoundText
-            label: notFoundText
-            type: text
-          - name: rss
-            label: rss
-            type: text
-          - name: back
-            label: back
-            type: text
-          - name: close
-            label: close
-            type: text
-          - name: status
-            label: Статус проекта
-            type: text
-          - name: codeLicense
-            label: codeLicense
-            type: text
-          - name: analyticsOff
-            label: analyticsOff
-            type: text
-          - name: analyticsOn
-            label: analyticsOn
-            type: text
-          - name: count
-            label: count
-            type: text
-          - name: from
-            label: from
-            type: text
-          - name: tag:Mathematics
-            label: tag:Mathematics
-            type: text
-          - name: tag:Graph
-            label: tag:Graph
-            type: text
-          - name: tag:Learning
-            label: tag:Learning
-            type: text
-          - name: tag:Notes
-            label: tag:Notes
-            type: text
-          - name: tag:Languages
-            label: tag:Languages
-            type: text
-          - name: tag:Agents
-            label: tag:Agents
-            type: text
-          - name: tag:Experiments
-            label: tag:Experiments
-            type: text
-          - name: tag:Algorithms
-            label: tag:Algorithms
-            type: text
-          - name: tag:Research
-            label: tag:Research
-            type: text
-          - name: tag:Personal tool
-            label: tag:Personal tool
-            type: text
-          - name: tag:AI
-            label: tag:AI
-            type: text
-          - name: tag:Education
-            label: tag:Education
-            type: text
-          - name: tag:Theses
-            label: tag:Theses
-            type: text
-          - name: tag:demo
-            label: tag:demo
-            type: text
-          - name: notebook
-            label: notebook
-            type: text
-          - name: parserLabel
-            label: parserLabel
-            type: text
-          - name: thesisOverview
-            label: thesisOverview
-            type: text
-          - name: chapterOverview
-            label: chapterOverview
-            type: text
-          - name: reading:full
-            label: reading:full
-            type: text
-          - name: reading:external
-            label: reading:external
-            type: text
-          - name: reading:forthcoming
-            label: reading:forthcoming
-            type: text
-          - name: researchDescription
-            label: researchDescription
-            type: text
-          - name: projectsDescription
-            label: projectsDescription
-            type: text
-          - name: publicationsDescription
-            label: publicationsDescription
-            type: text
-          - name: journalDescription
-            label: journalDescription
-            type: text
-          - name: searchDescription
-            label: searchDescription
-            type: text
-          - name: legalDescription
-            label: legalDescription
-            type: text
-          - name: privacyDescription
-            label: privacyDescription
-            type: text
-          - name: footerLicense
-            label: footerLicense
-            type: text
-          - name: backToTop
-            label: backToTop
-            type: text
+          - *a1
+          - *a2
+          - *a3
+          - *a4
+          - *a5
+          - *a6
+          - *a7
+          - *a8
+          - *a9
+          - *a10
+          - *a11
+          - *a12
+          - *a13
+          - *a14
+          - *a15
+          - *a16
+          - *a17
+          - *a18
+          - *a19
+          - *a20
+          - *a21
+          - *a22
+          - *a23
+          - *a24
+          - *a25
+          - *a26
+          - *a27
+          - *a28
+          - *a29
+      - name: publications
+        label: publications
+        type: object
+        fields:
+          - *a1
+          - *a2
+          - *a3
+          - *a4
+          - *a5
+          - *a6
+          - *a7
+          - *a8
+          - *a9
+          - *a10
+          - *a11
+          - *a12
+          - *a13
+          - *a14
+          - *a15
+          - *a16
+          - *a17
+          - *a18
+          - *a19
+          - *a20
+          - *a21
+          - *a22
+          - *a23
+          - *a24
+          - *a25
+          - *a26
+          - *a27
+          - *a28
+          - *a29
+      - name: journal
+        label: journal
+        type: object
+        fields:
+          - *a1
+          - *a2
+          - *a3
+          - *a4
+          - *a5
+          - *a6
+          - *a7
+          - *a8
+          - *a9
+          - *a10
+          - *a11
+          - *a12
+          - *a13
+          - *a14
+          - *a15
+          - *a16
+          - *a17
+          - *a18
+          - *a19
+          - *a20
+          - *a21
+          - *a22
+          - *a23
+          - *a24
+          - *a25
+          - *a26
+          - *a27
+          - *a28
+          - *a29
   - name: research
     label: Направления исследований
     type: collection
@@ -1110,191 +569,35 @@ content:
         - ready_ru
         - ready_en
     fields:
-      - &a1
-        name: id
-        label: Постоянный ID
-        type: string
-        required: true
-        pattern: ^[a-z0-9]+(?:-[a-z0-9]+)*$
-        description: Постоянный ID. Не менять после первого выпуска.
-      - &a2
-        name: slug
-        label: Адрес страницы (slug)
-        type: string
-        required: true
-        pattern: ^[a-z0-9]+(?:-[a-z0-9]+)*$
-      - &a3
-        name: publish
-        label: Показывать на сайте
-        type: boolean
-        default: false
-        description: Публично только при готовности обоих языков. Черновики видны в
-          исходном GitHub, но не на сайте.
-      - &a4
-        name: ready_ru
-        label: Русская версия готова
-        type: boolean
-        default: false
-      - &a5
-        name: ready_en
-        label: English version ready
-        type: boolean
-        default: false
-      - &a6
-        name: title_ru
-        label: Заголовок · RU
-        type: string
-      - &a7
-        name: title_en
-        label: Title · EN
-        type: string
-      - &a8
-        name: summary_ru
-        label: Краткое описание · RU
-        type: text
-      - &a9
-        name: summary_en
-        label: Summary · EN
-        type: text
-      - &a10
-        name: body_ru
-        label: Текст · RU
-        type: rich-text
-      - &a11
-        name: body_en
-        label: Text · EN
-        type: rich-text
-      - &a12
-        name: editorialStatus
-        label: Готовность текста
-        type: select
-        options:
-          values:
-            - awaiting_content
-            - editorial_summary
-            - final
-            - external_publication
-        default: awaiting_content
-      - &a13
-        name: featured
-        label: Избранный материал
-        type: boolean
-      - &a14
-        name: order
-        label: Порядок отображения
-        type: number
-        default: 100
-      - &a15
-        name: heroImage
-        label: Обложка
-        type: image
-        options:
-          media: library
-      - &a16
-        name: gallery
-        label: Галерея
-        type: object
-        list: true
-        fields:
-          - name: src
-            label: src
-            type: image
-            options:
-              media: library
-          - name: alt_ru
-            label: alt_ru
-            type: string
-          - name: alt_en
-            label: alt_en
-            type: string
-      - &a17
-        name: researchAreas
-        label: Направления (ID)
-        type: string
-        list: true
-      - &a18
-        name: relatedProjects
-        label: Связанные проекты (ID)
-        type: string
-        list: true
-      - &a19
-        name: relatedPublications
-        label: Связанные публикации (ID)
-        type: string
-        list: true
-      - &a20
-        name: relatedJournal
-        label: Связанные записи дневника (ID)
-        type: string
-        list: true
-      - &a21
-        name: tags
-        label: Теги
-        type: string
-        list: true
-      - &a22
-        name: links
-        label: Внешние ссылки
-        type: object
-        list: true
-        fields:
-          - name: label_ru
-            label: label_ru
-            type: string
-          - name: label_en
-            label: label_en
-            type: string
-          - name: url
-            label: url
-            type: string
-      - &a23
-        name: exampleLinks
-        label: exampleLinks
-        type: object
-        list: true
-        fields:
-          - name: id
-            label: Постоянный ID
-            type: string
-          - name: label_ru
-            label: label_ru
-            type: string
-          - name: label_en
-            label: label_en
-            type: string
-          - name: url_ru
-            label: url_ru
-            type: string
-          - name: url_en
-            label: url_en
-            type: string
-      - &a24
-        name: timeline
-        label: События проекта
-        type: object
-        list: true
-        fields:
-          - name: date
-            label: Дата публикации / события
-            type: date
-            default: ""
-            options:
-              format: yyyy-MM-dd
-          - name: title_ru
-            label: Заголовок · RU
-            type: string
-          - name: title_en
-            label: Title · EN
-            type: string
-      - &a25
-        name: date
-        label: Дата публикации / события
-        type: date
-        default: ""
-        options:
-          format: yyyy-MM-dd
-        description: Только реальная дата события или публикации. Оставить пустым, если
-          неизвестна.
+      - *a1
+      - *a2
+      - *a3
+      - *a4
+      - *a5
+      - *a6
+      - *a7
+      - *a8
+      - *a9
+      - *a10
+      - *a11
+      - *a12
+      - *a13
+      - *a14
+      - *a15
+      - *a16
+      - *a17
+      - *a18
+      - *a19
+      - *a20
+      - *a21
+      - *a22
+      - *a23
+      - *a24
+      - *a25
+      - *a26
+      - *a27
+      - *a28
+      - *a29
       - name: symbol
         label: symbol
         type: string
@@ -1350,6 +653,10 @@ content:
       - *a23
       - *a24
       - *a25
+      - *a26
+      - *a27
+      - *a28
+      - *a29
       - name: status
         label: Статус проекта
         type: select
@@ -1417,6 +724,10 @@ content:
       - *a23
       - *a24
       - *a25
+      - *a26
+      - *a27
+      - *a28
+      - *a29
       - name: type
         label: Тип материала
         type: select
@@ -1498,6 +809,10 @@ content:
       - *a23
       - *a24
       - *a25
+      - *a26
+      - *a27
+      - *a28
+      - *a29
       - name: type
         label: Тип материала
         type: select
@@ -1547,6 +862,10 @@ content:
       - *a23
       - *a24
       - *a25
+      - *a26
+      - *a27
+      - *a28
+      - *a29
   - name: pages
     label: Дополнительные страницы
     type: collection
@@ -1587,6 +906,10 @@ content:
       - *a23
       - *a24
       - *a25
+      - *a26
+      - *a27
+      - *a28
+      - *a29
   - name: graph-overrides
     label: Граф — разрешения и аннотации
     type: collection

@@ -1,0 +1,50 @@
+{
+  "research": {
+    "id": "research",
+    "slug": "research",
+    "title_ru": "Исследования",
+    "title_en": "Research",
+    "summary_ru": "Четыре направления одного исследования: понимание, искусственный интеллект и способы изучения сложных предметов.",
+    "summary_en": "Four connected areas of inquiry into understanding, artificial intelligence and learning difficult subjects.",
+    "body_ru": "",
+    "body_en": "",
+    "materials": [],
+    "links": []
+  },
+  "projects": {
+    "id": "projects",
+    "slug": "projects",
+    "title_ru": "Проекты",
+    "title_en": "Projects",
+    "summary_ru": "Программные инструменты и исследовательские прототипы. На каждой странице — задача, текущее состояние и доступные материалы.",
+    "summary_en": "Software tools and research prototypes. Each page explains the question, current status and available materials.",
+    "body_ru": "",
+    "body_en": "",
+    "materials": [],
+    "links": []
+  },
+  "publications": {
+    "id": "publications",
+    "slug": "publications",
+    "title_ru": "Публикации",
+    "title_en": "Publications",
+    "summary_ru": "Книги, статьи и готовящаяся рукопись. Карточки отмечают, где доступен полный текст, а где — обзор и ссылка на оригинал.",
+    "summary_en": "Books, articles and a forthcoming manuscript. Each entry indicates whether the full text is here or available on an external site.",
+    "body_ru": "",
+    "body_en": "",
+    "materials": [],
+    "links": []
+  },
+  "journal": {
+    "id": "journal",
+    "slug": "journal",
+    "title_ru": "Дневник",
+    "title_en": "Journal",
+    "summary_ru": "Короткие датированные записи о ходе работы, новых материалах и изменениях в проектах.",
+    "summary_en": "Dated notes on work in progress, new materials and changes to projects.",
+    "body_ru": "",
+    "body_en": "",
+    "materials": [],
+    "links": []
+  }
+}

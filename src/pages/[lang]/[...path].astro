@@ -1,28 +1,30 @@
 ---
 import Text from '../../components/Text.astro';
-import Authorship from '../../components/Authorship.astro';
+import {pageMaterials} from '../../lib/page-materials.mjs';
 import Base from '../../layouts/Base.astro';
 import Home from '../../components/Home.astro';
 import Catalog from '../../components/Catalog.astro';
 import Contact from '../../components/Contact.astro';
+import PageMaterials from '../../components/PageMaterials.astro';
 import MediaBody from '../../components/MediaBody.astro';
 import {mediaForPath} from '../../lib/media.mjs';
 import ResearchGraph from '../../components/graph/ResearchGraph';
 import {allContent,routes,site,readJSON,localize as l,pathFor,events,timelineRows} from '../../lib/content.mjs';
-import {markdown} from '../../lib/markdown.mjs';
 import {getPublicGraph,getDemoGraph} from '../../lib/graph.mjs';
 export function getStaticPaths(){return ['ru','en'].flatMap(lang=>routes().map(path=>({params:{lang,path:path||undefined}})))}
 const lang=Astro.params.lang as 'ru'|'en';
 const path=Astro.params.path||'';
 const t=readJSON('src/data/ui.json')[lang],s=site[lang],data=allContent() as Record<string,any[]>;
 const sections=path.split('/'),section=sections[0];
+const sectionContent=readJSON('src/data/sections.json')[path];
+const catalogueRows=sectionContent?(data[section]||[]).filter((row:any)=>!sectionContent.excludedMaterials?.includes(row.id)):[];
 const graph=path==='projects/mathematical-parser/graph',full=path==='publications/theses-2020-2026/full';
 const row=Object.entries(data).flatMap(([collection,rows])=>rows.map(r=>({...r,collection}))).find(r=>pathFor(r.collection,r,lang)===`/${lang}/${path}/`);
 const chapters=data.theses.slice().sort((a,b)=>(a.order||0)-(b.order||0));
 const chaptersComplete=chapters.length>0&&chapters.every(c=>c.editorialStatus==='final'&&l(c,'body','ru').trim()&&l(c,'body','en').trim());
 const readingLabel=chaptersComplete?t.fullText:t.thesisOverview;
-const title=path===''?s.role:graph?t.graph:full?l(data.publications.find(r=>r.id==='theses-2020-2026'),'title',lang)+' — '+readingLabel:row?l(row,'title',lang):section==='about'?s.aboutTitle:t[section];
-const description=row?l(row,'summary',lang):graph?t.graphDescription:t[section+'Description']||s.heroText;
+const title=path===''?s.role:graph?t.graph:full?l(data.publications.find(r=>r.id==='theses-2020-2026'),'title',lang)+' — '+readingLabel:row?l(row,'title',lang):sectionContent?l(sectionContent,'title',lang):section==='about'?s.aboutTitle:t[section];
+const description=row?l(row,'summary',lang):sectionContent?l(sectionContent,'summary',lang):graph?t.graphDescription:t[section+'Description']||s.heroText;
 const thesis=data.publications.find(r=>r.id==='theses-2020-2026');
 const date=(value:string)=>new Intl.DateTimeFormat(lang==='ru'?'ru-RU':'en-GB',{dateStyle:'long',timeZone:'UTC'}).format(new Date(value+'T12:00:00Z'));
 const routeSet=new Set(routes());
@@ -31,18 +33,18 @@ const breadcrumbs=sections.slice(0,-1).map((_,i)=>{
   const item=Object.entries(data).flatMap(([collection,rows])=>rows.map(r=>({...r,collection}))).find(r=>pathFor(r.collection,r,lang)===`/${lang}/${parent}/`);
   return {path:parent,title:item?l(item,'title',lang):t[sections[i]]};
 }).filter(crumb=>routeSet.has(crumb.path)&&crumb.title);
-const related=(name:string)=>data[name].filter(r=>row&&(row[name==='projects'?'relatedProjects':name==='publications'?'relatedPublications':'relatedJournal']?.includes(r.id)||row.collection==='research'&&r.researchAreas.includes(row.id)||row.collection==='projects'&&r.relatedProjects?.includes(row.id)));
+const related=(name:string)=>pageMaterials(row,data).filter(ref=>ref.collection===name);
 ---
 <Base lang={lang} title={title} description={description} path={path} noindex={section==='search'}>
   {path===''?<Home lang={lang} data={data}/>:<>
     <div class:list={['wrap','page-intro',graph&&'graph-intro']}>
       <nav class="breadcrumbs" aria-label={t.back}><a href={`/${lang}/`}><Text record={t} field="home" lang={lang}/></a><span>/</span>{breadcrumbs.map(crumb=><><a href={`/${lang}/${crumb.path}/`}>{crumb.title}</a><span>/</span></>)}<span aria-current="page">{title}</span></nav>
-      <p class="eyebrow">{row?.byline_ru?<Text record={row} field={`byline_${lang}`} lang={lang}/>:row?.type?t[row.type]:graph?t.parserLabel:<Text record={site} field="tagline" lang={lang}/>}</p>
-      <h1>{title}<Authorship record={row||s} field={row?`title_${lang}`:section==='about'?'aboutTitle':''} lang={lang}/></h1>
-      {row?.motto_ru&&<p class="papanda-motto"><strong><Text record={row} field={`motto_${lang}`} lang={lang}/></strong></p>}
+      <p class="eyebrow">{l(row||{},'byline',lang)?<Text record={row} field={`byline_${lang}`} lang={lang}/>:row?.type?t[row.type]:graph?t.parserLabel:<Text record={site} field="tagline" lang={lang}/>}</p>
+      <h1>{title}</h1>
+      {l(row||{},'motto',lang)&&<p class="papanda-motto"><strong><Text record={row} field={`motto_${lang}`} lang={lang}/></strong></p>}
       {row&&<p class="page-description"><Text record={row} field={`summary_${lang}`} lang={lang}/></p>}
       {graph&&<p class="page-description"><Text record={t} field="graphDescription" lang={lang}/></p>}
-      {!row&&!graph&&t[section+'Description']&&<p class="page-description">{t[section+'Description']}</p>}
+      {!row&&!graph&&(sectionContent||t[section+'Description'])&&<p class="page-description">{sectionContent?l(sectionContent,'summary',lang):t[section+'Description']}</p>}
     </div>
     {graph?<div class="wrap graph-page" data-pagefind-ignore><ResearchGraph lang={lang} t={t} publicData={getPublicGraph()} demoData={getDemoGraph()} client:load/><noscript><p><Text record={t} field="nodeList" lang={lang}/>: {t.noApproved}</p></noscript></div>
     :full?<div class="wrap reading-layout">
@@ -51,28 +53,24 @@ const related=(name:string)=>data[name].filter(r=>row&&(row[name==='projects'?'r
     </div>
     :row?<div class="wrap detail-layout">
       <article>
-        {row.heroImage&&<figure><a href={row.heroImage} data-media-viewer><img class="detail-hero-image" src={row.heroImage} alt={l(mediaForPath(row.heroImage)||{},'alt',lang)||title}/></a>{mediaForPath(row.heroImage)&&<figcaption><Text record={mediaForPath(row.heroImage)} field={`caption_${lang}`} lang={lang}/><Authorship record={mediaForPath(row.heroImage)} field={`alt_${lang}`} lang={lang}/></figcaption>}</figure>}
+        {row.heroImage&&<figure><a href={row.heroImage} data-media-viewer><img class="detail-hero-image" src={row.heroImage} alt={l(mediaForPath(row.heroImage)||{},'alt',lang)||title}/></a>{mediaForPath(row.heroImage)&&<figcaption><Text record={mediaForPath(row.heroImage)} field={`caption_${lang}`} lang={lang}/></figcaption>}</figure>}
         {row.editorialStatus==='awaiting_content'&&row.collection!=='theses'&&<p class="editorial-note"><Text record={t} field="editorial" lang={lang}/></p>}
         {row.collection==='theses'&&row.editorialStatus!=='final'&&<p class="notice" data-chapter-overview>{l(row,'body',lang)?t.chapterOverview:t.chapterPending}</p>}
         {row.readingMode&&<p class="reading-mode">{t['reading:'+row.readingMode]}</p>}
         {row.readingMode==='external'&&row.links.length>0&&<div class="publication-actions">{row.links.map((link:any)=><a class="button" href={link.url} rel="noopener noreferrer"><Text record={link} field={`label_${lang}`} lang={lang}/> ↗</a>)}</div>}
-        {l(row,'body',lang)&&<MediaBody record={row} field={`body_${lang}`} text={l(row,'body',lang)} lang={lang}/>}
+        {l(row,'body',lang)&&row.readingMode!=='external'&&<MediaBody record={row} field={`body_${lang}`} text={l(row,'body',lang)} lang={lang}/>}
+        <PageMaterials record={row} data={data} lang={lang}/>
         {row.exampleLinks?.some((link:any)=>link[`url_${lang}`])&&<ul class="example-links">{row.exampleLinks.filter((link:any)=>link[`url_${lang}`]).map((link:any)=><li><a href={link[`url_${lang}`]}><Text record={link} field={`label_${lang}`} lang={lang}/> ↗</a></li>)}</ul>}
         {row.collection==='research'&&<>
-          <section class="detail-section"><h2><Text record={t} field="questions" lang={lang}/></h2><Authorship record={row} field={`questions_${lang}`} lang={lang}/><ul class="question-list">{l(row,'questions',lang).split('\n').filter(Boolean).map((q:string)=><li>{q}</li>)}</ul></section>
+          <section class="detail-section"><h2><Text record={t} field="questions" lang={lang}/></h2><ul class="question-list">{l(row,'questions',lang).split('\n').filter(Boolean).map((q:string)=><li>{q}</li>)}</ul></section>
           <section class="detail-section"><h2><Text record={t} field="openProblems" lang={lang}/></h2><p><Text record={row} field={`openProblems_${lang}`} lang={lang}/></p></section>
         </>}
         {row.id==='mathematical-parser'&&<a class="button" href={`/${lang}/projects/mathematical-parser/graph/`}>{getPublicGraph().nodes.length?t.openGraph:t.demoGraph} ↗</a>}
-        {row.id==='papanda'&&data.pages.some(p=>p.slug==='dialectical-notes')&&<a class="button" href={`/${lang}/projects/papanda/dialectical-notes/`}><Text record={t} field="notes" lang={lang}/> ↗</a>}
         {row.id==='theses-2020-2026'&&<>
           <div class="thesis-toolbar"><a class="button" href={`/${lang}/publications/theses-2020-2026/full/`}>{readingLabel} ↗</a>{row[`pdf_${lang}`]&&<a class="button secondary" href={row[`pdf_${lang}`]}>PDF {lang.toUpperCase()} ↓</a>}</div>
           <section class="detail-section"><h2><Text record={t} field="contents" lang={lang}/></h2><div class="chapter-list">{chapters.map((c:any)=><a href={pathFor('theses',c,lang)}><span class="mono">0{c.order}</span><div><h3><Text record={c} field={`title_${lang}`} lang={lang}/></h3><p><Text record={c} field={`summary_${lang}`} lang={lang}/></p></div><span>↗</span></a>)}</div></section>
         </>}
-        {row.gallery.length>0?<section class="detail-section"><h2><Text record={t} field="gallery" lang={lang}/></h2>{row.gallery.length?<div class="gallery">{row.gallery.map((img:any)=><figure><a href={img.src} data-media-viewer><img loading="lazy" src={img.src} alt={l(mediaForPath(img.src)||{},'alt',lang)||l(img,'alt',lang)}/></a><figcaption>{l(mediaForPath(img.src)||{},'caption',lang)?<Text record={mediaForPath(img.src)} field={`caption_${lang}`} lang={lang}/>:<Text record={img} field={`alt_${lang}`} lang={lang}/>}<Authorship record={mediaForPath(img.src)} field={`alt_${lang}`} lang={lang}/></figcaption></figure>)}</div>:<div class="media-placeholder"><span aria-hidden="true">▧</span><p><Text record={t} field="galleryEmpty" lang={lang}/></p></div>}</section>:null}
-        {['projects','publications','journal'].map(name=>{
-          const items=related(name).filter(r=>r.id!==row.id);
-          return items.length>0?<section class="detail-section"><h2>{t[name==='journal'?'thematicJournal':name==='projects'?'relatedProjects':'relatedPublications']}</h2><div class="related-list">{items.map(item=><a href={pathFor(name,item,lang)}><strong><Text record={item} field={`title_${lang}`} lang={lang}/></strong><span>↗</span></a>)}</div></section>:null;
-        })}
+        {row.gallery.length>0?<section class="detail-section"><h2><Text record={t} field="gallery" lang={lang}/></h2>{row.gallery.length?<div class="gallery">{row.gallery.map((img:any)=><figure><a href={img.src} data-media-viewer><img loading="lazy" src={img.src} alt={l(img,'alt',lang)||l(mediaForPath(img.src)||{},'alt',lang)}/></a><figcaption>{l(mediaForPath(img.src)||{},'caption',lang)?<Text record={mediaForPath(img.src)} field={`caption_${lang}`} lang={lang}/>:<Text record={img} field={`alt_${lang}`} lang={lang}/>}</figcaption></figure>)}</div>:<div class="media-placeholder"><span aria-hidden="true">▧</span><p><Text record={t} field="galleryEmpty" lang={lang}/></p></div>}</section>:null}
         {row.collection==='research'&&<section class="detail-section">{related('journal').length===0&&<><h2><Text record={t} field="thematicJournal" lang={lang}/></h2><p class="muted"><Text record={s} field="journalEmpty" lang={lang}/></p></>}<a class="text-link" href={`/${lang}/research/${row.slug}/rss.xml`}><Text record={t} field="rss" lang={lang}/> ↗</a></section>}
         {(row.timeline.length>0||row.collection==='research')&&<section class="detail-section"><h2><Text record={t} field="timeline" lang={lang}/></h2>{events(data).filter(e=>row.collection==='research'?e.row.researchAreas.includes(row.id):e.row.id===row.id).length?events(data).filter(e=>row.collection==='research'?e.row.researchAreas.includes(row.id):e.row.id===row.id).map(e=><p><time datetime={e.date}>{date(e.date)}</time> — <Text record={e} field={`title_${lang}`} lang={lang}/></p>):<p class="muted"><Text record={t} field="noRelated" lang={lang}/></p>}</section>}
       </article>
@@ -84,21 +82,21 @@ const related=(name:string)=>data[name].filter(r=>row&&(row[name==='projects'?'r
         {row.links.length>0&&row.readingMode!=='external'&&<div class="external-links">{row.links.map((link:any)=><a class="button secondary" href={link.url} rel="noopener noreferrer"><Text record={link} field={`label_${lang}`} lang={lang}/> ↗</a>)}</div>}
         {row.license&&<div><span class="eyebrow"><Text record={t} field="originalLicense" lang={lang}/></span><p><Text record={row} field="license" lang={lang}/></p></div>}
         {row.collection==='theses'&&<a href={`/${lang}/publications/theses-2020-2026/full/#chapter-${row.id}`}>{readingLabel} ↗</a>}
-        <div class="tag-list">{row.tags.map((tag:string,index:number)=><span>{t['tag:'+tag]||tag}<Authorship record={row} field={`tags[${index}]`} lang={lang}/></span>)}</div>
+        <div class="tag-list">{row.tags.map((tag:string)=><span>{t['tag:'+tag]||tag}</span>)}</div>
       </aside>
     </div>
-    :section==='research'?<section class="wrap section"><div class="research-grid">{data.research.map((r:any,i:number)=><a class="research-tile" href={pathFor('research',r,lang)}><div class="research-tile-top"><span class="research-symbol">{r.symbol}</span><span class="mono">0{i+1}</span></div><h2><Text record={r} field={`title_${lang}`} lang={lang}/></h2><p><Text record={r} field={`summary_${lang}`} lang={lang}/></p><span class="tile-arrow">↗</span></a>)}</div><p class="method-note"><Text record={s} field="heroNote" lang={lang}/></p></section>
-    :['projects','publications','journal'].includes(section)?<div class="wrap catalog-section">{section==='journal'&&<div class="journal-heading">{!data.journal.length&&<p><Text record={s} field="journalEmpty" lang={lang}/></p>}<a href={`/${lang}/rss.xml`}><Text record={t} field="rss" lang={lang}/> ↗</a></div>}<Catalog rows={section==='journal'?data.journal.slice().sort((a,b)=>b.date.localeCompare(a.date)):data[section]} collection={section} lang={lang} research={data.research}/></div>
-    :section==='about'?<div class="wrap about-layout"><div><div class="prose"><Authorship record={s} field="aboutBody" lang={lang}/><div set:html={await markdown(s.aboutBody)}/></div><section id="contact" class="detail-section"><h2><Text record={s} field="contactTitle" lang={lang}/></h2><p><Text record={s} field="contactText" lang={lang}/></p><Contact lang={lang}/></section></div><aside class="about-portrait">{site.portrait?<img src={site.portrait} alt={site.name}/>:<div class="monogram large">rn<span>·</span></div>}<span class="mono"><Text record={site} field="name" lang={lang}/></span>{!site.portrait&&<p class="small muted"><Text record={t} field="portrait" lang={lang}/></p>}</aside></div>
-    :section==='timeline'?<div class="wrap timeline-page"><div class="history-block"><span class="mono">2020 — 2025</span><div><h2><Text record={t} field="history" lang={lang}/></h2><p><Text record={s} field="history" lang={lang}/></p></div></div><h2>2026 —</h2><Catalog rows={timelineRows(data)} collection="timeline" lang={lang} research={data.research}/>{thesis?.targetDate&&<section class="planned-block"><span class="eyebrow"><Text record={t} field="upcoming" lang={lang}/></span><h2>{date(thesis.targetDate)} · <Text record={thesis} field={`title_${lang}`} lang={lang}/></h2><p><Text record={t} field="upcomingNote" lang={lang}/></p><a href={`/${lang}/publications/theses-2020-2026/`}><Text record={t} field="read" lang={lang}/> ↗</a></section>}</div>
-    :section==='search'?<section class="wrap search-page" data-pagefind-ignore><p><Text record={t} field="searchHint" lang={lang}/></p><div id="search" data-language={lang} data-unavailable={t.searchUnavailable}><p role="status"><Text record={t} field="searchLoading" lang={lang}/></p></div><link rel="stylesheet" href="/pagefind/pagefind-ui.css"/><script>
+    :section==='research'?<section class="wrap section">{l(sectionContent,'body',lang)&&<MediaBody record={sectionContent} field={`body_${lang}`} text={l(sectionContent,'body',lang)} lang={lang}/>}<PageMaterials record={sectionContent} data={data} lang={lang} catalogue={section}/>{sectionContent.links?.map((link:any)=><p><a href={link.url}>{l(link,'label',lang)} ↗</a></p>)}<div class="research-grid">{catalogueRows.map((r:any,i:number)=><a class="research-tile" href={pathFor('research',r,lang)}><div class="research-tile-top"><span class="research-symbol">{r.symbol}</span><span class="mono">0{i+1}</span></div><h2><Text record={r} field={`title_${lang}`} lang={lang}/></h2><p><Text record={r} field={`summary_${lang}`} lang={lang}/></p><span class="tile-arrow">↗</span></a>)}</div><p class="method-note"><Text record={s} field="heroNote" lang={lang}/></p></section>
+    :['projects','publications','journal'].includes(section)?<div class="wrap catalog-section">{sectionContent&&<>{l(sectionContent,'body',lang)&&<MediaBody record={sectionContent} field={`body_${lang}`} text={l(sectionContent,'body',lang)} lang={lang}/>}<PageMaterials record={sectionContent} data={data} lang={lang} catalogue={section}/>{sectionContent.links?.map((link:any)=><p><a href={link.url}>{l(link,'label',lang)} ↗</a></p>)}</>}{section==='journal'&&<div class="journal-heading">{!data.journal.length&&<p><Text record={s} field="journalEmpty" lang={lang}/></p>}<a href={`/${lang}/rss.xml`}><Text record={t} field="rss" lang={lang}/> ↗</a></div>}<Catalog rows={section==='journal'?catalogueRows.slice().sort((a,b)=>(b.date||'').localeCompare(a.date||'')):catalogueRows} collection={section} lang={lang} research={data.research}/></div>
+    :section==='about'?<div class="wrap about-layout"><div><div class="prose"><MediaBody record={s} field="aboutBody" text={s.aboutBody} lang={lang} prose={false}/></div><section id="contact" class="detail-section"><h2><Text record={s} field="contactTitle" lang={lang}/></h2><p><Text record={s} field="contactText" lang={lang}/></p><Contact lang={lang}/></section></div><aside class="about-portrait">{site.portrait?<img src={site.portrait} alt={site.name}/>:<div class="monogram large">{site.monogram}<span>·</span></div>}<span class="mono"><Text record={site} field="name" lang={lang}/></span>{!site.portrait&&<p class="small muted"><Text record={t} field="portrait" lang={lang}/></p>}</aside></div>
+    :section==='timeline'?<div class="wrap timeline-page"><div class="history-block"><span class="mono">{t.historicalRange}</span><div><h2><Text record={t} field="history" lang={lang}/></h2><p><Text record={s} field="history" lang={lang}/></p></div></div><h2>{t.currentRange}</h2><Catalog rows={timelineRows(data)} collection="timeline" lang={lang} research={data.research}/>{thesis?.targetDate&&<section class="planned-block"><span class="eyebrow"><Text record={t} field="upcoming" lang={lang}/></span><h2>{date(thesis.targetDate)} · <Text record={thesis} field={`title_${lang}`} lang={lang}/></h2><p><Text record={t} field="upcomingNote" lang={lang}/></p><a href={`/${lang}/publications/theses-2020-2026/`}><Text record={t} field="read" lang={lang}/> ↗</a></section>}</div>
+    :section==='search'?<section class="wrap search-page" data-pagefind-ignore><p><Text record={t} field="searchHint" lang={lang}/></p><div id="search" data-language={lang} data-unavailable={t.searchUnavailable} data-translations={JSON.stringify({placeholder:t.searchPlaceholder,zero_results:t.searchZero,searching:t.searchSearching,clear_search:t.searchClear,load_more:t.searchMore,search_label:t.searchLabel,many_results:t.searchMany,one_result:t.searchOne})}><p role="status"><Text record={t} field="searchLoading" lang={lang}/></p></div><link rel="stylesheet" href="/pagefind/pagefind-ui.css"/><script>
       const container=document.querySelector<HTMLElement>('#search');
       if(container){
         const script=document.createElement('script');script.src='/pagefind/pagefind-ui.js';
-        script.onload=()=>{container.innerHTML='';const Constructor=(window as any).PagefindUI;new Constructor({element:'#search',showSubResults:true,showImages:false,pageSize:8,bundlePath:'/pagefind/',translations:container.dataset.language==='ru'?{placeholder:'Поиск по сайту',zero_results:'Ничего не найдено для [SEARCH_TERM]',searching:'Поиск…',clear_search:'Очистить',load_more:'Показать ещё',search_label:'Поиск',many_results:'Найдено: [COUNT]',one_result:'Найдено: 1'}:{}})};
+        script.onload=()=>{container.innerHTML='';const Constructor=(window as any).PagefindUI;new Constructor({element:'#search',showSubResults:true,showImages:false,pageSize:8,bundlePath:'/pagefind/',translations:JSON.parse(container.dataset.translations!)})};
         script.onerror=()=>{container.textContent=container.dataset.unavailable!};document.head.append(script);
       }
     </script></section>
-    :section==='legal'||section==='privacy'?<section class="wrap prose legal-page"><p><Text record={s} field={section==='legal'?'rights':'privacy'} lang={lang}/></p>{section==='legal'?<><p><Text record={t} field="codeLicense" lang={lang}/></p><a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 ↗</a></>:<p>{site.cloudflareToken?t.analyticsOn:t.analyticsOff}</p>}</section>:null}
+    :section==='legal'||section==='privacy'?<section class="wrap prose legal-page"><p><Text record={s} field={section==='legal'?'rights':'privacy'} lang={lang}/></p>{section==='legal'?<><p><Text record={t} field="codeLicense" lang={lang}/></p><a href={site.textLicenseUrl}>{t.textLicenseLink} ↗</a></>:<p>{site.cloudflareToken?t.analyticsOn:t.analyticsOff}</p>}</section>:null}
   </>}
 </Base>

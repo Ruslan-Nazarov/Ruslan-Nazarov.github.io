@@ -1,15 +1,16 @@
 ---
+import {materialHref} from '../lib/page-materials.mjs';
 import Text from './Text.astro';
-import Authorship from './Authorship.astro';
 import {site,readJSON} from '../lib/content.mjs';
 import Card from './Card.astro';
-import {markdown} from '../lib/markdown.mjs';
+import MediaBody from './MediaBody.astro';
+import {homeSections,homeContent} from '../lib/home-layout.mjs';
 const {lang,data}=Astro.props;
 const t=readJSON('src/data/ui.json')[lang],s=site[lang];
-const publications=data.publications.filter((r:any)=>r.featured&&['external_publication','final'].includes(r.editorialStatus));
-const featuredProject=data.projects.find((r:any)=>r.id==='papanda');
+const content=homeContent(data,site),publications=content.publications,featuredProject=content.featured[0];
 ---
-<section class="hero wrap">
+{homeSections.map(block=><>
+{block.id==='hero'&&<section id="home-hero" data-home-section="hero" class="hero wrap">
   <div class="hero-content">
     <p class="eyebrow"><span class="status-dot"></span> <Text record={s} field="heroEyebrow" lang={lang}/></p>
     <h1><Text record={s} field="heroTitle" lang={lang}/></h1>
@@ -18,30 +19,31 @@ const featuredProject=data.projects.find((r:any)=>r.id==='papanda');
     <p class="hero-method"><Text record={s} field="heroNote" lang={lang}/></p>
   </div>
   <div class="research-notebook">
-    <div class="notebook-top"><span class="mono"><Text record={t} field="notebook" lang={lang}/></span><span>01 — 04</span></div>
-    <div class="portrait-block">{site.portrait?<img src={site.portrait} alt={site.name}/>:<div class="monogram" aria-label={t.portrait}>rn<span>·</span></div>}<p><Text record={site} field="name" lang={lang}/><small><Text record={s} field="role" lang={lang}/></small></p></div>
+    <div class="notebook-top"><span class="mono"><Text record={t} field="notebook" lang={lang}/></span><span>01 — {String(data.research.length).padStart(2,'0')}</span></div>
+    <div class="portrait-block">{site.portrait?<img src={site.portrait} alt={site.name}/>:<div class="monogram" aria-label={t.portrait}>{site.monogram}<span>·</span></div>}<p><Text record={site} field="name" lang={lang}/><small><Text record={s} field="role" lang={lang}/></small></p></div>
     <div class="notebook-map">{data.research.map((r:any,i:number)=><a href={`/${lang}/research/${r.slug}/`}><span class="map-symbol">{r.symbol}</span><span><Text record={r} field={`title_${lang}`} lang={lang}/></span><small class="mono">0{i+1}</small></a>)}</div>
     <div class="notebook-bottom"><span class="status-dot"></span><Text record={site} field="tagline" lang={lang}/></div>
   </div>
-</section>
-<section class="section wrap">
-  <div class="section-heading"><div><p class="eyebrow">01 / {t.research}</p><h2><Text record={s} field="intro" lang={lang}/></h2></div><a class="text-link" href={`/${lang}/research/`}><Text record={t} field="research" lang={lang}/> ↗</a></div>
-  <div class="prose home-narrative"><Authorship record={s} field="researchBody" lang={lang}/><div set:html={await markdown(s.researchBody)}/></div>
-  <div class="research-grid">{data.research.map((r:any,i:number)=><a class="research-tile" href={`/${lang}/research/${r.slug}/`}><div class="research-tile-top"><span class="research-symbol">{r.symbol}</span><small class="mono">0{i+1}</small></div><h3><Text record={r} field={`title_${lang}`} lang={lang}/></h3><p><Text record={r} field={`summary_${lang}`} lang={lang}/></p><span class="tile-arrow" aria-hidden="true">↗</span></a>)}</div>
-</section>
-<section class="section section-tint"><div class="wrap">
-  <div class="section-heading"><div><p class="eyebrow">02 / {t.projects}</p><h2><Text record={s} field="featured" lang={lang}/></h2></div></div>
-  <div class="prose home-narrative"><Authorship record={s} field="featuredBody" lang={lang}/><div set:html={await markdown(s.featuredBody)}/></div>
-  {featuredProject&&<a class="button" href={`/${lang}/projects/papanda/`}><Text record={t} field="read" lang={lang}/> ↗</a>}
-  {featuredProject?.links.map((link:any)=><a class="button secondary" href={link.url} rel="noopener noreferrer"><Text record={link} field={`label_${lang}`} lang={lang}/> ↗</a>)}
-</div></section>
-<section class="section wrap">
-  <div class="section-heading"><div><p class="eyebrow">03 / {t.publications}</p><h2><Text record={s} field="publications" lang={lang}/></h2></div><a class="text-link" href={`/${lang}/publications/`}><Text record={t} field="allPublications" lang={lang}/> ↗</a></div>
-  <div class="prose home-narrative"><Authorship record={s} field="publicationsBody" lang={lang}/><div set:html={await markdown(s.publicationsBody)}/></div>
-  {publications.length>0&&<div class="publication-list">{publications.map((r:any,i:number)=><a href={`/${lang}/publications/${r.slug}/`} class="publication-row"><span class="publication-index mono">0{i+1}</span><div><span class="eyebrow">{t[r.type]}</span><h3><Text record={r} field={`title_${lang}`} lang={lang}/></h3><p><Text record={r} field={`summary_${lang}`} lang={lang}/></p></div><span class="row-arrow">↗</span></a>)}</div>}
-</section>
-{data.journal.length>0&&<section class="section wrap journal-section">
-  <div class="section-heading"><div><p class="eyebrow">04 / {t.journal}</p><h2><Text record={s} field="journal" lang={lang}/></h2></div><a class="text-link" href={`/${lang}/journal/`}><Text record={t} field="allJournal" lang={lang}/> ↗</a></div>
-  <div class="card-grid">{data.journal.slice().sort((a:any,b:any)=>b.date.localeCompare(a.date)).slice(0,3).map((row:any,index:number)=><Card row={row} collection="journal" lang={lang} index={index}/>)}</div>
 </section>}
-<section class="wrap"><div class="collaboration-block"><span class="eyebrow"><Text record={t} field="contact" lang={lang}/></span><h2><Text record={s} field="collaborationTitle" lang={lang}/></h2><p><Text record={s} field="collaborationText" lang={lang}/></p><a class="button" href={`/${lang}/about/#contact`}><Text record={t} field="contact" lang={lang}/> ↗</a></div></section>
+{block.id==='research'&&<section id="home-research" data-home-section="research" class="section wrap">
+  <div class="section-heading"><div><p class="eyebrow">{block.number} / {t.research}</p><h2><Text record={s} field="intro" lang={lang}/></h2></div><a class="text-link" href={`/${lang}/research/`}><Text record={t} field="research" lang={lang}/> ↗</a></div>
+  <div class="prose home-narrative"><MediaBody record={s} field="researchBody" text={s.researchBody} lang={lang} prose={false} showContents={false} headingPrefix="home-research-"/></div>
+  <div class="research-grid">{data.research.map((r:any,i:number)=><a class="research-tile" href={`/${lang}/research/${r.slug}/`}><div class="research-tile-top"><span class="research-symbol">{r.symbol}</span><small class="mono">0{i+1}</small></div><h3><Text record={r} field={`title_${lang}`} lang={lang}/></h3><p><Text record={r} field={`summary_${lang}`} lang={lang}/></p><span class="tile-arrow" aria-hidden="true">↗</span></a>)}</div>
+</section>}
+{block.id==='featured'&&<section id="home-featured" data-home-section="featured" class="section section-tint"><div class="wrap">
+  <div class="section-heading"><div><p class="eyebrow">{block.number} / {t.projects}</p><h2><Text record={s} field="featured" lang={lang}/></h2></div></div>
+  <div class="prose home-narrative"><MediaBody record={s} field="featuredBody" text={s.featuredBody} lang={lang} prose={false} showContents={false} headingPrefix="home-featured-"/></div>
+  {featuredProject&&<a class="button" href={`/${lang}/projects/${featuredProject.slug}/`}><Text record={t} field="read" lang={lang}/> ↗</a>}
+  {featuredProject?.links.map((link:any)=><a class="button secondary" href={link.url} rel="noopener noreferrer"><Text record={link} field={`label_${lang}`} lang={lang}/> ↗</a>)}
+</div></section>}
+{block.id==='publications'&&<section id="home-publications" data-home-section="publications" class="section wrap">
+  <div class="section-heading"><div><p class="eyebrow">{block.number} / {t.publications}</p><h2><Text record={s} field="publications" lang={lang}/></h2></div><a class="text-link" href={`/${lang}/publications/`}><Text record={t} field="allPublications" lang={lang}/> ↗</a></div>
+  <div class="prose home-narrative"><MediaBody record={s} field="publicationsBody" text={s.publicationsBody} lang={lang} prose={false} showContents={false} headingPrefix="home-publications-"/></div>
+  {publications.length>0&&<div class="publication-list">{publications.map((r:any,i:number)=><a href={materialHref('publications',r,lang)} class="publication-row"><span class="publication-index mono">0{i+1}</span><div><span class="eyebrow">{t[r.type]}</span><h3><Text record={r} field={`title_${lang}`} lang={lang}/></h3><p><Text record={r} field={`summary_${lang}`} lang={lang}/></p></div><span class="row-arrow">↗</span></a>)}</div>}
+</section>}
+{block.id==='journal'&&content.journal.length>0&&<section id="home-journal" data-home-section="journal" class="section wrap journal-section">
+  <div class="section-heading"><div><p class="eyebrow">{block.number} / {t.journal}</p><h2><Text record={s} field="journal" lang={lang}/></h2></div><a class="text-link" href={`/${lang}/journal/`}><Text record={t} field="allJournal" lang={lang}/> ↗</a></div>
+  <div class="card-grid">{content.journal.map((row:any,index:number)=><Card row={row} collection="journal" lang={lang} index={index}/>)}</div>
+</section>}
+{block.id==='collaboration'&&<section id="home-collaboration" data-home-section="collaboration" class="wrap"><div class="collaboration-block"><span class="eyebrow"><Text record={t} field="contact" lang={lang}/></span><h2><Text record={s} field="collaborationTitle" lang={lang}/></h2><p><Text record={s} field="collaborationText" lang={lang}/></p><a class="button" href={`/${lang}/about/#contact`}><Text record={t} field="contact" lang={lang}/> ↗</a></div></section>}
+</>)}

@@ -13,9 +13,15 @@
     "test:browser": "playwright test",
     "test:features": "node scripts/test-feature-fixtures.mjs",
     "test:media": "node scripts/test-media-fixtures.mjs",
+    "test:photo": "node scripts/test-photo-tools.mjs",
     "content:release": "node scripts/release-content.mjs",
     "graph:import": "node scripts/import-graph.mjs",
-    "editor": "node scripts/local-editor.mjs"
+    "editor": "node scripts/local-editor.mjs",
+    "test:editor": "node scripts/test-content-editor.mjs",
+    "test:rich-text": "node scripts/test-rich-text.mjs",
+    "test:editor-pages": "node scripts/test-content-editor.mjs",
+    "test:interface": "node scripts/test-interface-regressions.mjs",
+    "test:translation": "node scripts/test-editor-translation.mjs"
   },
   "dependencies": {
     "@astrojs/react": "^7.1.0",

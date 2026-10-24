@@ -1,0 +1,10 @@
+---
+import {localize} from '../lib/content.mjs';
+import {pageMaterials,materialHref} from '../lib/page-materials.mjs';
+const {record,data,lang}=Astro.props;
+const materials=pageMaterials(record,data,{catalogue:Astro.props.catalogue}).filter((ref:any)=>!Astro.props.catalogue||ref.collection!==Astro.props.catalogue).map((ref:any)=>{
+  const row=data[ref.collection]?.find((item:any)=>item.id===ref.id);
+  return row?{row,collection:ref.collection}:null;
+}).filter(Boolean);
+---
+{materials.length>0&&<div class="related-list page-materials">{materials.map(({row,collection}:any)=><a href={materialHref(collection,row,lang)}><strong>{localize(row,'title',lang)}</strong><span>↗</span></a>)}</div>}

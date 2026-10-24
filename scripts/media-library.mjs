@@ -118,7 +118,7 @@ export function mediaUsage(root,asset){
   };
   const walk=dir=>{if(existsSync(dir))for(const ent of readdirSync(dir,{withFileTypes:true})){if(ent.isSymbolicLink())continue;const file=resolve(dir,ent.name);if(ent.isDirectory())walk(file);else if(ent.name.endsWith('.json'))scan(file)}};
   walk(resolve(root,'src/content'));
-  for(const file of ['site','published'])if(existsSync(resolve(root,`src/data/${file}.json`)))scan(resolve(root,`src/data/${file}.json`));
+  for(const file of ['site','sections','published'])if(existsSync(resolve(root,`src/data/${file}.json`)))scan(resolve(root,`src/data/${file}.json`));
   // Retain code-owned assets (e.g. social card) used outside editorial JSON.
   const codeWalk=dir=>{for(const ent of readdirSync(dir,{withFileTypes:true})){if(ent.isSymbolicLink())continue;const file=resolve(dir,ent.name);if(ent.isDirectory())codeWalk(file);else if(/\.(astro|css|mjs|tsx)$/.test(file))scan(file)}};
   codeWalk(resolve(root,'src'));

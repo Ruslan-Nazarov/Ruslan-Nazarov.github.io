@@ -1,0 +1,72 @@
+// Isolated UI test; AI is mocked and real credentials are explicitly disabled.
+import {cpSync,mkdirSync,mkdtempSync,readFileSync,writeFileSync} from 'node:fs';
+import {resolve} from 'node:path';
+import {spawn} from 'node:child_process';
+import http from 'node:http';
+import assert from 'node:assert/strict';
+import sharp from 'sharp';
+import {chromium} from '@playwright/test';
+const root=process.cwd();mkdirSync('.local/photo-fixtures',{recursive:true});const dir=mkdtempSync(resolve('.local/photo-fixtures/run-'));
+for(const path of ['src','public','scripts','.pages.yml','package.json'])cpSync(resolve(root,path),resolve(dir,path),{recursive:true});
+const probe=http.createServer();await new Promise(r=>probe.listen(0,'127.0.0.1',r));const port=probe.address().port;await new Promise(r=>probe.close(r));
+const editor=spawn(process.execPath,['scripts/local-editor.mjs'],{cwd:dir,windowsHide:true,env:{...process.env,EDITOR_PORT:String(port),MEDIA_AI_DISABLED:'1'}});
+let logs='';editor.stdout.on('data',x=>logs+=x);editor.stderr.on('data',x=>logs+=x);
+const base=`http://127.0.0.1:${port}`;let browser;
+const read=path=>JSON.parse(readFileSync(resolve(dir,path),'utf8'));
+try{
+  for(let i=0;i<80;i++){try{if((await fetch(base)).ok)break}catch{}await new Promise(r=>setTimeout(r,100));if(i===79)throw new Error('Editor not ready: '+logs)}
+  browser=await chromium.launch();const page=await browser.newPage({viewport:{width:1280,height:900}}),errors=[];page.on('pageerror',e=>errors.push(e.message));
+  const metadata={title:'ИИ: тестовое фото',alt_ru:'Цветной прямоугольник',alt_en:'A coloured rectangle',caption_ru:'Тестовая иллюстрация',caption_en:'Test illustration',tags:['test','photo']};
+  let aiRequests=[],failAI=false;
+  await page.route('**/api/media/describe',async route=>{
+    aiRequests.push(route.request().postDataJSON());
+    return failAI?route.fulfill({status:400,json:{error:'Тестовая ошибка подключения'}}):route.fulfill({json:{metadata,provider:'OpenAI',model:'test'}});
+  });
+  await page.goto(base);await page.locator('#media-open').click();await page.locator('#media-new').click();
+  const original=await sharp({create:{width:160,height:100,channels:3,background:'#bd774d'}}).png().toBuffer();
+  const form=page.locator('#media-edit form');await form.locator('[name=file]').setInputFiles({name:'tools-fixture.png',mimeType:'image/png',buffer:original});
+  await form.locator('[name=title]').fill('Моё название');
+  await form.getByRole('button',{name:'ИИ · заполнить поля',exact:true}).click();await form.locator('.media-ai-status').filter({hasText:'Поля заполнены'}).waitFor();
+  assert.equal(await form.locator('[name=title]').inputValue(),metadata.title);assert.equal(await form.locator('[data-authorship-field]').count(),0);
+  assert.equal(await form.locator('[data-authorship-field=title],[data-authorship-field=tags]').count(),0);
+  await form.getByRole('button',{name:'Отменить заполнение ИИ',exact:true}).click();assert.equal(await form.locator('[name=title]').inputValue(),'Моё название');
+  assert.equal(await form.evaluate(form=>form.authorship._authorship.caption_en),undefined);
+  await form.getByRole('button',{name:'Заполнить ИИ: alt_ru',exact:true}).click();await form.locator('.media-ai-status').filter({hasText:'Поля заполнены'}).waitFor();
+  assert.equal(await form.locator('[name=title]').inputValue(),'Моё название');assert.equal(await form.locator('[name=alt_ru]').inputValue(),metadata.alt_ru);
+  failAI=true;await form.getByRole('button',{name:'ИИ · заполнить поля',exact:true}).click();await form.locator('.media-ai-status').filter({hasText:'Тестовая ошибка'}).waitFor();assert.equal(await form.locator('[name=title]').inputValue(),'Моё название');failAI=false;
+  await form.getByRole('button',{name:'Обрезать / изменить фото',exact:true}).click();await page.locator('#photo-status').filter({hasText:'Выберите область'}).waitFor();
+  await page.locator('#photo-right').click();await page.locator('#photo-width').fill('50');await page.locator('#photo-width').press('Tab');
+  assert.equal(await page.locator('#photo-dimensions').innerText(),'Результат: 50 × 160 px');
+  await page.screenshot({path:resolve(dir,'photo-editor-desktop.png')});
+  await page.locator('#photo-copy').click();await page.locator('#photo-editor').waitFor({state:'hidden'});
+  await form.getByRole('button',{name:'ИИ · заполнить поля',exact:true}).click();await form.locator('.media-ai-status').filter({hasText:'Поля заполнены'}).waitFor();
+  const aiImage=await sharp(Buffer.from(aiRequests.at(-1).base64,'base64')).metadata();assert.equal(aiImage.width,50);assert.equal(aiImage.height,160);
+  await page.getByRole('button',{name:'Загрузить и сохранить локально',exact:true}).click();await page.locator('#media-status').filter({hasText:'Изображение сохранено локально'}).waitFor();
+  const item=read('src/data/media.json').items.find(x=>x.title===metadata.title),path=resolve(dir,'public'+item.path),savedBytes=readFileSync(path);assert.ok(item);assert.equal(item._authorship.caption_ru,'ai');
+  assert.equal(item._authorship.title,undefined);assert.equal(item._authorship.tags,undefined);
+  assert.equal((await sharp(savedBytes).metadata()).width,50);
+  await form.locator('[name=caption_ru]').fill('Подпись изменена перед обрезкой');
+  await page.getByRole('button',{name:'Обрезать / изменить фото',exact:true}).click();await page.locator('#photo-status').filter({hasText:'Выберите область'}).waitFor();
+  await page.locator('#photo-height').fill('50');await page.locator('#photo-height').press('Tab');await page.locator('#photo-replace').click();await page.locator('#photo-editor').waitFor({state:'hidden'});
+  assert.equal((await sharp(readFileSync(path)).metadata()).height,80);
+  assert.equal(await form.locator('[name=caption_ru]').inputValue(),'Подпись изменена перед обрезкой');
+  await page.getByRole('button',{name:'Сохранить метаданные',exact:true}).click();await page.locator('#media-status').filter({hasText:'Метаданные сохранены'}).waitFor();
+  assert.equal(read('src/data/media.json').items.find(x=>x.id===item.id).caption_ru,'Подпись изменена перед обрезкой');
+  await page.getByRole('button',{name:'Обрезать / изменить фото',exact:true}).click();await page.locator('#photo-status').filter({hasText:'Выберите область'}).waitFor();
+  await page.locator('#photo-restore').click();await page.locator('#photo-editor').waitFor({state:'hidden'});assert.ok(readFileSync(path).equals(savedBytes));
+  await page.setViewportSize({width:390,height:844});await page.getByRole('button',{name:'Обрезать / изменить фото',exact:true}).click();await page.locator('#photo-status').filter({hasText:'Выберите область'}).waitFor();
+  const stage=await page.locator('#photo-stage').boundingBox();await page.mouse.move(stage.x+stage.width*.2,stage.y+stage.height*.2);await page.mouse.down();await page.mouse.move(stage.x+stage.width*.8,stage.y+stage.height*.8,{steps:5});await page.mouse.up();
+  assert.ok(Number(await page.locator('#photo-width').inputValue())<65);assert.ok(Number(await page.locator('#photo-width').inputValue())>55);
+  assert.ok(await page.locator('#photo-editor').evaluate(node=>node.scrollWidth<=node.clientWidth+1));
+  await page.screenshot({path:resolve(dir,'photo-editor-mobile.png')});
+  await page.locator('#photo-copy').click();await page.locator('#photo-editor').waitFor({state:'hidden'});assert.ok(readFileSync(path).equals(savedBytes));
+  assert.equal(read('src/data/media.json').items.filter(x=>x.title.startsWith(metadata.title)).length,2);
+  await page.screenshot({path:resolve(dir,'media-ai-mobile.png')});
+  // The API itself must reject unauthorized requests, independently of browser mocks.
+  assert.equal((await fetch(base+'/api/media/edit',{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'})).status,403);
+  assert.equal((await fetch(base+'/.local/media-ai.json')).status,404);
+  assert.equal((await (await fetch(base+'/api/media/ai-status')).json()).configured,false);
+  assert.deepEqual(errors,[]);
+  console.log('Photo UI passed: AI all/one field, authorship, undo/errors, crop before upload, rotated dimensions, replacement, exact restore, pointer crop, mobile layout, copy, CSRF. No external AI calls.');
+  console.log('Screenshots: '+dir);
+}finally{await browser?.close();editor.kill();writeFileSync(resolve(dir,'editor.log'),logs)}

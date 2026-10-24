@@ -9,13 +9,15 @@ const objectList=(name,fields)=>f(name,'object',{list:true,fields});
 const common=[
   f('id','string',{required:true,pattern:'^[a-z0-9]+(?:-[a-z0-9]+)*$',description:'Постоянный ID. Не менять после первого выпуска.'}),
   f('slug','string',{required:true,pattern:'^[a-z0-9]+(?:-[a-z0-9]+)*$'}),
+  f('showInMenu','boolean',{label:'Добавить страницу в меню'}),
+  objectList('materials',[f('collection'),f('id')]),list('excludedMaterials'),objectList('hiddenMaterials',[f('collection'),f('id')]),
   f('publish','boolean',{default:false,label:'Показывать на сайте',description:'Публично только при готовности обоих языков. Черновики видны в исходном GitHub, но не на сайте.'}),
   f('ready_ru','boolean',{default:false,label:'Русская версия готова'}),
   f('ready_en','boolean',{default:false,label:'English version ready'}),
   ...bilingual('title','string'),...bilingual('summary'),...bilingual('body','rich-text'),
   f('editorialStatus','select',{options:{values:['awaiting_content','editorial_summary','final','external_publication']},default:'awaiting_content'}),
   f('featured','boolean'),f('order','number',{default:100,label:'Порядок отображения'}),f('heroImage','image',{options:{media:'library'}}),
-  objectList('gallery',[f('src','image',{options:{media:'library'}}),...bilingual('alt','string')]),
+  objectList('gallery',[f('src','image',{options:{media:'library'}}),...bilingual('alt','string').map(field=>({...field,label:'Описание изображения · '+field.name.slice(-2).toUpperCase(),description:'Описание для этого места в галерее. Подпись под изображением берётся из медиабиблиотеки, если заполнена.'}))]),
   list('researchAreas'),list('relatedProjects'),list('relatedPublications'),list('relatedJournal'),list('tags'),
   objectList('links',[...bilingual('label','string'),f('url')]),
   objectList('exampleLinks',[f('id'),...bilingual('label','string'),...bilingual('url','string')]),
@@ -36,9 +38,10 @@ const config={
   content:[
     {name:'site',label:'Главная / About / настройки',type:'file',path:'src/data/site.json',format:'json',fields:[
       f('name'),f('tagline'),f('portrait','image'),f('email'),f('formEndpoint'),f('cloudflareToken'),
-      objectList('profiles',[f('label'),f('url')]),...['ru','en'].map(l=>f(l,'object',{fields:Object.keys(site[l]).map(k=>f(k,k.endsWith('Body')?'rich-text':'text'))}))
+      f('monogram','string',{label:'Монограмма автора'}),f('favicon','image',{label:'Значок вкладки сайта'}),f('socialImage','image',{label:'Изображение для публикации ссылки в соцсетях'}),f('footerGithubUrl','string',{label:'GitHub: ссылка в подвале'}),f('textLicenseUrl','string',{label:'Ссылка на лицензию текстов'}),f('featuredProject','string',{label:'Проект в фокусе на главной (ID)'}),
+      objectList('profiles',[f('label'),f('url')]),...['ru','en'].map(l=>f(l,'object',{fields:Object.keys(site[l]).filter(k=>!k.startsWith('_')).map(k=>f(k,k.endsWith('Body')?'rich-text':'text'))}))
     ]},
-    {name:'interface',label:'Подписи интерфейса RU / EN',type:'file',path:'src/data/ui.json',format:'json',fields:['ru','en'].map(l=>f(l,'object',{fields:Object.keys(ui[l]).map(k=>f(k,'text'))}))},
+    {name:'sections',label:'Страницы разделов',type:'file',path:'src/data/sections.json',format:'json',fields:['research','projects','publications','journal'].map(name=>f(name,'object',{fields:[...common]}))},
     ...Object.entries(extras).map(([name,fields])=>({name,label:({research:'Направления исследований',projects:'Проекты',publications:'Публикации',journal:'Дневник',theses:'Главы тезисов',pages:'Дополнительные страницы'})[name],type:'collection',path:`src/content/${name}`,format:'json',filename:'{fields.id}.json',view:{primary:'title_ru',fields:['id','title_ru','publish','ready_ru','ready_en']},fields:[...common,...fields]})),
     {name:'graph-overrides',label:'Граф — разрешения и аннотации',type:'collection',path:'src/content/graph-overrides',format:'json',filename:'{fields.id}.json',operations:{create:false,delete:false,rename:false},view:{primary:'id'},fields:[
       f('id','string',{readonly:true}),

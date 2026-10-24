@@ -20,6 +20,11 @@ export const entrySchema = z.object({
   ready_ru:z.boolean().default(false), ready_en:z.boolean().default(false),
   title_ru:z.string(),title_en:z.string(),summary_ru:z.string(),summary_en:z.string(),
   body_ru:z.string().default(''),body_en:z.string().default(''),
+  pagePath:z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*(?:\/[a-z0-9]+(?:-[a-z0-9]+)*)*$/).optional(),
+  showInMenu:z.boolean().default(false),
+  materials:z.array(z.object({collection:z.enum(['research','projects','publications','journal','theses','pages']),id})).default([]),
+  excludedMaterials:z.array(id).default([]),
+  hiddenMaterials:z.array(z.object({collection:z.enum(['research','projects','publications','journal','theses','pages']),id})).default([]),
   researchAreas:z.array(id).default([]),relatedProjects:z.array(id).default([]),
   relatedPublications:z.array(id).default([]),relatedJournal:z.array(id).default([]),
   featured:z.boolean().default(false),tags:z.array(z.string()).default([]),
@@ -51,6 +56,7 @@ export function resolvePublication(candidate, previous) {
   return previous && isReady(previous) ? previous : null;
 }
 export function getCollection(name) {
+  if(process.env.SITE_EDITOR_PREVIEW==='1')return rawCollection(name).sort((a,b)=>(a.order??100)-(b.order??100));
   const previous = existsSync('src/data/published.json') ? readJSON('src/data/published.json')[name] || [] : [];
   return rawCollection(name).map(row=>resolvePublication(row, previous.find(p=>p.id===row.id))).filter(Boolean).sort((a,b)=>(a.order??100)-(b.order??100));
 }
@@ -59,7 +65,7 @@ export const site = readJSON('src/data/site.json');
 export const localize=(row,key,lang)=>row[`${key}_${lang}`] || '';
 export const pathFor=(collection,row,lang)=>collection==='theses'
   ? `/${lang}/publications/theses-2020-2026/chapters/${row.slug}/`
-  : collection==='pages' ? `/${lang}/projects/papanda/${row.slug}/` : `/${lang}/${collection}/${row.slug}/`;
+  : collection==='pages' ? `/${lang}/${row.pagePath||(row.id==='dialectical-notes'?'projects/papanda/'+row.slug:row.slug)}/` : `/${lang}/${collection}/${row.slug}/`;
 export function events(data=allContent()) {
   const result=[];
   for(const name of ['projects','publications','journal']) for(const row of data[name]){
@@ -75,11 +81,10 @@ export function routes() {
   const data=allContent();
   const result=['','research','projects','publications','journal','timeline','about','search','legal','privacy'];
   const hasTheses=data.publications.some(p=>p.id==='theses-2020-2026');
-  const hasPapanda=data.projects.some(p=>p.id==='papanda');
   if(data.projects.some(p=>p.id==='mathematical-parser'))result.push('projects/mathematical-parser/graph');
   if(hasTheses)result.push('publications/theses-2020-2026/full');
   for(const name of collections){
-    if(name==='theses'&&!hasTheses||name==='pages'&&!hasPapanda)continue;
+    if(name==='theses'&&!hasTheses)continue;
     for(const row of data[name]) result.push(pathFor(name,row,'ru').replace(/^\/ru\/|\/$/g,''));
   }
   return [...new Set(result)];
@@ -100,7 +105,21 @@ export function validateAll() {
       if(name==='projects'&&isReady(row)&&!row.status)throw new Error(`Project status required: ${row.id}`);
       for(const [field,target] of Object.entries({researchAreas:'research',relatedProjects:'projects',relatedPublications:'publications',relatedJournal:'journal'}))
         for(const value of row[field]) if(!raw[target].some(p=>p.id===value)) throw new Error(`Unknown ${field} ${value} in ${row.id}`);
+      for(const material of row.materials)if(!raw[material.collection].some(p=>p.id===material.id))throw new Error(`Unknown material ${material.collection}/${material.id} in ${row.id}`);
     }
+  }
+  const pagePaths=new Set(['','research','projects','publications','journal','timeline','about','search','legal','privacy']);
+  for(const [collection,rows] of Object.entries(raw))for(const row of rows){
+    const path=pathFor(collection,row,'ru').replace(/^\/ru\/|\/$/g,'');
+    if(pagePaths.has(path)||['projects/mathematical-parser/graph','publications/theses-2020-2026/full'].includes(path))throw new Error(`Page address already exists: ${path}`);
+    pagePaths.add(path);
+  }
+  const sections=readJSON('src/data/sections.json');
+  for(const key of ['research','projects','publications','journal']){
+    const section=entrySchema.parse(sections[key]);
+    if(['title_ru','title_en','summary_ru','summary_en'].some(field=>!section[field].trim()))throw new Error(`Incomplete section: ${key}`);
+    validateAuthorship(section);
+    for(const material of section.materials)if(!raw[material.collection].some(p=>p.id===material.id))throw new Error(`Unknown material in section ${key}`);
   }
   validateAuthorship(site);validateAuthorship(raw);validateAuthorship(readJSON('src/data/ui.json'));
   for(const l of languages) if(!site[l]||Object.entries(site[l]).some(([key,v])=>key!=='_authorship'&&(typeof v!=='string'||!v.trim()))) throw new Error(`Incomplete site language: ${l}`);
@@ -109,5 +128,8 @@ export function validateAll() {
   if(site.cloudflareToken&&!/^[a-f0-9]{32}$/i.test(site.cloudflareToken)) throw new Error('Invalid Cloudflare analytics token');
   for(const p of site.profiles) safeUrl.parse(p.url);
   safeUrl.parse(site.portrait);
+  for(const key of ['favicon','socialImage','footerGithubUrl','textLicenseUrl'])safeUrl.refine(Boolean).parse(site[key]);
+  if(!raw.projects.some(project=>project.id===site.featuredProject))throw new Error('Unknown featured project');
+  for(const lang of languages)for(const [key,value] of Object.entries(readJSON('src/data/ui.json')[lang]))if(key!=='_authorship'&&(typeof value!=='string'||!value.trim()))throw new Error(`Invalid interface text: ${lang}.${key}`);
   return raw;
 }

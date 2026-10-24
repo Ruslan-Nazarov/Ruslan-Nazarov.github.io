@@ -3,7 +3,7 @@ import {promisify} from 'node:util';
 const exec=promisify(execFile);
 const REPOSITORY='Ruslan-Nazarov/Ruslan-Nazarov.github.io';
 const REMOTE=`https://github.com/${REPOSITORY}.git`;
-export const isEditablePath=path=>!path.split('/').some(p=>p==='..'||p==='.')&&/^(src\/content\/[^\r\n]+\.json|src\/data\/(site|ui|published|media)\.json|public\/(images|files|media)\/[^\r\n]+)$/.test(path);
+export const isEditablePath=path=>!path.split('/').some(p=>p==='..'||p==='.')&&/^(src\/content\/[^\r\n]+\.json|src\/data\/(site|ui|sections|published|media)\.json|public\/(images|files|media)\/[^\r\n]+)$/.test(path);
 export async function publishContent({root=process.cwd(),build,expectedRemote=REMOTE}={}) {
   const git=async(...args)=>{
     const {stdout}=await exec('git',args,{cwd:root,windowsHide:true,maxBuffer:4*1024*1024,timeout:120000,env:{...process.env,GIT_TERMINAL_PROMPT:'0',GCM_INTERACTIVE:'Never'}});

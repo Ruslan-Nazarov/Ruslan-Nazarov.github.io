@@ -1,5 +1,4 @@
 ---
-import Authorship from './Authorship.astro';
-const {record,field,lang}=Astro.props;
+const {record,field}=Astro.props;
 ---
-{record?.[field]||''}<Authorship record={record} field={field} lang={lang}/>
+{record?.[field]||''}

@@ -1,15 +1,15 @@
 ---
-import AuthorshipHelp from '../components/AuthorshipHelp.astro';
 import Text from '../components/Text.astro';
 import '../styles/global.css';
 import 'katex/dist/katex.min.css';
-import { site, readJSON } from '../lib/content.mjs';
+import { site, readJSON, getCollection, pathFor, localize } from '../lib/content.mjs';
 interface Props {lang:'ru'|'en';title:string;description?:string;path?:string;noindex?:boolean}
 const { lang, title, description=site[lang].heroText, path='',noindex=false }=Astro.props;
 const t=readJSON('src/data/ui.json')[lang];
 const other=lang==='ru'?'en':'ru';
 const url=new URL(`/${lang}/${path?path+'/':''}`,Astro.site);
 const nav=['research','projects','publications','journal','timeline','about'];
+const customPages=getCollection('pages').filter(row=>row.showInMenu);
 const documentTitle=path?`${title} | ${site.name}`:`${site.name} | ${site[lang].role}`;
 ---
 <!doctype html>
@@ -29,13 +29,13 @@ const documentTitle=path?`${title} | ${site.name}`:`${site.name} | ${site[lang].
     <meta property="og:type" content="website" />
     <meta property="og:url" content={url} />
     <meta property="og:locale" content={lang==='ru'?'ru_RU':'en_US'} />
-    <meta property="og:image" content={new URL('/images/social-card.png',Astro.site)} />
+    <meta property="og:image" content={new URL(site.socialImage,Astro.site)} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content={`${site.name} — ${site[lang].role}`} />
     <meta name="twitter:card" content="summary_large_image" />
-    {noindex&&<meta name="robots" content="noindex,follow" />}
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    {(noindex||process.env.SITE_EDITOR_PREVIEW==='1')&&<meta name="robots" content="noindex,follow" />}
+    <link rel="icon" href={site.favicon} />
     <link rel="alternate" type="application/rss+xml" title={t.rss} href={`/${lang}/rss.xml`} />
     <script is:inline>
       try{const theme=localStorage.getItem('rn-theme')||'system';document.documentElement.dataset.theme=theme;document.documentElement.classList.toggle('dark',theme==='dark'||theme==='system'&&matchMedia('(prefers-color-scheme: dark)').matches)}catch{}
@@ -43,12 +43,14 @@ const documentTitle=path?`${title} | ${site.name}`:`${site.name} | ${site[lang].
     {site.cloudflareToken&&<script is:inline defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon={JSON.stringify({token:site.cloudflareToken})}></script>}
   </head>
   <body>
+    {process.env.SITE_EDITOR_PREVIEW==='1'&&<div style="padding:10px 20px;background:#fff0c2;color:#312b12;text-align:center;font:14px system-ui" data-pagefind-ignore>{lang==='ru'?'Локальный предпросмотр · включает черновики':'Local preview · includes drafts'}</div>}
     <a class="skip-link" href="#main"><Text record={t} field="skip" lang={lang}/></a>
     <header class="site-header">
-      <a class="brand" href={`/${lang}/`} aria-label={`${site.name} — ${t.home}`}><span class="brand-mark">rn<span>·</span></span><span><Text record={site} field="name" lang={lang}/><small><Text record={site[lang]} field="role" lang={lang}/></small></span></a>
+      <a class="brand" href={`/${lang}/`} aria-label={`${site.name} — ${t.home}`}><span class="brand-mark">{site.monogram}<span>·</span></span><span><Text record={site} field="name" lang={lang}/><small><Text record={site[lang]} field="role" lang={lang}/></small></span></a>
       <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav"><Text record={t} field="menu" lang={lang}/> ☰</button>
       <nav id="main-nav" aria-label={t.menu}>
         {nav.map(n=><a href={`/${lang}/${n}/`} aria-current={path.split('/')[0]===n?'page':undefined}>{t[n]}</a>)}
+        {customPages.map(row=><a href={pathFor('pages',row,lang)} aria-current={pathFor('pages',row,lang)===`/${lang}/${path}/`?'page':undefined}>{localize(row,'title',lang)}</a>)}
         <a class="search-link" href={`/${lang}/search/`} aria-label={t.search} title={t.search}><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><circle cx="10" cy="10" r="6.5"/><path d="m15 15 5 5"/></svg><span class="mobile-only"><Text record={t} field="search" lang={lang}/></span></a>
       </nav>
       <div class="preferences">
@@ -57,14 +59,13 @@ const documentTitle=path?`${title} | ${site.name}`:`${site.name} | ${site[lang].
       </div>
     </header>
     <main id="main" tabindex="-1" data-pagefind-body data-pagefind-ignore={noindex||undefined}><slot /></main>
-    <dialog id="media-viewer" aria-label={lang==='ru'?'Просмотр изображения':'Image viewer'} data-pagefind-ignore>
-      <form method="dialog"><button autofocus aria-label={lang==='ru'?'Закрыть':'Close'}>{lang==='ru'?'Закрыть':'Close'} ×</button></form>
+    <dialog id="media-viewer" aria-label={t.imageViewer} data-pagefind-ignore>
+      <form method="dialog"><button autofocus aria-label={t.close}>{t.close} ×</button></form>
       <div class="media-viewer-scroll"><img alt=""/></div><p></p>
     </dialog>
-    <AuthorshipHelp lang={lang}/>
     <footer class="site-footer" data-pagefind-ignore>
       <div><a class="footer-name" href={`/${lang}/`}><Text record={site} field="name" lang={lang}/><span>·</span></a><p><Text record={site} field="tagline" lang={lang}/></p></div>
-      <div class="footer-links"><a href={`/${lang}/legal/`}><Text record={t} field="legal" lang={lang}/></a><a href={`/${lang}/privacy/`}><Text record={t} field="privacy" lang={lang}/></a><a href={`/${lang}/rss.xml`}>RSS ↗</a><a href="https://github.com/Ruslan-Nazarov" rel="noopener noreferrer">GitHub ↗</a></div>
+      <div class="footer-links"><a href={`/${lang}/legal/`}><Text record={t} field="legal" lang={lang}/></a><a href={`/${lang}/privacy/`}><Text record={t} field="privacy" lang={lang}/></a><a href={`/${lang}/rss.xml`}>{t.rss} ↗</a><a href={site.footerGithubUrl} rel="noopener noreferrer">{t.footerGithub} ↗</a></div>
       <small>© {new Date().getUTCFullYear()} <Text record={site} field="name" lang={lang}/> · {t.footerLicense}</small>
       <a class="back-to-top" href="#main"><Text record={t} field="backToTop" lang={lang}/> ↑</a>
     </footer>

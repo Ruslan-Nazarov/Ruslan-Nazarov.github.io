@@ -63,9 +63,8 @@ export function publicGraph(input, overrides){
       return {id:n.id,type:n.type,researchStatus:n.researchStatus,title_ru:n.title_ru,title_en:n.title_en,
         explanation_ru:o.annotation_ru||n.explanation_ru,explanation_en:o.annotation_en||n.explanation_en,
         extra_ru:o.extra_ru,extra_en:o.extra_en,formula:n.formula,
-        _authorship:{explanation_ru:o.annotation_ru?o._authorship?.annotation_ru:undefined,explanation_en:o.annotation_en?o._authorship?.annotation_en:undefined,extra_ru:o._authorship?.extra_ru,extra_en:o._authorship?.extra_en},
         predecessors:n.predecessors.filter(p=>ids.has(p)),hasUnpublishedStructure:n.predecessors.some(p=>!ids.has(p)),
-        position:n.position||{x:(i%4)*270,y:Math.floor(i/4)*180},tags:o.tags,image:o.image,order:o.order,featured:o.featured,links:o.links};
+        position:n.position||{x:(i%4)*270,y:Math.floor(i/4)*180},tags:o.tags,image:o.image,order:o.order,featured:o.featured,links:o.links.map(({url,label_ru,label_en})=>({url,label_ru,label_en}))};
     }).sort((a,b)=>a.order-b.order),
     edges:graph.edges.filter(e=>ids.has(e.source)&&ids.has(e.target))
   };
@@ -77,5 +76,8 @@ export function getPublicGraph(){
 }
 export function getDemoGraph(){
   const demo=readJSON('src/data/graph/demo.json');
-  return {...demo,nodes:demo.nodes.map(({originalKey,...node})=>node)};
+  const ui=readJSON('src/data/ui.json');
+  return {...demo,nodes:demo.nodes.map(({originalKey,...node})=>({...node,
+    ...Object.fromEntries(['ru','en'].flatMap(lang=>[['title_'+lang,ui[lang]['demoTitle:'+node.id]??node['title_'+lang]],['explanation_'+lang,ui[lang]['demoExplanation:'+node.id]??node['explanation_'+lang]]]))
+  }))};
 }

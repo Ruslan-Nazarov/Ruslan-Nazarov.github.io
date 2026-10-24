@@ -1,9 +1,10 @@
 ---
-const {lang}=Astro.props;
+import {readJSON} from '../lib/content.mjs';
+const {lang}=Astro.props;const t=readJSON('src/data/ui.json')[lang];
 ---
-<div id="authorship-help" hidden role="dialog" aria-label={lang==='ru'?'Об авторстве текста':'About text authorship'} data-pagefind-ignore>
-  <button type="button" class="authorship-close" aria-label={lang==='ru'?'Закрыть':'Close'}>×</button>
-  <p></p><a href={`/${lang}/about/#contact`}>{lang==='ru'?'Написать автору →':'Contact the author →'}</a>
+<div id="authorship-help" hidden role="dialog" aria-label={t.authorshipHelp} data-pagefind-ignore>
+  <button type="button" class="authorship-close" aria-label={t.close}>×</button>
+  <p></p><a href={`/${lang}/about/#contact`}>{t.contactAuthor} →</a>
 </div>
 <script>
   const help=document.querySelector<HTMLElement>('#authorship-help')!;

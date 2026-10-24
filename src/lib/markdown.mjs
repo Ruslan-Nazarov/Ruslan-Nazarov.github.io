@@ -6,6 +6,7 @@ import rehype from 'remark-rehype';
 import sanitize, { defaultSchema } from 'rehype-sanitize';
 import katex from 'rehype-katex';
 import stringify from 'rehype-stringify';
+import editorAlign from './remark-editor-align.mjs';
 
 // Heading IDs and the contents list come from the same parsed document.
 // A shared accumulator also keeps IDs unique across embedded media blocks.
@@ -24,7 +25,7 @@ function headingLinks(){return (tree,file)=>{
 };}
 
 // Strip unsafe HTML/URLs before generating trusted KaTeX markup.
-const processor=unified().use(parse).use(gfm).use(math).use(rehype).use(sanitize,{
+const processor=unified().use(parse).use(gfm).use(math).use(editorAlign).use(rehype).use(sanitize,{
   ...defaultSchema, attributes:{...defaultSchema.attributes, code:[...(defaultSchema.attributes.code||[]),['className',/^language-./,'math-inline','math-display']]}
 }).use(headingLinks).use(katex,{trust:false,strict:'warn',throwOnError:false,maxExpand:1000}).use(stringify);
 export async function markdown(text='',data={}){return String(await processor.process({value:text,data}));}

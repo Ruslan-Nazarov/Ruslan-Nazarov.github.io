@@ -1,8 +1,9 @@
 ---
 import {authorshipOf} from '../lib/authorship.mjs';
 import {authorshipCopy} from '../lib/authorship-copy.mjs';
+import {isAuthorshipField} from '../lib/authorship-fields.mjs';
 const {record,field,lang}=Astro.props;
-const state=authorshipOf(record,field);
+const state=isAuthorshipField(field)&&record?.[field]?.trim()?authorshipOf(record,field):null;
 const label=state==='ai'?(lang==='ru'?'ИИ':'AI'):'✎';
 const description=authorshipCopy(state,lang);
 ---

@@ -3,7 +3,7 @@ import {readFileSync} from 'node:fs';
 test('local editor rebuilds the site and search index without publishing',async({page})=>{
   test.setTimeout(90000);
   await page.goto('http://127.0.0.1:4322/');
-  await page.getByRole('button',{name:'Пересобрать сайт',exact:true}).click();
+  await page.getByRole('button',{name:'Обновить предпросмотр',exact:true}).click();
   await expect(page.locator('#status')).toContainText('Сайт и поиск обновлены',{timeout:75000});
   await page.goto('/ru/search/');
   await expect(page.locator('.pagefind-ui__search-input')).toBeVisible();
@@ -93,8 +93,9 @@ test('RSS, metadata, Yandex verification and safe absent integrations',async({pa
 });
 test('local editor loads structured fields, saves locally and rejects unauthenticated writes',async({page,request})=>{
   await page.goto('http://127.0.0.1:4322/');
-  await page.getByRole('button',{name:'settings',exact:true}).first().click();
-  await expect(page.locator('input[data-field="name"]')).toHaveValue('Ruslan Nazarov');
+  await page.locator('#collections [data-collection=settings] > summary').click();
+  await page.locator('#collections [data-key="site/settings"]').click();
+  await expect(page.locator('input[data-field="name"]')).toHaveValue(JSON.parse(readFileSync('src/data/site.json','utf8')).name);
   await expect(page.locator('textarea[data-field="heroTitle"]')).toHaveCount(2);
   await page.getByRole('button',{name:'Сохранить',exact:true}).click();
   await expect(page.locator('#status')).toContainText('Сохранено локально');
