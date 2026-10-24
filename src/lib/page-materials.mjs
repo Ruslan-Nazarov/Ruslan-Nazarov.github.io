@@ -6,7 +6,7 @@ export function pageMaterials(record,data,{collection=record?.collection,catalog
   for(const [field,target] of Object.entries({relatedProjects:'projects',relatedPublications:'publications',relatedJournal:'journal'})){
     for(const row of data[target]||[])if(record[field]?.includes(row.id)||collection==='research'&&row.researchAreas?.includes(record.id)||collection==='projects'&&row.relatedProjects?.includes(record.id))refs.push({collection:target,id:row.id});
   }
-  for(const [target,rows] of Object.entries(data))for(const row of rows)if(collection==='research'&&row.researchAreas?.includes(record.id)||collection==='projects'&&row.relatedProjects?.includes(record.id))refs.push({collection:target,id:row.id});
+  for(const target of ['pages'])for(const row of data[target]||[])if(collection==='research'&&row.researchAreas?.includes(record.id)||collection==='projects'&&row.relatedProjects?.includes(record.id))refs.push({collection:target,id:row.id});
   const hidden=new Set((record.hiddenMaterials||[]).map(materialKey)),seen=new Set();
   return refs.filter(ref=>{const key=materialKey(ref);if(key===`${collection}/${record.id}`||hidden.has(key)||seen.has(key))return false;seen.add(key);return data[ref.collection]?.some(row=>row.id===ref.id)});
 }

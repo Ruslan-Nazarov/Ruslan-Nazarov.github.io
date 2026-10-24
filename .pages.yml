@@ -399,10 +399,10 @@ content:
             list: true
             fields:
               - name: label_ru
-                label: label_ru
+                label: Название ссылки · RU
                 type: string
               - name: label_en
-                label: label_en
+                label: Link title · EN
                 type: string
               - name: url
                 label: url
@@ -417,10 +417,10 @@ content:
                 label: Постоянный ID
                 type: string
               - name: label_ru
-                label: label_ru
+                label: Название ссылки · RU
                 type: string
               - name: label_en
-                label: label_en
+                label: Link title · EN
                 type: string
               - name: url_ru
                 label: url_ru
@@ -967,8 +967,8 @@ content:
             label: url
             type: string
           - name: label_ru
-            label: label_ru
+            label: Название ссылки · RU
             type: string
           - name: label_en
-            label: label_en
+            label: Link title · EN
             type: string
