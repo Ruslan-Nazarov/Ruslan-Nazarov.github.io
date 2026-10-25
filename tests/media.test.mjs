@@ -49,18 +49,12 @@ test('replacement preserves URLs and format; editorial Git allowlist includes me
   assert.equal(isEditablePath('src/data/media.json'),true);assert.equal(isEditablePath('public/media/papanda/example.png'),true);
   for(const path of ['public/media/../secret','src/data/secret.json','scripts/media-library.mjs'])assert.equal(isEditablePath(path),false);
 });
-test('papanda uses the same seven ordered media IDs and links to static ECG examples',()=>{
+test('papanda uses the same seven ordered media IDs in both languages without unconfirmed live/download links',()=>{
   const row=JSON.parse(readFileSync('src/content/projects/papanda.json','utf8'));
   const ids=lang=>[...row['body_'+lang].matchAll(/\[\[media:([a-z0-9-]+)\]\]/g)].map(x=>x[1]);
   assert.deepEqual(ids('ru'),ids('en'));assert.equal(ids('ru').length,7);assert.deepEqual(ids('ru'),readLibrary().slots.filter(x=>x.project==='papanda').map(x=>x.id));
   assert.deepEqual(row.links.map(x=>x.url),['https://github.com/Ruslan-Nazarov/papanda']);
-  for(const lang of ['ru','en']){
-    assert.deepEqual(row.exampleLinks.map(x=>x['url_'+lang]),[
-      `/${lang}/projects/papanda/ecg/original/`,
-      `/${lang}/projects/papanda/ecg/final/`,
-      `/${lang}/projects/papanda/ecg/#critique`
-    ]);
-  }
+  assert.ok(row.exampleLinks.every(x=>!x.url_ru&&!x.url_en));
   assert.match(row.body_ru,/эксперименты, подтверждающие образовательный эффект papanda на других людях, пока не проводились/);
   assert.match(row.body_en,/studies demonstrating the educational effectiveness of papanda with other participants have not yet been conducted/);
 });

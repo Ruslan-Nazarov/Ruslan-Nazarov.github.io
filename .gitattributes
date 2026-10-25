@@ -1,5 +1,3 @@
 # Keep the publicly served verification file byte-identical to origin/main and
 # the existing public URL, including LF endings, on Windows and Linux.
 /public/yandex_64f199e3e08207c6.html -text
-/public/assets/ecg/*.pdf binary
-/public/assets/ecg/*.docx binary
