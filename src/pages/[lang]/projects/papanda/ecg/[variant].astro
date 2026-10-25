@@ -1,0 +1,59 @@
+---
+import Base from '../../../../../layouts/Base.astro';
+import originalRu from '../../../../../data/ecg-showcase/ru-original.json';
+import originalEn from '../../../../../data/ecg-showcase/en-original.json';
+import finalRu from '../../../../../data/ecg-showcase/ru-final.json';
+import finalEn from '../../../../../data/ecg-showcase/en-final.json';
+import '../../../../../styles/ecg-showcase.css';
+
+const publications={ru:{original:originalRu,final:finalRu},en:{original:originalEn,final:finalEn}} as const;
+export function getStaticPaths(){return ['ru','en'].flatMap(lang=>['original','final'].map(variant=>({params:{lang,variant}})))}
+const lang=Astro.params.lang as 'ru'|'en';
+const variant=Astro.params.variant as 'original'|'final';
+const item=publications[lang][variant] as any;
+const ru=lang==='ru';
+const path=`projects/papanda/ecg/${variant}`;
+const toc=item.blocks.filter((block:any)=>block.role==='section'||/^(anchor|step[1-5])$/.test(block.role||''));
+const label=variant==='original'?(ru?'Первоначальный конспект с замечаниями':'Initial annotated notes'):(ru?'Переработанный конспект':'Revised notes');
+const roleLabels=ru?{anchor:'Вопрос',step1:'Простейший процесс',step2:'Развитие',step3:'Противоположность',step4:'Противоречие',step5:'Разрешение'}:{anchor:'Question',step1:'Simplest process',step2:'Development',step3:'Opposite',step4:'Contradiction',step5:'Resolution'};
+const authorLabels=ru?{ai:'ИИ',ai_checked:'ИИ · проверено',ai_edited:'ИИ · исправлено',human:'Автор'}:{ai:'AI',ai_checked:'AI · checked',ai_edited:'AI · edited',human:'Author'};
+const statusLabels=ru?{ready:'Готово',in_progress:'В работе',none:'Статус не задан'}:{ready:'Ready',in_progress:'In progress',none:'No status'};
+const sibling=variant==='original'?'final':'original';
+const nonempty=(value:any)=>Array.isArray(value)&&value.length>0;
+---
+<Base lang={lang} path={path} title={label} description={item.description||label}>
+  <div class="wrap ecg-wrap ecg-reader">
+    <nav class="breadcrumbs" aria-label={ru?'Навигация':'Breadcrumbs'}><a href={`/${lang}/`}>{ru?'Главная':'Home'}</a><span>/</span><a href={`/${lang}/projects/papanda/`}>papanda</a><span>/</span><a href={`/${lang}/projects/papanda/ecg/`}>{ru?'Пример ЭКГ':'ECG example'}</a><span>/</span><span aria-current="page">{label}</span></nav>
+    <header class="ecg-reading-header">
+      <p class="eyebrow">papanda · {ru?'сохранённая публикация':'preserved publication'}</p>
+      <h1>{label}</h1>
+      <p>{item.title}</p>
+      <div class="ecg-actions"><a class="button secondary" href={`/${lang}/projects/papanda/ecg/${sibling}/`}>{variant==='original'?(ru?'Перейти к итоговой версии':'Go to revised version'):(ru?'Перейти к первоначальной версии':'Go to initial version')} ↗</a><a class="ecg-text-link" href={`/${lang}/projects/papanda/ecg/`}>{ru?'Обзор примера':'Example overview'} ↗</a></div>
+      <p class="ecg-archive-note">{ru?'Это снимок публичной версии конспекта от 13 октября 2026 года. Содержание сохранено для чтения после отключения сервера приложения.':'This is a snapshot of the public notes from 13 October 2026, preserved for reading after the application server is switched off.'}</p>
+    </header>
+    <div class="ecg-reading-grid">
+      <aside class="ecg-reading-side">
+        <details open><summary>{ru?'Содержание':'Contents'}</summary><nav aria-label={ru?'Содержание конспекта':'Notes contents'}>{toc.map((block:any)=><a href={`#${block.id}`}>{block.title||roleLabels[block.role as keyof typeof roleLabels]||''}</a>)}</nav></details>
+      </aside>
+      <article class="ecg-document">
+        {item.description&&<p class="ecg-description">{item.description}</p>}
+        {nonempty(item.resources)&&<section class="ecg-document-resources" aria-label={ru?'Материалы':'Resources'}><h2>{ru?'Материалы и версии':'Materials and versions'}</h2><ul>{item.resources.map((resource:any)=><li><a href={resource.url}>{resource.title} ↗</a></li>)}</ul></section>}
+        {nonempty(item.stickers)&&<details class="ecg-document-notes"><summary>{ru?'Общие заметки автора':'General author notes'} · {item.stickers.length}</summary><div class="ecg-sticker-grid">{item.stickers.map((sticker:any)=><div class="ecg-sticker"><strong>{sticker.title}</strong><p>{sticker.text}</p></div>)}</div></details>}
+        {item.blocks.map((block:any,index:number)=>block.role==='section'?<section id={block.id} class="ecg-section-heading"><span class="ecg-section-number">{String(index+1).padStart(2,'0')}</span><h2>{block.title}</h2>{block.html&&<div class="ecg-block-body" set:html={block.html}/>}</section>:<section id={block.id} class:list={['ecg-block',block.role&&'ecg-block-stage']}>
+          <div class="ecg-block-top"><span class="ecg-block-number">{String(index+1).padStart(2,'0')}</span>{roleLabels[block.role as keyof typeof roleLabels]&&<span class="ecg-role">{roleLabels[block.role as keyof typeof roleLabels]}</span>}</div>
+          {block.title&&<h3>{block.title}</h3>}
+          {(block.author||block.status&&block.status!=='none')&&<div class="ecg-badges">{block.author&&<span>{authorLabels[block.author as keyof typeof authorLabels]||block.author}</span>}{block.status&&block.status!=='none'&&<span>{statusLabels[block.status as keyof typeof statusLabels]||block.status}</span>}</div>}
+          {block.html&&<div class="ecg-block-body" set:html={block.html}/>}
+          {nonempty(block.stickers)&&<details class="ecg-extra"><summary>{ru?'Стикеры автора':'Author stickers'} · {block.stickers.length}</summary><div class="ecg-sticker-grid">{block.stickers.map((sticker:any)=><div class="ecg-sticker"><strong>{sticker.title}</strong><p>{sticker.text}</p></div>)}</div></details>}
+          {nonempty(block.inline_notes)&&<details class="ecg-extra"><summary>{ru?'Встроенные замечания и вопросы':'Inline comments and questions'} · {block.inline_notes.length}</summary><ul>{block.inline_notes.map((note:any)=><li><strong>{note.kind==='question'?(ru?'Вопрос':'Question'):(ru?'Пояснение':'Note')}{note.phrase?` · ${note.phrase}`:''}:</strong> {note.text}</li>)}</ul></details>}
+          {nonempty(block.sources)&&<details class="ecg-extra"><summary>{ru?'Источники':'Sources'} · {block.sources.length}</summary><ul>{block.sources.map((source:any)=><li>{source.url?<a href={source.url} rel="noopener noreferrer">{source.title||source.url} ↗</a>:<strong>{source.title}</strong>}{source.quote&&<p>{source.quote}</p>}</li>)}</ul></details>}
+          {nonempty(block.words)&&<details class="ecg-extra"><summary>{ru?'Словарь':'Dictionary'} · {block.words.length}</summary><dl>{block.words.map((word:any)=><><dt>{word.word}</dt><dd>{word.definition}</dd></>)}</dl></details>}
+          {nonempty(block.rejected_drafts)&&<details class="ecg-extra ecg-rejected"><summary>{ru?'Отвергнутые варианты':'Rejected drafts'} · {block.rejected_drafts.length}</summary>{block.rejected_drafts.map((draft:any)=><div class="ecg-rejected-entry">{draft.reason&&<p><strong>{ru?'Почему отвергнут':'Why rejected'}:</strong> {draft.reason}</p>}{draft.html&&<div class="ecg-block-body" set:html={draft.html}/>}</div>)}</details>}
+          {nonempty(block.derivations)&&<details class="ecg-extra"><summary>{ru?'Выкладки':'Derivations'} · {block.derivations.length}</summary>{block.derivations.map((derivation:any)=><div class="ecg-block-body" set:html={derivation.html}/>)}</details>}
+        </section>)
+        }
+        {nonempty(item.dictionary)&&<section class="ecg-document-resources"><h2>{ru?'Словарь конспекта':'Notes dictionary'}</h2><dl>{item.dictionary.map((word:any)=><><dt>{word.word}</dt><dd>{word.definition}</dd></>)}</dl></section>}
+      </article>
+    </div>
+  </div>
+</Base>
