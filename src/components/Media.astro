@@ -1,5 +1,6 @@
 ---
 import {resolveMedia} from '../lib/media.mjs';
+import AlgorithmSteps from './AlgorithmSteps.astro';
 interface Props {id:string;lang:'ru'|'en'}
 const {id,lang}=Astro.props;
 const media=resolveMedia(id),alt=media[`alt_${lang}`]||'',caption=media[`caption_${lang}`]||'';
@@ -8,3 +9,4 @@ const media=resolveMedia(id),alt=media[`alt_${lang}`]||'',caption=media[`caption
   <a href={media.path} data-media-viewer aria-label={alt}><img src={media.path} alt={alt} loading="lazy"/></a>
   <figcaption>{caption}</figcaption>
 </figure>}
+{!media.path&&id==='papanda-method-architecture'&&<AlgorithmSteps lang={lang}/>}

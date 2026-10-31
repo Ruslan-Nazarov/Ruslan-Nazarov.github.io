@@ -1,5 +1,22 @@
 # papanda and the local media library — 21 October 2026
 
+Update of 31 October: the owner selected the Transformers note as the primary
+example. The supplied Russian screenshot is preserved unchanged in
+`public/media/papanda/transformers-editor-ru.png` and bound to `papanda-editor`.
+Both language pages use this screenshot; the English caption explicitly says
+it is in Russian and that an English note is in preparation. The unfilled ECG
+example is deferred and its media slots remain available for future use.
+
+`AlgorithmSteps.astro` renders a responsive five-step diagram in each language
+at the `papanda-method-architecture` marker when no separate image is bound.
+Titles, the initial question and all guidance come from the application's
+manual-mode `prompts/7_алгоритм_составления_конспекта.json`, not the legacy i18n
+fallbacks. The plain-text copy and source SHA-256 are stored in
+`src/data/papanda-algorithm.json`; only HTML presentation wrappers were removed.
+The diagram does not translate or complete the Transformers note.
+
+The following describes the earlier implementation before this update.
+
 The project page uses the author's `papanda_page_final_RU_EN.md` supplied in
 the parent workspace. Both versions retain the source paragraphs, section
 order, three ECG stages and the distinction between personal experience and

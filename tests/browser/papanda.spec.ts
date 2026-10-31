@@ -1,6 +1,7 @@
 import {test,expect} from '@playwright/test';
 import {readFileSync} from 'node:fs';
 const lib=JSON.parse(readFileSync('src/data/media.json','utf8'));
+const algorithm=JSON.parse(readFileSync('src/data/papanda-algorithm.json','utf8'));
 for(const project of ['papanda','papanda-languages','mathematical-parser','dialectic-ai','protocol-ai','personal-time-management','podcast-sound-lab','musiclab','useful-prompts']){
 const row=JSON.parse(readFileSync(`src/content/projects/${project}.json`,'utf8'));
 const slots=lib.slots.filter((s:any)=>s.project===project&&s.status==='ready');
@@ -16,6 +17,22 @@ for(const lang of ['ru','en'])test(`${project} ${lang}: copy, ready illustration
     await expect(page.locator('.prose blockquote')).toContainText(lang==='ru'?'Исходный код пока не опубликован':'The source code has not been published yet');
     await expect(page.getByRole('link',{name:lang==='ru'?'Открыть демонстрацию ↗':'Open the demo ↗',exact:true})).toHaveAttribute('href',`/${lang}/projects/mathematical-parser/graph/`);
     await expect(page.locator('.prose input')).toHaveCount(0);
+  }
+  if(project==='papanda'){
+    const diagram=page.locator('[data-algorithm-diagram]');
+    await expect(diagram).toHaveAttribute('data-algorithm-diagram',lang);
+    expect(await diagram.locator('.algorithm-step-title').allTextContents()).toEqual(algorithm[lang].steps.map((step:any)=>step.title));
+    expect(await diagram.locator('.algorithm-prompt').allTextContents()).toEqual(algorithm[lang].steps.map((step:any)=>step.prompt));
+    expect(await diagram.locator('.algorithm-detail').allTextContents()).toEqual(algorithm[lang].steps.filter((step:any)=>step.detail).map((step:any)=>step.detail));
+    await diagram.screenshot({path:`.local/papanda-algorithm-${lang}.png`});
+    const screenshot=page.locator('[data-media-id="papanda-editor"]');
+    await expect(screenshot.locator('img')).toHaveAttribute('src','/media/papanda/transformers-editor-ru.png');
+    await expect(screenshot.locator('figcaption')).toContainText(lang==='ru'?'английский конспект готовится':'English note is in preparation');
+    await screenshot.locator('a').click();
+    await expect(page.locator('#media-viewer')).toBeVisible();
+    await expect(page.locator('#media-viewer img')).toHaveAttribute('src',/\/media\/papanda\/transformers-editor-ru\.png$/);
+    await page.keyboard.press('Escape');
+    await expect(page.locator('#media-viewer')).not.toBeVisible();
   }
   for(const link of row.links)await expect(page.locator('.detail-sidebar').getByRole('link',{name:link['label_'+lang]+' ↗',exact:true})).toHaveAttribute('href',link.url);
   const headings=[...row['body_'+lang].matchAll(/^#{2,3} (.+)$/gm)].map(match=>match[1]);

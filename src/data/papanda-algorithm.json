@@ -1,0 +1,66 @@
+{
+  "source": {
+    "file": "prompts/7_алгоритм_составления_конспекта.json",
+    "sha256": "a376d84746fba707b0601984c7ce04ba7ae432793f5266ab4c66b2c31f043e82"
+  },
+  "ru": {
+    "anchor": "Что вам нужно понять?",
+    "steps": [
+      {
+        "title": "Простейший процесс",
+        "prompt": "Опишите простейший процесс, который, по вашему мнению, лежит в основе проблемы, которую вы хотите понять.",
+        "detail": "Примером простейшего процесса может быть суммирование. Помните, что ИИ не способен к пониманию, но может предоставить вам знания."
+      },
+      {
+        "title": "Опишите как развивается этот простейший процесс",
+        "prompt": "Опишите, как развивается этот простейший процесс.",
+        "detail": "Развитие – это взаимодействие процесса с другими процессами в мире. Например, если простейшим является суммирование, то его развитием будет суммирование пяти, десяти и т.п. единиц, использование суммирования в торговле, праве, науке. Однако помните, что ИИ не может заменить человека в понимании процессов, ИИ может только предоставить знания."
+      },
+      {
+        "title": "Найдите противоположный процесс",
+        "prompt": "Вы уже нашли простейший процесс, посмотрели, как он развивается. В этом развитии вы должны отыскать противоположный процесс.",
+        "detail": "Противоположным является такой процесс, который сам остается самостоятельным, но полностью исключает другой."
+      },
+      {
+        "title": "Противоречие",
+        "prompt": "Возьмите в единство простейший процесс и противоположный процесс и покажите развитие в этом единстве. Это и будет являться противоречием",
+        "detail": ""
+      },
+      {
+        "title": "Разрешение противоречия",
+        "prompt": "Покажите, как разрешается противоречие. Разрешение противоречия означает либо появление такого процесса, который заменяет простейший и противоположный, вбирая их в себя в своем развитии, либо появление такого процесса, который делает возможным продолжение существования противоречия до его разрешения в процессе, который заменит простейший и противоположный.",
+        "detail": ""
+      }
+    ]
+  },
+  "en": {
+    "anchor": "What do you want to understand?",
+    "steps": [
+      {
+        "title": "Simplest process",
+        "prompt": "Describe the simplest process that, in your opinion, underlies the problem you want to understand.",
+        "detail": "An example of the simplest process could be summation. Remember that AI is not capable of understanding, but it can provide you with knowledge."
+      },
+      {
+        "title": "Describe how this simplest process develops",
+        "prompt": "Describe how this simplest process develops.",
+        "detail": "Development is the interaction of a process with other processes in the world. For example, if the simplest is summation, then its development is the summation of five, ten, etc. units, the use of summation in trade, law, science. However, remember that AI cannot replace a person in understanding processes, AI can only provide knowledge."
+      },
+      {
+        "title": "Find the opposite process",
+        "prompt": "You have already found the simplest process and seen how it develops. In this development, you must find the opposite process.",
+        "detail": "The opposite is a process that itself remains independent, but completely excludes the other."
+      },
+      {
+        "title": "Contradiction",
+        "prompt": "Take the simplest process and the opposite process in unity and show the development within this unity. This is what constitutes the contradiction",
+        "detail": ""
+      },
+      {
+        "title": "Resolving the contradiction",
+        "prompt": "Show how the contradiction is resolved. Resolution of the contradiction means either the appearance of a process that replaces the simplest and the opposite, absorbing them into itself in its development, or the appearance of a process that makes it possible for the contradiction to continue existing until it is resolved in a process that will replace the simplest and the opposite.",
+        "detail": ""
+      }
+    ]
+  }
+}

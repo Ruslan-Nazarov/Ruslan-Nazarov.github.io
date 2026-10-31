@@ -48,6 +48,23 @@
       ],
       "project": "",
       "uploadedAt": "2026-10-22T02:21:36.551Z"
+    },
+    {
+      "id": "papanda-transformers-editor-ru",
+      "path": "/media/papanda/transformers-editor-ru.png",
+      "title": "papanda: Transformers working note, Russian interface",
+      "alt_ru": "Конспект «Трансформеры» в ручном редакторе papanda: простейший процесс и начало его развития.",
+      "alt_en": "The Transformers note in papanda’s manual editor: the simplest process and the start of its development. Russian interface.",
+      "caption_ru": "Рабочий фрагмент конспекта «Трансформеры»: простейший процесс и начало его развития. Русская версия; английский конспект готовится.",
+      "caption_en": "A working excerpt from the Transformers note: the simplest process and the start of its development. The screenshot is in Russian; the English note is in preparation.",
+      "tags": [
+        "papanda",
+        "transformers",
+        "manual-editor",
+        "russian"
+      ],
+      "project": "papanda",
+      "uploadedAt": "2026-10-31T07:16:38.446Z"
     }
   ],
   "slots": [
@@ -65,13 +82,13 @@
     {
       "id": "papanda-editor",
       "title": "papanda-editor",
-      "alt_ru": "Редактор диалектических конспектов papanda",
-      "alt_en": "The papanda dialectical notes editor",
-      "caption_ru": "Ручное построение — основной способ работы",
-      "caption_en": "Manual construction is the primary workflow.",
+      "alt_ru": "Конспект «Трансформеры» в ручном редакторе papanda: простейший процесс и начало его развития.",
+      "alt_en": "The Transformers note in papanda’s manual editor: the simplest process and the start of its development. Russian interface.",
+      "caption_ru": "Рабочий фрагмент конспекта «Трансформеры»: простейший процесс и начало его развития. Русская версия; английский конспект готовится.",
+      "caption_en": "A working excerpt from the Transformers note: the simplest process and the start of its development. The screenshot is in Russian; the English note is in preparation.",
       "project": "papanda",
-      "mediaId": "",
-      "status": "placeholder"
+      "mediaId": "papanda-transformers-editor-ru",
+      "status": "ready"
     },
     {
       "id": "papanda-ai-assistance",
