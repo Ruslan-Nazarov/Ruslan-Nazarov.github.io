@@ -228,10 +228,10 @@
       "ready_en": true,
       "title_ru": "Protocol AI",
       "title_en": "Protocol AI",
-      "summary_ru": "Фреймворк для организации и проверки совместной работы человека с ИИ.",
-      "summary_en": "A framework for organising and checking human–AI work.",
-      "body_ru": "## Задача\n\nProtocol AI помогает сохранять задачу, основания рассуждения, результаты проверок и решение человека в одном рабочем процессе. Автономный агент для применения фреймворка не обязателен.\n\n## Что реализовано\n\nОбщий цикл соединяет шесть модулей: логику, архитектуру, практику, оценку, сбор контекста и формирование ответа. В репозитории есть руководство, исполнимый прототип, предметные примеры и результаты проверок.\n\n## Границы\n\nПрограммная проверка структуры и отдельных условий не доказывает истинность свободного смысла, универсальную пригодность или преимущество над обычной работой с ИИ. Эти вопросы остаются предметом исследования.\n\n## Материалы\n\nИсходный код, руководство и отчёты доступны в открытом репозитории.",
-      "body_en": "## Purpose\n\nProtocol AI helps preserve the task, grounds for reasoning, checks and a person's decision within one workflow. An autonomous agent is optional.\n\n## What exists\n\nThe general workflow connects six modules: logic, architecture, practice, evaluation, context collection and response formation. The repository contains a guide, a runnable prototype, domain-specific examples and verification reports.\n\n## Limits\n\nProgrammatic checks of structure and selected conditions do not establish the truth of unrestricted meaning, universal suitability or an advantage over ordinary AI workflows. These remain research questions.\n\n## Materials\n\nSource code, guidance and reports are available in the public repository.",
+      "summary_ru": "Протокол и локальные инструменты совместной работы человека с ИИ: явные основания рассуждения, память проекта, проверки и решение человека.",
+      "summary_en": "A protocol and local toolkit for human-AI collaboration: explicit reasoning, project memory, evidence checks and human acceptance.",
+      "body_ru": "## Задача\n\nProtocol AI помогает организовать совместную работу человека и ИИ: сформулировать задачу и критерии результата, сохранить основания рассуждения, выполнить проверки и зафиксировать решение человека.\n\n## Как устроена работа\n\nВ опубликованной редакции v0.5 протокол включает десять этапов выполнения и 32 правила. Для правил указаны действие, проверка и возможные результаты: условие выполнено, не выполнено или проверка недоступна.\n\nЛокальное приложение позволяет читать и редактировать протокол, готовить подключение ИИ-клиента, просматривать результаты и память проекта. Агент работает в чате своего проекта. Локальные интерфейсы CLI, MCP и HTTP используют общее состояние проекта.\n\nПроверки связаны с версиями файлов и их контрольными суммами: изменение исходных материалов может сделать прежнюю проверку неактуальной. Техническая проверка результата и его принятие человеком учитываются отдельно.\n\n## Основания и границы\n\nЧетыре опоры протокола — логика, картина мира, развитие и проверка действительностью. Развитие относится к исследуемому предмету, а не только к последовательным редакциям ответа.\n\nФормальные проверки выводимости не устанавливают истинность источников и точность перевода обычного языка в формальную запись. Протокол также не гарантирует автоматического контроля всех действий внешнего ИИ-агента. Это экспериментальный проект; структурные проверки, практические наблюдения и оценка человека решают разные задачи.\n\n## Материалы\n\n[Полный текст протокола на русском](https://github.com/Ruslan-Nazarov/protocol_AI/blob/main/PROTOCOL.md), [английская редакция](https://github.com/Ruslan-Nazarov/protocol_AI/blob/main/PROTOCOL.en.md) и инструкция по началу работы доступны в открытом репозитории.",
+      "body_en": "## Purpose\n\nProtocol AI helps organise human-AI collaboration: define the task and acceptance criteria, retain the reasoning behind decisions, perform checks and record human acceptance.\n\n## How the workflow operates\n\nThe published v0.5 edition contains ten execution stages and 32 rules. Each rule specifies an action, a check and possible outcomes: pass, fail or unavailable.\n\nThe local application supports reading and editing the protocol, preparing an AI-client connection, inspecting results and reviewing project memory. The agent works in its project's chat. Local CLI, MCP and HTTP interfaces share the same project state.\n\nChecks are bound to file versions and hashes. Changes to the source material can invalidate earlier evidence. Technical verification and human acceptance are recorded separately.\n\n## Foundations and limits\n\nThe protocol's four pillars are logic, a world picture, development and checking against reality. Development concerns the subject itself, not merely successive drafts of an answer.\n\nFormal derivability checks do not establish source truth or faithful translation of ordinary language into formal statements. The protocol also does not automatically control every action of an external AI agent. This is an experimental project; structural checks, empirical observations and human judgment serve different purposes.\n\n## Materials\n\nThe [complete English protocol](https://github.com/Ruslan-Nazarov/protocol_AI/blob/main/PROTOCOL.en.md), [Russian source](https://github.com/Ruslan-Nazarov/protocol_AI/blob/main/PROTOCOL.md) and getting-started instructions are available in the public repository.",
       "showInMenu": false,
       "materials": [],
       "excludedMaterials": [],
@@ -254,9 +254,9 @@
           "url": "https://github.com/Ruslan-Nazarov/protocol_AI"
         },
         {
-          "label_ru": "Руководство по фреймворку",
-          "label_en": "Framework guide",
-          "url": "https://github.com/Ruslan-Nazarov/protocol_AI/blob/main/docs/FRAMEWORK_GUIDE.md"
+          "label_ru": "Начало работы",
+          "label_en": "Getting started",
+          "url": "https://github.com/Ruslan-Nazarov/protocol_AI/blob/main/docs/GETTING_STARTED.md"
         }
       ],
       "exampleLinks": [],
@@ -1414,12 +1414,16 @@
       "targetDate": "2026-11-11",
       "startedDate": "2020-11-11",
       "readingMode": "full",
-      "pdf_ru": "",
-      "pdf_en": ""
+      "pdf_ru": "/theses/october-2026/theses-ru.pdf",
+      "pdf_en": "/theses/october-2026/theses-en.pdf"
     }
   ],
   "theses": [
     {
+      "_authorship": {
+        "body_ru": "human",
+        "body_en": "ai"
+      },
       "id": "foundations",
       "slug": "foundations",
       "publish": true,
@@ -1444,13 +1448,13 @@
       "links": [],
       "exampleLinks": [],
       "editorialStatus": "final",
-      "order": 1,
+      "order": 1
+    },
+    {
       "_authorship": {
         "body_ru": "human",
         "body_en": "ai"
-      }
-    },
-    {
+      },
       "id": "mathematics",
       "slug": "mathematics",
       "publish": true,
@@ -1479,13 +1483,13 @@
       "links": [],
       "exampleLinks": [],
       "editorialStatus": "final",
-      "order": 2,
+      "order": 2
+    },
+    {
       "_authorship": {
         "body_ru": "human",
         "body_en": "ai"
-      }
-    },
-    {
+      },
       "id": "physics",
       "slug": "physics",
       "publish": true,
@@ -1510,13 +1514,13 @@
       "links": [],
       "exampleLinks": [],
       "editorialStatus": "final",
-      "order": 3,
+      "order": 3
+    },
+    {
       "_authorship": {
         "body_ru": "human",
         "body_en": "ai"
-      }
-    },
-    {
+      },
       "id": "education",
       "slug": "education",
       "publish": true,
@@ -1547,13 +1551,13 @@
       "links": [],
       "exampleLinks": [],
       "editorialStatus": "final",
-      "order": 4,
+      "order": 4
+    },
+    {
       "_authorship": {
         "body_ru": "human",
         "body_en": "ai"
-      }
-    },
-    {
+      },
       "id": "artificial-intelligence",
       "slug": "artificial-intelligence",
       "publish": true,
@@ -1582,11 +1586,7 @@
       "links": [],
       "exampleLinks": [],
       "editorialStatus": "final",
-      "order": 5,
-      "_authorship": {
-        "body_ru": "human",
-        "body_en": "ai"
-      }
+      "order": 5
     }
   ],
   "pages": [

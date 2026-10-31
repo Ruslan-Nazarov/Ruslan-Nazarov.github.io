@@ -51,7 +51,7 @@ const breadcrumbs=sections.slice(0,-1).map((_,i)=>{
     </div>
     {graph?<div class="wrap graph-page" data-pagefind-ignore><ResearchGraph lang={lang} t={t} publicData={getPublicGraph()} demoData={getDemoGraph()} client:load/><noscript><p><Text record={t} field="nodeList" lang={lang}/>: {t.noApproved}</p></noscript></div>
     :full?<div class="wrap reading-layout">
-      <aside class="toc"><h2><Text record={t} field="contents" lang={lang}/></h2>{manuscriptContents.map(h=><a class:list={{'toc-subsection':h.subsection}} href={`#${h.id}`}>{h.title}</a>)}<a href={`/${lang}/publications/theses-2020-2026/`}><Text record={t} field="back" lang={lang}/> ↗</a></aside>
+      <aside class="toc"><h2><Text record={t} field="contents" lang={lang}/></h2>{manuscriptContents.map(h=><a class:list={{'toc-subsection':h.subsection}} href={`#${h.id}`}>{h.title}</a>)}{thesis?.[`pdf_${lang}`]&&<a href={thesis[`pdf_${lang}`]}>PDF {lang.toUpperCase()} ↓</a>}<a href={`/${lang}/publications/theses-2020-2026/`}><Text record={t} field="back" lang={lang}/> ↗</a></aside>
       <article class="prose"><div class="notice"><Text record={thesis} field={`summary_${lang}`} lang={lang}/></div><MediaBody record={thesis} field={`body_${lang}`} text={l(thesis,'body',lang)} lang={lang} prose={false} headingPrefix="overview-"/>{chapters.map(c=><section id={`chapter-${c.id}`}>{c.editorialStatus!=='final'&&<><h2>{l(c,'title',lang)}</h2><p class="muted"><Text record={c} field={`summary_${lang}`} lang={lang}/></p></>}{l(c,'body',lang)?<>{c.editorialStatus!=='final'&&<p class="notice" data-chapter-overview><Text record={t} field="chapterOverview" lang={lang}/></p>}<MediaBody record={c} field={`body_${lang}`} text={l(c,'body',lang)} lang={lang} prose={false} headingPrefix={`chapter-${c.id}-`}/></>:<p class="notice"><Text record={t} field="chapterPending" lang={lang}/></p>}<a href={pathFor('theses',c,lang)}><Text record={t} field="read" lang={lang}/> ↗</a></section>)}</article>
     </div>
     :section==='articles'?<div class="wrap catalog-section"><ArticleCatalog rows={data.publications.filter(r=>r.type==='article'&&r.readingMode==='full')} lang={lang}/></div>
@@ -84,6 +84,7 @@ const breadcrumbs=sections.slice(0,-1).map((_,i)=>{
         {row.links.length>0&&row.readingMode!=='external'&&<div class="external-links">{row.links.map((link:any)=><a class="button secondary" href={link.url} rel="noopener noreferrer"><Text record={link} field={`label_${lang}`} lang={lang}/> ↗</a>)}</div>}
         {row.license&&<div><span class="eyebrow"><Text record={t} field="originalLicense" lang={lang}/></span><p><Text record={row} field="license" lang={lang}/></p></div>}
         {row.collection==='theses'&&<a href={`/${lang}/publications/theses-2020-2026/full/#chapter-${row.id}`}>{readingLabel} ↗</a>}
+        {row.collection==='theses'&&thesis?.[`pdf_${lang}`]&&<a href={thesis[`pdf_${lang}`]}>PDF {lang.toUpperCase()} ↓</a>}
         <div class="tag-list">{row.tags.map((tag:string)=><span>{t['tag:'+tag]||tag}</span>)}</div>
       </aside>
     </div>

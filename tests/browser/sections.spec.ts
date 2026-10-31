@@ -8,7 +8,11 @@ for(const lang of ['ru','en']){
   test(`final chapters ${lang} use the same source in both reading modes`,async({page})=>{
     await page.goto(`/${lang}/publications/theses-2020-2026/`);
     await expect(page.locator('.thesis-toolbar a').first()).toContainText(lang==='ru'?'Читать одной страницей':'Read as one page');
-    await expect(page.locator('a[href$=".pdf"]')).toHaveCount(0);
+    const pdf=page.getByRole('link',{name:`PDF ${lang.toUpperCase()} ↓`,exact:true});
+    await expect(pdf).toHaveAttribute('href',`/theses/october-2026/theses-${lang}.pdf`);
+    const response=await page.request.get((await pdf.getAttribute('href'))!);
+    expect(response.ok()).toBe(true);
+    expect((await response.body()).subarray(0,5).toString()).toBe('%PDF-');
     await page.goto(`/${lang}/publications/theses-2020-2026/full/`);
     await expect(page.locator('[data-chapter-overview]')).toHaveCount(0);
     for(const chapter of chapters){
