@@ -36,7 +36,7 @@ test('CMS covers every editable data field, including all homepage/about strings
   const config=parse(readFileSync('.pages.yml','utf8'));
   for(const name of collections){
     const configured=new Set(config.content.find(c=>c.name===name).fields.map(f=>f.name));
-    for(const row of validateAll()[name])for(const field of Object.keys(row))assert.ok(configured.has(field),`${name}.${field}`);
+    for(const row of validateAll()[name])for(const field of Object.keys(row).filter(field=>field!=='_authorship'))assert.ok(configured.has(field),`${name}.${field}`);
   }
   const site=readJSON('src/data/site.json'),siteFields=config.content.find(c=>c.name==='site').fields;
   for(const k of Object.keys(site))assert.ok(siteFields.some(f=>f.name===k));

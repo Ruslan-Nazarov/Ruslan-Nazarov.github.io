@@ -6,11 +6,11 @@
   "ready_en": true,
   "title_ru": "Тезисы 2020–2026",
   "title_en": "Theses 2020–2026",
-  "summary_ru": "Предстоящая авторская публикация. Рабочее название; планируемый выпуск — 11 ноября 2026.",
-  "summary_en": "A forthcoming publication. Working title; target release: 11 November 2026.",
-  "body_ru": "## Замысел публикации\n\n«Тезисы 2020–2026» — рабочее название авторской рукописи о понимании, мышлении и искусственном интеллекте. Работа начата **11 ноября 2020 года**. За несколько лет вопросы физики, математики и самостоятельного обучения стали связанными частями одного поиска.\n\n## Четыре направления и общая рамка\n\nВводная глава объединяет введение, диалектику и восстановление до диалектики. Затем следуют математика, физика, образование и ИИ. Такая структура позволяет читать работу по направлениям, сохраняя связь между исходным вопросом и конкретными предметами.\n\n## Статус текста\n\nОкончательная авторская редакция ещё готовится. На сайте размещены обзоры содержания пяти глав: они помогают ориентироваться в замысле и связанных материалах, но не являются финальными текстами глав. Полные тексты и PDF будут добавлены после их предоставления и утверждения.\n\nПланируемый срок выпуска — **11 ноября 2026 года**. Это цель, а не дата уже состоявшейся публикации. До выхода рукописи доступны связанные статьи, книги и страницы программных проектов.",
-  "body_en": "## Publication outline\n\nTheses 2020–2026 is the working title of a manuscript on understanding, thinking and artificial intelligence. Work began on **11 November 2020**. Over several years, physics, mathematics and self-directed learning became connected parts of the inquiry.\n\n## Four areas and a common framework\n\nThe opening chapter brings together the introduction, dialectics and reconstruction before dialectics. Mathematics, physics, education and AI follow. This structure offers routes through individual areas while retaining their connection to the initial question.\n\n## Text status\n\nThe final authorial revision is still in preparation. This website provides content overviews for five chapters: they introduce the plan and related materials, and are not the final chapter texts. Complete texts and PDFs will be added after they are supplied and approved.\n\nThe target release date is **11 November 2026**. This is a goal, not an already completed publication date. Related articles, books and software-project pages are available while the manuscript is being prepared.",
-  "editorialStatus": "editorial_summary",
+  "summary_ru": "Тезисы к книге. Октябрьская редакция 2026 года на русском и английском языках; без незавершённого предисловия.",
+  "summary_en": "Theses for a book. October 2026 revision in Russian and English, excluding the unfinished preface.",
+  "body_ru": "## Октябрьская редакция 2026\n\nОпубликованы введение и разделы о диалектике, математике, восстановлении до диалектики, истории физики, Эйнштейне, диалектической физике, образовании и искусственном интеллекте. Это авторские тезисы к будущей книге. Незавершённое предисловие в эту публикацию не входит.\n\n## Английский перевод\n\nПеревод подготовлен с помощью ИИ по авторскому заданию и согласованному глоссарию. Сохранены структура, нумерация, формулы и авторские положения.\n\n[Скачать английский текст в Word](/theses/october-2026/theses-en.docx) · [Скачать английский текст в Markdown](/theses/october-2026/theses-en.md)",
+  "body_en": "## October 2026 revision\n\nThe introduction and sections on dialectics, mathematics, dialectical reconstruction, the history of physics, Einstein, dialectical physics, education, and artificial intelligence are published here. These are the author’s theses for a forthcoming book. The unfinished preface is excluded from this publication.\n\n## English translation\n\nThe translation was prepared with AI assistance following the author’s instructions and an agreed glossary. It preserves the structure, numbering, formulas, and authorial claims.\n\n[Download the English text in Word](/theses/october-2026/theses-en.docx) · [Download the English text in Markdown](/theses/october-2026/theses-en.md)",
+  "editorialStatus": "final",
   "researchAreas": [
     "mathematics",
     "physics",
@@ -42,5 +42,5 @@
   "startedDate": "2020-11-11",
   "pdf_ru": "",
   "pdf_en": "",
-  "readingMode": "forthcoming"
+  "readingMode": "full"
 }
