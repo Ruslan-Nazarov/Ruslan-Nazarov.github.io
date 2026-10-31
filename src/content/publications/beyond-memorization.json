@@ -12,15 +12,10 @@
   "body_en": "The full article is published in English on Medium. Related projects and publications below provide context for this line of inquiry.",
   "editorialStatus": "external_publication",
   "type": "article",
-  "researchAreas": [
-    "education",
-    "artificial-intelligence"
-  ],
   "relatedProjects": [
     "papanda"
   ],
   "relatedPublications": [],
-  "relatedJournal": [],
   "tags": [
     "Education",
     "AI"
@@ -35,7 +30,6 @@
       "url": "https://ruslan-nazarov.medium.com/beyond-memorization-how-ai-is-forcing-a-dialectical-shift-in-education-163328affcf4"
     }
   ],
-  "timeline": [],
   "order": 19,
   "readingMode": "external"
 }

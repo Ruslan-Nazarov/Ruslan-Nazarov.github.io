@@ -1,0 +1,40 @@
+{
+  "id": "protocol-ai",
+  "slug": "protocol-ai",
+  "publish": true,
+  "ready_ru": true,
+  "ready_en": true,
+  "title_ru": "Protocol AI",
+  "title_en": "Protocol AI",
+  "summary_ru": "Фреймворк для организации и проверки совместной работы человека с ИИ.",
+  "summary_en": "A framework for organising and checking human–AI work.",
+  "body_ru": "## Задача\n\nProtocol AI помогает сохранять задачу, основания рассуждения, результаты проверок и решение человека в одном рабочем процессе. Автономный агент для применения фреймворка не обязателен.\n\n## Что реализовано\n\nОбщий цикл соединяет шесть модулей: логику, архитектуру, практику, оценку, сбор контекста и формирование ответа. В репозитории есть руководство, исполнимый прототип, предметные примеры и результаты проверок.\n\n## Границы\n\nПрограммная проверка структуры и отдельных условий не доказывает истинность свободного смысла, универсальную пригодность или преимущество над обычной работой с ИИ. Эти вопросы остаются предметом исследования.\n\n## Материалы\n\nИсходный код, руководство и отчёты доступны в открытом репозитории.",
+  "body_en": "## Purpose\n\nProtocol AI helps preserve the task, grounds for reasoning, checks and a person's decision within one workflow. An autonomous agent is optional.\n\n## What exists\n\nThe general workflow connects six modules: logic, architecture, practice, evaluation, context collection and response formation. The repository contains a guide, a runnable prototype, domain-specific examples and verification reports.\n\n## Limits\n\nProgrammatic checks of structure and selected conditions do not establish the truth of unrestricted meaning, universal suitability or an advantage over ordinary AI workflows. These remain research questions.\n\n## Materials\n\nSource code, guidance and reports are available in the public repository.",
+  "editorialStatus": "editorial_summary",
+  "relatedProjects": ["dialectic-ai"],
+  "relatedPublications": [],
+  "tags": ["AI", "Framework"],
+  "featured": false,
+  "heroImage": "",
+  "gallery": [],
+  "links": [
+    {
+      "label_ru": "Репозиторий Protocol AI",
+      "label_en": "Protocol AI repository",
+      "url": "https://github.com/Ruslan-Nazarov/protocol_AI"
+    },
+    {
+      "label_ru": "Руководство по фреймворку",
+      "label_en": "Framework guide",
+      "url": "https://github.com/Ruslan-Nazarov/protocol_AI/blob/main/docs/FRAMEWORK_GUIDE.md"
+    }
+  ],
+  "status": "active",
+  "order": 4,
+  "byline_ru": "Руслан Назаров · Исследователь искусственного интеллекта",
+  "byline_en": "Ruslan Nazarov · AI Researcher",
+  "statusLabel_ru": "Исследовательский фреймворк",
+  "statusLabel_en": "Research framework",
+  "motto_ru": "Сохранять задачу, основания и проверку в работе с ИИ.",
+  "motto_en": "Keep the task, grounds and checks visible in AI work."
+}

@@ -50,5 +50,4 @@ for(const p of files.filter(p=>p.endsWith('.html'))){
   if(p.includes(`${join('dist','en')}`)&&!html.includes('lang="en"'))throw new Error(`Missing EN language: ${p}`);
 }
 if(!existsSync('dist/pagefind/pagefind.js'))throw new Error('Pagefind index missing');
-if(!existsSync('dist/ru/rss.xml')||!existsSync('dist/en/rss.xml'))throw new Error('RSS missing');
-console.log(`Verified ${files.filter(p=>p.endsWith('.html')).length} HTML pages: local links and anchors, unique IDs, languages, draft exclusion, private graph boundary, RSS, Pagefind and unchanged Yandex bytes.`);
+console.log(`Verified ${files.filter(p=>p.endsWith('.html')).length} HTML pages: local links and anchors, unique IDs, languages, draft exclusion, private graph boundary, Pagefind and unchanged Yandex bytes.`);

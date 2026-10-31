@@ -10,7 +10,7 @@ import {chromium} from '@playwright/test';
 const root=process.cwd(),exec=promisify(execFile);
 mkdirSync('.local/features',{recursive:true});
 const dir=mkdtempSync(resolve('.local/features/run-'));
-for(const path of ['src','public','scripts','.pages.yml','astro.config.mjs','tsconfig.json','package.json','yandex_64f199e3e08207c6.html'])
+for(const path of ['src','public','scripts','astro.config.mjs','tsconfig.json','package.json','yandex_64f199e3e08207c6.html'])
   cpSync(resolve(root,path),resolve(dir,path),{recursive:true});
 const read=path=>JSON.parse(readFileSync(resolve(dir,path),'utf8'));
 const write=(path,value)=>{mkdirSync(resolve(dir,path,'..'),{recursive:true});writeFileSync(resolve(dir,path),JSON.stringify(value,null,2)+'\n')};
@@ -20,12 +20,12 @@ write('src/data/site.json',site);
 const chapter=read('src/content/theses/mathematics.json');
 Object.assign(chapter,{editorialStatus:'final',body_ru:'## Проверка единого источника\n\nFIXTURE_CHAPTER_RU\n\n$x^2+y^2$',body_en:'## Single-source check\n\nFIXTURE_CHAPTER_EN\n\n$x^2+y^2$'});
 write('src/content/theses/mathematics.json',chapter);
-const note=read('src/content/journal/unpublished-example.json');
+const note=read('src/content/publications/human-understanding-ai-education.json');
 Object.assign(note,{id:'fixture-note',slug:'fixture-note',publish:true,ready_ru:true,ready_en:true,title_ru:'Проверка тематической ленты',title_en:'Thematic feed fixture',
   summary_ru:'Тестовые данные только для автоматической проверки.',summary_en:'Test data only for automated verification.',
-  body_ru:'FIXTURE_PUBLIC_JOURNAL_RU',body_en:'FIXTURE_PUBLIC_JOURNAL_EN',date:'2026-10-20',type:'experiment',researchAreas:['mathematics'],relatedProjects:['mathematical-parser']});
-write('src/content/journal/fixture-note.json',note);
-write('src/content/journal/fixture-incomplete.json',{...note,id:'fixture-incomplete',slug:'fixture-incomplete',ready_en:false,title_ru:'PRIVATE_TRANSLATION_SENTINEL',title_en:'PRIVATE_TRANSLATION_SENTINEL'});
+  body_ru:'FIXTURE_PUBLIC_JOURNAL_RU',body_en:'FIXTURE_PUBLIC_JOURNAL_EN',date:'2026-10-20',type:'article',readingMode:'full',relatedProjects:['mathematical-parser']});
+write('src/content/publications/fixture-note.json',note);
+write('src/content/publications/fixture-incomplete.json',{...note,id:'fixture-incomplete',slug:'fixture-incomplete',ready_en:false,title_ru:'PRIVATE_TRANSLATION_SENTINEL',title_en:'PRIVATE_TRANSLATION_SENTINEL'});
 const project=read('src/content/projects/papanda.json');
 write('src/content/projects/papanda.json',{...project,ready_en:false,title_ru:'PRIVATE_PROJECT_REVISION_SENTINEL',body_ru:'PRIVATE_PROJECT_REVISION_SENTINEL'});
 const sourceNode=(id,status,predecessors=[])=>({id,originalKey:`PRIVATE_ORIGINAL_${id}`,type:'кризис-разрешение',researchStatus:status,title_ru:`Проверка ${id}`,title_en:`Fixture ${id}`,explanation_ru:`EXPLANATION_${id}`,explanation_en:`EXPLANATION_${id}`,formula:'a+b',predecessors});
@@ -77,13 +77,7 @@ try{
     assert.ok(await page.locator('.katex').count()>0);
     await page.goto(`${base}/${lang}/publications/theses-2020-2026/full/`);
     assert.ok((await page.locator('.prose').innerText()).includes(`FIXTURE_CHAPTER_${lang.toUpperCase()}`));
-    const feed=await (await fetch(`${base}/${lang}/research/mathematics/rss.xml`)).text();
-    assert.ok(feed.includes('fixture-note'));assert.ok(!feed.includes('PRIVATE_TRANSLATION_SENTINEL'));
-    assert.ok(!(await(await fetch(`${base}/${lang}/research/physics/rss.xml`)).text()).includes('fixture-note'));
-    await page.goto(`${base}/${lang}/timeline/`);
-    assert.ok(await page.locator('a[href*="/journal/fixture-note/"]').count()>0);
-    await page.goto(`${base}/${lang}/projects/mathematical-parser/`);
-    assert.ok(await page.locator('a[href*="/journal/fixture-note/"]').count()>0);
+    for(const path of ['research','journal','timeline'])assert.equal((await fetch(base+'/'+lang+'/'+path+'/')).status,404);
     await page.goto(`${base}/${lang}/projects/papanda/`);
     assert.equal(await page.locator('h1').innerText(),read('src/data/published.json').projects.find(p=>p.id==='papanda')[`title_${lang}`]);
   }
@@ -98,7 +92,7 @@ try{
   await page.goto(base+'/en/search/');
   await page.locator('.pagefind-ui__search-input').fill('PRIVATE_TRANSLATION_SENTINEL');
   await page.getByText('No results for',{exact:false}).waitFor();
-  console.log('Feature fixtures passed: configured form failure/success (mocked), analytics opt-in, final bilingual chapters/full text, thematic RSS, timeline/project links, previous revision fallback, private graph boundary, searchable draft exclusion.');
+  console.log('Feature fixtures passed: configured form failure/success (mocked), analytics opt-in, final bilingual chapters/full text, retired sections excluded, previous revision fallback, private graph boundary, searchable draft exclusion.');
   console.log('The owner’s source data and preview were not modified.');
 }finally{
   await browser.close();

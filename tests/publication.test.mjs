@@ -1,17 +1,15 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {allContent,collections,isReady,resolvePublication,validateAll,readJSON} from '../src/lib/content.mjs';
+import {allContent,isReady,resolvePublication,validateAll} from '../src/lib/content.mjs';
 import {markdown} from '../src/lib/markdown.mjs';
-import {parse} from 'yaml';
-import {readFileSync} from 'node:fs';
 
-test('all public objects are complete bilingual pairs; private journal is excluded',()=>{
+test('all public objects are complete bilingual pairs; retired collections are excluded',()=>{
   validateAll();
   const data=allContent();
-  assert.equal(data.research.length,4);assert.equal(data.projects.length,6);
+  assert.equal(data.research,undefined);assert.equal(data.projects.length,9);
+  assert.equal(data.projects.some(project=>project.id==='ai-algorithm'),false);
   for(const id of ['data-science-handbook','language-handbook','theses-2020-2026'])assert.ok(data.publications.some(p=>p.id===id));
-  assert.equal(data.theses.length,5);assert.equal(data.journal.length,2);
-  assert.ok(!data.journal.some(row=>row.id==='unpublished-example'));
+  assert.equal(data.theses.length,5);assert.equal(data.journal,undefined);
   for(const rows of Object.values(data))for(const row of rows)assert.ok(isReady(row));
 });
 test('incomplete translation retains last complete public revision, including its old slug',()=>{
@@ -31,18 +29,6 @@ test('Markdown renders mathematics and strips executable markup and unsafe links
   assert.doesNotMatch(html,/<script|href="javascript:/);
   const unsafeMath=await markdown('$\\href{javascript:alert(1)}{click}$');
   assert.doesNotMatch(unsafeMath,/href="javascript:/);
-});
-test('CMS covers every editable data field, including all homepage/about strings',()=>{
-  const config=parse(readFileSync('.pages.yml','utf8'));
-  for(const name of collections){
-    const configured=new Set(config.content.find(c=>c.name===name).fields.map(f=>f.name));
-    for(const row of validateAll()[name])for(const field of Object.keys(row))assert.ok(configured.has(field),`${name}.${field}`);
-  }
-  const site=readJSON('src/data/site.json'),siteFields=config.content.find(c=>c.name==='site').fields;
-  for(const k of Object.keys(site))assert.ok(siteFields.some(f=>f.name===k));
-  for(const lang of ['ru','en'])for(const key of Object.keys(site[lang]).filter(key=>key!=='_authorship'))assert.ok(siteFields.find(f=>f.name===lang).fields.some(f=>f.name===key));
-  const graphFields=config.content.find(c=>c.name==='graph-overrides').fields.map(f=>f.name);
-  for(const logic of ['type','predecessors','edges','researchStatus'])assert.ok(!graphFields.includes(logic));
 });
 test('book links are absolute, licences remain unchanged, thesis target is not a publication date',()=>{
   const pubs=allContent().publications;

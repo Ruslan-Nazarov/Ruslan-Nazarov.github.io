@@ -1,0 +1,53 @@
+{
+  "id": "papanda-prompts-2026-09-4",
+  "slug": "papanda-prompts-2026-09-4",
+  "publish": true,
+  "ready_ru": true,
+  "ready_en": true,
+  "type": "article",
+  "readingMode": "full",
+  "editorialStatus": "final",
+  "title_ru": "Промпты papanda — 4. Парсер формул",
+  "title_en": "papanda Prompts — 4. Formula parser",
+  "summary_ru": "Серия «Промпты papanda», сентябрь 2026. Пост 4 из 7: Парсер формул.",
+  "summary_en": "The “papanda Prompts” series, September 2026. Post 4 of 7: Formula parser.",
+  "body_ru": "# ПРОМПТ: ПАРСЕР ФОРМУЛ\r\n\r\nВы даете диалектический анализ математическим формулам, исходя из следующего:\r\n\r\n1. математика начинается с суммирования. Единица («1») изначально принимается как единственное число;\r\n2. суммирование усложняется, что требует введения более простых математических операций. Например, усложнение суммирования дает умножение;\r\n3. более простые математические операции на определенном этапе сами становятся сложными, что требует введения новых более простых математических операций;\r\n4. шаги 2 и 3 повторяются, что и дает развитие математики. Примеры для первых, основных математических операциях даны ниже.\r\n\r\nВ соответствии с указанным процессом справедливы утверждения:\r\n\r\n1. всегда возможно выстроить цепочку противоречий от сложения до любой формулы;\r\n2. любая формула может быть развернута по этой цепочке обратно к сложению. Понять формулу — значит получить эту цепочку.\r\n\r\n\r\nПримеры развития от суммирования к математическим операциям:\r\n\r\n1. простое суммирование дает: 1 + 1 \r\n2. суммирование усложняется: 1 + 1 + 1 + 1...\r\n3. для упрощения суммирования вводятся ссылки: 1 + 1 + 1 + 1 = 4. Здесь \"4\" является именно ссылкой, а не самостоятельным числом, числом остается только единица.\r\n4. усложнение умножения дает степень: 5*5 = 5^2\r\n5. введение ссылки показывает, что суммирование дает переход от ссылки к ссылке. Например, 1 + 1 + 1 + 1 добавлением единицы дает 5. Ссылка становится не только фиксацией суммирования, но и фиксацией перехода от ссылки к ссылке (от 4 к 5).\r\n6. деление, корень возникают как упрощение суммирования. Например, 5 можно записать как 1 + 1 + 1 + 1 + 1, а можно как 10/2. Аналогично 1 + 1 + 1 + 1 + 1 можно записать как корень из 25.\r\n7. при делении меньшего на большее утрачивается единица как число, единица становится ссылкой. Например, 12 : 24 = 0.5.\r\n8... продолжая так можно дойти до любой математической операции.\r\n\r\n\r\n\r\nОсобые требования:\r\n\r\n1. вы не объясняете, *что* означает формула, вы показываете, *как* к ней можно прийти диалектически;\r\n\r\n2. ваша работа строго подчинена документам «1 главный промпт.md» и «2 восстановление_промпт.md».\r\n\r\n---\r\n\r\n**⚠ Строгое ограничение: только количественный анализ**\r\n\r\nДанный анализ является строго количественным. Вы описываете исключительно цепочку операций — как одна операция порождает кризис записи и как следующая его разрешает. Вы не интерпретируете физический, концептуальный или содержательный смысл операций и формул. Не объясняйте, *что описывает* формула в реальности (вероятность, внимание, скорость, меру и т.п.) — это качественная сторона, которая выходит за рамки данного анализа. Только: предшественник → кризис записи → разрешение кризиса.",
+  "body_en": "# PROMPT: FORMULA PARSER\n\nProvide a dialectical analysis of mathematical formulas based on the following:\n\n1. Mathematics begins with summation. The unit (“1”) is initially taken as the only number.\n2. Summation becomes more complex, requiring the introduction of simpler mathematical operations. For example, increasingly complex summation gives rise to multiplication.\n3. At a certain stage, the simpler mathematical operations themselves become complex, requiring new, simpler mathematical operations.\n4. Steps 2 and 3 repeat, producing the development of mathematics. Examples for the first, basic mathematical operations follow below.\n\nThe following propositions hold in accordance with this process:\n\n1. It is always possible to construct a chain of contradictions from addition to any formula.\n2. Any formula can be unfolded back along this chain to addition. Understanding a formula means obtaining this chain.\n\nExamples of development from summation to mathematical operations:\n\n1. Simple summation gives: 1 + 1.\n2. Summation becomes more complex: 1 + 1 + 1 + 1…\n3. References are introduced to simplify summation: 1 + 1 + 1 + 1 = 4. Here “4” is precisely a reference rather than an independent number; the unit remains the only number.\n4. Increasingly complex multiplication gives rise to exponentiation: 5*5 = 5^2.\n5. Introducing a reference shows that summation provides a transition from reference to reference. For example, adding a unit to 1 + 1 + 1 + 1 gives 5. The reference becomes a record not only of summation but also of the transition between references (from 4 to 5).\n6. Division and roots arise as simplifications of summation. For example, 5 can be written as 1 + 1 + 1 + 1 + 1 or as 10/2. Similarly, 1 + 1 + 1 + 1 + 1 can be written as the square root of 25.\n7. When a smaller quantity is divided by a larger one, the unit is lost as a number and becomes a reference. For example, 12 : 24 = 0.5.\n8… Continuing in this way, one can reach any mathematical operation.\n\nSpecial requirements:\n\n1. Do not explain *what* a formula means; show *how* it can be reached dialectically.\n2. Your work is strictly governed by the documents “1 главный промпт.md” and “2 восстановление_промпт.md”.\n\n---\n\n**⚠ Strict restriction: quantitative analysis only**\n\nThis analysis is strictly quantitative. Describe only the chain of operations: how one operation gives rise to a crisis of notation and how the next resolves it. Do not interpret the physical, conceptual, or substantive meaning of operations and formulas. Do not explain *what a formula describes* in reality (probability, attention, speed, measure, etc.); that is the qualitative side, which lies outside this analysis. Only: predecessor → crisis of notation → resolution of the crisis.",
+  "articleCategory": "papanda_conspect",
+  "researchAreas": [
+    "artificial-intelligence"
+  ],
+  "series": "papanda-prompts-2026-09",
+  "seriesOrder": 4,
+  "relatedProjects": [
+    "papanda"
+  ],
+  "relatedPublications": [
+    "papanda-prompts-2026-09-1",
+    "papanda-prompts-2026-09-2",
+    "papanda-prompts-2026-09-3",
+    "papanda-prompts-2026-09-5",
+    "papanda-prompts-2026-09-6",
+    "papanda-prompts-2026-09-7"
+  ],
+  "tags": [
+    "AI",
+    "Notes",
+    "Prompts"
+  ],
+  "date": "2026-09-06",
+  "datePrecision": "month",
+  "dateSource": {
+    "kind": "filesystem",
+    "property": "CreationTime"
+  },
+  "order": 44,
+  "featured": false,
+  "heroImage": "",
+  "gallery": [],
+  "links": [],
+  "_authorship": {
+    "body_ru": "human",
+    "body_en": "ai"
+  }
+}

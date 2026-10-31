@@ -7,4 +7,4 @@ const state=isAuthorshipField(field)&&record?.[field]?.trim()?authorshipOf(recor
 const label=state==='ai'?(lang==='ru'?'ИИ':'AI'):'✎';
 const description=authorshipCopy(state,lang);
 ---
-{state&&<span class="authorship-mark" role="button" tabindex="0" aria-label={description} aria-haspopup="dialog" aria-expanded="false" data-authorship={state} data-explanation={description} data-contact={`/${lang}/about/#contact`} data-pagefind-ignore>{label}</span>}
+{state&&<span class="authorship-mark" role="button" tabindex="0" aria-label={description} aria-haspopup="dialog" aria-expanded="false" data-authorship={state} data-explanation={description} data-contact={`/${lang}/contact/`} data-pagefind-ignore>{label}</span>}

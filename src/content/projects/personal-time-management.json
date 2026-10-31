@@ -11,10 +11,8 @@
   "body_ru": "## Назначение\n\nЭто отдельный проект приложения для организации личного времени и задач. Его место на сайте — среди практических программных инструментов, связанных с повседневной работой автора.\n\nДля личного инструмента существенна связь между тем, что человек собирается сделать, и тем, как он организует собственную работу. Страница посвящена назначению и представлению приложения, без обещания универсального способа управления временем.\n\n## Интерфейс\n\nСкриншоты и описание рабочего процесса готовятся к публикации. Для примеров будут использованы обезличенные данные.\n\n[[media:time-management-overview]]\n\n[[media:time-management-workflow]]\n\n## Статус и доступ\n\nПроект предназначен для личного использования. Публичная установка, открытый репозиторий и общедоступная демонстрация сейчас не предлагаются.\n\n## Место среди других работ\n\nПрактические приложения позволяют переводить отдельные потребности в инструменты и наблюдать, насколько выбранный способ организации подходит конкретной задаче.",
   "body_en": "## Purpose\n\nThis is a separate application project for organising personal time and tasks. It belongs among the practical software tools connected with the author's everyday work.\n\nFor a personal tool, the connection between intended tasks and the way someone organises their work matters. This page describes the application's purpose and presentation without promising a universal time-management method.\n\n## Interface\n\nScreenshots and a description of the workflow are being prepared for publication using anonymised data.\n\n[[media:time-management-overview]]\n\n[[media:time-management-workflow]]\n\n## Status and access\n\nThe project is intended for personal use. Public installation, an open repository and a public live demonstration are not currently offered.\n\n## Relationship to the other work\n\nPractical applications provide a way to turn particular needs into tools and observe how well a chosen workflow fits a task.",
   "editorialStatus": "editorial_summary",
-  "researchAreas": [],
   "relatedProjects": [],
   "relatedPublications": [],
-  "relatedJournal": [],
   "tags": [
     "Personal tool"
   ],
@@ -22,7 +20,6 @@
   "heroImage": "",
   "gallery": [],
   "links": [],
-  "timeline": [],
   "status": "active",
   "order": 5,
   "byline_ru": "Руслан Назаров · Исследователь искусственного интеллекта",

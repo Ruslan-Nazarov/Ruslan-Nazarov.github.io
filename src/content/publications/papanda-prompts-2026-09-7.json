@@ -1,0 +1,53 @@
+{
+  "id": "papanda-prompts-2026-09-7",
+  "slug": "papanda-prompts-2026-09-7",
+  "publish": true,
+  "ready_ru": true,
+  "ready_en": true,
+  "type": "article",
+  "readingMode": "full",
+  "editorialStatus": "final",
+  "title_ru": "Промпты papanda — 7. Алгоритм составления конспекта",
+  "title_en": "papanda Prompts — 7. Note-taking algorithm",
+  "summary_ru": "Серия «Промпты papanda», сентябрь 2026. Пост 7 из 7: Алгоритм составления конспекта.",
+  "summary_en": "The “papanda Prompts” series, September 2026. Post 7 of 7: Note-taking algorithm.",
+  "body_ru": "```json\n{\n  \"anchor\": \"Что вам нужно понять?\",\n  \"step1\": \"<div style=\\\"font-size:1.02em; font-weight:500; color:#1e293b; margin-bottom:8px;\\\">Опишите простейший процесс, который, по вашему мнению, лежит в основе проблемы, которую вы хотите понять.</div><div style=\\\"font-size:0.85em; color:#64748b; font-weight:400; line-height:1.35;\\\">Примером простейшего процесса может быть суммирование. Помните, что ИИ не способен к пониманию, но может предоставить вам знания.</div>\",\n  \"step1_title\": \"Простейший процесс\",\n  \"step2\": \"<div style=\\\"font-size:1.02em; font-weight:500; color:#1e293b; margin-bottom:8px;\\\">Опишите, как развивается этот простейший процесс.</div><div style=\\\"font-size:0.85em; color:#64748b; font-weight:400; line-height:1.35;\\\">Развитие – это взаимодействие процесса с другими процессами в мире. Например, если простейшим является суммирование, то его развитием будет суммирование пяти, десяти и т.п. единиц, использование суммирования в торговле, праве, науке. Однако помните, что ИИ не может заменить человека в понимании процессов, ИИ может только предоставить знания.</div>\",\n  \"step2_title\": \"Опишите как развивается этот простейший процесс\",\n  \"step3\": \"<div style=\\\"font-size:1.02em; font-weight:500; color:#1e293b; margin-bottom:8px;\\\">Вы уже нашли простейший процесс, посмотрели, как он развивается. В этом развитии вы должны отыскать противоположный процесс.</div><div style=\\\"font-size:0.85em; color:#64748b; font-weight:400; line-height:1.35;\\\">Противоположным является такой процесс, который сам остается самостоятельным, но полностью исключает другой.</div>\",\n  \"step3_title\": \"Найти противоположный процесс\",\n  \"step4\": \"Опишите развитие противоположного процесса\",\n  \"step5\": \"Объедините оба противоположных процесса в одно общее развитие. К каким противоречиям это приводит? Как могут быть разрешены противоречия?\"\n}\n```",
+  "body_en": "```json\n{\n  \"anchor\": \"What do you need to understand?\",\n  \"step1\": \"<div style=\\\"font-size:1.02em; font-weight:500; color:#1e293b; margin-bottom:8px;\\\">Describe the simplest process that you believe underlies the problem you want to understand.</div><div style=\\\"font-size:0.85em; color:#64748b; font-weight:400; line-height:1.35;\\\">Summation can be an example of a simplest process. Remember that AI is not capable of understanding, but can provide knowledge.</div>\",\n  \"step1_title\": \"The simplest process\",\n  \"step2\": \"<div style=\\\"font-size:1.02em; font-weight:500; color:#1e293b; margin-bottom:8px;\\\">Describe how this simplest process develops.</div><div style=\\\"font-size:0.85em; color:#64748b; font-weight:400; line-height:1.35;\\\">Development is the interaction of a process with other processes in the world. For example, if summation is the simplest process, its development includes summing five, ten, and other numbers of units, and using summation in trade, law, and science. Remember, however, that AI cannot replace humans in understanding processes; it can only provide knowledge.</div>\",\n  \"step2_title\": \"Describe how this simplest process develops\",\n  \"step3\": \"<div style=\\\"font-size:1.02em; font-weight:500; color:#1e293b; margin-bottom:8px;\\\">You have already found the simplest process and examined how it develops. Within this development, you must find the opposite process.</div><div style=\\\"font-size:0.85em; color:#64748b; font-weight:400; line-height:1.35;\\\">An opposite process remains independent itself while completely excluding the other.</div>\",\n  \"step3_title\": \"Find the opposite process\",\n  \"step4\": \"Describe the development of the opposite process\",\n  \"step5\": \"Combine the two opposite processes into a single overall development. What contradictions does this lead to? How can those contradictions be resolved?\"\n}\n```",
+  "articleCategory": "papanda_conspect",
+  "researchAreas": [
+    "artificial-intelligence"
+  ],
+  "series": "papanda-prompts-2026-09",
+  "seriesOrder": 7,
+  "relatedProjects": [
+    "papanda"
+  ],
+  "relatedPublications": [
+    "papanda-prompts-2026-09-1",
+    "papanda-prompts-2026-09-2",
+    "papanda-prompts-2026-09-3",
+    "papanda-prompts-2026-09-4",
+    "papanda-prompts-2026-09-5",
+    "papanda-prompts-2026-09-6"
+  ],
+  "tags": [
+    "AI",
+    "Notes",
+    "Prompts"
+  ],
+  "date": "2026-09-06",
+  "datePrecision": "month",
+  "dateSource": {
+    "kind": "filesystem",
+    "property": "CreationTime"
+  },
+  "order": 47,
+  "featured": false,
+  "heroImage": "",
+  "gallery": [],
+  "links": [],
+  "_authorship": {
+    "body_ru": "human",
+    "body_en": "ai"
+  }
+}

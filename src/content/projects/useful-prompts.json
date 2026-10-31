@@ -1,0 +1,35 @@
+{
+  "id": "useful-prompts",
+  "slug": "useful-prompts",
+  "publish": true,
+  "ready_ru": true,
+  "ready_en": true,
+  "title_ru": "useful_prompts",
+  "title_en": "useful_prompts",
+  "summary_ru": "Открытая коллекция заданий и спецификаций для создания приложений с ИИ-агентами.",
+  "summary_en": "An open collection of prompts and specifications for building applications with AI agents.",
+  "body_ru": "## Что это\n\nuseful_prompts — коллекция авторских заданий, требований и примеров для самостоятельной реализации приложений. Это публикация материалов разработки, а не готовое приложение.\n\n## Что опубликовано\n\nВ репозитории есть русские и английские комплекты для приложения тайм-менеджмента и для языкового приложения: промпты, функциональные и визуальные требования, а также материалы проверки. Примеры пользовательских данных вымышлены.\n\n## Граница\n\nКомплекты описывают желаемое поведение; результат зависит от исполнителя и выбранной технологии. Репозиторий не является исходным кодом локального приложения тайм-менеджмента или языкового приложения.",
+  "body_en": "## What it is\n\nuseful_prompts is a collection of original prompts, requirements and examples for independently building applications. It publishes development materials rather than a finished application.\n\n## Published kits\n\nThe repository contains Russian and English kits for a time-management app and a language-learning app: prompts, functional and visual requirements, and acceptance materials. Sample user data is fictional.\n\n## Scope\n\nThe kits specify intended behaviour; the result depends on the implementer and technology. This repository is not the source code of the local time-management or language-learning applications.",
+  "editorialStatus": "editorial_summary",
+  "relatedProjects": ["personal-time-management", "papanda-languages"],
+  "relatedPublications": [],
+  "tags": ["Prompts", "Specifications"],
+  "featured": false,
+  "heroImage": "",
+  "gallery": [],
+  "links": [
+    {
+      "label_ru": "Репозиторий useful_prompts",
+      "label_en": "useful_prompts repository",
+      "url": "https://github.com/Ruslan-Nazarov/useful_prompts"
+    }
+  ],
+  "status": "active",
+  "order": 8,
+  "byline_ru": "Руслан Назаров · Исследователь искусственного интеллекта",
+  "byline_en": "Ruslan Nazarov · AI Researcher",
+  "statusLabel_ru": "Открытые материалы",
+  "statusLabel_en": "Open materials",
+  "motto_ru": "Задания и спецификации для самостоятельной разработки.",
+  "motto_en": "Prompts and specifications for independent development."
+}

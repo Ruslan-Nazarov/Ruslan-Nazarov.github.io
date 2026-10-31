@@ -1,14 +1,10 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {entrySchema,isReady,allContent,timelineRows} from '../src/lib/content.mjs';
+import {entrySchema,isReady,allContent,routes} from '../src/lib/content.mjs';
 import {markdown} from '../src/lib/markdown.mjs';
 
-test('timeline cards use the event date, including events on an undated project',()=>{
-  const project=allContent().projects[0];
-  const data={projects:[{...project,date:'2026-02-01',timeline:[{date:'2026-10-21',title_ru:'Обновление',title_en:'Update'}]},{...project,id:'undated',date:undefined,timeline:[{date:'2026-10-20',title_ru:'Опыт',title_en:'Experiment'}]}],publications:[],journal:[]};
-  const rows=timelineRows(data);
-  assert.deepEqual(rows.map(r=>r.date),['2026-10-21','2026-10-20','2026-02-01']);
-  assert.equal(rows[0].title_en,'Update');assert.equal(rows[1].eventCollection,'projects');
+test('retired sections and their entries have no public routes',()=>{
+  assert.ok(routes().every(path=>! /^(research|journal|timeline)(\/|$)/.test(path)));
 });
 test('content dates reject impossible dates before the build',()=>{
   const row=allContent().projects[0];

@@ -1,0 +1,53 @@
+{
+  "id": "papanda-prompts-2026-09-5",
+  "slug": "papanda-prompts-2026-09-5",
+  "publish": true,
+  "ready_ru": true,
+  "ready_en": true,
+  "type": "article",
+  "readingMode": "full",
+  "editorialStatus": "final",
+  "title_ru": "Промпты papanda — 5. Анализ статьи",
+  "title_en": "papanda Prompts — 5. Article analysis",
+  "summary_ru": "Серия «Промпты papanda», сентябрь 2026. Пост 5 из 7: Анализ статьи.",
+  "summary_en": "The “papanda Prompts” series, September 2026. Post 5 of 7: Article analysis.",
+  "body_ru": "1. Пользователь предоставляет текст статьи способом, предусмотренным программой (ссылка с извлечением текста, pdf, вставка текста и т.п.).\r\n2. Нужно провести диалектический анализ статьи. Содержание статьи считается процессом. \r\n3. Результатом должно стать:\r\n\r\n3.1 развитие процесса из статьи в историческом смысле;\r\n\r\n3.2 развитие процесса из статьи в логическом смысле, то есть описание процесса по правилам диалектического анализа.\r\n\r\n4\\. Содержание статьи должно быть встроено в общее развитие предмета, в том числе показано, как повлияло содержание статьи на дальнейшее развитие предмета.\r\n\r\n5\\. Одной из возможных стратегий описания может быть: представить статью как разрешающий процесс, затем показать, как обнаруженный простейший процесс развился до скачка к разрешающему процессу.",
+  "body_en": "1. The user provides an article's text by a method supported by the program (a link with text extraction, a PDF, pasted text, etc.).\n2. Conduct a dialectical analysis of the article. Its content is treated as a process.\n3. The result must include:\n\n3.1 The development of the process from the article in the historical sense.\n\n3.2 The development of the process from the article in the logical sense: a description of the process according to the rules of dialectical analysis.\n\n4\\. The article's content must be situated within the overall development of the subject, including showing how it affected the subject's subsequent development.\n\n5\\. One possible descriptive strategy is to present the article as a resolving process and then show how the identified simplest process developed up to the leap into the resolving process.",
+  "articleCategory": "papanda_conspect",
+  "researchAreas": [
+    "artificial-intelligence"
+  ],
+  "series": "papanda-prompts-2026-09",
+  "seriesOrder": 5,
+  "relatedProjects": [
+    "papanda"
+  ],
+  "relatedPublications": [
+    "papanda-prompts-2026-09-1",
+    "papanda-prompts-2026-09-2",
+    "papanda-prompts-2026-09-3",
+    "papanda-prompts-2026-09-4",
+    "papanda-prompts-2026-09-6",
+    "papanda-prompts-2026-09-7"
+  ],
+  "tags": [
+    "AI",
+    "Notes",
+    "Prompts"
+  ],
+  "date": "2026-09-06",
+  "datePrecision": "month",
+  "dateSource": {
+    "kind": "filesystem",
+    "property": "CreationTime"
+  },
+  "order": 45,
+  "featured": false,
+  "heroImage": "",
+  "gallery": [],
+  "links": [],
+  "_authorship": {
+    "body_ru": "human",
+    "body_en": "ai"
+  }
+}

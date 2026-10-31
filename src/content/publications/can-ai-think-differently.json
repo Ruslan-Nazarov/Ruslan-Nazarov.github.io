@@ -12,12 +12,8 @@
   "body_en": "The full article is published in English on Medium. Related projects and publications below provide context for this line of inquiry.",
   "editorialStatus": "external_publication",
   "type": "article",
-  "researchAreas": [
-    "artificial-intelligence"
-  ],
   "relatedProjects": [],
   "relatedPublications": [],
-  "relatedJournal": [],
   "tags": [
     "AI",
     "Experiments"
@@ -32,7 +28,6 @@
       "url": "https://ruslan-nazarov.medium.com/can-ai-be-taught-to-think-differently-e6441d5a6072"
     }
   ],
-  "timeline": [],
   "order": 11,
   "readingMode": "external"
 }

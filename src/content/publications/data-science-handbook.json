@@ -11,17 +11,12 @@
   "body_ru": "## Об издании\n\nКнига посвящена базовым понятиям Data Science и искусственного интеллекта. В авторском подходе существенен путь от исходного вопроса к развитию способов его решения: понятия рассматриваются в связи с задачами, ради которых они вводятся.\n\n## Место в исследовательской работе\n\nУчебный опыт автора в Data Science стал одним из истоков более общего интереса к пониманию и обучению. Книга связана с этим направлением работы; более поздние программные эксперименты представлены отдельно на страницах проектов.\n\n## Как читать\n\nПолный текст находится на отдельном книжном сайте под заголовком **Handbook Data Science 2025**. Его навигация и материалы сохраняются на исходном адресе. Эта карточка связывает издание с исследовательским сайтом и не заменяет книгу.\n\nЛицензия оригинального издания — **CC BY-NC-ND 4.0**. Лицензия новых текстов исследовательского сайта её не меняет.",
   "body_en": "## About the edition\n\nThe book concerns foundational concepts in Data Science and artificial intelligence. The author's approach follows an initial question through the development of methods for addressing it, relating concepts to the tasks for which they are introduced.\n\n## Research context\n\nThe author's Data Science learning experience contributed to a broader interest in understanding and education. The book belongs to that line of work; later software experiments have their own project pages.\n\n## Reading the book\n\nThe complete text remains on a separate book site under the title **Handbook Data Science 2025**. Its navigation and materials stay at the original address. This card connects the edition with the research website without replacing the book.\n\nThe original edition retains **CC BY-NC-ND 4.0**. The licence for new research-site writing does not change it.",
   "editorialStatus": "external_publication",
-  "researchAreas": [
-    "artificial-intelligence"
-  ],
   "relatedProjects": [
-    "ai-algorithm",
     "dialectic-ai"
   ],
   "relatedPublications": [
     "theses-2020-2026"
   ],
-  "relatedJournal": [],
   "tags": [
     "Data Science",
     "AI"
@@ -36,7 +31,6 @@
       "url": "https://ruslan-nazarov.github.io/handbook_ai/"
     }
   ],
-  "timeline": [],
   "type": "book",
   "license": "CC BY-NC-ND 4.0",
   "readingMode": "external"

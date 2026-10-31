@@ -1,9 +1,5 @@
 @layer base,layout,components,responsive;
 @layer components{
-  .article-contents{border:1px solid var(--line);background:var(--tint);padding:22px 26px;margin:0 0 36px;font-size:14px}
-  .article-contents strong{font-weight:600}.article-contents ol{margin:12px 0 0;padding-left:22px;columns:2;column-gap:30px}
-  .article-contents li{break-inside:avoid;padding:4px 0}.article-contents a{text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:4px}
-  .reading-mode,.card .reading-mode{font-size:12px;color:var(--accent-ink);margin:0 0 16px;line-height:1.5}
   .card{min-width:0;overflow-wrap:anywhere}.card-bottom,.card-bottom .tag-list{min-width:0}.card-arrow{flex-shrink:0}
   .publication-actions{display:flex;flex-wrap:wrap;gap:12px;margin:0 0 28px}
   .back-to-top{font-size:13px;color:var(--accent-ink)}
@@ -53,7 +49,7 @@
   @media(max-width:360px){.wrap{padding-left:18px;padding-right:18px}.research-grid{grid-template-columns:1fr}.research-tile{min-height:0;border-right:0;border-bottom:1px solid var(--line)}.research-tile:last-child{border-bottom:0}.filter-bar label{min-width:0;flex-basis:100%}.notebook-map{grid-template-columns:1fr}.hero-actions{align-items:flex-start;flex-direction:column}}
 }
 
-@layer responsive{@media(max-width:700px){.article-contents ol{columns:1}.article-contents{padding:18px}.notebook-map a{min-width:0}.notebook-map .map-symbol{flex-shrink:0}}}
+@layer responsive{@media(max-width:700px){.notebook-map a{min-width:0}.notebook-map .map-symbol{flex-shrink:0}}}
 
 /* Editorial system: quiet surfaces, a readable type scale and generous controls.
    Keep these in the established cascade layers so mobile and reduced-motion
@@ -138,7 +134,6 @@
   .prose h3{line-height:1.4}
   .prose blockquote{background:var(--tint);padding:18px 24px;border-radius:0 8px 8px 0}
   .prose blockquote p:last-child{margin-bottom:0}
-  .article-contents{border-radius:10px;background:var(--paper);font-size:14px}
   .notice,.planned-block,.empty-state,.about-portrait,.graph-feature{border-radius:10px}
   .graph-feature p,.chapter-list p,.history-block p{font-size:14px}
   .contact-form label{font-size:14px}

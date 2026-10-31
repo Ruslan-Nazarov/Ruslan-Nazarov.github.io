@@ -1,20 +1,11 @@
 import {test,expect} from '@playwright/test';
 import {readFileSync} from 'node:fs';
-test('local editor rebuilds the site and search index without publishing',async({page})=>{
-  test.setTimeout(90000);
-  await page.goto('http://127.0.0.1:4322/');
-  await page.getByRole('button',{name:'Обновить предпросмотр',exact:true}).click();
-  await expect(page.locator('#status')).toContainText('Сайт и поиск обновлены',{timeout:75000});
-  await page.goto('/ru/search/');
-  await expect(page.locator('.pagefind-ui__search-input')).toBeVisible();
-});
-test('home, persistent theme and corresponding language switch',async({page})=>{
+test('simple home and corresponding language switch',async({page})=>{
   const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));
   await page.goto('/ru/');
-  await expect(page.locator('h1')).toHaveText('Как человек приходит к пониманию — и какую роль в этом играет ИИ?');
-  await page.locator('#theme-select').selectOption('dark');
-  await page.reload();await expect(page.locator('html')).toHaveClass(/dark/);
-  await page.locator('#theme-select').selectOption('light');
+  await expect(page.locator('h1')).toHaveText(JSON.parse(readFileSync('src/data/site.json','utf8')).ru.heroTitle);
+  await expect(page.locator('#theme-select')).toHaveCount(0);
+  await expect(page.locator('.section-directory a')).toHaveCount(7);
   await page.screenshot({path:'.local/home-desktop.png',fullPage:true});
   await page.goto('/ru/projects/mathematical-parser/');
   await page.locator('[data-language="en"]').click();
@@ -23,17 +14,16 @@ test('home, persistent theme and corresponding language switch',async({page})=>{
   await page.goto('/');await expect(page).toHaveURL(/\/en\/$/);
   expect(errors).toEqual([]);
 });
-test('catalog filters combine and reset',async({page})=>{
-  await page.goto('/ru/projects/');
-  await expect(page.locator('[data-filter-item]:visible')).toHaveCount(6);
-  await page.locator('[data-filter-area]').selectOption('education');
-  await expect(page.locator('[data-filter-item]:visible')).toHaveCount(2);
-  await page.locator('[data-filter-search]').fill('Languages');
-  await expect(page.locator('[data-filter-item]:visible')).toHaveCount(1);
-  await page.getByRole('button',{name:'Сбросить',exact:true}).click();
-  await expect(page.locator('[data-filter-item]:visible')).toHaveCount(6);
-  await page.locator('[data-filter-search]').fill('not-existing');
-  await expect(page.locator('[data-no-results]')).toBeVisible();
+test('navigation has seven sections and catalogues display all entries without filters',async({page,request})=>{
+  for(const lang of ['ru','en']){
+    for(const section of ['projects','publications']){
+      await page.goto('/'+lang+'/'+section+'/');
+      await expect(page.locator('#main-nav a')).toHaveCount(7);
+      await expect(page.locator('.filter-bar,.result-count,.page-description')).toHaveCount(0);
+      expect(await page.locator('.card').count()).toBeGreaterThan(0);
+    }
+    for(const path of ['research','journal','timeline','research/physics','journal/parser-project-page'])expect((await request.get('/'+lang+'/'+path+'/')).status()).toBe(404);
+  }
 });
 test('React Flow loads, filters, selects and shows ancestors and descendants',async({page})=>{
   const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));
@@ -81,43 +71,15 @@ test('mobile layouts, navigation and graph controls remain accessible',async({pa
   await expect(page.locator('.graph-detail h2')).toHaveText('Сложение');
   await page.screenshot({path:'.local/graph-mobile.png',fullPage:true});
 });
-test('RSS, metadata, Yandex verification and safe absent integrations',async({page,request})=>{
+test('metadata, Yandex verification and safe absent integrations',async({page,request})=>{
   await page.goto('/ru/about/');
   await expect(page.locator('form.contact-form')).toHaveCount(0);
   await expect(page.locator('script[src*="cloudflareinsights"]')).toHaveCount(0);
   await expect(page.locator('link[hreflang="en"]')).toHaveAttribute('href','https://ruslan-nazarov.github.io/en/about/');
   const verification=await request.get('/yandex_64f199e3e08207c6.html');
   expect(await verification.body()).toEqual(readFileSync('public/yandex_64f199e3e08207c6.html'));
-  for(const lang of ['ru','en']){const rss=await request.get(`/${lang}/rss.xml`);expect(rss.ok()).toBe(true);expect(await rss.text()).not.toContain('PRIVATE_DRAFT')}
+  for(const lang of ['ru','en'])expect((await request.get(`/${lang}/rss.xml`)).status()).toBe(404);
   const res=await request.get('/no-such-page/');expect(res.status()).toBe(404);
 });
-test('local editor loads structured fields, saves locally and rejects unauthenticated writes',async({page,request})=>{
-  await page.goto('http://127.0.0.1:4322/');
-  await page.locator('#collections [data-collection=settings] > summary').click();
-  await page.locator('#collections [data-key="site/settings"]').click();
-  await expect(page.locator('input[data-field="name"]')).toHaveValue(JSON.parse(readFileSync('src/data/site.json','utf8')).name);
-  await expect(page.locator('textarea[data-field="heroTitle"]')).toHaveCount(2);
-  await page.getByRole('button',{name:'Сохранить',exact:true}).click();
-  await expect(page.locator('#status')).toContainText('Сохранено локально');
-  const response=await request.post('http://127.0.0.1:4322/api/save',{data:{collection:'site',name:'settings',data:{}}});
-  expect(response.status()).toBe(403);
-  const publish=await request.post('http://127.0.0.1:4322/api/publish',{data:{}});
-  expect(publish.status()).toBe(403);
-  await expect(page.getByRole('button',{name:'Опубликовать на сайте',exact:true})).toBeVisible();
-  await page.screenshot({path:'.local/editor.png',fullPage:false});
-});
 
 
-test('local editor publication button explains deployment result',async({page})=>{
-  page.on('dialog',dialog=>dialog.accept());
-  await page.route('**/api/publish',async route=>{
-    expect(route.request().method()).toBe('POST');
-    expect(route.request().headers()['x-editor-token']).toBeTruthy();
-    await route.fulfill({json:{message:'Материалы отправлены в GitHub. Сайт обновится автоматически.',sha:'test-commit',actions:'https://github.com/Ruslan-Nazarov/Ruslan-Nazarov.github.io/actions/workflows/deploy.yml'}});
-  });
-  await page.goto('http://127.0.0.1:4322/');
-  await page.getByRole('button',{name:'Опубликовать на сайте',exact:true}).click();
-  await expect(page.locator('#status')).toContainText('Сайт обновится автоматически');
-  await expect(page.locator('#status a')).toHaveAttribute('href','https://github.com/Ruslan-Nazarov/Ruslan-Nazarov.github.io/actions/workflows/deploy.yml');
-  await expect(page.getByRole('button',{name:'Опубликовать на сайте',exact:true})).toBeEnabled();
-});

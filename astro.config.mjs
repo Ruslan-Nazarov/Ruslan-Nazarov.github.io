@@ -6,6 +6,7 @@ export default defineConfig({
   site: 'https://ruslan-nazarov.github.io',
   base: '/',
   output: 'static',
+  devToolbar: { enabled: false },
   trailingSlash: 'always',
   integrations: [react(), sitemap({ filter: page => !/\/(search|404)\/?$/.test(page) })],
   vite: { server: { fs: { strict: true } } }

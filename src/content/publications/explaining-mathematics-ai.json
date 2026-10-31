@@ -12,16 +12,10 @@
   "body_en": "*English translation prepared for this website from the Russian original supplied by the author.*\n\nArtificial intelligence gives answers. Good answers, of high quality, more often right than wrong. But does AI explain? It may seem that it does. But what is an “explanation”? What explains the fact that 3+2=5? And, most importantly, why do we need one? Let us try to work this out.\n\n## 1\n\nIn this article, we take “to explain” to mean showing neither what follows what nor even “why” one thing follows another. To explain means showing why the preceding thing already contained what developed, emerged and became apparent in the thing that followed. This is fundamentally important.\n\nConsider A and B. When we say “B follows A” or “B follows A because of C,” we are not explaining. We are giving an instruction to think in the way we have described. Why? Because there is no other “necessity” for B to follow A beyond the authoritative assertion that “B follows A.” If we have not shown that B is already contained in A, then we have not explained.\n\n## 2\n\nWe set out to create an algorithm for analysing mathematical expressions that actually explains those expressions. To begin with, let us describe a simple algorithm for how this should work. We stress that this algorithm serves exclusively educational purposes; we are not claiming that this is how mathematics actually works.\n\nThe central claim is this: any mathematical statement can be reduced to a sum of units. Conversely, any mathematical statement can be obtained from a sum of units.\n\nBut how do we move from simple addition to, say, multiplication? Take a sum of units: 1+1. We use addition to simplify things; it makes it easier to grasp the world in quantitative terms. But let us keep adding: 1+1+1+1… There are becoming too many units. A contradiction arises: the notation originally introduced for simplicity has become complicated. This contradiction must be resolved, and multiplication appears: 4*1…\n\nFollowing this scheme, we can move up to powers, equations, tensors, or whatever we wish. What matters is showing how and for what purpose mathematical constructions are introduced.\n\n## 3\n\nThis scheme forms a “quantitative graph.” However, mathematics is not limited to quantity. What, for example, distinguishes quantity from quality? Quality is the finite within the infinite, while quantity is the infinite within the finite. Take a quality such as “green”: it singles out an apple, a green apple, from all apples and from the entire world. Take “one apple”: this shows that there are infinitely many apples, theoretically, of course.\n\nQuantity and quality are about infinity, so they concern the same thing in different ways. Some interesting ideas follow. For example, 2/3 can be the ratio of the sides of a figure. It can also be a probability. The number 2/3 itself is indifferent to what we associate it with, yet it gives a quantitative measure of different qualities. This needs to be indicated in a separate graph. Thus, a “qualitative graph” appears.\n\nMathematics also develops in history, like any other phenomenon. History reveals the actual roots of mathematical operations. This matters for more than amusing episodes in mathematics or mathematicians’ lives. It matters because history is the “compelled” development of a mathematical operation. Consider that we had to make an effort to move from a sum of units to multiplication, when we could simply have read the history of mathematics. A “historical graph” is therefore as necessary as the quantitative and qualitative graphs.\n\nOne more graph is needed: a “graph of tricks,” or hooks. These are techniques, rules and methods that let us solve, calculate and determine things by routes other than the general or obvious rules, routes that may be hard to describe immediately. Tricks are the familiar mathematical tricks. Why do we need them? Because they connect graph elements whose relationship may initially seem weak.\n\n## 4\n\nWhat about AI? What is its role? Artificial intelligence can answer a question well, but it explains considerably less well. We discussed possible reasons for this in another article. AI’s answers can be improved by requiring it to follow a particular graph, for example: simplest process – developing processes – opposites – contradiction – resolution of the contradiction. We are trying to build an AI agent framework specifically for educational tasks around strict adherence to such a graph.\n\nSo why, after all, do we need AI to explain mathematics? The four graphs of our algorithm can provide a complete description of a mathematical problem. However, collecting information and illustrations, and sometimes following every step of the algorithm directly, is tiring work. This is where AI can help. This is the right way to interact with AI: we receive knowledge from AI and add understanding ourselves.",
   "editorialStatus": "external_publication",
   "type": "article",
-  "researchAreas": [
-    "mathematics",
-    "education",
-    "artificial-intelligence"
-  ],
   "relatedProjects": [
     "mathematical-parser"
   ],
   "relatedPublications": [],
-  "relatedJournal": [],
   "tags": [
     "Mathematics",
     "Graph",
@@ -37,7 +31,13 @@
       "url": "https://ruslan-nazarov.medium.com/how-to-explain-mathematics-in-the-age-of-ai-037a9a62a556"
     }
   ],
-  "timeline": [],
   "order": 12,
-  "readingMode": "full"
+  "readingMode": "full",
+  "articleCategory": "mathematics",
+  "date": "2026-09-19",
+  "datePrecision": "month",
+  "dateSource": {
+    "kind": "docx",
+    "property": "dcterms:created"
+  }
 }

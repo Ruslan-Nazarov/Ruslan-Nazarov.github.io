@@ -3,7 +3,7 @@ import { resolve } from 'node:path';
 import { z } from 'zod';
 import {authorshipSchema,validateAuthorship} from './authorship.mjs';
 
-export const collections = ['research','projects','publications','journal','theses','pages'];
+export const collections = ['projects','publications','theses','pages'];
 export const languages = ['ru','en'];
 const id = z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/);
 const calendarDate=z.string().regex(/^\d{4}-\d{2}-\d{2}$/).refine(s=>{const date=new Date(s+'T12:00:00Z');return !Number.isNaN(date.valueOf())&&date.toISOString().slice(0,10)===s},'Use a real calendar date');
@@ -22,20 +22,18 @@ export const entrySchema = z.object({
   body_ru:z.string().default(''),body_en:z.string().default(''),
   pagePath:z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*(?:\/[a-z0-9]+(?:-[a-z0-9]+)*)*$/).optional(),
   showInMenu:z.boolean().default(false),
-  materials:z.array(z.object({collection:z.enum(['research','projects','publications','journal','theses','pages']),id})).default([]),
+  materials:z.array(z.object({collection:z.enum(['projects','publications','theses','pages']),id})).default([]),
   excludedMaterials:z.array(id).default([]),
-  hiddenMaterials:z.array(z.object({collection:z.enum(['research','projects','publications','journal','theses','pages']),id})).default([]),
-  researchAreas:z.array(id).default([]),relatedProjects:z.array(id).default([]),
-  relatedPublications:z.array(id).default([]),relatedJournal:z.array(id).default([]),
+  hiddenMaterials:z.array(z.object({collection:z.enum(['projects','publications','theses','pages']),id})).default([]),
+  relatedProjects:z.array(id).default([]),
+  relatedPublications:z.array(id).default([]),
   featured:z.boolean().default(false),tags:z.array(z.string()).default([]),
   heroImage:safeUrl.default(''),gallery:z.array(z.object({_authorship:authorshipSchema,src:safeUrl,alt_ru:z.string().min(1),alt_en:z.string().min(1)})).default([]),
-  links:z.array(link).default([]),timeline:z.array(z.object({
-    _authorship:authorshipSchema,date:calendarDate,title_ru:z.string().min(1),title_en:z.string().min(1)
-  })).default([]),
+  links:z.array(link).default([]),
   exampleLinks:z.array(z.object({_authorship:authorshipSchema,id,label_ru:z.string(),label_en:z.string(),url_ru:safeUrl,url_en:safeUrl})).default([]),
   editorialStatus:z.enum(['awaiting_content','editorial_summary','final','external_publication']).default('awaiting_content'),
   status:z.enum(['active','completed','paused']).optional(),
-  type:z.enum(['book','theses','article','technical-note','news','research-note','experiment','result']).optional(),
+  type:z.enum(['book','theses','article','technical-note']).optional(),
   date:optionalDate,targetDate:optionalDate,startedDate:optionalDate,
   readingMode:z.enum(['full','external','forthcoming']).optional(),
   order:z.number().optional(), pdf_ru:safeUrl.optional(),pdf_en:safeUrl.optional()
@@ -66,20 +64,9 @@ export const localize=(row,key,lang)=>row[`${key}_${lang}`] || '';
 export const pathFor=(collection,row,lang)=>collection==='theses'
   ? `/${lang}/publications/theses-2020-2026/chapters/${row.slug}/`
   : collection==='pages' ? `/${lang}/${row.pagePath||(row.id==='dialectical-notes'?'projects/papanda/'+row.slug:row.slug)}/` : `/${lang}/${collection}/${row.slug}/`;
-export function events(data=allContent()) {
-  const result=[];
-  for(const name of ['projects','publications','journal']) for(const row of data[name]){
-    if(row.date) result.push({date:row.date,title_ru:row.title_ru,title_en:row.title_en,_authorship:row._authorship,collection:name,row});
-    for(const event of row.timeline||[]) result.push({...event,collection:name,row});
-  }
-  return result.sort((a,b)=>b.date.localeCompare(a.date));
-}
-export function timelineRows(data=allContent()) {
-  return events(data).filter(e=>e.date>='2026-01-01').map(e=>({...e.row,date:e.date,title_ru:e.title_ru,title_en:e.title_en,_authorship:{...e.row._authorship,title_ru:e._authorship?.title_ru,title_en:e._authorship?.title_en},eventCollection:e.collection}));
-}
 export function routes() {
   const data=allContent();
-  const result=['','research','projects','publications','journal','timeline','about','search','legal','privacy'];
+  const result=['','about','contact','articles','books','publications','projects','search','legal','privacy'];
   const hasTheses=data.publications.some(p=>p.id==='theses-2020-2026');
   if(data.projects.some(p=>p.id==='mathematical-parser'))result.push('projects/mathematical-parser/graph');
   if(hasTheses)result.push('publications/theses-2020-2026/full');
@@ -96,26 +83,24 @@ export function validateAll() {
     for(const row of rows){
       if(ids.has(row.id)||slugs.has(row.slug)) throw new Error(`Duplicate ID/slug in ${name}: ${row.id}`);
       ids.add(row.id);slugs.add(row.slug);
-      if(name==='journal'&&isReady(row)&&(!row.date||row.date<'2026-01-01'||!['news','research-note','experiment','result'].includes(row.type)))
-        throw new Error(`Journal entry needs a real date from 2026 and an entry type: ${row.id}`);
       if(name==='publications'&&isReady(row)&&!['book','theses','article','technical-note'].includes(row.type))
         throw new Error(`Publication type required: ${row.id}`);
       if(name==='publications'&&isReady(row)&&row.readingMode==='external'&&!row.links.length)
         throw new Error(`An external publication needs a reading link: ${row.id}`);
       if(name==='projects'&&isReady(row)&&!row.status)throw new Error(`Project status required: ${row.id}`);
-      for(const [field,target] of Object.entries({researchAreas:'research',relatedProjects:'projects',relatedPublications:'publications',relatedJournal:'journal'}))
+      for(const [field,target] of Object.entries({relatedProjects:'projects',relatedPublications:'publications'}))
         for(const value of row[field]) if(!raw[target].some(p=>p.id===value)) throw new Error(`Unknown ${field} ${value} in ${row.id}`);
       for(const material of row.materials)if(!raw[material.collection].some(p=>p.id===material.id))throw new Error(`Unknown material ${material.collection}/${material.id} in ${row.id}`);
     }
   }
-  const pagePaths=new Set(['','research','projects','publications','journal','timeline','about','search','legal','privacy']);
+  const pagePaths=new Set(['','about','contact','articles','books','publications','projects','search','legal','privacy']);
   for(const [collection,rows] of Object.entries(raw))for(const row of rows){
     const path=pathFor(collection,row,'ru').replace(/^\/ru\/|\/$/g,'');
     if(pagePaths.has(path)||['projects/mathematical-parser/graph','publications/theses-2020-2026/full'].includes(path))throw new Error(`Page address already exists: ${path}`);
     pagePaths.add(path);
   }
   const sections=readJSON('src/data/sections.json');
-  for(const key of ['research','projects','publications','journal']){
+  for(const key of ['projects','publications']){
     const section=entrySchema.parse(sections[key]);
     if(['title_ru','title_en','summary_ru','summary_en'].some(field=>!section[field].trim()))throw new Error(`Incomplete section: ${key}`);
     validateAuthorship(section);
