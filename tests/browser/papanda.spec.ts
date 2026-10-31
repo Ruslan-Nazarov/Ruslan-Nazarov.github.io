@@ -3,8 +3,8 @@ import {readFileSync} from 'node:fs';
 const lib=JSON.parse(readFileSync('src/data/media.json','utf8'));
 for(const project of ['papanda','papanda-languages','mathematical-parser','dialectic-ai','protocol-ai','personal-time-management','podcast-sound-lab','musiclab','useful-prompts']){
 const row=JSON.parse(readFileSync(`src/content/projects/${project}.json`,'utf8'));
-const slots=lib.slots.filter((s:any)=>s.project===project);
-for(const lang of ['ru','en'])test(`${project} ${lang}: copy, ordered placeholders, language switch and mobile`,async({page})=>{
+const slots=lib.slots.filter((s:any)=>s.project===project&&s.status==='ready');
+for(const lang of ['ru','en'])test(`${project} ${lang}: copy, ready illustrations, language switch and mobile`,async({page})=>{
   const errors:string[]=[];page.on('pageerror',error=>errors.push(error.message));
   await page.goto(`/${lang}/projects/${row.slug}/`);
   await expect(page.locator('h1')).toHaveText(row['title_'+lang]);
@@ -21,7 +21,8 @@ for(const lang of ['ru','en'])test(`${project} ${lang}: copy, ordered placeholde
   const headings=[...row['body_'+lang].matchAll(/^#{2,3} (.+)$/gm)].map(match=>match[1]);
   expect(await page.locator('.prose h2,.prose h3').allTextContents()).toEqual(headings);
   expect(await page.locator('[data-media-id]').evaluateAll(nodes=>nodes.map(n=>n.getAttribute('data-media-id')))).toEqual(slots.map((s:any)=>s.id));
-  for(const slot of slots){const figure=page.locator(`[data-media-id="${slot.id}"]`);await expect(figure.locator('figcaption')).toHaveText(slot['caption_'+lang]);await expect(figure.locator('[role=img]')).toHaveAttribute('aria-label',slot['alt_'+lang])}
+  for(const slot of slots){const figure=page.locator(`[data-media-id="${slot.id}"]`);await expect(figure.locator('figcaption')).toHaveText(slot['caption_'+lang]);await expect(figure.locator('img')).toHaveAttribute('alt',slot['alt_'+lang])}
+  await expect(page.locator('.media-placeholder')).toHaveCount(0);
   await expect(page.locator('a[href*="papanda.kz"],a[download],a[href*="releases/download"],a[href=""],a[href="#"]')).toHaveCount(0);
   await expect(page.locator('.example-links')).toHaveCount(0);
   await page.screenshot({path:`.local/${project}-${lang}-desktop.png`,fullPage:true});

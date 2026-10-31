@@ -3,6 +3,7 @@ import {join,resolve} from 'node:path';
 import {createHash} from 'node:crypto';
 import {rawCollection,collections,isReady,readJSON} from '../src/lib/content.mjs';
 import {readOverrides} from '../src/lib/graph.mjs';
+import {containsPrivateId} from './build-content-checks.mjs';
 const files=[];
 function walk(dir){for(const f of readdirSync(dir)){const p=join(dir,f);statSync(p).isDirectory()?walk(p):files.push(p)}}
 walk('dist');
@@ -20,7 +21,7 @@ for(const secret of ['__CSRF_TOKEN__','x-editor-token','/api/publish','/api/medi
 for(const marker of ['data-authorship','authorship-mark','authorship-help','_authorship'])if(output.includes(marker))throw new Error('Private authorship metadata leaked: '+marker);
 const privateRows=collections.flatMap(c=>rawCollection(c).filter(r=>!r.publish));
 for(const row of privateRows) for(const value of [row.id,row.title_ru,row.title_en]){
-  if(value.length>8&&output.includes(value))throw new Error(`Draft leakage: ${row.id}`);
+  if(value.length>8&&(value===row.id?containsPrivateId(output,value):output.includes(value)))throw new Error(`Draft leakage: ${row.id}`);
 }
 const source=readJSON('src/data/graph/source.json'),overrides=readOverrides();
 const privateNodes=source.nodes.filter(n=>!overrides.some(o=>o.id===n.id&&o.approvedForPublication));

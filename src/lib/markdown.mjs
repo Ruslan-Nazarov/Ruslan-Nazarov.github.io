@@ -12,10 +12,11 @@ import editorAlign from './remark-editor-align.mjs';
 // A shared accumulator also keeps IDs unique across embedded media blocks.
 function headingLinks(){return (tree,file)=>{
   const headings=file.data.headings;
-  if(!headings)return;
   const text=node=>node.value||node.children?.map(text).join('')||'';
   const walk=node=>{
-    if(node.type==='element'&&/^h[23]$/.test(node.tagName)){
+    // The page already supplies its h1; imported document titles are sections.
+    if(node.type==='element'&&node.tagName==='h1')node.tagName='h2';
+    if(headings&&node.type==='element'&&/^h[23]$/.test(node.tagName)){
       const title=text(node),base=(file.data.headingPrefix||'section-')+(title.toLowerCase().replace(/[^\p{L}\p{N}]+/gu,'-').replace(/^-|-$/g,'')||'heading');
       let id=base,n=2;while(headings.some(h=>h.id===id))id=base+'-'+n++;
       node.properties={...node.properties,id};headings.push({id,title,level:Number(node.tagName[1])});
