@@ -13,6 +13,7 @@ import {mediaForPath} from '../../lib/media.mjs';
 import ResearchGraph from '../../components/graph/ResearchGraph';
 import {allContent,routes,site,readJSON,localize as l,pathFor,events,timelineRows} from '../../lib/content.mjs';
 import {getPublicGraph,getDemoGraph} from '../../lib/graph.mjs';
+import {thesisContents} from '../../lib/thesis-contents.mjs';
 export function getStaticPaths(){return ['ru','en'].flatMap(lang=>routes().map(path=>({params:{lang,path:path||undefined}})))}
 const lang=Astro.params.lang as 'ru'|'en';
 const path=Astro.params.path||'';
@@ -28,6 +29,7 @@ const readingLabel=chaptersComplete?t.fullText:t.thesisOverview;
 const title=path===''?s.role:graph?t.graph:full?l(data.publications.find(r=>r.id==='theses-2020-2026'),'title',lang)+' — '+readingLabel:row?l(row,'title',lang):sectionContent?l(sectionContent,'title',lang):section==='about'?s.aboutTitle:t[section];
 const description=row?l(row,'summary',lang):sectionContent?l(sectionContent,'summary',lang):graph?t.graphDescription:t[section+'Description']||s.heroText;
 const thesis=data.publications.find(r=>r.id==='theses-2020-2026');
+const manuscriptContents=full||row?.id==='theses-2020-2026'?await thesisContents(chapters,lang):[];
 const date=(value:string)=>new Intl.DateTimeFormat(lang==='ru'?'ru-RU':'en-GB',{dateStyle:'long',timeZone:'UTC'}).format(new Date(value+'T12:00:00Z'));
 const routeSet=new Set(routes());
 const breadcrumbs=sections.slice(0,-1).map((_,i)=>{
@@ -50,8 +52,8 @@ const related=(name:string)=>pageMaterials(row,data).filter(ref=>ref.collection=
     </div>
     {graph?<div class="wrap graph-page" data-pagefind-ignore><ResearchGraph lang={lang} t={t} publicData={getPublicGraph()} demoData={getDemoGraph()} client:load/><noscript><p><Text record={t} field="nodeList" lang={lang}/>: {t.noApproved}</p></noscript></div>
     :full?<div class="wrap reading-layout">
-      <aside class="toc"><h2><Text record={t} field="contents" lang={lang}/></h2>{chapters.map((c:any)=><a href={`#chapter-${c.id}`}>{c.order}. {l(c,'title',lang)}</a>)}<a href={`/${lang}/publications/theses-2020-2026/`}><Text record={t} field="back" lang={lang}/> ↗</a></aside>
-      <article class="prose"><div class="notice"><Text record={thesis} field={`summary_${lang}`} lang={lang}/></div><MediaBody record={thesis} field={`body_${lang}`} text={l(thesis,'body',lang)} lang={lang} prose={false} headingPrefix="overview-" showContents={false}/>{chapters.map(c=><section id={`chapter-${c.id}`}><h2>{c.order}. <Text record={c} field={`title_${lang}`} lang={lang}/></h2><p class="muted"><Text record={c} field={`summary_${lang}`} lang={lang}/></p>{l(c,'body',lang)?<>{c.editorialStatus!=='final'&&<p class="notice" data-chapter-overview><Text record={t} field="chapterOverview" lang={lang}/></p>}<MediaBody record={c} field={`body_${lang}`} text={l(c,'body',lang)} lang={lang} prose={false} headingPrefix={`chapter-${c.id}-`} showContents={false}/></>:<p class="notice"><Text record={t} field="chapterPending" lang={lang}/></p>}<a href={pathFor('theses',c,lang)}><Text record={t} field="read" lang={lang}/> ↗</a></section>)}</article>
+      <aside class="toc"><h2><Text record={t} field="contents" lang={lang}/></h2>{manuscriptContents.map(h=><a class:list={{'toc-subsection':h.subsection}} href={`#${h.id}`}>{h.title}</a>)}<a href={`/${lang}/publications/theses-2020-2026/`}><Text record={t} field="back" lang={lang}/> ↗</a></aside>
+      <article class="prose"><div class="notice"><Text record={thesis} field={`summary_${lang}`} lang={lang}/></div><MediaBody record={thesis} field={`body_${lang}`} text={l(thesis,'body',lang)} lang={lang} prose={false} headingPrefix="overview-" showContents={false}/>{chapters.map(c=><section id={`chapter-${c.id}`}>{c.editorialStatus!=='final'&&<><h2>{l(c,'title',lang)}</h2><p class="muted"><Text record={c} field={`summary_${lang}`} lang={lang}/></p></>}{l(c,'body',lang)?<>{c.editorialStatus!=='final'&&<p class="notice" data-chapter-overview><Text record={t} field="chapterOverview" lang={lang}/></p>}<MediaBody record={c} field={`body_${lang}`} text={l(c,'body',lang)} lang={lang} prose={false} headingPrefix={`chapter-${c.id}-`} showContents={false}/></>:<p class="notice"><Text record={t} field="chapterPending" lang={lang}/></p>}<a href={pathFor('theses',c,lang)}><Text record={t} field="read" lang={lang}/> ↗</a></section>)}</article>
     </div>
     :section==='articles'?<div class="wrap catalog-section"><ArticleCatalog rows={data.publications.filter(r=>r.type==='article'&&r.readingMode==='full')} lang={lang}/></div>
     :row?<div class="wrap detail-layout">
@@ -73,7 +75,7 @@ const related=(name:string)=>pageMaterials(row,data).filter(ref=>ref.collection=
         {row.id==='mathematical-parser'&&<a class="button" href={`/${lang}/projects/mathematical-parser/graph/`}>{getPublicGraph().nodes.length?t.openGraph:t.demoGraph} ↗</a>}
         {row.id==='theses-2020-2026'&&<>
           <div class="thesis-toolbar"><a class="button" href={`/${lang}/publications/theses-2020-2026/full/`}>{readingLabel} ↗</a>{row[`pdf_${lang}`]&&<a class="button secondary" href={row[`pdf_${lang}`]}>PDF {lang.toUpperCase()} ↓</a>}</div>
-          <section class="detail-section"><h2><Text record={t} field="contents" lang={lang}/></h2><div class="chapter-list">{chapters.map((c:any)=><a href={pathFor('theses',c,lang)}><span class="mono">0{c.order}</span><div><h3><Text record={c} field={`title_${lang}`} lang={lang}/></h3><p><Text record={c} field={`summary_${lang}`} lang={lang}/></p></div><span>↗</span></a>)}</div></section>
+          <section class="detail-section"><h2><Text record={t} field="contents" lang={lang}/></h2><div class="chapter-list">{manuscriptContents.map(h=><a class:list={{'toc-subsection':h.subsection}} href={`/${lang}/publications/theses-2020-2026/full/#${h.id}`}><div><h3>{h.title}</h3></div><span>↗</span></a>)}</div></section>
         </>}
         {row.gallery.length>0?<section class="detail-section"><h2><Text record={t} field="gallery" lang={lang}/></h2>{row.gallery.length?<div class="gallery">{row.gallery.map((img:any)=><figure><a href={img.src} data-media-viewer><img loading="lazy" src={img.src} alt={l(img,'alt',lang)||l(mediaForPath(img.src)||{},'alt',lang)}/></a><figcaption>{l(mediaForPath(img.src)||{},'caption',lang)?<Text record={mediaForPath(img.src)} field={`caption_${lang}`} lang={lang}/>:<Text record={img} field={`alt_${lang}`} lang={lang}/>}</figcaption></figure>)}</div>:<div class="media-placeholder"><span aria-hidden="true">▧</span><p><Text record={t} field="galleryEmpty" lang={lang}/></p></div>}</section>:null}
         {row.collection==='research'&&<section class="detail-section">{related('journal').length===0&&<><h2><Text record={t} field="thematicJournal" lang={lang}/></h2><p class="muted"><Text record={s} field="journalEmpty" lang={lang}/></p></>}<a class="text-link" href={`/${lang}/research/${row.slug}/rss.xml`}><Text record={t} field="rss" lang={lang}/> ↗</a></section>}
@@ -105,3 +107,6 @@ const related=(name:string)=>pageMaterials(row,data).filter(ref=>ref.collection=
     :section==='legal'||section==='privacy'?<section class="wrap prose legal-page"><p><Text record={s} field={section==='legal'?'rights':'privacy'} lang={lang}/></p>{section==='legal'?<><p><Text record={t} field="codeLicense" lang={lang}/></p><a href={site.textLicenseUrl}>{t.textLicenseLink} ↗</a></>:<p>{site.cloudflareToken?t.analyticsOn:t.analyticsOff}</p>}</section>:null}
   </>}
 </Base>
+<style>
+  .toc .toc-subsection,.chapter-list .toc-subsection{margin-left:18px}
+</style>
