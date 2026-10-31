@@ -65,6 +65,23 @@
       ],
       "project": "papanda",
       "uploadedAt": "2026-10-31T07:16:38.446Z"
+    },
+    {
+      "id": "papanda-transformers-ai-assistance-ru",
+      "path": "/media/papanda/transformers-ai-assistance-ru.png",
+      "title": "papanda: AI help for a selected Transformers fragment, Russian interface",
+      "alt_ru": "Окно ИИ-помощи в конспекте «Трансформеры»: выделенный фрагмент, пояснение со ссылкой на источник, уточняющий вопрос и личный комментарий.",
+      "alt_en": "AI help in the Transformers note: the selected passage, an explanation with a source reference, a follow-up question field and a personal comment. Russian interface.",
+      "caption_ru": "ИИ-помощь по выделенному фрагменту конспекта «Трансформеры»: пояснение, ссылка на источник и уточняющий вопрос. Личный комментарий сохраняется с чатом и не отправляется в ИИ. Интерфейс на русском.",
+      "caption_en": "AI help for a selected passage from the Transformers note: an explanation, a source reference and a follow-up question. The personal comment is saved with the chat and is not sent to AI. Russian interface.",
+      "tags": [
+        "papanda",
+        "transformers",
+        "ai-assistance",
+        "russian"
+      ],
+      "project": "papanda",
+      "uploadedAt": "2026-10-31T07:27:14.896Z"
     }
   ],
   "slots": [
@@ -93,13 +110,13 @@
     {
       "id": "papanda-ai-assistance",
       "title": "papanda-ai-assistance",
-      "alt_ru": "Помощь ИИ при работе с отдельным блоком конспекта",
-      "alt_en": "AI assistance for an individual note block",
-      "caption_ru": "ИИ предоставляет сведения и пояснения; человек проверяет и принимает решения",
-      "caption_en": "AI supplies information and explanations; the person evaluates them and makes decisions.",
+      "alt_ru": "Окно ИИ-помощи в конспекте «Трансформеры»: выделенный фрагмент, пояснение со ссылкой на источник, уточняющий вопрос и личный комментарий.",
+      "alt_en": "AI help in the Transformers note: the selected passage, an explanation with a source reference, a follow-up question field and a personal comment. Russian interface.",
+      "caption_ru": "ИИ-помощь по выделенному фрагменту конспекта «Трансформеры»: пояснение, ссылка на источник и уточняющий вопрос. Личный комментарий сохраняется с чатом и не отправляется в ИИ. Интерфейс на русском.",
+      "caption_en": "AI help for a selected passage from the Transformers note: an explanation, a source reference and a follow-up question. The personal comment is saved with the chat and is not sent to AI. Russian interface.",
       "project": "papanda",
-      "mediaId": "",
-      "status": "placeholder"
+      "mediaId": "papanda-transformers-ai-assistance-ru",
+      "status": "ready"
     },
     {
       "id": "ecg-original",

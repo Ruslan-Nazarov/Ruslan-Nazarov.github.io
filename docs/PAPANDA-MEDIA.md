@@ -7,6 +7,14 @@ Both language pages use this screenshot; the English caption explicitly says
 it is in Russian and that an English note is in preparation. The unfilled ECG
 example is deferred and its media slots remain available for future use.
 
+The second supplied screenshot is preserved in
+`public/media/papanda/transformers-ai-assistance-ru.png` and bound to
+`papanda-ai-assistance`, after the editor screenshot in the Transformers example.
+The owner confirmed that understanding the selected passage and checking it
+against sources are equally important. The RU/EN description reflects both.
+The comment's local use and saving chats/quotations were checked against
+`ConceptSelectionMenu.js`; no claim of automatic source validation is made.
+
 `AlgorithmSteps.astro` renders a responsive five-step diagram in each language
 at the `papanda-method-architecture` marker when no separate image is bound.
 Titles, the initial question and all guidance come from the application's
