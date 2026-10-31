@@ -223,6 +223,96 @@
       ],
       "project": "papanda-languages",
       "uploadedAt": "2026-10-31T07:57:19.044Z"
+    },
+    {
+      "id": "podcast-sound-lab-screenshot-video-workspace",
+      "path": "/media/podcast-sound-lab/video-workspace-ru.png",
+      "title": "podcast-sound-lab: video-workspace",
+      "alt_ru": "Видеоредактор Podcast Sound Lab: материалы проекта, окно предпросмотра и инструменты добавления файлов и текста.",
+      "alt_en": "Podcast Sound Lab video editor: project media, the preview area and controls for adding files and text. Russian interface.",
+      "caption_ru": "Видеоредактор Podcast Sound Lab: материалы проекта, окно предпросмотра и инструменты добавления файлов и текста.",
+      "caption_en": "Podcast Sound Lab video editor: project media, the preview area and controls for adding files and text. Russian interface.",
+      "tags": [
+        "podcast-sound-lab",
+        "video-workspace"
+      ],
+      "project": "podcast-sound-lab",
+      "uploadedAt": "2026-10-31T08:16:39.525Z"
+    },
+    {
+      "id": "podcast-sound-lab-screenshot-video-timeline",
+      "path": "/media/podcast-sound-lab/video-timeline-ru.png",
+      "title": "podcast-sound-lab: video-timeline",
+      "alt_ru": "Монтажная шкала с видеоклипом и звуковой волной: положение курсора, масштаб и инструменты редактирования.",
+      "alt_en": "Editing timeline with a video clip and its audio waveform: cursor position, zoom and editing controls. Russian interface.",
+      "caption_ru": "Монтажная шкала с видеоклипом и звуковой волной: положение курсора, масштаб и инструменты редактирования.",
+      "caption_en": "Editing timeline with a video clip and its audio waveform: cursor position, zoom and editing controls. Russian interface.",
+      "tags": [
+        "podcast-sound-lab",
+        "video-timeline"
+      ],
+      "project": "podcast-sound-lab",
+      "uploadedAt": "2026-10-31T08:16:39.525Z"
+    },
+    {
+      "id": "musiclab-screenshot-playlists",
+      "path": "/media/musiclab/playlists-ru.png",
+      "title": "musiclab: playlists",
+      "alt_ru": "Плейлисты MusicLab: списки из Spotify, черновики и переход к созданию подборки.",
+      "alt_en": "MusicLab playlists: Spotify lists, drafts and controls for creating a selection. Russian interface.",
+      "caption_ru": "Плейлисты MusicLab: списки из Spotify, черновики и переход к созданию подборки.",
+      "caption_en": "MusicLab playlists: Spotify lists, drafts and controls for creating a selection. Russian interface.",
+      "tags": [
+        "musiclab",
+        "playlists"
+      ],
+      "project": "musiclab",
+      "uploadedAt": "2026-10-31T08:16:39.525Z"
+    },
+    {
+      "id": "musiclab-screenshot-listening-statistics",
+      "path": "/media/musiclab/listening-statistics-ru.png",
+      "title": "musiclab: listening-statistics",
+      "alt_ru": "Статистика MusicLab за выбранный период: зафиксированные включения, песни, исполнители, время и распределение жанров.",
+      "alt_en": "MusicLab statistics for the selected period: recorded plays, songs, artists, measured time and genre distribution. Russian interface.",
+      "caption_ru": "Статистика MusicLab за выбранный период: зафиксированные включения, песни, исполнители, время и распределение жанров.",
+      "caption_en": "MusicLab statistics for the selected period: recorded plays, songs, artists, measured time and genre distribution. Russian interface.",
+      "tags": [
+        "musiclab",
+        "listening-statistics"
+      ],
+      "project": "musiclab",
+      "uploadedAt": "2026-10-31T08:16:39.525Z"
+    },
+    {
+      "id": "mathematical-parser-screenshot-route",
+      "path": "/media/mathematical-parser/route-ru.png",
+      "title": "mathematical-parser: route",
+      "alt_ru": "Рабочая математическая карта в режиме маршрута: выбран узел «Суммирование», видна связь с «Умножением» и открыта карточка узла.",
+      "alt_en": "The working mathematical map in route mode: Summation is selected, a connection to Multiplication is visible and the node card is open. Russian interface.",
+      "caption_ru": "Рабочая математическая карта в режиме маршрута: выбран узел «Суммирование», видна связь с «Умножением» и открыта карточка узла.",
+      "caption_en": "The working mathematical map in route mode: Summation is selected, a connection to Multiplication is visible and the node card is open. Russian interface.",
+      "tags": [
+        "mathematical-parser",
+        "route"
+      ],
+      "project": "mathematical-parser",
+      "uploadedAt": "2026-10-31T08:16:39.525Z"
+    },
+    {
+      "id": "mathematical-parser-screenshot-map-3d",
+      "path": "/media/mathematical-parser/map-3d-ru.png",
+      "title": "mathematical-parser: map-3d",
+      "alt_ru": "3D-вид рабочей карты связей с выбранным узлом «Суммирование» и его карточкой.",
+      "alt_en": "The working connection map in 3D mode, with Summation selected and its node card open. Russian interface.",
+      "caption_ru": "3D-вид рабочей карты связей с выбранным узлом «Суммирование» и его карточкой.",
+      "caption_en": "The working connection map in 3D mode, with Summation selected and its node card open. Russian interface.",
+      "tags": [
+        "mathematical-parser",
+        "map-3d"
+      ],
+      "project": "mathematical-parser",
+      "uploadedAt": "2026-10-31T08:16:39.525Z"
     }
   ],
   "slots": [
@@ -339,13 +429,13 @@
     {
       "id": "parser-graph-overview",
       "title": "Граф операций / Operations graph",
-      "alt_ru": "Структура графа математических операций диалектического парсера",
-      "alt_en": "Structure of the dialectical parser’s mathematical operations graph",
-      "caption_ru": "Место для проверенной схемы или настоящего снимка графа с обозначением незавершённых переходов.",
-      "caption_en": "Space for a reviewed diagram or genuine graph screenshot identifying unfinished transitions.",
+      "alt_ru": "Рабочая математическая карта в режиме маршрута: выбран узел «Суммирование», видна связь с «Умножением» и открыта карточка узла.",
+      "alt_en": "The working mathematical map in route mode: Summation is selected, a connection to Multiplication is visible and the node card is open. Russian interface.",
+      "caption_ru": "Рабочая математическая карта в режиме маршрута: выбран узел «Суммирование», видна связь с «Умножением» и открыта карточка узла.",
+      "caption_en": "The working mathematical map in route mode: Summation is selected, a connection to Multiplication is visible and the node card is open. Russian interface.",
       "project": "mathematical-parser",
-      "mediaId": "",
-      "status": "placeholder"
+      "mediaId": "mathematical-parser-screenshot-route",
+      "status": "ready"
     },
     {
       "id": "parser-formula-trace",
@@ -423,6 +513,61 @@
       "alt_en": "Sticky notes for short reminders and checklists. English translation of the supplied Russian screenshot.",
       "caption_ru": "Стикеры для коротких напоминаний и списков.",
       "caption_en": "Sticky notes for short reminders and checklists. English translation of the supplied Russian screenshot."
+    },
+    {
+      "id": "podcast-video-workspace",
+      "title": "podcast-video-workspace",
+      "project": "podcast-sound-lab",
+      "mediaId": "podcast-sound-lab-screenshot-video-workspace",
+      "status": "ready",
+      "alt_ru": "Видеоредактор Podcast Sound Lab: материалы проекта, окно предпросмотра и инструменты добавления файлов и текста.",
+      "alt_en": "Podcast Sound Lab video editor: project media, the preview area and controls for adding files and text. Russian interface.",
+      "caption_ru": "Видеоредактор Podcast Sound Lab: материалы проекта, окно предпросмотра и инструменты добавления файлов и текста.",
+      "caption_en": "Podcast Sound Lab video editor: project media, the preview area and controls for adding files and text. Russian interface."
+    },
+    {
+      "id": "podcast-video-timeline",
+      "title": "podcast-video-timeline",
+      "project": "podcast-sound-lab",
+      "mediaId": "podcast-sound-lab-screenshot-video-timeline",
+      "status": "ready",
+      "alt_ru": "Монтажная шкала с видеоклипом и звуковой волной: положение курсора, масштаб и инструменты редактирования.",
+      "alt_en": "Editing timeline with a video clip and its audio waveform: cursor position, zoom and editing controls. Russian interface.",
+      "caption_ru": "Монтажная шкала с видеоклипом и звуковой волной: положение курсора, масштаб и инструменты редактирования.",
+      "caption_en": "Editing timeline with a video clip and its audio waveform: cursor position, zoom and editing controls. Russian interface."
+    },
+    {
+      "id": "musiclab-playlists",
+      "title": "musiclab-playlists",
+      "project": "musiclab",
+      "mediaId": "musiclab-screenshot-playlists",
+      "status": "ready",
+      "alt_ru": "Плейлисты MusicLab: списки из Spotify, черновики и переход к созданию подборки.",
+      "alt_en": "MusicLab playlists: Spotify lists, drafts and controls for creating a selection. Russian interface.",
+      "caption_ru": "Плейлисты MusicLab: списки из Spotify, черновики и переход к созданию подборки.",
+      "caption_en": "MusicLab playlists: Spotify lists, drafts and controls for creating a selection. Russian interface."
+    },
+    {
+      "id": "musiclab-listening-statistics",
+      "title": "musiclab-listening-statistics",
+      "project": "musiclab",
+      "mediaId": "musiclab-screenshot-listening-statistics",
+      "status": "ready",
+      "alt_ru": "Статистика MusicLab за выбранный период: зафиксированные включения, песни, исполнители, время и распределение жанров.",
+      "alt_en": "MusicLab statistics for the selected period: recorded plays, songs, artists, measured time and genre distribution. Russian interface.",
+      "caption_ru": "Статистика MusicLab за выбранный период: зафиксированные включения, песни, исполнители, время и распределение жанров.",
+      "caption_en": "MusicLab statistics for the selected period: recorded plays, songs, artists, measured time and genre distribution. Russian interface."
+    },
+    {
+      "id": "parser-graph-3d",
+      "title": "parser-graph-3d",
+      "project": "mathematical-parser",
+      "mediaId": "mathematical-parser-screenshot-map-3d",
+      "status": "ready",
+      "alt_ru": "3D-вид рабочей карты связей с выбранным узлом «Суммирование» и его карточкой.",
+      "alt_en": "The working connection map in 3D mode, with Summation selected and its node card open. Russian interface.",
+      "caption_ru": "3D-вид рабочей карты связей с выбранным узлом «Суммирование» и его карточкой.",
+      "caption_en": "The working connection map in 3D mode, with Summation selected and its node card open. Russian interface."
     }
   ]
 }

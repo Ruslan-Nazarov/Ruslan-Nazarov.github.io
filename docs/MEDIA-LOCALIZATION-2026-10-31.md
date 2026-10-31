@@ -1,4 +1,4 @@
-# Иллюстрации тайм менеджмента и языкового приложения
+# Иллюстрации приложений
 
 Русские оригиналы сохранены без изменений. Английские варианты подготовлены встроенным `image_gen` в режиме редактирования изображений. Подписи английской страницы прямо обозначают перевод изображения; это не подтверждение запуска программы с английским интерфейсом.
 
@@ -31,6 +31,21 @@
 - [Разбор казахского предложения](../public/media/papanda-languages/kazakh-sentence-ru.jpg).
 
 [Точные запросы перевода подписей интерфейса](language-app-image-prompts.json).
+
+## Другие полученные кадры
+
+Для Podcast Sound Lab, MusicLab и математической карты дополнительно получены шесть оригинальных кадров. Текст внутри них не менялся; на английских страницах подписи указывают русский интерфейс.
+
+| Проект и вид | Оригинал |
+| --- | --- |
+| Podcast Sound Lab, видеоредактор | [video-workspace-ru.png](../public/media/podcast-sound-lab/video-workspace-ru.png) |
+| Podcast Sound Lab, монтажная шкала | [video-timeline-ru.png](../public/media/podcast-sound-lab/video-timeline-ru.png) |
+| MusicLab, плейлисты | [playlists-ru.png](../public/media/musiclab/playlists-ru.png) |
+| MusicLab, статистика | [listening-statistics-ru.png](../public/media/musiclab/listening-statistics-ru.png) |
+| Математическая карта, маршрут | [route-ru.png](../public/media/mathematical-parser/route-ru.png) |
+| Математическая карта, 3D-вид | [map-3d-ru.png](../public/media/mathematical-parser/map-3d-ru.png) |
+
+Снимки математической карты показывают рабочую версию приложения. Встроенная в сайт интерактивная демонстрация по-прежнему использует свой отдельный небольшой набор данных. Разбор произвольной формулы этими снимками не заявляется.
 
 ## Подключение на сайте
 
