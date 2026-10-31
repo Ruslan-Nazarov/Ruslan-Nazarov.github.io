@@ -82,6 +82,147 @@
       ],
       "project": "papanda",
       "uploadedAt": "2026-10-31T07:27:14.896Z"
+    },
+    {
+      "id": "time-management-demo-overview",
+      "path": "/media/time-management/overview-ru.png",
+      "path_en": "/media/time-management/overview-en.png",
+      "title": "Personal time management: overview",
+      "alt_ru": "Основной экран: задачи, план на сегодня и заметки. «Главное» задаёт дело текущего периода, «Замена» помогает переключиться и отдохнуть.",
+      "alt_en": "Main workspace: tasks, today’s plan and notes. Main focus is the defining activity for the current period; For a change offers a break. English translation of the supplied Russian screenshot.",
+      "caption_ru": "Основной экран: задачи, план на сегодня и заметки. «Главное» задаёт дело текущего периода, «Замена» помогает переключиться и отдохнуть.",
+      "caption_en": "Main workspace: tasks, today’s plan and notes. Main focus is the defining activity for the current period; For a change offers a break. English translation of the supplied Russian screenshot.",
+      "tags": [
+        "time-management",
+        "overview"
+      ],
+      "project": "personal-time-management",
+      "uploadedAt": "2026-10-31T07:57:19.044Z"
+    },
+    {
+      "id": "time-management-demo-calendar",
+      "path": "/media/time-management/calendar-ru.png",
+      "path_en": "/media/time-management/calendar-en.png",
+      "title": "Personal time management: calendar",
+      "alt_ru": "Календарь: распределение дел по датам, повторяющиеся записи и отметки выполнения.",
+      "alt_en": "Calendar: tasks by date, recurring entries and completion marks. English translation of the supplied Russian screenshot.",
+      "caption_ru": "Календарь: распределение дел по датам, повторяющиеся записи и отметки выполнения.",
+      "caption_en": "Calendar: tasks by date, recurring entries and completion marks. English translation of the supplied Russian screenshot.",
+      "tags": [
+        "time-management",
+        "calendar"
+      ],
+      "project": "personal-time-management",
+      "uploadedAt": "2026-10-31T07:57:19.044Z"
+    },
+    {
+      "id": "time-management-demo-stickers",
+      "path": "/media/time-management/stickers-ru.png",
+      "path_en": "/media/time-management/stickers-en.png",
+      "title": "Personal time management: stickers",
+      "alt_ru": "Стикеры для коротких напоминаний и списков.",
+      "alt_en": "Sticky notes for short reminders and checklists. English translation of the supplied Russian screenshot.",
+      "caption_ru": "Стикеры для коротких напоминаний и списков.",
+      "caption_en": "Sticky notes for short reminders and checklists. English translation of the supplied Russian screenshot.",
+      "tags": [
+        "time-management",
+        "stickers"
+      ],
+      "project": "personal-time-management",
+      "uploadedAt": "2026-10-31T07:57:19.044Z"
+    },
+    {
+      "id": "languages-demo-sentence",
+      "path": "/media/papanda-languages/sentence-ru.jpg",
+      "path_en": "/media/papanda-languages/sentence-en.png",
+      "title": "papanda Languages: sentence",
+      "alt_ru": "Разбор предложения «The children play outside»: действие, участник и остальные элементы показаны по шагам.",
+      "alt_en": "Step-by-step analysis of “The children play outside”. Interface labels were translated for this illustration; the original learning content is retained.",
+      "caption_ru": "Разбор предложения «The children play outside»: действие, участник и остальные элементы показаны по шагам.",
+      "caption_en": "Step-by-step analysis of “The children play outside”. Interface labels were translated for this illustration; the original learning content is retained.",
+      "tags": [
+        "languages",
+        "sentence"
+      ],
+      "project": "papanda-languages",
+      "uploadedAt": "2026-10-31T07:57:19.044Z"
+    },
+    {
+      "id": "languages-demo-vocabulary",
+      "path": "/media/papanda-languages/vocabulary-ru.jpg",
+      "path_en": "/media/papanda-languages/vocabulary-en.png",
+      "title": "papanda Languages: vocabulary",
+      "alt_ru": "Карточка слова «симпатичный»: сопоставление казахского, английского, итальянского и испанского вариантов.",
+      "alt_en": "The word card for “симпатичный”, with Kazakh, English, Italian and Spanish equivalents. Interface labels were translated for this illustration; the learning words are unchanged.",
+      "caption_ru": "Карточка слова «симпатичный»: сопоставление казахского, английского, итальянского и испанского вариантов.",
+      "caption_en": "The word card for “симпатичный”, with Kazakh, English, Italian and Spanish equivalents. Interface labels were translated for this illustration; the learning words are unchanged.",
+      "tags": [
+        "languages",
+        "vocabulary"
+      ],
+      "project": "papanda-languages",
+      "uploadedAt": "2026-10-31T07:57:19.044Z"
+    },
+    {
+      "id": "languages-demo-practice",
+      "path": "/media/papanda-languages/practice-ru.jpg",
+      "path_en": "/media/papanda-languages/practice-en.png",
+      "title": "papanda Languages: practice",
+      "alt_ru": "Повторение слова «салық»: перевод скрыт до открытия карточки, пользователь отмечает знакомое и незнакомое.",
+      "alt_en": "Review of the Kazakh word “салық”, with the translation hidden until the card is opened. Interface labels were translated for this illustration; the learning word is unchanged.",
+      "caption_ru": "Повторение слова «салық»: перевод скрыт до открытия карточки, пользователь отмечает знакомое и незнакомое.",
+      "caption_en": "Review of the Kazakh word “салық”, with the translation hidden until the card is opened. Interface labels were translated for this illustration; the learning word is unchanged.",
+      "tags": [
+        "languages",
+        "practice"
+      ],
+      "project": "papanda-languages",
+      "uploadedAt": "2026-10-31T07:57:19.044Z"
+    },
+    {
+      "id": "languages-extra-dictionary",
+      "path": "/media/papanda-languages/dictionary-ru.jpg",
+      "title": "papanda Languages: dictionary",
+      "alt_ru": "Список словаря с вариантами перевода и предупреждением о переводе.",
+      "alt_en": "Dictionary entries with translation alternatives and a translation warning. Russian interface.",
+      "caption_ru": "Список словаря с вариантами перевода и предупреждением о переводе.",
+      "caption_en": "Dictionary entries with translation alternatives and a translation warning. Russian interface.",
+      "tags": [
+        "languages",
+        "dictionary"
+      ],
+      "project": "papanda-languages",
+      "uploadedAt": "2026-10-31T07:57:19.044Z"
+    },
+    {
+      "id": "languages-extra-needle",
+      "path": "/media/papanda-languages/needle-ru.jpg",
+      "title": "papanda Languages: needle",
+      "alt_ru": "Карточка слова «иголка»: казахский и английский варианты, личная ассоциация.",
+      "alt_en": "The “иголка” word card, with Kazakh and English equivalents and a personal association field. Russian interface.",
+      "caption_ru": "Карточка слова «иголка»: казахский и английский варианты, личная ассоциация.",
+      "caption_en": "The “иголка” word card, with Kazakh and English equivalents and a personal association field. Russian interface.",
+      "tags": [
+        "languages",
+        "needle"
+      ],
+      "project": "papanda-languages",
+      "uploadedAt": "2026-10-31T07:57:19.044Z"
+    },
+    {
+      "id": "languages-extra-kazakh-sentence",
+      "path": "/media/papanda-languages/kazakh-sentence-ru.jpg",
+      "title": "papanda Languages: kazakh-sentence",
+      "alt_ru": "Поэтапный разбор казахского предложения «Биік үй құлады.».",
+      "alt_en": "Step-by-step analysis of the Kazakh sentence “Биік үй құлады.” Russian interface.",
+      "caption_ru": "Поэтапный разбор казахского предложения «Биік үй құлады.».",
+      "caption_en": "Step-by-step analysis of the Kazakh sentence “Биік үй құлады.” Russian interface.",
+      "tags": [
+        "languages",
+        "kazakh-sentence"
+      ],
+      "project": "papanda-languages",
+      "uploadedAt": "2026-10-31T07:57:19.044Z"
     }
   ],
   "slots": [
@@ -165,35 +306,35 @@
     {
       "id": "papanda-languages-sentence",
       "title": "Разбор предложения / Sentence analysis",
-      "alt_ru": "Разбор предложения и морфем в papanda Languages",
-      "alt_en": "Sentence and morpheme analysis in papanda Languages",
-      "caption_ru": "Место для настоящего скриншота: структура предложения и смысловые части слов.",
-      "caption_en": "A genuine screenshot will show sentence structure and meaningful parts of words.",
+      "alt_ru": "Разбор предложения «The children play outside»: действие, участник и остальные элементы показаны по шагам.",
+      "alt_en": "Step-by-step analysis of “The children play outside”. Interface labels were translated for this illustration; the original learning content is retained.",
+      "caption_ru": "Разбор предложения «The children play outside»: действие, участник и остальные элементы показаны по шагам.",
+      "caption_en": "Step-by-step analysis of “The children play outside”. Interface labels were translated for this illustration; the original learning content is retained.",
       "project": "papanda-languages",
-      "mediaId": "",
-      "status": "placeholder"
+      "mediaId": "languages-demo-sentence",
+      "status": "ready"
     },
     {
       "id": "papanda-languages-vocabulary",
       "title": "Многоязычный словарь / Multilingual dictionary",
-      "alt_ru": "Сопоставление слов на изучаемых языках в papanda Languages",
-      "alt_en": "Vocabulary comparison across languages in papanda Languages",
-      "caption_ru": "Место для настоящего скриншота многоязычного словаря.",
-      "caption_en": "Space for a genuine screenshot of the multilingual dictionary.",
+      "alt_ru": "Карточка слова «симпатичный»: сопоставление казахского, английского, итальянского и испанского вариантов.",
+      "alt_en": "The word card for “симпатичный”, with Kazakh, English, Italian and Spanish equivalents. Interface labels were translated for this illustration; the learning words are unchanged.",
+      "caption_ru": "Карточка слова «симпатичный»: сопоставление казахского, английского, итальянского и испанского вариантов.",
+      "caption_en": "The word card for “симпатичный”, with Kazakh, English, Italian and Spanish equivalents. Interface labels were translated for this illustration; the learning words are unchanged.",
       "project": "papanda-languages",
-      "mediaId": "",
-      "status": "placeholder"
+      "mediaId": "languages-demo-vocabulary",
+      "status": "ready"
     },
     {
       "id": "papanda-languages-practice",
       "title": "Повторение и статистика / Review and statistics",
-      "alt_ru": "Тренировка узнавания слов и статистика занятий в papanda Languages",
-      "alt_en": "Word recognition practice and learning statistics in papanda Languages",
-      "caption_ru": "Место для настоящего скриншота тренировки или статистики с обезличенными данными.",
-      "caption_en": "Space for a genuine practice or statistics screenshot with anonymised data.",
+      "alt_ru": "Повторение слова «салық»: перевод скрыт до открытия карточки, пользователь отмечает знакомое и незнакомое.",
+      "alt_en": "Review of the Kazakh word “салық”, with the translation hidden until the card is opened. Interface labels were translated for this illustration; the learning word is unchanged.",
+      "caption_ru": "Повторение слова «салық»: перевод скрыт до открытия карточки, пользователь отмечает знакомое и незнакомое.",
+      "caption_en": "Review of the Kazakh word “салық”, with the translation hidden until the card is opened. Interface labels were translated for this illustration; the learning word is unchanged.",
       "project": "papanda-languages",
-      "mediaId": "",
-      "status": "placeholder"
+      "mediaId": "languages-demo-practice",
+      "status": "ready"
     },
     {
       "id": "parser-graph-overview",
@@ -253,24 +394,35 @@
     {
       "id": "time-management-overview",
       "title": "Общий вид приложения / Application overview",
-      "alt_ru": "Интерфейс личного приложения тайм-менеджмента с обезличенными данными",
-      "alt_en": "Personal time-management application interface with anonymised data",
-      "caption_ru": "Место для настоящего снимка интерфейса без личных записей.",
-      "caption_en": "Space for a genuine interface screenshot without personal records.",
+      "alt_ru": "Основной экран: задачи, план на сегодня и заметки. «Главное» задаёт дело текущего периода, «Замена» помогает переключиться и отдохнуть.",
+      "alt_en": "Main workspace: tasks, today’s plan and notes. Main focus is the defining activity for the current period; For a change offers a break. English translation of the supplied Russian screenshot.",
+      "caption_ru": "Основной экран: задачи, план на сегодня и заметки. «Главное» задаёт дело текущего периода, «Замена» помогает переключиться и отдохнуть.",
+      "caption_en": "Main workspace: tasks, today’s plan and notes. Main focus is the defining activity for the current period; For a change offers a break. English translation of the supplied Russian screenshot.",
       "project": "personal-time-management",
-      "mediaId": "",
-      "status": "placeholder"
+      "mediaId": "time-management-demo-overview",
+      "status": "ready"
     },
     {
       "id": "time-management-workflow",
       "title": "Организация задач / Task organisation",
-      "alt_ru": "Работа с задачами в личном приложении на демонстрационных данных",
-      "alt_en": "Working with tasks in the personal application using demonstration data",
-      "caption_ru": "Место для обезличенного примера работы; функции уточняются по реальному интерфейсу.",
-      "caption_en": "Space for an anonymised workflow example; capabilities will be described from the actual interface.",
+      "alt_ru": "Календарь: распределение дел по датам, повторяющиеся записи и отметки выполнения.",
+      "alt_en": "Calendar: tasks by date, recurring entries and completion marks. English translation of the supplied Russian screenshot.",
+      "caption_ru": "Календарь: распределение дел по датам, повторяющиеся записи и отметки выполнения.",
+      "caption_en": "Calendar: tasks by date, recurring entries and completion marks. English translation of the supplied Russian screenshot.",
       "project": "personal-time-management",
-      "mediaId": "",
-      "status": "placeholder"
+      "mediaId": "time-management-demo-calendar",
+      "status": "ready"
+    },
+    {
+      "id": "time-management-stickers",
+      "title": "time-management-stickers",
+      "project": "personal-time-management",
+      "mediaId": "time-management-demo-stickers",
+      "status": "ready",
+      "alt_ru": "Стикеры для коротких напоминаний и списков.",
+      "alt_en": "Sticky notes for short reminders and checklists. English translation of the supplied Russian screenshot.",
+      "caption_ru": "Стикеры для коротких напоминаний и списков.",
+      "caption_en": "Sticky notes for short reminders and checklists. English translation of the supplied Russian screenshot."
     }
   ]
 }

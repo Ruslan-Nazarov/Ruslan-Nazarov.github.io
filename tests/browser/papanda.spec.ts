@@ -38,7 +38,23 @@ for(const lang of ['ru','en'])test(`${project} ${lang}: copy, ready illustration
   const headings=[...row['body_'+lang].matchAll(/^#{2,3} (.+)$/gm)].map(match=>match[1]);
   expect(await page.locator('.prose h2,.prose h3').allTextContents()).toEqual(headings);
   expect(await page.locator('[data-media-id]').evaluateAll(nodes=>nodes.map(n=>n.getAttribute('data-media-id')))).toEqual(slots.map((s:any)=>s.id));
-  for(const slot of slots){const figure=page.locator(`[data-media-id="${slot.id}"]`);await expect(figure.locator('figcaption')).toHaveText(slot['caption_'+lang]);await expect(figure.locator('img')).toHaveAttribute('alt',slot['alt_'+lang])}
+  for(const slot of slots){
+    const figure=page.locator(`[data-media-id="${slot.id}"]`),img=figure.locator('img');
+    const asset=lib.items.find((item:any)=>item.id===slot.mediaId);
+    await expect(figure.locator('figcaption')).toHaveText(slot['caption_'+lang]);
+    await expect(img).toHaveAttribute('alt',slot['alt_'+lang]);
+    await expect(img).toHaveAttribute('src',lang==='en'&&asset.path_en?asset.path_en:asset.path);
+    await figure.scrollIntoViewIfNeeded();
+    await expect.poll(()=>img.evaluate((element:HTMLImageElement)=>element.naturalWidth)).toBeGreaterThan(0);
+    expect(await img.evaluate(element=>element.getBoundingClientRect().height)).toBeLessThanOrEqual(761);
+  }
+  if(project==='papanda-languages'){
+    await expect(page.locator('.gallery img')).toHaveCount(3);
+    for(const image of await page.locator('.gallery img').all()){
+      await image.scrollIntoViewIfNeeded();
+      await expect.poll(()=>image.evaluate((element:HTMLImageElement)=>element.naturalWidth)).toBeGreaterThan(0);
+    }
+  }
   await expect(page.locator('.media-placeholder')).toHaveCount(0);
   await expect(page.locator('a[href*="papanda.kz"],a[download],a[href*="releases/download"],a[href=""],a[href="#"]')).toHaveCount(0);
   await expect(page.locator('.example-links')).toHaveCount(0);

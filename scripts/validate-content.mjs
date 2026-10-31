@@ -1,8 +1,10 @@
 import { validateAll,readJSON } from '../src/lib/content.mjs';
 import { getPublicGraph, readOverrides } from '../src/lib/graph.mjs';
 import {readLibrary} from '../src/lib/media.mjs';
+import {existsSync} from 'node:fs';
 const content=validateAll();
 const media=readLibrary(),known=new Set([...media.items,...media.slots].map(x=>x.id));
+for(const asset of media.items)if(asset.path_en&&!existsSync('public'+asset.path_en))throw new Error(`Missing English media asset: ${asset.path_en}`);
 for(const row of Object.values(content).flat())for(const lang of ['ru','en'])for(const [,id] of row[`body_${lang}`].matchAll(/\[\[media:([a-z0-9-]+)\]\]/g))if(!known.has(id))throw new Error(`Unknown media ID ${id} in ${row.id}`);
 const site=readJSON('src/data/site.json');
 for(const section of Object.values(readJSON('src/data/sections.json')))for(const lang of ['ru','en'])for(const [,id] of section[`body_${lang}`].matchAll(/\[\[media:([a-z0-9-]+)\]\]/g))if(!known.has(id))throw new Error(`Unknown media ID ${id} in section ${section.id}`);
