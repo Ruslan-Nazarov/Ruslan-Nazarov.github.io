@@ -1,5 +1,22 @@
 import {test,expect} from '@playwright/test';
 import {readFileSync} from 'node:fs';
+test('brand remains readable in system light and dark themes in both languages',async({page,request})=>{
+  const site=JSON.parse(readFileSync('src/data/site.json','utf8'));
+  for(const colorScheme of ['light','dark'] as const){
+    await page.emulateMedia({colorScheme});
+    for(const lang of ['ru','en'] as const){
+      await page.goto(`/${lang}/`);
+      await expect(page.locator('.brand-text')).toContainText(site[lang].brandDescriptor);
+      await expect(page.locator('body')).toHaveCSS('background-color',colorScheme==='light'?'rgb(238, 236, 224)':'rgb(18, 22, 28)');
+      await expect(page.locator('.brand .site-mark svg g')).toHaveCSS('fill',colorScheme==='light'?'rgb(29, 39, 51)':'rgb(234, 230, 223)');
+      await page.evaluate(()=>document.fonts.ready);
+      expect(await page.evaluate(()=>document.fonts.check('500 32px "Source Serif 4"',document.querySelector('h1')!.textContent!))).toBe(true);
+      expect(await page.evaluate(()=>document.fonts.check('400 18px Inter',document.querySelector('.brand-text small')!.textContent!))).toBe(true);
+      if(lang==='ru')await page.screenshot({path:`.local/brand-${colorScheme}.png`});
+    }
+  }
+  for(const asset of [site.favicon,site.socialImage,'/icons/rn-favicon.svg','/icons/apple-touch-icon.png','/site.webmanifest'])expect((await request.get(asset)).status()).toBe(200);
+});
 test('simple home and corresponding language switch',async({page})=>{
   const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));
   await page.goto('/ru/');

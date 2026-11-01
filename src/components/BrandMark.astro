@@ -1,0 +1,6 @@
+---
+import logo from '../../public/icons/rn-logo.svg?raw';
+interface Props {id:string;class?:string}
+const {id,class:className=''}=Astro.props;
+---
+<span class:list={['site-mark',className]} aria-hidden="true" set:html={logo.replaceAll('amberSphere',id)} />

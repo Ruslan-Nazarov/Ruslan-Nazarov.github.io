@@ -1,5 +1,8 @@
 ---
 import Text from '../components/Text.astro';
+import BrandHead from '../components/BrandHead.astro';
+import BrandMark from '../components/BrandMark.astro';
+import '../styles/fonts.css';
 import '../styles/global.css';
 import '../styles/simple.css';
 import {navigation,activeNavigation} from '../lib/navigation.mjs';
@@ -18,7 +21,7 @@ const documentTitle=path?`${title} | ${site.name}`:`${site.name} | ${site[lang].
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="color-scheme" content="light" />
+    <BrandHead />
     <title>{documentTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={url} />
@@ -36,14 +39,14 @@ const documentTitle=path?`${title} | ${site.name}`:`${site.name} | ${site[lang].
     <meta property="og:image:alt" content={`${site.name} — ${site[lang].role}`} />
     <meta name="twitter:card" content="summary_large_image" />
     {(noindex||process.env.SITE_EDITOR_PREVIEW==='1')&&<meta name="robots" content="noindex,follow" />}
-    <link rel="icon" href={site.favicon} />
     {site.cloudflareToken&&<script is:inline defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon={JSON.stringify({token:site.cloudflareToken})}></script>}
+    {site.yandexMetricaId&&process.env.SITE_EDITOR_PREVIEW!=='1'&&<script is:inline defer src="/metrika.js" data-metrica-id={site.yandexMetricaId}></script>}
   </head>
   <body>
     {process.env.SITE_EDITOR_PREVIEW==='1'&&<div style="padding:10px 20px;background:#fff0c2;color:#312b12;text-align:center;font:14px system-ui" data-pagefind-ignore>{lang==='ru'?'Локальный предпросмотр · включает черновики':'Local preview · includes drafts'}</div>}
     <a class="skip-link" href="#main"><Text record={t} field="skip" lang={lang}/></a>
     <header class="site-header">
-      <a class="brand" href={`/${lang}/`} aria-label={`${site.name} — ${t.home}`}><span class="brand-mark">{site.monogram}<span>·</span></span><span><Text record={site} field="name" lang={lang}/><small><Text record={site[lang]} field="role" lang={lang}/></small></span></a>
+      <a class="brand" href={`/${lang}/`} aria-label={`${site[lang].brandName} — ${t.home}`}><BrandMark id="header-amber"/><span class="brand-text"><Text record={site[lang]} field="brandName" lang={lang}/><small><Text record={site[lang]} field="brandDescriptor" lang={lang}/></small></span></a>
       <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav"><Text record={t} field="menu" lang={lang}/> ☰</button>
       <nav id="main-nav" aria-label={t.menu}>
         {navigation.map(item=><a href={`/${lang}/${item.path}/`} aria-current={active===item.path?'page':undefined}>{item[lang]}</a>)}
@@ -58,7 +61,7 @@ const documentTitle=path?`${title} | ${site.name}`:`${site.name} | ${site[lang].
       <div class="media-viewer-scroll"><img alt=""/></div><p></p>
     </dialog>
     <footer class="site-footer" data-pagefind-ignore>
-      <div><a class="footer-name" href={`/${lang}/`}><Text record={site} field="name" lang={lang}/><span>·</span></a><p><Text record={site[lang]} field="tagline" lang={lang}/></p></div>
+      <div><a class="footer-name" href={`/${lang}/`}><BrandMark id="footer-amber"/><Text record={site[lang]} field="brandName" lang={lang}/></a><p><Text record={site[lang]} field="brandDescriptor" lang={lang}/></p></div>
       <div class="footer-links"><a href={`/${lang}/search/`}>{t.search}</a><a href={`/${lang}/legal/`}><Text record={t} field="legal" lang={lang}/></a><a href={`/${lang}/privacy/`}><Text record={t} field="privacy" lang={lang}/></a><a href={site.footerGithubUrl} rel="noopener noreferrer">{t.footerGithub} ↗</a></div>
       <small>© {new Date().getUTCFullYear()} <Text record={site} field="name" lang={lang}/> · {t.footerLicense}</small>
       <a class="back-to-top" href="#main"><Text record={t} field="backToTop" lang={lang}/> ↑</a>

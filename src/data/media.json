@@ -260,8 +260,8 @@
       "title": "musiclab: playlists",
       "alt_ru": "Плейлисты MusicLab: списки из Spotify, черновики и переход к созданию подборки.",
       "alt_en": "MusicLab playlists: Spotify lists, drafts and controls for creating a selection. Russian interface.",
-      "caption_ru": "Плейлисты MusicLab: списки из Spotify, черновики и переход к созданию подборки.",
-      "caption_en": "MusicLab playlists: Spotify lists, drafts and controls for creating a selection. Russian interface.",
+      "caption_ru": "Плейлисты MusicLab: списки из Spotify, черновики и переход к созданию подборки. Снимок сделан до смены названия на «Естіліс».",
+      "caption_en": "MusicLab playlists: Spotify lists, drafts and controls for creating a selection. Screenshot taken before the rename to Естіліс. Russian interface.",
       "tags": [
         "musiclab",
         "playlists"
@@ -275,8 +275,8 @@
       "title": "musiclab: listening-statistics",
       "alt_ru": "Статистика MusicLab за выбранный период: зафиксированные включения, песни, исполнители, время и распределение жанров.",
       "alt_en": "MusicLab statistics for the selected period: recorded plays, songs, artists, measured time and genre distribution. Russian interface.",
-      "caption_ru": "Статистика MusicLab за выбранный период: зафиксированные включения, песни, исполнители, время и распределение жанров.",
-      "caption_en": "MusicLab statistics for the selected period: recorded plays, songs, artists, measured time and genre distribution. Russian interface.",
+      "caption_ru": "Статистика MusicLab за выбранный период: зафиксированные включения, песни, исполнители, время и распределение жанров. Снимок сделан до смены названия на «Естіліс».",
+      "caption_en": "MusicLab statistics for the selected period: recorded plays, songs, artists, measured time and genre distribution. Screenshot taken before the rename to Естіліс. Russian interface.",
       "tags": [
         "musiclab",
         "listening-statistics"
@@ -544,8 +544,8 @@
       "status": "ready",
       "alt_ru": "Плейлисты MusicLab: списки из Spotify, черновики и переход к созданию подборки.",
       "alt_en": "MusicLab playlists: Spotify lists, drafts and controls for creating a selection. Russian interface.",
-      "caption_ru": "Плейлисты MusicLab: списки из Spotify, черновики и переход к созданию подборки.",
-      "caption_en": "MusicLab playlists: Spotify lists, drafts and controls for creating a selection. Russian interface."
+      "caption_ru": "Плейлисты MusicLab: списки из Spotify, черновики и переход к созданию подборки. Снимок сделан до смены названия на «Естіліс».",
+      "caption_en": "MusicLab playlists: Spotify lists, drafts and controls for creating a selection. Screenshot taken before the rename to Естіліс. Russian interface."
     },
     {
       "id": "musiclab-listening-statistics",
@@ -555,8 +555,8 @@
       "status": "ready",
       "alt_ru": "Статистика MusicLab за выбранный период: зафиксированные включения, песни, исполнители, время и распределение жанров.",
       "alt_en": "MusicLab statistics for the selected period: recorded plays, songs, artists, measured time and genre distribution. Russian interface.",
-      "caption_ru": "Статистика MusicLab за выбранный период: зафиксированные включения, песни, исполнители, время и распределение жанров.",
-      "caption_en": "MusicLab statistics for the selected period: recorded plays, songs, artists, measured time and genre distribution. Russian interface."
+      "caption_ru": "Статистика MusicLab за выбранный период: зафиксированные включения, песни, исполнители, время и распределение жанров. Снимок сделан до смены названия на «Естіліс».",
+      "caption_en": "MusicLab statistics for the selected period: recorded plays, songs, artists, measured time and genre distribution. Screenshot taken before the rename to Естіліс. Russian interface."
     },
     {
       "id": "parser-graph-3d",
