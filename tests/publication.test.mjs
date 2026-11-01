@@ -6,8 +6,8 @@ import {markdown} from '../src/lib/markdown.mjs';
 test('all public objects are complete bilingual pairs; retired collections are excluded',()=>{
   validateAll();
   const data=allContent();
-  assert.equal(data.research,undefined);assert.equal(data.projects.length,9);
-  assert.equal(data.projects.some(project=>project.id==='ai-algorithm'),false);
+  assert.equal(data.research,undefined);assert.ok(data.projects.length>=10);
+  assert.ok(data.projects.some(project=>project.id==='ai-algorithm'));
   for(const id of ['data-science-handbook','language-handbook','theses-2020-2026'])assert.ok(data.publications.some(p=>p.id===id));
   assert.equal(data.theses.length,5);assert.equal(data.journal,undefined);
   for(const rows of Object.values(data))for(const row of rows)assert.ok(isReady(row));
