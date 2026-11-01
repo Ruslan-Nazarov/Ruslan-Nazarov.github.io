@@ -1,6 +1,6 @@
 {
   "name": "Руслан Назаров",
-  "tagline": "Physics · Mathematics · AI · Education",
+  "tagline": "Dialectics · Physics · Mathematics · Education · Artificial Intelligence",
   "portrait": "/media/shared/-38--d28ad527.jpg",
   "email": "runaz2007@gmail.com",
   "formEndpoint": "",
@@ -12,6 +12,10 @@
       "url": "https://github.com/Ruslan-Nazarov"
     },
     {
+      "label": "LinkedIn",
+      "url": "https://www.linkedin.com/in/ruslan-nazarov-papanda/"
+    },
+    {
       "label": "Medium",
       "url": "https://ruslan-nazarov.medium.com/"
     }
@@ -19,7 +23,7 @@
   "ru": {
     "brandName": "Руслан Назаров",
     "brandDescriptor": "Исследования и инструменты понимания",
-    "tagline": "Физика · Математика · ИИ · Образование",
+    "tagline": "Диалектика · Физика · Математика · Образование · Искусственный Интеллект",
     "role": "Исследователь искусственного интеллекта",
     "heroTitle": "От ИИ — знания, от человека — понимание",
     "heroText": "Появление ИИ поставило вопрос: как разграничить интеллектуальные функции человека и ИИ. Это необходимо, чтобы получить лучшее от каждого. Для получения ответа на этот вопрос я и провожу свои исследования, разрабатываю алгоритмы и протоколы взаимодействия человека и ИИ. На этом сайте отражены все те направления, на которых я ищу ответ, и где я применяю получаемые результаты.",
@@ -33,7 +37,7 @@
     "contactEmpty": "Для связи доступны электронная почта и публичные профили.",
     "rights": "Новые авторские тексты сайта — CC BY 4.0, если для материала не указано иное. Внешние книги сохраняют CC BY-NC-ND 4.0. Лицензия текстов не распространяется на программный код.",
     "privacy": "Сайт статический, без собственной базы данных и учётных записей посетителей. Выбранный язык сохраняется локально в браузере. При включении формы сообщения передаются указанному внешнему сервису. Аналитика загружается только при настроенном идентификаторе. Внешние сайты имеют собственные правила приватности.",
-    "heroEyebrow": "Диалектика · Искусственный интеллект · Математика · Образование",
+    "heroEyebrow": "Диалектика · Физика · Математика · Образование · Искусственный Интеллект",
     "featuredBody": "papanda — это приложение, которое позволяет ответить на этот вопрос. Здесь студент, преподаватель, ученый может собирать с помощью ИИ знания, а сам дополнять их пониманием. Это приложение позволяет вести конспекты по любой теме, исследуя и находя простейший процесс, изменяющие его процессы, противоположности, противоречие и их разрешение. Именно в этом движении раскрывается суть любого изучаемого предмета.",
     "publicationsBody": "Еще в 2022 я обобщил свои заметки по Data Science и опубликовал книгу, которую несколько раз пересматривал с тех пор. Цель ее – показать не только историю ИИ, но и рассказать, где и в чем ограничены текущие подходы к ИИ.\n\nВ своих статьях, размещаемых, как правило, на Medium, я больше говорю про математику и образование.",
     "contactTitle": "Контакты",
@@ -47,7 +51,7 @@
   "en": {
     "brandName": "Ruslan Nazarov",
     "brandDescriptor": "Research & Tools for Understanding",
-    "tagline": "Physics · Mathematics · AI · Education",
+    "tagline": "Dialectics · Physics · Mathematics · Education · Artificial Intelligence",
     "role": "AI Researcher",
     "heroTitle": "From AI — knowledge, from Human — understanding",
     "heroText": "The emergence of AI has raised the question: how to delineate the intellectual functions of humans and AI. This is necessary to get the best from each. To answer this question, I conduct my research, developing algorithms and protocols for human-AI interaction. This website reflects all the directions in which I am seeking an answer, and where I apply the results I obtain.",
@@ -61,7 +65,7 @@
     "contactEmpty": "Email and public profiles are available for contact.",
     "rights": "New authorial texts on this site are CC BY 4.0 unless stated otherwise. External books retain CC BY-NC-ND 4.0. The text licence does not apply to software code.",
     "privacy": "This is a static site without its own database or visitor accounts. The language preference is stored locally in the browser. If enabled, the contact form sends messages to the configured external service. Analytics loads only when an identifier is configured. External sites have their own privacy policies.",
-    "heroEyebrow": "Dialectics · Artificial intelligence · Mathematics · Education",
+    "heroEyebrow": "Dialectics · Physics · Mathematics · Education · Artificial Intelligence",
     "featuredBody": "papanda is an application that allows you to answer this question. Here, a student, teacher, or scholar can gather knowledge with the help of AI and supplement it with their own understanding. This application allows you to take notes on any topic by exploring and finding the simplest process, the processes that change it, opposites, contradiction, and their resolution. It is precisely in this movement that the essence of any subject under study is revealed.",
     "publicationsBody": "Back in 2022, I summarized my notes on Data Science and published a book that I have revised several times since. Its goal is not only to show the history of AI, but also to explain where and in what current AI approaches are limited.\n\nIn my articles, which I usually publish on Medium, I focus more on mathematics and education.",
     "contactTitle": "Contact",

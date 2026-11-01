@@ -23,6 +23,8 @@ test('simple home and corresponding language switch',async({page})=>{
   await expect(page.locator('h1')).toHaveText(JSON.parse(readFileSync('src/data/site.json','utf8')).ru.heroTitle);
   await expect(page.locator('#theme-select')).toHaveCount(0);
   await expect(page.locator('.section-directory a')).toHaveCount(7);
+  await expect(page.locator('.section-directory').getByRole('link',{name:'Тезисы по диалектике'})).toHaveAttribute('href','/ru/publications/theses-2020-2026/full/');
+  await expect(page.locator('.section-directory').getByRole('link',{name:'Тезисы об ИИ'})).toHaveAttribute('href','/ru/ai-theses/');
   await page.screenshot({path:'.local/home-desktop.png',fullPage:true});
   await page.goto('/ru/projects/mathematical-parser/');
   await page.locator('[data-language="en"]').click();
@@ -37,7 +39,13 @@ test('navigation has seven sections and catalogues display all entries without f
       await page.goto('/'+lang+'/'+section+'/');
       await expect(page.locator('#main-nav a')).toHaveCount(7);
       await expect(page.locator('.filter-bar,.result-count,.page-description')).toHaveCount(0);
-      expect(await page.locator('.card').count()).toBeGreaterThan(0);
+      expect(await page.locator(section==='projects'?'.project-entry':'.card').count()).toBeGreaterThan(0);
+      if(section==='projects'){
+        await expect(page.locator('.project-section > h2')).toHaveText(lang==='ru'?['ИИ','Вайбкодинг']:['AI','Vibe coding']);
+        await expect(page.locator('#ai .project-entry')).toHaveCount(3);
+        await expect(page.locator('#vibecoding .project-entry')).toHaveCount(14);
+        await expect(page.locator('.project-prompts a')).toHaveAttribute('href','https://github.com/Ruslan-Nazarov/useful_prompts');
+      }
     }
     for(const path of ['research','journal','timeline','research/physics','journal/parser-project-page'])expect((await request.get('/'+lang+'/'+path+'/')).status()).toBe(404);
   }

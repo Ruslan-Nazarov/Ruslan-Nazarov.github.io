@@ -1,0 +1,23 @@
+---
+import ProjectList from './ProjectList.astro';
+import {projectCatalog} from '../lib/project-catalog.mjs';
+const {rows,lang}=Astro.props;
+const {ai,categories,prompts}=projectCatalog(rows);
+const promptsUrl=prompts?.links?.[0]?.url;
+---
+<nav class="project-directory" aria-label={lang==='ru'?'Направления проектов':'Project sections'}>
+  <a href="#ai">{lang==='ru'?'ИИ':'AI'}</a>
+  <a href="#vibecoding">{lang==='ru'?'Вайбкодинг':'Vibe coding'}</a>
+</nav>
+<section class="project-section" id="ai" aria-labelledby="ai-heading">
+  <h2 id="ai-heading">{lang==='ru'?'ИИ':'AI'}</h2>
+  <ProjectList rows={ai} lang={lang}/>
+</section>
+<section class="project-section" id="vibecoding" aria-labelledby="vibecoding-heading">
+  <h2 id="vibecoding-heading">{lang==='ru'?'Вайбкодинг':'Vibe coding'}</h2>
+  <p class="project-prompts">{lang==='ru'?'Приложения, которые я создаю с помощью ИИ. Промпты и задания для разработки публикую в ':'Applications I build with AI. I publish development prompts and specifications in '}{promptsUrl?<a href={promptsUrl} rel="noopener noreferrer">useful_prompts ↗</a>:<>useful_prompts</>}.{lang==='ru'?' Ниже — описания приложений по категориям.':' The applications are described by category below.'}</p>
+  {categories.map(category=><section class="project-category" aria-labelledby={`category-${category.id}`}>
+    <h3 id={`category-${category.id}`}>{category[lang as 'ru'|'en']}</h3>
+    <ProjectList rows={category.rows} lang={lang} heading="h4"/>
+  </section>)}
+</section>

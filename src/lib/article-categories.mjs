@@ -3,7 +3,7 @@ export const articleCategories = [
   {id:'mathematics',ru:'Математика',en:'Mathematics'},
   {id:'ai',ru:'ИИ',en:'AI'},
   {id:'education',ru:'Образование',en:'Education'},
-  {id:'papanda_conspect',ru:'papanda_conspect',en:'papanda_conspect'}
+  {id:'papanda_conspect',ru:'papanda: диалектические конспекты',en:'papanda: dialectical notes'}
 ];
 export const articleCategory = row => articleCategories.find(category=>category.id===row.articleCategory);
 export function publicationDate(row,lang) {

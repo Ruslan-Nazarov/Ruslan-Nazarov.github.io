@@ -13,6 +13,7 @@ import ResearchGraph from '../../components/graph/ResearchGraph';
 import {allContent,routes,site,readJSON,localize as l,pathFor} from '../../lib/content.mjs';
 import {getPublicGraph,getDemoGraph} from '../../lib/graph.mjs';
 import {thesisContents} from '../../lib/thesis-contents.mjs';
+import {aiThesesExcerpt} from '../../lib/ai-theses.mjs';
 export function getStaticPaths(){return ['ru','en'].flatMap(lang=>routes().map(path=>({params:{lang,path:path||undefined}})))}
 const lang=Astro.params.lang as 'ru'|'en';
 const path=Astro.params.path||'';
@@ -44,7 +45,7 @@ const breadcrumbs=sections.slice(0,-1).map((_,i)=>{
       <nav class="breadcrumbs" aria-label={t.back}><a href={`/${lang}/`}><Text record={t} field="home" lang={lang}/></a><span>/</span>{breadcrumbs.map(crumb=><><a href={`/${lang}/${crumb.path}/`}>{crumb.title}</a><span>/</span></>)}<span aria-current="page">{title}</span></nav>
       <p class="eyebrow">{l(row||{},'byline',lang)?<Text record={row} field={`byline_${lang}`} lang={lang}/>:row?.type?t[row.type]:graph?t.parserLabel:<Text record={site[lang]} field="tagline" lang={lang}/>}</p>
       <h1>{title}</h1>
-      {l(row||{},'motto',lang)&&<p class="papanda-motto"><strong><Text record={row} field={`motto_${lang}`} lang={lang}/></strong></p>}
+      {row?.collection!=='projects'&&l(row||{},'motto',lang)&&<p class="papanda-motto"><strong><Text record={row} field={`motto_${lang}`} lang={lang}/></strong></p>}
       {row&&<p class="page-description"><Text record={row} field={`summary_${lang}`} lang={lang}/></p>}
       {graph&&<p class="page-description"><Text record={t} field="graphDescription" lang={lang}/></p>}
       {!row&&!graph&&!['projects','publications'].includes(path)&&(sectionContent||t[section+'Description'])&&<p class="page-description">{sectionContent?l(sectionContent,'summary',lang):t[section+'Description']}</p>}
@@ -68,6 +69,7 @@ const breadcrumbs=sections.slice(0,-1).map((_,i)=>{
         {row.collection==='theses'&&row.editorialStatus!=='final'&&<p class="notice" data-chapter-overview>{l(row,'body',lang)?t.chapterOverview:t.chapterPending}</p>}
         {row.readingMode==='external'&&row.links.length>0&&<div class="publication-actions">{row.links.map((link:any)=><a class="button" href={link.url} rel="noopener noreferrer"><Text record={link} field={`label_${lang}`} lang={lang}/> ↗</a>)}</div>}
         {l(row,'body',lang)&&(row.readingMode!=='external'||row.type==='book')&&<MediaBody record={row} field={`body_${lang}`} text={l(row,'body',lang)} lang={lang}/>}
+        {row.collection==='pages'&&row.id==='ai-theses'&&<MediaBody text={aiThesesExcerpt(data.theses.find(c=>c.id==='artificial-intelligence'),lang)} lang={lang}/>}
         <PageMaterials record={row} data={data} lang={lang}/>
         {row.exampleLinks?.some((link:any)=>link[`url_${lang}`])&&<ul class="example-links">{row.exampleLinks.filter((link:any)=>link[`url_${lang}`]).map((link:any)=><li><a href={link[`url_${lang}`]}><Text record={link} field={`label_${lang}`} lang={lang}/> ↗</a></li>)}</ul>}
         {row.id==='mathematical-parser'&&<a class="button" href={`/${lang}/projects/mathematical-parser/graph/`}>{getPublicGraph().nodes.length?t.openGraph:t.demoGraph} ↗</a>}

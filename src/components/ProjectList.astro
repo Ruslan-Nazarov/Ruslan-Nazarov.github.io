@@ -1,0 +1,12 @@
+---
+import Text from './Text.astro';
+import {pathFor} from '../lib/content.mjs';
+const {rows,lang,heading='h3'}=Astro.props;
+const Heading=heading;
+---
+<div class="project-list">
+  {rows.map((row:any)=><article class="project-entry">
+    <Heading><a href={pathFor('projects',row,lang)}><Text record={row} field={`title_${lang}`} lang={lang}/></a></Heading>
+    <p><Text record={row} field={`summary_${lang}`} lang={lang}/></p>
+  </article>)}
+</div>

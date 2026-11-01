@@ -11,6 +11,7 @@ import { site, readJSON } from '../lib/content.mjs';
 interface Props {lang:'ru'|'en';title:string;description?:string;path?:string;noindex?:boolean}
 const { lang, title, description=site[lang].heroText, path='',noindex=false }=Astro.props;
 const t=readJSON('src/data/ui.json')[lang];
+const footerProfiles=site.profiles.filter((profile:any)=>['LinkedIn','Medium'].includes(profile.label));
 const other=lang==='ru'?'en':'ru';
 const url=new URL(`/${lang}/${path?path+'/':''}`,Astro.site);
 const active=activeNavigation(path);
@@ -62,7 +63,15 @@ const documentTitle=path?`${title} | ${site.name}`:`${site.name} | ${site[lang].
     </dialog>
     <footer class="site-footer" data-pagefind-ignore>
       <div><a class="footer-name" href={`/${lang}/`}><BrandMark id="footer-amber"/><Text record={site[lang]} field="brandName" lang={lang}/></a><p><Text record={site[lang]} field="brandDescriptor" lang={lang}/></p></div>
-      <div class="footer-links"><a href={`/${lang}/search/`}>{t.search}</a><a href={`/${lang}/legal/`}><Text record={t} field="legal" lang={lang}/></a><a href={`/${lang}/privacy/`}><Text record={t} field="privacy" lang={lang}/></a><a href={site.footerGithubUrl} rel="noopener noreferrer">{t.footerGithub} ↗</a></div>
+      <div class="footer-links"><a href={`/${lang}/search/`}>{t.search}</a><a href={`/${lang}/legal/`}><Text record={t} field="legal" lang={lang}/></a><a href={`/${lang}/privacy/`}><Text record={t} field="privacy" lang={lang}/></a><a href={site.footerGithubUrl} rel="noopener noreferrer">{t.footerGithub} ↗</a>
+        <span class="footer-socials">
+          {footerProfiles.map((profile:any)=><a class="footer-social-link" href={profile.url} rel="me noopener noreferrer" aria-label={profile.label} title={profile.label}>
+            {profile.label==='LinkedIn'
+              ?<svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true" focusable="false"><path d="M20.45 2H3.55C2.69 2 2 2.68 2 3.52v16.96c0 .84.69 1.52 1.55 1.52h16.9c.86 0 1.55-.68 1.55-1.52V3.52c0-.84-.69-1.52-1.55-1.52ZM7.93 18.75H4.98V9.2h2.95v9.55ZM6.45 7.9a1.71 1.71 0 1 1 0-3.42 1.71 1.71 0 0 1 0 3.42Zm12.3 10.85H15.8V14.1c0-1.11-.02-2.54-1.55-2.54-1.55 0-1.79 1.21-1.79 2.46v4.73H9.51V9.2h2.83v1.3h.04c.4-.75 1.36-1.55 2.79-1.55 2.99 0 3.58 1.97 3.58 4.53v5.27Z"/></svg>
+              :<svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true" focusable="false"><ellipse cx="6.5" cy="12" rx="6.5" ry="6.5"/><ellipse cx="17" cy="12" rx="3.25" ry="6.15"/><ellipse cx="22.5" cy="12" rx="1.5" ry="5.5"/></svg>}
+          </a>)}
+        </span>
+      </div>
       <small>© {new Date().getUTCFullYear()} <Text record={site} field="name" lang={lang}/> · {t.footerLicense}</small>
       <a class="back-to-top" href="#main"><Text record={t} field="backToTop" lang={lang}/> ↑</a>
     </footer>

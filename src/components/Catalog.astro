@@ -1,21 +1,11 @@
 ---
 import Card from './Card.astro';
+import ProjectCatalog from './ProjectCatalog.astro';
 import {readJSON} from '../lib/content.mjs';
 const {rows,collection,lang}=Astro.props;
 const t=readJSON('src/data/ui.json')[lang];
-const groups = [
-  {ru:'Исследования и ИИ',en:'Research and AI',ids:['dialectic-ai','mathematical-parser','protocol-ai','ai-algorithm']},
-  {ru:'Обучение и работа с текстом',en:'Learning and text',ids:['papanda','papanda-languages','reader','russian-language-engine']},
-  {ru:'Медиа и творчество',en:'Media and creativity',ids:['podcast-sound-lab','musiclab','korinis']},
-  {ru:'Инструменты для компьютера и файлов',en:'Computer and file tools',ids:['personal-time-management','albert','desktools','convert','archiveguard','drivecopy']},
-  {ru:'Материалы для разработчиков',en:'Developer resources',ids:['useful-prompts']},
-];
-const remaining=rows.filter((row:any)=>!groups.some(group=>group.ids.includes(row.id)));
 ---
 <section data-catalog>
-  {collection==='projects' ? <>
-    {groups.map(group=>{const items=rows.filter((row:any)=>group.ids.includes(row.id));return items.length>0&&<section class="project-group"><h2>{lang==='ru'?group.ru:group.en}</h2><div class="card-grid">{items.map((row:any,index:number)=><Card row={row} collection={collection} lang={lang} index={index}/>)}</div></section>})}
-    {remaining.length>0&&<section class="project-group"><h2>{lang==='ru'?'Другие проекты':'Other projects'}</h2><div class="card-grid">{remaining.map((row:any,index:number)=><Card row={row} collection={collection} lang={lang} index={index}/>)}</div></section>}
-  </> : <div class="card-grid">{rows.map((row:any,index:number)=><Card row={row} collection={collection} lang={lang} index={index}/>)}</div>}
+  {collection==='projects' ? <ProjectCatalog rows={rows} lang={lang}/> : <div class="card-grid">{rows.map((row:any,index:number)=><Card row={row} collection={collection} lang={lang} index={index}/>)}</div>}
   {!rows.length&&<p class="empty-state">{t.forthcoming}</p>}
 </section>

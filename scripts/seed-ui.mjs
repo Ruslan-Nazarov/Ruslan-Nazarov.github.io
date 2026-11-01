@@ -45,7 +45,7 @@ const labels={
   consent:['Согласен с передачей сообщения внешнему сервису согласно политике приватности.','I agree to the external processing of this message as described in the privacy policy.'],
   notFound:['Страница не найдена','Page not found'],notFoundText:['Возможно, адрес изменился. Выберите язык и вернитесь на главную.','The address may have changed. Choose a language and return home.'],
   rss:['RSS дневника','Journal RSS'],back:['Назад','Back'],close:['Закрыть','Close'],
-  status:['Статус проекта','Project status'],codeLicense:['Для программного кода лицензия пока не выбрана.','A software licence has not yet been selected.'],
+  status:['Статус проекта','Project status'],codeLicense:['Условия использования программного кода определяются лицензией, указанной в репозитории соответствующей программы на GitHub.','Use of software code is governed by the licence specified in the corresponding program’s GitHub repository.'],
   analyticsOff:['В этой конфигурации аналитика отключена.','Analytics is disabled in this configuration.'],
   analyticsOn:['Подключена Cloudflare Web Analytics.','Cloudflare Web Analytics is enabled.'],
   count:['Найдено','Found'],from:['Из проекта','From project']
