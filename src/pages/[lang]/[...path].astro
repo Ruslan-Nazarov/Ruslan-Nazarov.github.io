@@ -104,7 +104,7 @@ const related=(name:string)=>pageMaterials(row,data).filter(ref=>ref.collection=
         script.onerror=()=>{container.textContent=container.dataset.unavailable!};document.head.append(script);
       }
     </script></section>
-    :section==='legal'||section==='privacy'?<section class="wrap prose legal-page"><p><Text record={s} field={section==='legal'?'rights':'privacy'} lang={lang}/></p>{section==='legal'?<><p><Text record={t} field="codeLicense" lang={lang}/></p><a href={site.textLicenseUrl}>{t.textLicenseLink} ↗</a></>:<p>{site.cloudflareToken?t.analyticsOn:t.analyticsOff}</p>}</section>:null}
+    :section==='legal'||section==='privacy'?<section class="wrap prose legal-page"><p><Text record={s} field={section==='legal'?'rights':'privacy'} lang={lang}/></p>{section==='legal'?<><p><Text record={t} field="codeLicense" lang={lang}/></p><a href={site.textLicenseUrl}>{t.textLicenseLink} ↗</a></>:<><p>{site.yandexMetricaId?t.metricaOn:site.cloudflareToken?t.analyticsOn:t.analyticsOff}</p>{site.yandexMetricaId&&site.cloudflareToken&&<p>{t.analyticsOn}</p>}</>}</section>:null}
   </>}
 </Base>
 <style>

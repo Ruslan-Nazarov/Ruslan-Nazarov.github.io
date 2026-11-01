@@ -37,7 +37,7 @@ const config={
   actions:[{name:'release-content',label:'Сохранить полные RU+EN версии перед новой редакцией',workflow:'content-release.yml'}],
   content:[
     {name:'site',label:'Главная / About / настройки',type:'file',path:'src/data/site.json',format:'json',fields:[
-      f('name'),f('tagline'),f('portrait','image'),f('email'),f('formEndpoint'),f('cloudflareToken'),
+      f('name'),f('tagline'),f('portrait','image'),f('email'),f('formEndpoint'),f('cloudflareToken'),f('yandexMetricaId'),
       f('monogram','string',{label:'Монограмма автора'}),f('favicon','image',{label:'Значок вкладки сайта'}),f('socialImage','image',{label:'Изображение для публикации ссылки в соцсетях'}),f('footerGithubUrl','string',{label:'GitHub: ссылка в подвале'}),f('textLicenseUrl','string',{label:'Ссылка на лицензию текстов'}),f('featuredProject','string',{label:'Проект в фокусе на главной (ID)'}),
       objectList('profiles',[f('label'),f('url')]),...['ru','en'].map(l=>f(l,'object',{fields:Object.keys(site[l]).filter(k=>!k.startsWith('_')).map(k=>f(k,k.endsWith('Body')?'rich-text':'text'))}))
     ]},

@@ -41,6 +41,7 @@ const documentTitle=path?`${title} | ${site.name}`:`${site.name} | ${site[lang].
       try{const theme=localStorage.getItem('rn-theme')||'system';document.documentElement.dataset.theme=theme;document.documentElement.classList.toggle('dark',theme==='dark'||theme==='system'&&matchMedia('(prefers-color-scheme: dark)').matches)}catch{}
     </script>
     {site.cloudflareToken&&<script is:inline defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon={JSON.stringify({token:site.cloudflareToken})}></script>}
+    {site.yandexMetricaId&&process.env.SITE_EDITOR_PREVIEW!=='1'&&<script is:inline defer src="/metrika.js" data-metrica-id={site.yandexMetricaId}></script>}
   </head>
   <body>
     {process.env.SITE_EDITOR_PREVIEW==='1'&&<div style="padding:10px 20px;background:#fff0c2;color:#312b12;text-align:center;font:14px system-ui" data-pagefind-ignore>{lang==='ru'?'Локальный предпросмотр · включает черновики':'Local preview · includes drafts'}</div>}

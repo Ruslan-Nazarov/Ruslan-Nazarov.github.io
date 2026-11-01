@@ -7,6 +7,6 @@ const ui=readJSON('src/data/ui.json');
   if(!/bot|crawl|spider|slurp|lighthouse/i.test(navigator.userAgent)){
     let lang;try{lang=localStorage.getItem('rn-language')}catch{}
     if(lang!=='ru'&&lang!=='en')lang=(navigator.language||'en').toLowerCase().startsWith('ru')?'ru':'en';
-    location.replace('/'+lang+'/');
+    location.replace('/'+lang+'/'+location.search+location.hash);
   }
 </script></body></html>

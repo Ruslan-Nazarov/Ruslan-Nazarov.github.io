@@ -126,6 +126,7 @@ export function validateAll() {
   if(site.email&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(site.email)) throw new Error('Invalid email');
   if(site.formEndpoint&&!/^https:\/\/formspree\.io\/f\/[a-zA-Z0-9]+$/.test(site.formEndpoint)) throw new Error('Use a Formspree /f/ endpoint');
   if(site.cloudflareToken&&!/^[a-f0-9]{32}$/i.test(site.cloudflareToken)) throw new Error('Invalid Cloudflare analytics token');
+  if(site.yandexMetricaId&&!/^[1-9]\d{0,14}$/.test(site.yandexMetricaId)) throw new Error('Invalid Yandex Metrica ID');
   for(const p of site.profiles) safeUrl.parse(p.url);
   safeUrl.parse(site.portrait);
   for(const key of ['favicon','socialImage','footerGithubUrl','textLicenseUrl'])safeUrl.refine(Boolean).parse(site[key]);

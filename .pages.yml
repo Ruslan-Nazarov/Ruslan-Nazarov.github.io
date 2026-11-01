@@ -48,6 +48,9 @@ content:
       - name: cloudflareToken
         label: cloudflareToken
         type: string
+      - name: yandexMetricaId
+        label: yandexMetricaId
+        type: string
       - name: monogram
         label: Монограмма автора
         type: string
