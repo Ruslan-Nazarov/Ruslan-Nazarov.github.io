@@ -1,0 +1,72 @@
+---
+const {lang}=Astro.props as {lang:'ru'|'en'};
+const copy=lang==='ru'?{
+  title:'Как устроен текущий движок DialecticAI',
+  input:'Описание предметной области',
+  stages:['Предложить простейший процесс','Построить итерацию развития','Предложить кандидатов на противоположность','Проверить кандидатов','Сформулировать противоречие','Предложить замену или опосредование'],
+  builder:'Языковая модель предлагает содержание; программа задаёт порядок, проверяет формат и связи.',
+  outcome:'Сохранённое представление области',
+  incomplete:'Построение может закончиться раньше: простейший процесс, противоположность или переход могут быть не найдены.',
+  agent:'Передача агенту',
+  agentText:'Агент получает текстовое описание с ограничением объёма и использует его при выполнении задачи.',
+  revision:'Основание для пересмотра',
+  revisionText:'Несовместимое наблюдение или внешний сигнал → пересчёт затронутых зависимостей → новая версия. Прежние версии сохраняются.',
+  adoption:'Полные пересмотры с заменой или опосредованием можно принять; частичные сохраняются для изучения. Повторный ответ запускает приложение.',
+  limit:'Проверка структуры и совместимости не подтверждает правильность ответа. Содержательная проверка требует фактов и оценки по предмету.',
+  source:'Источник: документация текущей архитектуры'
+}:{
+  title:'How the current DialecticAI engine works',
+  input:'Domain description',
+  stages:['Propose a simplest process','Build a development iteration','Propose candidates for an opposite','Check the candidates','Formulate a contradiction','Propose replacement or mediation'],
+  builder:'The language model supplies content; the program controls order and checks format and references.',
+  outcome:'Stored domain representation',
+  incomplete:'Building may stop earlier: a simplest process, an opposite or a transition may not be found.',
+  agent:'Supply to an agent',
+  agentText:'The agent receives a text brief with a size limit and uses it while carrying out a task.',
+  revision:'Reason to revise',
+  revisionText:'An incompatible observation or external signal → recompute affected dependencies → a new version. Earlier versions remain stored.',
+  adoption:'Complete replacement or mediation revisions can be adopted; partial revisions are saved for inspection. The application decides whether to retry the answer.',
+  limit:'Structural checks and compatibility judgments do not establish answer correctness. Substantive validation requires evidence and domain-specific assessment.',
+  source:'Source: current architecture documentation'
+};
+const source='https://github.com/Ruslan-Nazarov/dialectic_ai/blob/a8a910dbd008ebed768770669c6b43431fae2f34/docs/ARCHITECTURE.md';
+---
+<figure class="architecture" data-dialectic-architecture={lang} aria-labelledby={`architecture-title-${lang}`}>
+  <figcaption id={`architecture-title-${lang}`}>{copy.title}</figcaption>
+  <p class="input">{copy.input}</p>
+  <div class="builder">
+    <p class="builder-note">{copy.builder}</p>
+    <ol>{copy.stages.map((stage,index)=><li><span aria-hidden="true">{index+1}</span><strong>{stage}</strong></li>)}</ol>
+    <p class="incomplete">{copy.incomplete}</p>
+  </div>
+  <p class="output"><span aria-hidden="true">↓</span>{copy.outcome}</p>
+  <div class="handoff">
+    <section><strong>{copy.agent}</strong><p>{copy.agentText}</p></section>
+    <section><strong>{copy.revision}</strong><p>{copy.revisionText}</p><p>{copy.adoption}</p></section>
+  </div>
+  <p class="limit">{copy.limit}</p>
+  <a class="source" href={source}>{copy.source} ↗</a>
+</figure>
+<style>
+  .architecture{margin:32px 0;padding:26px;border:1px solid var(--line);border-radius:16px;background:var(--paper);color:var(--ink)}
+  figcaption{margin:0 0 22px;font-size:22px;font-weight:600;line-height:1.4;color:var(--ink)}
+  p{margin:0!important;font-size:15px;line-height:1.65}
+  .input{padding:12px 16px;text-align:center;border:1px solid var(--line);border-radius:8px;background:var(--tint);font-weight:600}
+  .builder{position:relative;margin-top:30px;padding:18px;border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:8px}
+  .builder::before{content:'↓';position:absolute;top:-30px;left:calc(50% - 8px);font-size:21px;line-height:28px;color:var(--accent-ink)}
+  .builder-note{color:var(--muted)}
+  ol{list-style:none!important;margin:20px 0!important;padding:0!important;display:grid;gap:10px}
+  li{display:flex;align-items:center;gap:12px;margin:0!important;line-height:1.5;font-size:16px}
+  li span{display:flex;align-items:center;justify-content:center;flex:0 0 28px;height:28px;border-radius:50%;background:var(--soft);color:var(--accent-ink);font-size:14px;font-weight:600}
+  li strong{font-weight:500}
+  .incomplete{padding-top:14px;border-top:1px solid var(--line);color:var(--muted)}
+  .output{text-align:center;font-weight:600;padding:0 0 18px}
+  .output span{display:block;padding:2px 0;color:var(--accent-ink);font-size:22px}
+  .handoff{display:grid;gap:12px;grid-template-columns:1fr 1.4fr}
+  section{padding:16px;border:1px solid var(--line);border-radius:8px;background:var(--tint);min-width:0}
+  section strong{display:block;margin-bottom:8px;font-size:16px;line-height:1.5}
+  section p+p{margin-top:12px!important}
+  .limit{margin-top:18px!important;padding-left:14px;border-left:3px solid var(--accent);color:var(--muted)}
+  .source{display:inline-block;margin-top:16px;font-size:13px;line-height:1.5}
+  @media(max-width:600px){.architecture{padding:18px 12px}.handoff{grid-template-columns:1fr}figcaption{font-size:20px}.builder{padding:14px 12px}li{font-size:15px;gap:10px}section{padding:14px}}
+</style>

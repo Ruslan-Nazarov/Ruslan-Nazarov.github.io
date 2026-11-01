@@ -1,6 +1,7 @@
 ---
 import {resolveMedia} from '../lib/media.mjs';
 import AlgorithmSteps from './AlgorithmSteps.astro';
+import DialecticArchitecture from './DialecticArchitecture.astro';
 interface Props {id:string;lang:'ru'|'en'}
 const {id,lang}=Astro.props;
 const media=resolveMedia(id,undefined,lang),alt=media[`alt_${lang}`]||'',caption=media[`caption_${lang}`]||'';
@@ -10,6 +11,7 @@ const media=resolveMedia(id,undefined,lang),alt=media[`alt_${lang}`]||'',caption
   <figcaption>{caption}</figcaption>
 </figure>}
 {!media.path&&id==='papanda-method-architecture'&&<AlgorithmSteps lang={lang}/>}
+{!media.path&&id==='dialectic-ai-architecture'&&<DialecticArchitecture lang={lang}/>}
 <style>
   .project-media img{max-height:760px;width:auto;height:auto;object-fit:contain;object-position:left top}
 </style>

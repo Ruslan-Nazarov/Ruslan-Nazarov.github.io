@@ -34,6 +34,15 @@ for(const lang of ['ru','en'])test(`${project} ${lang}: copy, ready illustration
     await page.keyboard.press('Escape');
     await expect(page.locator('#media-viewer')).not.toBeVisible();
   }
+  if(project==='dialectic-ai'){
+    const diagram=page.locator('[data-dialectic-architecture]');
+    await expect(diagram).toHaveAttribute('data-dialectic-architecture',lang);
+    await expect(diagram.locator('ol li')).toHaveCount(6);
+    await expect(diagram.locator('.incomplete')).toContainText(lang==='ru'?'могут быть не найдены':'may not be found');
+    await expect(diagram.locator('.limit')).toContainText(lang==='ru'?'не подтверждает правильность ответа':'do not establish answer correctness');
+    await expect(diagram.locator('.source')).toHaveAttribute('href',/a8a910dbd008ebed768770669c6b43431fae2f34\/docs\/ARCHITECTURE\.md$/);
+    await diagram.screenshot({path:`.local/dialectic-architecture-${lang}.png`});
+  }
   for(const link of row.links)await expect(page.locator('.detail-sidebar').getByRole('link',{name:link['label_'+lang]+' ↗',exact:true})).toHaveAttribute('href',link.url);
   const headings=[...row['body_'+lang].matchAll(/^#{2,3} (.+)$/gm)].map(match=>match[1]);
   expect(await page.locator('.prose h2,.prose h3').allTextContents()).toEqual(headings);
