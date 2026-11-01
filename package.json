@@ -9,6 +9,7 @@
     "validate": "node scripts/validate-content.mjs",
     "theses:pdf": "node scripts/build-thesis-pdfs.mjs",
     "build": "npm run validate && node scripts/astro.mjs build && pagefind --site dist && node scripts/verify-build.mjs",
+    "build:public": "node scripts/build-public.mjs",
     "preview": "node scripts/astro.mjs preview --host 127.0.0.1",
     "test": "node --test tests/*.test.mjs",
     "test:browser": "playwright test",

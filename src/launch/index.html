@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="{{lang}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="{{description}}">
+  <meta name="color-scheme" content="light dark">
+  <title>{{title}} — Ruslan Nazarov</title>
+  <link rel="icon" href="/icons/rn-favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/launch.css">
+  <script type="module" src="/countdown.mjs"></script>
+</head>
+<body>
+  <header>
+    <div class="brand"><span class="mark" aria-hidden="true">{{logo}}</span><span>{{name}}</span></div>
+    <a class="language" href="{{otherUrl}}" lang="{{otherLang}}" hreflang="{{otherLang}}">{{otherLabel}}</a>
+  </header>
+  <main>
+    <p class="eyebrow">{{eyebrow}}</p>
+    <h1>{{heading}}</h1>
+    <p class="intro">{{description}}</p>
+    <p class="date"><time datetime="{{at}}">{{date}}</time></p>
+    <p class="timezone">{{timezone}}</p>
+    <section class="countdown" aria-label="{{countdownLabel}}" data-launch-at="{{at}}">
+      <div><span class="digits" data-hours>—</span><span class="unit">{{hours}}</span></div>
+      <span class="colon" aria-hidden="true">:</span>
+      <div><span class="digits" data-minutes>—</span><span class="unit">{{minutes}}</span></div>
+      <span class="colon" aria-hidden="true">:</span>
+      <div><span class="digits" data-seconds>—</span><span class="unit">{{seconds}}</span></div>
+    </section>
+    <p class="status" data-status data-finished="{{finished}}" role="status">{{countdownLabel}}</p>
+    <noscript><p>{{noScript}}</p></noscript>
+  </main>
+  <footer>© 2026 Ruslan Nazarov</footer>
+</body>
+</html>
