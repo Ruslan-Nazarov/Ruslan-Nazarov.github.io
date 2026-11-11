@@ -1,4 +1,4 @@
-import {test,expect} from '@playwright/test';
+import {test,expect} from './fixtures';
 import {readFileSync} from 'node:fs';
 test('brand remains readable in system light and dark themes in both languages',async({page,request})=>{
   const site=JSON.parse(readFileSync('src/data/site.json','utf8'));
@@ -7,6 +7,9 @@ test('brand remains readable in system light and dark themes in both languages',
     for(const lang of ['ru','en'] as const){
       await page.goto(`/${lang}/`);
       await expect(page.locator('.brand-text')).toContainText(site[lang].brandDescriptor);
+      await expect(page.locator('.brand')).not.toContainText(site[lang].brandName);
+      await expect(page.locator('.brand')).toHaveAccessibleName(`${site[lang].brandName} — ${lang==='ru'?'Главная':'Home'}`);
+      await expect(page).toHaveTitle(`${site[lang].brandName} | ${site[lang].role}`);
       await expect(page.locator('body')).toHaveCSS('background-color',colorScheme==='light'?'rgb(238, 236, 224)':'rgb(18, 22, 28)');
       await expect(page.locator('.brand .site-mark svg g')).toHaveCSS('fill',colorScheme==='light'?'rgb(29, 39, 51)':'rgb(234, 230, 223)');
       await page.evaluate(()=>document.fonts.ready);
@@ -25,6 +28,14 @@ test('simple home and corresponding language switch',async({page})=>{
   await expect(page.locator('.section-directory a')).toHaveCount(7);
   await expect(page.locator('.section-directory').getByRole('link',{name:'Тезисы по диалектике'})).toHaveAttribute('href','/ru/publications/theses-2020-2026/full/');
   await expect(page.locator('.section-directory').getByRole('link',{name:'Тезисы об ИИ'})).toHaveAttribute('href','/ru/ai-theses/');
+  await expect(page.locator('.home-articles .simple-article')).toHaveCount(4);
+  expect(await page.locator('.home-articles h3 a').evaluateAll(links=>links.map(a=>a.getAttribute('href')))).toEqual([
+    '/ru/publications/human-understanding-ai-education/',
+    '/ru/publications/explaining-mathematics-ai/',
+    '/ru/publications/opposites-algorithm-overview/',
+    '/ru/publications/edge-ai-reasoning/'
+  ]);
+  await expect(page.locator('.header-search')).toHaveAttribute('href','/ru/search/');
   await page.screenshot({path:'.local/home-desktop.png',fullPage:true});
   await page.goto('/ru/projects/mathematical-parser/');
   await page.locator('[data-language="en"]').click();
@@ -90,7 +101,7 @@ test('mobile layouts, navigation and graph controls remain accessible',async({pa
   for(const path of ['/ru/','/en/projects/','/ru/publications/theses-2020-2026/full/','/ru/projects/mathematical-parser/graph/']){
     await page.goto(path);await expect(page.locator('h1')).toBeVisible();
     expect(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth+1)).toBe(true);
-    if(path==='/ru/'){await page.screenshot({path:'.local/home-mobile.png',fullPage:true});await page.getByRole('button',{name:/Меню/}).click();await expect(page.locator('#main-nav')).toBeVisible();await page.keyboard.press('Escape');await expect(page.locator('#main-nav')).toBeHidden()}
+    if(path==='/ru/'){await page.screenshot({path:'.local/home-mobile.png',fullPage:true});await expect(page.locator('.header-search')).toBeVisible();await page.getByRole('button',{name:/Меню/}).click();await expect(page.locator('#main-nav')).toBeVisible();await page.keyboard.press('Escape');await expect(page.locator('#main-nav')).toBeHidden();await page.locator('.header-search').click();await expect(page).toHaveURL(/\/ru\/search\/$/);await expect(page.locator('.pagefind-ui__search-input')).toBeVisible()}
   }
   await page.locator('.graph-text-list button').first().click();
   await expect(page.locator('.graph-detail h2')).toHaveText('Сложение');
@@ -101,6 +112,11 @@ test('metadata, Yandex verification and safe absent integrations',async({page,re
   await expect(page.locator('form.contact-form')).toHaveCount(0);
   await expect(page.locator('script[src*="cloudflareinsights"]')).toHaveCount(0);
   await expect(page.locator('link[hreflang="en"]')).toHaveAttribute('href','https://ruslan-nazarov.github.io/en/about/');
+  await page.goto('/en/about/');
+  await expect(page).toHaveTitle('About the author | Ruslan Nazarov');
+  await expect(page.locator('.about-portrait img')).toHaveAttribute('alt','Ruslan Nazarov');
+  await expect(page.locator('.about-portrait .mono')).toHaveText('Ruslan Nazarov');
+  await expect(page.locator('.site-footer small')).toContainText('Ruslan Nazarov');
   const verification=await request.get('/yandex_64f199e3e08207c6.html');
   expect(await verification.body()).toEqual(readFileSync('public/yandex_64f199e3e08207c6.html'));
   for(const lang of ['ru','en'])expect((await request.get(`/${lang}/rss.xml`)).status()).toBe(404);

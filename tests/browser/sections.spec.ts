@@ -1,4 +1,4 @@
-import {test,expect} from '@playwright/test';
+import {test,expect} from './fixtures';
 import {readFileSync,readdirSync} from 'node:fs';
 import {allContent} from '../../src/lib/content.mjs';
 import {markdown} from '../../src/lib/markdown.mjs';

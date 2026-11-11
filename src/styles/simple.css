@@ -62,8 +62,11 @@ h3 { font-size: 1.5rem; }
 .brand small { font-size: 13px; line-height: 1.5; letter-spacing: 0; color: var(--text-muted); }
 .site-mark { display: inline-flex; flex-shrink: 0; --rn-ink: var(--text-ink); }
 .site-mark svg { display: block; width: 60px; height: 40px; }
-.preferences { grid-column: 2; grid-row: 1; margin-left: 0; border: 0; padding: 0; }
-.language-link { font-size: 13px; }
+.preferences { grid-column: 2; grid-row: 1; margin-left: 0; border: 0; padding: 0; display: flex; align-items: center; gap: 22px; }
+.preferences a { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; }
+.header-search { font-size: 13px; padding: 10px 0; }
+.header-search[aria-current=page] { color: var(--accent-terracotta); }
+.language-link { font-size: 13px; min-width: 44px; }
 .menu-toggle { display: none; }
 #main-nav {
   grid-column: 1 / -1;
@@ -83,7 +86,8 @@ h3 { font-size: 1.5rem; }
 .simple-home { padding-top: 62px; padding-bottom: 10px; }
 .simple-intro { display: grid; grid-template-columns: minmax(0, 1fr); align-items: start; }
 .simple-intro .eyebrow { max-width: 760px; margin-bottom: 22px; }
-.simple-intro h1 { max-width: 760px; margin-bottom: 26px; }
+.simple-intro h1 { max-width: 900px; margin-bottom: 26px; text-wrap: balance; }
+.hero-phrase { display: inline-block; max-width: 100%; text-wrap: balance; }
 .hero-description { font-size: 18px; line-height: 1.75; max-width: 68ch; color: var(--text-body); }
 .text-link { color: var(--accent-terracotta); border-bottom-color: currentColor; text-underline-offset: 4px; }
 .section-directory { margin: 48px 0 54px; border-top: 1px solid var(--border-rule); display: grid; grid-template-columns: 1fr 1fr; column-gap: 40px; }
@@ -180,7 +184,7 @@ h3 { font-size: 1.5rem; }
   .hero-description { font-size: 17px; }
   .section-directory { margin: 32px 0 38px; grid-template-columns: 1fr; }
   .section-directory a { font-size: 18px; padding: 16px 0; }
-  .section-heading { flex-direction: row; align-items: baseline; gap: 15px; }
+  .section-heading { flex-direction: row; flex-wrap: wrap; align-items: baseline; gap: 12px 15px; }
   .section-heading h2 { font-size: 28px; }
   .section-heading .text-link { font-size: 12px; }
   .site-footer { margin: 40px 22px 0; padding: 24px 0; grid-template-columns: 1fr; }

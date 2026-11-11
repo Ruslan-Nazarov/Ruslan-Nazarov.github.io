@@ -26,7 +26,7 @@
     "tagline": "Диалектика · Физика · Математика · Образование · Искусственный Интеллект",
     "role": "Исследователь искусственного интеллекта",
     "heroTitle": "От ИИ — знания, от человека — понимание",
-    "heroText": "Появление ИИ поставило вопрос: как разграничить интеллектуальные функции человека и ИИ. Это необходимо, чтобы получить лучшее от каждого. Для получения ответа на этот вопрос я и провожу свои исследования, разрабатываю алгоритмы и протоколы взаимодействия человека и ИИ. На этом сайте отражены все те направления, на которых я ищу ответ, и где я применяю получаемые результаты.",
+    "heroText": "Привет, меня зовут Руслан Назаров, и я исследую границы возможностей ИИ и человеческого понимания. На основе диалектики разрабатываю алгоритмы, образовательные подходы и приложения, которые помогают человеку развивать понимание, а не просто получать знания.",
     "heroNote": "Четыре основных направления моих интересов: физика, математика, искусственный интеллект, образование. Общее философское и методологическое основание всех исследований и проектов – диалектика.",
     "featured": "Как соединить ИИ и Человека?",
     "publications": "Книги и статьи",
@@ -53,8 +53,8 @@
     "brandDescriptor": "Research & Tools for Understanding",
     "tagline": "Dialectics · Physics · Mathematics · Education · Artificial Intelligence",
     "role": "AI Researcher",
-    "heroTitle": "From AI — knowledge, from Human — understanding",
-    "heroText": "The emergence of AI has raised the question: how to delineate the intellectual functions of humans and AI. This is necessary to get the best from each. To answer this question, I conduct my research, developing algorithms and protocols for human-AI interaction. This website reflects all the directions in which I am seeking an answer, and where I apply the results I obtain.",
+    "heroTitle": "Knowledge from AI, understanding from humans",
+    "heroText": "Hi, my name is Ruslan Nazarov, and I study the boundaries of AI capabilities and human understanding. Drawing on dialectics, I develop algorithms, educational approaches and applications that help people develop understanding rather than simply acquire knowledge.",
     "heroNote": "Four main areas of my interest: physics, mathematics, artificial intelligence, education. The general philosophical and methodological foundation for all my research and projects is dialectics.",
     "featured": "How to Connect AI and Humans?",
     "publications": "Books and articles",
@@ -71,7 +71,7 @@
     "contactTitle": "Contact",
     "contactText": "You can get in touch to discuss my research questions and projects.",
     "_authorship": {
-      "heroText": "human",
+      "heroText": "ai",
       "collaborationText": "ai",
       "featuredBody": "human",
       "publicationsBody": "human"

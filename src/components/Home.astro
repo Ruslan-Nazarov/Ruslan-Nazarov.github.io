@@ -5,13 +5,14 @@ import {articleCategory,publicationDate} from '../lib/article-categories.mjs';
 interface Props {lang:'ru'|'en';data:Record<string,any[]>}
 const {lang,data}=Astro.props;
 const s=site[lang];
-const articles=data.publications.filter((row:any)=>row.type==='article'&&row.readingMode==='full');
+const articles=data.publications.filter((row:any)=>row.featured&&row.type==='article'&&row.readingMode==='full').slice(0,4);
+const heroPhrases=s.heroTitle.replaceAll(' — ','\u00a0— ').split(', ');
 ---
 <section class="wrap simple-home">
   <div class="simple-intro">
     <div>
       <p class="eyebrow">{s.heroEyebrow}</p>
-      <h1>{s.heroTitle}</h1>
+      <h1>{heroPhrases.map((phrase:string,index:number)=><>{index>0&&' '}<span class="hero-phrase">{phrase}{index<heroPhrases.length-1?',':''}</span></>)}</h1>
       <p class="hero-description">{s.heroText}</p>
       <a class="text-link" href={`/${lang}/about/`}>{lang==='ru'?'Об авторе':'About the author'} →</a>
     </div>
@@ -20,7 +21,7 @@ const articles=data.publications.filter((row:any)=>row.type==='article'&&row.rea
     {navigation.map(item=><a href={`/${lang}/${item.path}/`}><span>{item[lang]}</span><span aria-hidden="true">→</span></a>)}
   </nav>
   {articles.length>0&&<section class="home-articles">
-    <div class="section-heading"><h2>{lang==='ru'?'Статьи':'Articles'}</h2><a class="text-link" href={`/${lang}/articles/`}>{lang==='ru'?'Все статьи':'All articles'} →</a></div>
+    <div class="section-heading"><h2>{lang==='ru'?'Избранные статьи':'Selected articles'}</h2><a class="text-link" href={`/${lang}/articles/`}>{lang==='ru'?'Все статьи':'All articles'} →</a></div>
     {articles.map((row:any)=><article class="simple-article">{articleCategory(row)&&<p class="small"><a href={`/${lang}/articles/#${row.articleCategory}`}>{articleCategory(row)![lang]}</a>{row.date&&<> · <time datetime={row.date.slice(0,7)}>{publicationDate(row,lang)}</time></>}</p>}<h3><a href={pathFor('publications',row,lang)}>{l(row,'title',lang)}</a></h3><p>{l(row,'summary',lang)}</p></article>)}
   </section>}
 </section>

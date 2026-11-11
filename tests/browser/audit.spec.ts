@@ -1,4 +1,4 @@
-import {test,expect} from '@playwright/test';
+import {test,expect} from './fixtures';
 import {routes} from '../../src/lib/content.mjs';
 
 test('all bilingual pages fit narrow phones and desktop with valid images and no runtime errors',async({page})=>{

@@ -15,7 +15,7 @@ const footerProfiles=site.profiles.filter((profile:any)=>['LinkedIn','Medium'].i
 const other=lang==='ru'?'en':'ru';
 const url=new URL(`/${lang}/${path?path+'/':''}`,Astro.site);
 const active=activeNavigation(path);
-const documentTitle=path?`${title} | ${site.name}`:`${site.name} | ${site[lang].role}`;
+const documentTitle=path?`${title} | ${site[lang].brandName}`:`${site[lang].brandName} | ${site[lang].role}`;
 ---
 <!doctype html>
 <html lang={lang}>
@@ -37,7 +37,7 @@ const documentTitle=path?`${title} | ${site.name}`:`${site.name} | ${site[lang].
     <meta property="og:image" content={new URL(site.socialImage,Astro.site)} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content={`${site.name} — ${site[lang].role}`} />
+    <meta property="og:image:alt" content={`${site[lang].brandName} — ${site[lang].role}`} />
     <meta name="twitter:card" content="summary_large_image" />
     {(noindex||process.env.SITE_EDITOR_PREVIEW==='1')&&<meta name="robots" content="noindex,follow" />}
     {site.cloudflareToken&&<script is:inline defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon={JSON.stringify({token:site.cloudflareToken})}></script>}
@@ -47,12 +47,13 @@ const documentTitle=path?`${title} | ${site.name}`:`${site.name} | ${site[lang].
     {process.env.SITE_EDITOR_PREVIEW==='1'&&<div style="padding:10px 20px;background:#fff0c2;color:#312b12;text-align:center;font:14px system-ui" data-pagefind-ignore>{lang==='ru'?'Локальный предпросмотр · включает черновики':'Local preview · includes drafts'}</div>}
     <a class="skip-link" href="#main"><Text record={t} field="skip" lang={lang}/></a>
     <header class="site-header">
-      <a class="brand" href={`/${lang}/`} aria-label={`${site[lang].brandName} — ${t.home}`}><BrandMark id="header-amber"/><span class="brand-text"><Text record={site[lang]} field="brandName" lang={lang}/><small><Text record={site[lang]} field="brandDescriptor" lang={lang}/></small></span></a>
+      <a class="brand" href={`/${lang}/`} aria-label={`${site[lang].brandName} — ${t.home}`}><BrandMark id="header-amber"/><span class="brand-text"><small><Text record={site[lang]} field="brandDescriptor" lang={lang}/></small></span></a>
       <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav"><Text record={t} field="menu" lang={lang}/> ☰</button>
       <nav id="main-nav" aria-label={t.menu}>
         {navigation.map(item=><a href={`/${lang}/${item.path}/`} aria-current={active===item.path?'page':undefined}>{item[lang]}</a>)}
       </nav>
       <div class="preferences">
+        <a class="header-search" href={`/${lang}/search/`} aria-current={path==='search'?'page':undefined}>{t.search}</a>
         <a class="language-link" data-language={other} lang={other} hreflang={other} href={`/${other}/${path?path+'/':''}`} aria-label={other==='ru'?'Русский':'English'}>{other.toUpperCase()}</a>
       </div>
     </header>
@@ -72,7 +73,7 @@ const documentTitle=path?`${title} | ${site.name}`:`${site.name} | ${site[lang].
           </a>)}
         </span>
       </div>
-      <small>© {new Date().getUTCFullYear()} <Text record={site} field="name" lang={lang}/> · {t.footerLicense}</small>
+      <small>© {new Date().getUTCFullYear()} <Text record={site[lang]} field="brandName" lang={lang}/> · {t.footerLicense}</small>
       <a class="back-to-top" href="#main"><Text record={t} field="backToTop" lang={lang}/> ↑</a>
     </footer>
     <script>

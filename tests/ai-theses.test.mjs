@@ -22,7 +22,8 @@ test('AI page takes only the complete quote from point 12 of the common manuscri
     assert.ok(quote.includes('5\\.2 '));
     assert.ok(body.includes(open+quote+close+'\n\n13\\.'));
     assert.ok(!quote.includes('12\\.')&&!quote.includes('13\\.'));
-    assert.ok(page[`body_${lang}`].includes(`/${lang}/publications/theses-2020-2026/full/#chapter-artificial-intelligence`));
+    assert.equal(page[`body_${lang}`],'');
+    assert.doesNotMatch(page[`summary_${lang}`],/Тезисов по диалектике|Theses on Dialectics|12/);
     const updated={...chapter,[`body_${lang}`]:body.replace(open+'1. ',open+'1. Updated ')};
     assert.ok(aiThesesExcerpt(updated,lang).startsWith('1. Updated '));
     assert.throws(()=>aiThesesExcerpt({...chapter,[`body_${lang}`]:body.replace('12\\.','99\\.')},lang),/point 12/);

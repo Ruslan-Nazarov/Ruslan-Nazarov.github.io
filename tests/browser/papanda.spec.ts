@@ -1,4 +1,4 @@
-import {test,expect} from '@playwright/test';
+import {test,expect} from './fixtures';
 import {readFileSync} from 'node:fs';
 const lib=JSON.parse(readFileSync('src/data/media.json','utf8'));
 const algorithm=JSON.parse(readFileSync('src/data/papanda-algorithm.json','utf8'));
@@ -9,13 +9,13 @@ for(const lang of ['ru','en'])test(`${project} ${lang}: copy, ready illustration
   const errors:string[]=[];page.on('pageerror',error=>errors.push(error.message));
   await page.goto(`/${lang}/projects/${row.slug}/`);
   await expect(page.locator('h1')).toHaveText(row['title_'+lang]);
-  await expect(page.locator('.papanda-motto')).toHaveText(row['motto_'+lang]);
+  await expect(page.locator('.papanda-motto')).toHaveCount(0);
   await expect(page.locator('.page-description')).toHaveText(row['summary_'+lang]);
   await expect(page.locator('.detail-sidebar .badge')).toHaveText(row['statusLabel_'+lang]);
   if(project==='mathematical-parser'){
-    await expect(page.locator('.prose blockquote')).toContainText(lang==='ru'?'ещё не завершён':'is not complete');
-    await expect(page.locator('.prose blockquote')).toContainText(lang==='ru'?'Исходный код пока не опубликован':'The source code has not been published yet');
-    await expect(page.getByRole('link',{name:lang==='ru'?'Открыть демонстрацию ↗':'Open the demo ↗',exact:true})).toHaveAttribute('href',`/${lang}/projects/mathematical-parser/graph/`);
+    await expect(page.locator('.prose')).toContainText(lang==='ru'?'Приложение находится в разработке; исходный код пока не опубликован.':'The application is in development and its source code has not yet been published.');
+    await expect(page.locator('.prose')).toContainText(lang==='ru'?'Актуальный исходный граф и ввод произвольной формулы к сайту пока не подключены.':'The current source graph and arbitrary-formula input are not yet connected to the website.');
+    await expect(page.locator('.prose').getByRole('link',{name:lang==='ru'?'демонстрация графа':'graph demonstration',exact:true})).toHaveAttribute('href',`/${lang}/projects/mathematical-parser/graph/`);
     await expect(page.locator('.prose input')).toHaveCount(0);
   }
   if(project==='papanda'){
