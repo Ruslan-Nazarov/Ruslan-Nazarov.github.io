@@ -33,7 +33,7 @@ const template = readFileSync('src/launch/index.html', 'utf8');
 const logo = readFileSync('public/icons/rn-logo.svg', 'utf8');
 const escape = value => String(value).replaceAll('&','&amp;').replaceAll('"','&quot;').replaceAll('<','&lt;').replaceAll('>','&gt;');
 const render = lang => template.replace(/\{\{(\w+)\}\}/g, (_, key) => key === 'logo' ? logo : escape(({...copy[lang], lang, at:launch.at})[key]));
-const pages = routes();
+const pages = [...routes(), 'blog'];
 // The public artifact is built from an allowlist, without copying public/ or an old build.
 const output = resolve(root, 'dist');
 if (output !== join(root, 'dist') || (existsSync(output) && lstatSync(output).isSymbolicLink())) throw new Error('Unsafe output directory');

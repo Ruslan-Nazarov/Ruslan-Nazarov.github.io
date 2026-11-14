@@ -3,6 +3,7 @@ export const navigation = [
   {path:'publications/theses-2020-2026/full',ru:'Тезисы по диалектике',en:'Theses on Dialectics'},
   {path:'ai-theses',ru:'Тезисы об ИИ',en:'AI theses'},
   {path:'articles',ru:'Статьи',en:'Articles'},
+  {path:'blog',ru:'Блог',en:'Blog'},
   {path:'books',ru:'Книги',en:'Books'},
   {path:'projects',ru:'Проекты',en:'Projects'},
   {path:'contact',ru:'Контакты',en:'Contact'}

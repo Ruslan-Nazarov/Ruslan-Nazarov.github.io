@@ -93,10 +93,10 @@ export function validateAll() {
       for(const material of row.materials)if(!raw[material.collection].some(p=>p.id===material.id))throw new Error(`Unknown material ${material.collection}/${material.id} in ${row.id}`);
     }
   }
-  const pagePaths=new Set(['','about','contact','articles','books','publications','projects','search','legal','privacy']);
+  const pagePaths=new Set(['','about','contact','articles','books','publications','projects','search','legal','privacy','blog']);
   for(const [collection,rows] of Object.entries(raw))for(const row of rows){
     const path=pathFor(collection,row,'ru').replace(/^\/ru\/|\/$/g,'');
-    if(pagePaths.has(path)||['projects/mathematical-parser/graph','publications/theses-2020-2026/full'].includes(path))throw new Error(`Page address already exists: ${path}`);
+    if(path.startsWith('blog/')||pagePaths.has(path)||['projects/mathematical-parser/graph','publications/theses-2020-2026/full'].includes(path))throw new Error(`Page address already exists: ${path}`);
     pagePaths.add(path);
   }
   const sections=readJSON('src/data/sections.json');

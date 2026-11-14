@@ -1,0 +1,29 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { blogCategories, blogDate, blogMarkdown, readBlogPosts } from '../../../lib/blog.mjs';
+import { markdown } from '../../../lib/markdown.mjs';
+export function getStaticPaths() {
+  return readBlogPosts().map(post => ({
+    params: { lang: post.language, slug: post.slug },
+    props: { post }
+  }));
+}
+const { post } = Astro.props;
+const lang = post.language;
+const ru = lang === 'ru';
+const title = post.title;
+const body = await markdown(blogMarkdown(post.body), { externalLinksOnly: true });
+---
+<Base {lang} {title} description={post.summary} path={'blog/' + post.slug} translated={false} languageSwitchPath="blog">
+  <div class="wrap page-intro">
+    <nav class="breadcrumbs" aria-label={ru ? 'Навигация' : 'Breadcrumb'}><a href={'/' + lang + '/blog/'}>{ru ? 'Блог' : 'Blog'}</a><span>/</span><span aria-current="page">{title}</span></nav>
+    <p class="eyebrow">{blogCategories[post.category][lang]} · <time datetime={post.date}>{blogDate(post.date, lang)}</time></p>
+    <h1>{title}</h1>
+  </div>
+  <div class="wrap detail-layout">
+    <article class="prose">
+      <div set:html={body}/>
+    </article>
+    <aside class="detail-sidebar"><div class="tag-list">{post.tags.map(tag => <span>#{tag}</span>)}</div></aside>
+  </div>
+</Base>

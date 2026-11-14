@@ -1,0 +1,55 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { blogCategories, blogDate, readBlogPosts } from '../../../lib/blog.mjs';
+export function getStaticPaths() {
+  return (['ru', 'en'] as const).map(lang => ({ params: { lang } }));
+}
+const lang = Astro.params.lang;
+const ru = lang === 'ru';
+const title = ru ? 'Блог' : 'Blog';
+const description = ru ? 'Авторские заметки и посты о текущей работе.' : 'Notes and posts about work in progress.';
+const posts = readBlogPosts().filter(post => post.language === lang);
+const categories = Object.entries(blogCategories).filter(([key]) => posts.some(post => post.category === key));
+---
+<Base {lang} {title} {description} path="blog">
+  <div class="wrap page-intro">
+    <h1>{title}</h1>
+    <p class="page-description">{description}</p>
+  </div>
+  <section class="wrap catalog-section">
+    {posts.length ? <>
+      <label for="blog-category">{ru ? 'Категория' : 'Category'}</label>
+      <select id="blog-category">
+        <option value="">{ru ? 'Все категории' : 'All categories'}</option>
+        {categories.map(([key, labels]) => <option value={key}>{labels[lang]}</option>)}
+      </select>
+      <ul class="blog-list">
+        {posts.map(post => <li data-blog-category={post.category}>
+          <article>
+            <p class="small muted"><time datetime={post.date}>{blogDate(post.date, lang)}</time> · {blogCategories[post.category][lang]}</p>
+            <h2><a href={`/${lang}/blog/${post.slug}/`}>{post.title}</a></h2>
+            <p>{post.summary}</p>
+            <div class="tag-list">{post.tags.map(tag => <span>#{tag}</span>)}</div>
+          </article>
+        </li>)}
+      </ul>
+    </> : <p class="muted">{ru ? 'Записей пока нет.' : 'No posts yet.'}</p>}
+  </section>
+</Base>
+<script>
+  const filter = document.querySelector<HTMLSelectElement>('#blog-category');
+  if (filter) {
+    const entries = document.querySelectorAll<HTMLElement>('[data-blog-category]');
+    filter.addEventListener('change', () => {
+      for (const entry of entries) entry.hidden = Boolean(filter.value && entry.dataset.blogCategory !== filter.value);
+    });
+  }
+</script>
+<style>
+  select { margin-left: .5rem; padding: .35rem .55rem; color: inherit; background: transparent; border: 1px solid currentColor; border-radius: 5px; }
+  option { color: CanvasText; background: Canvas; }
+  .blog-list { list-style: none; padding: 0; }
+  .blog-list li { padding: 1.35rem 0; border-bottom: 1px solid var(--line, #8885); }
+  .blog-list h2 { margin: .2rem 0; }
+  .blog-list .small { margin: 0; }
+</style>

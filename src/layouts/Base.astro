@@ -8,8 +8,8 @@ import '../styles/simple.css';
 import {navigation,activeNavigation} from '../lib/navigation.mjs';
 import 'katex/dist/katex.min.css';
 import { site, readJSON } from '../lib/content.mjs';
-interface Props {lang:'ru'|'en';title:string;description?:string;path?:string;noindex?:boolean}
-const { lang, title, description=site[lang].heroText, path='',noindex=false }=Astro.props;
+interface Props {lang:'ru'|'en';title:string;description?:string;path?:string;noindex?:boolean;translated?:boolean;languageSwitchPath?:string}
+const { lang, title, description=site[lang].heroText, path='',noindex=false,translated=true,languageSwitchPath=path }=Astro.props;
 const t=readJSON('src/data/ui.json')[lang];
 const footerProfiles=site.profiles.filter((profile:any)=>['LinkedIn','Medium'].includes(profile.label));
 const other=lang==='ru'?'en':'ru';
@@ -26,9 +26,9 @@ const documentTitle=path?`${title} | ${site[lang].brandName}`:`${site[lang].bran
     <title>{documentTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={url} />
-    <link rel="alternate" hreflang="ru" href={new URL(`/ru/${path?path+'/':''}`,Astro.site)} />
+    {translated&&<><link rel="alternate" hreflang="ru" href={new URL(`/ru/${path?path+'/':''}`,Astro.site)} />
     <link rel="alternate" hreflang="en" href={new URL(`/en/${path?path+'/':''}`,Astro.site)} />
-    <link rel="alternate" hreflang="x-default" href={new URL(path?`/en/${path}/`:'/',Astro.site)} />
+    <link rel="alternate" hreflang="x-default" href={new URL(path?`/en/${path}/`:'/',Astro.site)} /></>}
     <meta property="og:title" content={documentTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
@@ -54,7 +54,7 @@ const documentTitle=path?`${title} | ${site[lang].brandName}`:`${site[lang].bran
       </nav>
       <div class="preferences">
         <a class="header-search" href={`/${lang}/search/`} aria-current={path==='search'?'page':undefined}>{t.search}</a>
-        <a class="language-link" data-language={other} lang={other} hreflang={other} href={`/${other}/${path?path+'/':''}`} aria-label={other==='ru'?'Русский':'English'}>{other.toUpperCase()}</a>
+        <a class="language-link" data-language={other} lang={other} hreflang={other} href={`/${other}/${languageSwitchPath?languageSwitchPath+'/':''}`} aria-label={other==='ru'?'Русский':'English'}>{other.toUpperCase()}</a>
       </div>
     </header>
     <main id="main" tabindex="-1" data-pagefind-body data-pagefind-ignore={noindex||undefined}><slot /></main>

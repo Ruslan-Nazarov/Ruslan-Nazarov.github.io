@@ -2,6 +2,8 @@ import { validateAll,readJSON } from '../src/lib/content.mjs';
 import { getPublicGraph, readOverrides } from '../src/lib/graph.mjs';
 import {readLibrary} from '../src/lib/media.mjs';
 import {existsSync} from 'node:fs';
+import {readBlogPosts} from '../src/lib/blog.mjs';
+readBlogPosts();
 const content=validateAll();
 const media=readLibrary(),known=new Set([...media.items,...media.slots].map(x=>x.id));
 for(const asset of media.items)if(asset.path_en&&!existsSync('public'+asset.path_en))throw new Error(`Missing English media asset: ${asset.path_en}`);
