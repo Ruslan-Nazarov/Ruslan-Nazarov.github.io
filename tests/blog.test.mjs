@@ -32,3 +32,27 @@ test('blog markdown strips editor folding and avoids untrusted HTML or unpublish
   assert.match(html, /align="center"/);
   assert.doesNotMatch(html, /<script|href="\/draft\/|collapsed/);
 });
+
+test('blog emits both language routes when translations are provided', t => {
+  const dir = mkdtempSync(join(tmpdir(), 'rn-blog-bilingual-'));
+  t.after(() => rmSync(dir, { recursive: true, force: true }));
+  const bilingual = {
+    ...example,
+    translations: {
+      en: {
+        title: 'Test post',
+        summary: 'Description',
+        tags: ['AI'],
+        body: '## English text'
+      }
+    }
+  };
+  writeFileSync(join(dir, example.slug + '.json'), JSON.stringify(bilingual));
+  const posts = readBlogPosts(dir);
+  assert.equal(posts.length, 2);
+  assert.equal(posts[0].language, 'ru');
+  assert.equal(posts[0].translated, true);
+  assert.equal(posts[1].language, 'en');
+  assert.equal(posts[1].title, 'Test post');
+  assert.equal(posts[1].translated, true);
+});
