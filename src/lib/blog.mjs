@@ -15,6 +15,13 @@ const calendarDate = z.string().regex(/^\d{4}-\d{2}-\d{2}$/).refine(value => {
   return Number.isFinite(date.valueOf()) && date.toISOString().slice(0, 10) === value;
 }, 'Use a real calendar date');
 
+export const translationSchema = z.object({
+  title: z.string().trim().min(1).max(160),
+  summary: z.string().trim().min(1).max(300),
+  tags: z.array(z.string().regex(/^[\p{L}\p{N}_-]{1,40}$/u)).min(1).max(8),
+  body: z.string().trim().min(1).max(100000)
+}).strict();
+
 export const blogPostSchema = z.object({
   slug: z.string().regex(/^video-[a-f0-9]{16}$/),
   language: z.enum(['ru', 'en']),
@@ -23,16 +30,35 @@ export const blogPostSchema = z.object({
   date: calendarDate,
   category: z.enum(['ai', 'education', 'science', 'projects', 'notes']),
   tags: z.array(z.string().regex(/^[\p{L}\p{N}_-]{1,40}$/u)).min(1).max(8),
-  body: z.string().trim().min(1).max(100000)
+  body: z.string().trim().min(1).max(100000),
+  translations: z.record(z.enum(['ru', 'en']), translationSchema).optional(),
 }).strict();
 
 export function readBlogPosts(directory = 'src/content/blog') {
   return readdirSync(directory, { withFileTypes: true })
     .filter(entry => entry.isFile() && entry.name.endsWith('.json'))
-    .map(entry => {
+    .flatMap(entry => {
       const post = blogPostSchema.parse(JSON.parse(readFileSync(join(directory, entry.name), 'utf8')));
       if (entry.name !== post.slug + '.json') throw new Error('Blog filename does not match slug: ' + entry.name);
-      return post;
+      const otherLang = post.language === 'ru' ? 'en' : 'ru';
+      const translation = post.translations?.[otherLang];
+      if (!translation) {
+        return [post];
+      }
+      return [
+        { ...post, translated: true },
+        {
+          slug: post.slug,
+          language: otherLang,
+          title: translation.title,
+          summary: translation.summary,
+          date: post.date,
+          category: post.category,
+          tags: translation.tags,
+          body: translation.body,
+          translated: true
+        }
+      ];
     })
     .sort((a, b) => b.date.localeCompare(a.date) || a.slug.localeCompare(b.slug));
 }
