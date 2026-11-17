@@ -26,10 +26,10 @@ const categories = Object.entries(blogCategories).filter(([key]) => posts.some(p
       <ul class="blog-list">
         {posts.map(post => <li data-blog-category={post.category}>
           <article>
-            <p class="small muted"><time datetime={post.date}>{blogDate(post.date, lang)}</time> · {blogCategories[post.category][lang]}</p>
+            <p class="small muted"><time datetime={post.date}>{blogDate(post.date, lang)}</time> · {blogCategories[post.category as keyof typeof blogCategories][lang as 'ru' | 'en']}</p>
             <h2><a href={`/${lang}/blog/${post.slug}/`}>{post.title}</a></h2>
             <p>{post.summary}</p>
-            <div class="tag-list">{post.tags.map(tag => <span>#{tag}</span>)}</div>
+            <div class="tag-list">{post.tags.map((tag: string) => <span>#{tag}</span>)}</div>
           </article>
         </li>)}
       </ul>
