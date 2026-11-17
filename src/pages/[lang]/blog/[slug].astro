@@ -12,9 +12,17 @@ const { post } = Astro.props;
 const lang = post.language;
 const ru = lang === 'ru';
 const title = post.title;
+const hasTranslation = Boolean(post.translated);
 const body = await markdown(blogMarkdown(post.body), { externalLinksOnly: true });
 ---
-<Base {lang} {title} description={post.summary} path={'blog/' + post.slug} translated={false} languageSwitchPath="blog">
+<Base
+  {lang}
+  {title}
+  description={post.summary}
+  path={'blog/' + post.slug}
+  translated={hasTranslation}
+  languageSwitchPath={hasTranslation ? 'blog/' + post.slug : 'blog'}
+>
   <div class="wrap page-intro">
     <nav class="breadcrumbs" aria-label={ru ? 'Навигация' : 'Breadcrumb'}><a href={'/' + lang + '/blog/'}>{ru ? 'Блог' : 'Blog'}</a><span>/</span><span aria-current="page">{title}</span></nav>
     <p class="eyebrow">{blogCategories[post.category][lang]} · <time datetime={post.date}>{blogDate(post.date, lang)}</time></p>
