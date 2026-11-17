@@ -25,13 +25,13 @@ const body = await markdown(blogMarkdown(post.body), { externalLinksOnly: true }
 >
   <div class="wrap page-intro">
     <nav class="breadcrumbs" aria-label={ru ? 'Навигация' : 'Breadcrumb'}><a href={'/' + lang + '/blog/'}>{ru ? 'Блог' : 'Blog'}</a><span>/</span><span aria-current="page">{title}</span></nav>
-    <p class="eyebrow">{blogCategories[post.category][lang]} · <time datetime={post.date}>{blogDate(post.date, lang)}</time></p>
+    <p class="eyebrow">{blogCategories[post.category as keyof typeof blogCategories][lang as 'ru' | 'en']} · <time datetime={post.date}>{blogDate(post.date, lang)}</time></p>
     <h1>{title}</h1>
   </div>
   <div class="wrap detail-layout">
     <article class="prose">
       <div set:html={body}/>
     </article>
-    <aside class="detail-sidebar"><div class="tag-list">{post.tags.map(tag => <span>#{tag}</span>)}</div></aside>
+    <aside class="detail-sidebar"><div class="tag-list">{post.tags.map((tag: string) => <span>#{tag}</span>)}</div></aside>
   </div>
 </Base>
